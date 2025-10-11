@@ -7,6 +7,7 @@ import SetupView from '../views/SetupView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import PracticeView from '../views/PracticeView.vue'
 import BrowseView from '../views/BrowseView.vue'
+import SettingsView from '../views/SettingsView.vue'
 
 const routes = [
   {
@@ -35,6 +36,12 @@ const routes = [
     path: '/browse',
     name: 'browse',
     component: BrowseView,
+    meta: { requiresFamily: true }
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: SettingsView,
     meta: { requiresFamily: true }
   }
 ]

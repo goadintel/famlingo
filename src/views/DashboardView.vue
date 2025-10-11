@@ -142,12 +142,12 @@
                 @click="$router.push('/browse')"
               />
               <BilingualButton
-                en="Add Family Member"
-                cn="添加家庭成员"
+                en="Settings & Sync"
+                cn="设置与同步"
                 variant="outline"
                 size="md"
                 class="w-full"
-                @click="showAddUser = true"
+                @click="$router.push('/settings')"
               />
             </div>
           </div>

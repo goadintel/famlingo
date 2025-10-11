@@ -154,12 +154,14 @@ import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { usePhrasesStore } from '../stores/phrases'
 import { useFamilyStore } from '../stores/family'
+import { useGitHubSync } from '../composables/useGitHubSync'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
 const router = useRouter()
 const phrasesStore = usePhrasesStore()
 const familyStore = useFamilyStore()
+const { autoSyncOnLoad } = useGitHubSync()
 
 const totalPhrases = computed(() => phrasesStore.totalPhrases)
 const categories = computed(() => phrasesStore.categories)
@@ -167,9 +169,12 @@ const samplePhrases = computed(() => phrasesStore.allPhrases.slice(0, 5))
 const isFamilyInitialized = computed(() => familyStore.isFamilyInitialized)
 const familyUsers = computed(() => familyStore.family.users.length)
 
-onMounted(() => {
+onMounted(async () => {
   phrasesStore.initialize()
   familyStore.loadFamilyFromStorage()
+
+  // Auto-sync from GitHub on load (if configured)
+  await autoSyncOnLoad()
 })
 
 function goToSetup() {
