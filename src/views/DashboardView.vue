@@ -134,9 +134,17 @@
                 @click="$router.push('/practice')"
               />
               <BilingualButton
+                en="My Common Phrases"
+                cn="我的常用短语"
+                variant="secondary"
+                size="md"
+                class="w-full"
+                @click="$router.push('/my-phrases')"
+              />
+              <BilingualButton
                 en="Browse Phrases"
                 cn="浏览短语"
-                variant="secondary"
+                variant="outline"
                 size="md"
                 class="w-full"
                 @click="$router.push('/browse')"
@@ -149,8 +157,7 @@
                 class="w-full"
                 @click="$router.push('/settings')"
               />
-            </div>
-          </div>
+            </div>          </div>
 
           <!-- All Users List -->
           <div class="bg-white rounded-2xl shadow-xl p-6">

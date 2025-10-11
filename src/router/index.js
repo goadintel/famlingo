@@ -8,6 +8,7 @@ import DashboardView from '../views/DashboardView.vue'
 import PracticeView from '../views/PracticeView.vue'
 import BrowseView from '../views/BrowseView.vue'
 import SettingsView from '../views/SettingsView.vue'
+import MyPhrasesView from '../views/MyPhrasesView.vue'
 
 const routes = [
   {
@@ -42,6 +43,12 @@ const routes = [
     path: '/settings',
     name: 'settings',
     component: SettingsView,
+    meta: { requiresFamily: true }
+  },
+  {
+    path: '/my-phrases',
+    name: 'my-phrases',
+    component: MyPhrasesView,
     meta: { requiresFamily: true }
   }
 ]

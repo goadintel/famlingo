@@ -19,6 +19,131 @@
         </div>
       </header>
 
+      <!-- DeepSeek AI Section -->
+      <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <BilingualText
+          en="DeepSeek AI Settings"
+          cn="DeepSeek AI 设置"
+          class="text-2xl font-bold mb-6"
+        />
+
+        <div class="space-y-6">
+          <!-- Status -->
+          <div v-if="hasDeepSeekKey" class="bg-green-50 border-2 border-green-300 rounded-xl p-4">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-2xl">✅</span>
+              <BilingualText
+                en="DeepSeek AI Enabled"
+                cn="DeepSeek AI 已启用"
+                class="font-bold text-green-700"
+              />
+            </div>
+            <div class="text-sm text-gray-600">
+              <div>Features: Custom phrase translation, pronunciation scoring, AI validation</div>
+              <div>功能：自定义短语翻译、发音评分、AI 验证</div>
+            </div>
+          </div>
+
+          <div v-else class="bg-yellow-50 border-2 border-yellow-300 rounded-xl p-4">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">⚠️</span>
+              <BilingualText
+                en="DeepSeek AI Not Configured"
+                cn="DeepSeek AI 未配置"
+                class="font-bold text-yellow-700"
+              />
+            </div>
+          </div>
+
+          <!-- Configuration Form -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                DeepSeek API Key / DeepSeek API 密钥
+              </label>
+              <input
+                v-model="deepseekApiKey"
+                type="password"
+                placeholder="sk-..."
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none font-mono text-sm"
+              />
+              <p class="text-xs text-gray-500 mt-1">
+                Get your API key at: <a href="https://platform.deepseek.com" target="_blank" class="text-purple-600 hover:underline">platform.deepseek.com</a>
+                <br>💰 Cost: ~$0.14 per 1M tokens (very affordable!) / 成本：约 ¥1 每百万 tokens（非常实惠！）
+                <br>🇨🇳 Works in China without VPN / 中国大陆可直接访问，无需 VPN
+              </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex gap-3">
+              <BilingualButton
+                en="Save API Key"
+                cn="保存密钥"
+                variant="primary"
+                size="lg"
+                class="flex-1"
+                @click="saveDeepSeekKey"
+              />
+              <BilingualButton
+                v-if="hasDeepSeekKey"
+                en="Test AI"
+                cn="测试 AI"
+                variant="secondary"
+                size="lg"
+                class="flex-1"
+                :disabled="testingAI"
+                @click="testAI"
+              />
+            </div>
+
+            <!-- Test Status -->
+            <div v-if="testingAI" class="bg-blue-50 rounded-xl p-4 text-center">
+              <div class="text-2xl mb-2">🤖</div>
+              <BilingualText
+                en="Testing AI connection..."
+                cn="测试 AI 连接..."
+                class="font-medium text-blue-700"
+              />
+            </div>
+
+            <div v-if="testResult" class="bg-green-50 rounded-xl p-4">
+              <div class="text-2xl mb-2">✅</div>
+              <div class="font-medium text-green-700">
+                AI test successful! / AI 测试成功！
+              </div>
+              <div class="text-sm text-gray-600 mt-2">
+                {{ testResult }}
+              </div>
+            </div>
+
+            <div v-if="testError" class="bg-red-50 rounded-xl p-4">
+              <div class="text-2xl mb-2">❌</div>
+              <div class="font-medium text-red-700">
+                AI test failed / AI 测试失败
+              </div>
+              <div class="text-sm text-gray-600 mt-2">
+                {{ testError }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Features Info -->
+          <div class="bg-purple-50 rounded-xl p-6">
+            <BilingualText
+              en="What You Can Do With AI"
+              cn="AI 功能介绍"
+              class="font-bold text-purple-700 mb-3"
+            />
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>🌐 <strong>My Common Phrases</strong> - Create custom phrases with AI translation / 创建自定义短语并 AI 翻译</li>
+              <li>🎤 <strong>Pronunciation Scoring</strong> - Get AI feedback on your pronunciation / 获取 AI 发音反馈</li>
+              <li>✅ <strong>Translation Validation</strong> - AI checks your answers for accuracy / AI 检查您的答案准确性</li>
+              <li>💡 <strong>Context & Alternatives</strong> - AI provides usage context and alternatives / AI 提供使用场景和替代说法</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <!-- GitHub Sync Section -->
       <div class="bg-white rounded-2xl shadow-xl p-8">
         <BilingualText
@@ -188,6 +313,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import { useGitHubSync } from '../composables/useGitHubSync'
+import { useDeepSeek } from '../composables/useDeepSeek'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
@@ -199,6 +325,15 @@ const {
   saveGitHubSettings,
   manualSync
 } = useGitHubSync()
+
+const deepSeek = useDeepSeek()
+
+// DeepSeek form fields
+const deepseekApiKey = ref('')
+const hasDeepSeekKey = ref(false)
+const testingAI = ref(false)
+const testResult = ref(null)
+const testError = ref(null)
 
 // Form fields
 const token = ref('')
@@ -214,6 +349,7 @@ const syncErrorMsg = ref(null)
 
 onMounted(() => {
   loadSettings()
+  loadDeepSeekSettings()
 })
 
 function loadSettings() {
@@ -228,6 +364,47 @@ function loadSettings() {
   const saved = localStorage.getItem('famlingo_last_sync')
   if (saved) {
     lastSyncTime.value = saved
+  }
+}
+
+function loadDeepSeekSettings() {
+  const apiKey = deepSeek.getApiKey()
+  if (apiKey) {
+    deepseekApiKey.value = '••••••••' // Don't show actual API key
+    hasDeepSeekKey.value = true
+  }
+}
+
+function saveDeepSeekKey() {
+  if (!deepseekApiKey.value || deepseekApiKey.value === '••••••••') {
+    // Keep existing key if not changed
+    if (!hasDeepSeekKey.value) {
+      alert('Please enter a DeepSeek API key / 请输入 DeepSeek API 密钥')
+      return
+    }
+  } else {
+    deepSeek.saveApiKey(deepseekApiKey.value)
+    hasDeepSeekKey.value = true
+  }
+
+  alert('DeepSeek API key saved! / DeepSeek API 密钥已保存！')
+  testResult.value = null
+  testError.value = null
+}
+
+async function testAI() {
+  testingAI.value = true
+  testResult.value = null
+  testError.value = null
+
+  try {
+    // Simple test: translate "Hello" to Chinese
+    const result = await deepSeek.translatePhrase('Hello', 'en-to-cn')
+    testResult.value = `Translation test successful: ${result.chinese} (${result.pinyin})`
+  } catch (error) {
+    testError.value = error.message
+  } finally {
+    testingAI.value = false
   }
 }
 

@@ -122,6 +122,71 @@
             </div>
           </div>
 
+          <!-- AI Scoring (if enabled) -->
+          <div v-if="aiScoring" class="bg-blue-50 border-2 border-blue-300 rounded-xl p-4">
+            <div class="flex items-center gap-3">
+              <div class="text-3xl animate-pulse">🤖</div>
+              <div>
+                <BilingualText
+                  en="AI is analyzing your answer..."
+                  cn="AI 正在分析您的答案..."
+                  class="font-medium text-blue-700"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div v-if="aiFeedback && aiScore !== null" class="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-purple-300 rounded-xl p-6 text-left">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="text-4xl">🤖</div>
+              <div>
+                <div class="font-bold text-purple-700 text-lg">AI Pronunciation Score / AI 发音评分</div>
+                <div class="text-3xl font-bold text-purple-600 mt-1">{{ aiScore.toFixed(1) }} / 10</div>
+              </div>
+            </div>
+
+            <!-- AI Feedback -->
+            <div class="space-y-3">
+              <div class="bg-white rounded-lg p-3">
+                <div class="text-xs font-medium text-gray-600 mb-1">Feedback:</div>
+                <div class="text-sm text-gray-800">{{ aiFeedback.feedback }}</div>
+              </div>
+
+              <div class="bg-white rounded-lg p-3">
+                <div class="text-xs font-medium text-gray-600 mb-1">反馈:</div>
+                <div class="text-sm text-gray-800">{{ aiFeedback.feedbackCN }}</div>
+              </div>
+
+              <!-- Good Points -->
+              <div v-if="aiFeedback.goodPoints && aiFeedback.goodPoints.length > 0" class="bg-green-50 rounded-lg p-3">
+                <div class="text-xs font-medium text-green-700 mb-2">✅ What you did well:</div>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li v-for="(point, index) in aiFeedback.goodPoints" :key="index" class="flex items-start gap-2">
+                    <span>•</span>
+                    <span>{{ point }}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Improvements -->
+              <div v-if="aiFeedback.improvements && aiFeedback.improvements.length > 0" class="bg-orange-50 rounded-lg p-3">
+                <div class="text-xs font-medium text-orange-700 mb-2">💡 What to improve:</div>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li v-for="(point, index) in aiFeedback.improvements" :key="index" class="flex items-start gap-2">
+                    <span>•</span>
+                    <span>{{ point }}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tips -->
+              <div v-if="aiFeedback.tips" class="bg-blue-50 rounded-lg p-3">
+                <div class="text-xs font-medium text-blue-700 mb-1">💭 Tips:</div>
+                <div class="text-sm text-gray-700">{{ aiFeedback.tips }}</div>
+              </div>
+            </div>
+          </div>
+
           <!-- Next Button -->
           <BilingualButton
             en="Next Phrase"
@@ -188,12 +253,14 @@ import { ref, computed, onMounted, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import { usePhrasesStore } from '../stores/phrases'
 import { useFamilyStore } from '../stores/family'
+import { useDeepSeek } from '../composables/useDeepSeek'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
 const router = useRouter()
 const phrasesStore = usePhrasesStore()
 const familyStore = useFamilyStore()
+const deepSeek = useDeepSeek()
 
 // Practice state
 const direction = ref('cn-to-en')
@@ -205,12 +272,19 @@ const isCorrect = ref(false)
 const sessionComplete = ref(false)
 const inputRef = ref(null)
 
+// AI scoring state
+const aiScoring = ref(false)
+const aiScore = ref(null)
+const aiFeedback = ref(null)
+
 // Session stats
 const sessionStats = ref({
   correct: 0,
   total: 0,
   accuracy: 0
 })
+
+const hasDeepSeekKey = computed(() => !!deepSeek.getApiKey())
 
 const currentPhrase = computed(() => practiceSet.value[currentIndex.value] || null)
 const progress = computed(() => ((currentIndex.value) / practiceSet.value.length) * 100)
@@ -220,18 +294,30 @@ onMounted(() => {
 })
 
 function initializePractice() {
+  // Get standard phrases
+  const standardPhrases = phrasesStore.allPhrases
+
+  // Load custom phrases for current user
+  const currentUser = familyStore.currentUser
+  let customPhrases = []
+  if (currentUser) {
+    const saved = localStorage.getItem(`famlingo_custom_phrases_${currentUser.id}`)
+    if (saved) {
+      customPhrases = JSON.parse(saved)
+    }
+
+    // Set direction based on user preference
+    direction.value = currentUser.learningDirection
+  }
+
+  // Merge standard + custom phrases
+  const allPhrases = [...standardPhrases, ...customPhrases]
+
   // Get random 10 phrases for practice
-  const allPhrases = phrasesStore.allPhrases
   practiceSet.value = shuffleArray([...allPhrases]).slice(0, 10)
   currentIndex.value = 0
   sessionComplete.value = false
   sessionStats.value = { correct: 0, total: 0, accuracy: 0 }
-
-  // Set direction based on current user preference
-  const currentUser = familyStore.currentUser
-  if (currentUser) {
-    direction.value = currentUser.learningDirection
-  }
 }
 
 function shuffleArray(array) {
@@ -242,7 +328,7 @@ function shuffleArray(array) {
   return array
 }
 
-function checkAnswer() {
+async function checkAnswer() {
   if (!userAnswer.value.trim()) return
 
   showingAnswer.value = true
@@ -260,6 +346,30 @@ function checkAnswer() {
   }
 
   sessionStats.value.accuracy = Math.round((sessionStats.value.correct / sessionStats.value.total) * 100)
+
+  // Optional AI pronunciation scoring (if API key is configured)
+  if (hasDeepSeekKey.value && userAnswer.value.trim()) {
+    aiScoring.value = true
+    aiScore.value = null
+    aiFeedback.value = null
+
+    try {
+      const phraseText = direction.value === 'cn-to-en' ? currentPhrase.value.cn : currentPhrase.value.en
+      const scoring = await deepSeek.scorePronunciation(
+        phraseText,
+        userAnswer.value,
+        correctAnswer
+      )
+
+      aiScore.value = scoring.score
+      aiFeedback.value = scoring
+    } catch (error) {
+      console.error('AI scoring error:', error)
+      // Fail silently - don't break the user experience
+    } finally {
+      aiScoring.value = false
+    }
+  }
 }
 
 function showAnswer() {
@@ -275,6 +385,11 @@ async function nextPhrase() {
     userAnswer.value = ''
     showingAnswer.value = false
     isCorrect.value = false
+
+    // Reset AI state
+    aiScore.value = null
+    aiFeedback.value = null
+    aiScoring.value = false
 
     // Focus input
     await nextTick()
