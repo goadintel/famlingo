@@ -11,6 +11,16 @@ export function useGitHubSync() {
   const lastSync = ref(null)
   const syncError = ref(null)
 
+  // Unicode-safe base64 encoding (handles Chinese characters)
+  function unicodeToBase64(str) {
+    return btoa(unescape(encodeURIComponent(str)))
+  }
+
+  // Unicode-safe base64 decoding
+  function base64ToUnicode(str) {
+    return decodeURIComponent(escape(atob(str)))
+  }
+
   // Get GitHub settings from localStorage
   function getGitHubSettings() {
     const saved = localStorage.getItem('famlingo_github_sync')
@@ -51,7 +61,7 @@ export function useGitHubSync() {
       }
 
       const data = await response.json()
-      const content = JSON.parse(atob(data.content))
+      const content = JSON.parse(base64ToUnicode(data.content))
 
       console.log('📥 Fetched from GitHub:', content)
       return { content, sha: data.sha }
@@ -92,8 +102,8 @@ export function useGitHubSync() {
         users: data.family.users
       }
 
-      // Encode content
-      const content = btoa(JSON.stringify(dataToSync, null, 2))
+      // Encode content (Unicode-safe for Chinese characters)
+      const content = unicodeToBase64(JSON.stringify(dataToSync, null, 2))
 
       // Push to GitHub
       const body = {
