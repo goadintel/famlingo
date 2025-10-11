@@ -1,0 +1,389 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2025-10-12",
+  "totalPhrases": 42,
+  "phases": {
+    "foundation": {
+      "name": { "en": "Foundation Phase", "cn": "基础阶段" },
+      "description": { "en": "Essential greetings and daily phrases", "cn": "基本问候和日常用语" },
+      "duration": "Weeks 1-2",
+      "difficulty": 1
+    },
+    "building": {
+      "name": { "en": "Building Phase", "cn": "建设阶段" },
+      "description": { "en": "Expand vocabulary and sentence structures", "cn": "扩展词汇和句子结构" },
+      "duration": "Weeks 3-4",
+      "difficulty": 2
+    },
+    "advanced": {
+      "name": { "en": "Advanced Phase", "cn": "高级阶段" },
+      "description": { "en": "Complex conversations and cultural expressions", "cn": "复杂对话和文化表达" },
+      "duration": "Weeks 5+",
+      "difficulty": 3
+    }
+  },
+  "categories": [
+    {
+      "id": "greetings",
+      "name": { "en": "Greetings & Basics", "cn": "问候与基础" },
+      "icon": "👋",
+      "phase": "foundation",
+      "phrases": [
+        {
+          "id": "g1",
+          "cn": "你好",
+          "pinyin": "Nǐ hǎo",
+          "en": "Hello",
+          "audio": "greetings/nihao.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Most common greeting, use anytime", "cn": "最常用的问候语，任何时候都可以用" },
+          "literalTranslation": "you good"
+        },
+        {
+          "id": "g2",
+          "cn": "早上好",
+          "pinyin": "Zǎoshang hǎo",
+          "en": "Good morning",
+          "audio": "greetings/zaoshang.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Use before noon", "cn": "中午之前使用" },
+          "literalTranslation": "morning good"
+        },
+        {
+          "id": "g3",
+          "cn": "晚安",
+          "pinyin": "Wǎn'ān",
+          "en": "Good night",
+          "audio": "greetings/wanan.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Before going to sleep", "cn": "睡觉前说" },
+          "literalTranslation": "night peace"
+        },
+        {
+          "id": "g4",
+          "cn": "谢谢",
+          "pinyin": "Xièxie",
+          "en": "Thank you",
+          "audio": "greetings/xiexie.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Express gratitude, very common", "cn": "表达感谢，非常常用" },
+          "literalTranslation": "thank thank"
+        },
+        {
+          "id": "g5",
+          "cn": "不客气",
+          "pinyin": "Bù kèqi",
+          "en": "You're welcome",
+          "audio": "greetings/bukeqi.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Response to thank you", "cn": "回应谢谢" },
+          "literalTranslation": "not polite"
+        },
+        {
+          "id": "g6",
+          "cn": "对不起",
+          "pinyin": "Duìbuqǐ",
+          "en": "Sorry / Excuse me",
+          "audio": "greetings/duibuqi.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Apologize or get attention", "cn": "道歉或引起注意" },
+          "literalTranslation": "face not up"
+        },
+        {
+          "id": "g7",
+          "cn": "再见",
+          "pinyin": "Zàijiàn",
+          "en": "Goodbye",
+          "audio": "greetings/zaijian.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Parting phrase", "cn": "告别用语" },
+          "literalTranslation": "again see"
+        },
+        {
+          "id": "g8",
+          "cn": "你好吗？",
+          "pinyin": "Nǐ hǎo ma?",
+          "en": "How are you?",
+          "audio": "greetings/nihaoma.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Asking about wellbeing", "cn": "询问近况" },
+          "literalTranslation": "you good question"
+        },
+        {
+          "id": "g9",
+          "cn": "我很好",
+          "pinyin": "Wǒ hěn hǎo",
+          "en": "I'm fine",
+          "audio": "greetings/wohenhao.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Response to how are you", "cn": "回应你好吗" },
+          "literalTranslation": "I very good"
+        },
+        {
+          "id": "g10",
+          "cn": "请",
+          "pinyin": "Qǐng",
+          "en": "Please",
+          "audio": "greetings/qing.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Polite requests", "cn": "礼貌请求" },
+          "literalTranslation": "invite/request"
+        }
+      ]
+    },
+    {
+      "id": "family_social",
+      "name": { "en": "Family & Social", "cn": "家庭与社交" },
+      "icon": "👨‍👩‍👧‍👦",
+      "phase": "building",
+      "phrases": [
+        {
+          "id": "f1",
+          "cn": "这是我的家人",
+          "pinyin": "Zhè shì wǒ de jiārén",
+          "en": "This is my family",
+          "audio": "family/jiaren.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Introducing family members", "cn": "介绍家人" },
+          "literalTranslation": "this is my family people"
+        },
+        {
+          "id": "f2",
+          "cn": "很高兴见到你",
+          "pinyin": "Hěn gāoxìng jiàn dào nǐ",
+          "en": "Nice to meet you",
+          "audio": "family/gaoxing.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "First meeting greeting", "cn": "初次见面问候" },
+          "literalTranslation": "very happy see arrive you"
+        },
+        {
+          "id": "f3",
+          "cn": "周末愉快",
+          "pinyin": "Zhōumò yúkuài",
+          "en": "Have a nice weekend",
+          "audio": "family/zhoumoyukuai.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Weekend wishes", "cn": "周末祝福" },
+          "literalTranslation": "weekend pleasant"
+        },
+        {
+          "id": "f4",
+          "cn": "我们一起吃饭吧",
+          "pinyin": "Wǒmen yīqǐ chīfàn ba",
+          "en": "Let's eat together",
+          "audio": "family/chifan.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Invitation to dine", "cn": "邀请用餐" },
+          "literalTranslation": "we together eat rice suggestion"
+        },
+        {
+          "id": "f5",
+          "cn": "祝你生日快乐",
+          "pinyin": "Zhù nǐ shēngrì kuàilè",
+          "en": "Happy birthday",
+          "audio": "family/shengri.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Birthday wishes", "cn": "生日祝福" },
+          "literalTranslation": "wish you birth day happy"
+        }
+      ]
+    },
+    {
+      "id": "getting_around",
+      "name": { "en": "Getting Around", "cn": "出行导航" },
+      "icon": "🚶",
+      "phase": "building",
+      "phrases": [
+        {
+          "id": "a1",
+          "cn": "这是哪里？",
+          "pinyin": "Zhè shì nǎlǐ?",
+          "en": "Where is this?",
+          "audio": "around/nali.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking about location", "cn": "询问位置" },
+          "literalTranslation": "this is where"
+        },
+        {
+          "id": "a2",
+          "cn": "洗手间在哪里？",
+          "pinyin": "Xǐshǒujiān zài nǎlǐ?",
+          "en": "Where is the restroom?",
+          "audio": "around/xishoujian.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Finding facilities", "cn": "寻找设施" },
+          "literalTranslation": "wash hand room at where"
+        },
+        {
+          "id": "a3",
+          "cn": "请帮我叫出租车",
+          "pinyin": "Qǐng bāng wǒ jiào chūzūchē",
+          "en": "Please call me a taxi",
+          "audio": "around/chuzuche.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Getting transportation", "cn": "叫交通工具" },
+          "literalTranslation": "please help me call rent car"
+        },
+        {
+          "id": "a4",
+          "cn": "多少钱？",
+          "pinyin": "Duōshao qián?",
+          "en": "How much?",
+          "audio": "around/duoshaoqian.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Asking about price", "cn": "询问价格" },
+          "literalTranslation": "how much money"
+        },
+        {
+          "id": "a5",
+          "cn": "我迷路了",
+          "pinyin": "Wǒ mílù le",
+          "en": "I'm lost",
+          "audio": "around/milu.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "When lost", "cn": "迷路时" },
+          "literalTranslation": "I lost road already"
+        },
+        {
+          "id": "a6",
+          "cn": "请慢一点",
+          "pinyin": "Qǐng màn yīdiǎn",
+          "en": "Please slow down",
+          "audio": "around/manyidian.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "When speaking too fast", "cn": "说话太快时" },
+          "literalTranslation": "please slow a little"
+        },
+        {
+          "id": "a7",
+          "cn": "我听不懂",
+          "pinyin": "Wǒ tīng bù dǒng",
+          "en": "I don't understand",
+          "audio": "around/tingbudong.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "When confused", "cn": "不明白时" },
+          "literalTranslation": "I hear not understand"
+        }
+      ]
+    },
+    {
+      "id": "shopping",
+      "name": { "en": "Shopping & Dining", "cn": "购物与用餐" },
+      "icon": "🛍️",
+      "phase": "building",
+      "phrases": [
+        {
+          "id": "s1",
+          "cn": "我想买这个",
+          "pinyin": "Wǒ xiǎng mǎi zhège",
+          "en": "I want to buy this",
+          "audio": "shopping/mai.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Shopping intention", "cn": "购物意图" },
+          "literalTranslation": "I want buy this"
+        },
+        {
+          "id": "s2",
+          "cn": "太贵了",
+          "pinyin": "Tài guì le",
+          "en": "Too expensive",
+          "audio": "shopping/taigui.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Price negotiation", "cn": "价格谈判" },
+          "literalTranslation": "too expensive already"
+        },
+        {
+          "id": "s3",
+          "cn": "可以便宜一点吗？",
+          "pinyin": "Kěyǐ piányi yīdiǎn ma?",
+          "en": "Can it be cheaper?",
+          "audio": "shopping/pianyi.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Bargaining", "cn": "讨价还价" },
+          "literalTranslation": "can cheap a little question"
+        },
+        {
+          "id": "s4",
+          "cn": "我要点餐",
+          "pinyin": "Wǒ yào diǎncān",
+          "en": "I want to order",
+          "audio": "shopping/diancan.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "At restaurant", "cn": "在餐厅" },
+          "literalTranslation": "I want order food"
+        },
+        {
+          "id": "s5",
+          "cn": "买单",
+          "pinyin": "Mǎidān",
+          "en": "Check please / Pay the bill",
+          "audio": "shopping/maidan.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Requesting bill", "cn": "要求账单" },
+          "literalTranslation": "buy bill"
+        },
+        {
+          "id": "s6",
+          "cn": "这个很好吃",
+          "pinyin": "Zhège hěn hǎochī",
+          "en": "This is delicious",
+          "audio": "shopping/haochi.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Complimenting food", "cn": "称赞食物" },
+          "literalTranslation": "this very good eat"
+        },
+        {
+          "id": "s7",
+          "cn": "我不吃辣",
+          "pinyin": "Wǒ bù chī là",
+          "en": "I don't eat spicy food",
+          "audio": "shopping/buchila.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Dietary preference", "cn": "饮食偏好" },
+          "literalTranslation": "I not eat spicy"
+        },
+        {
+          "id": "s8",
+          "cn": "我吃素",
+          "pinyin": "Wǒ chī sù",
+          "en": "I'm vegetarian",
+          "audio": "shopping/chisu.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Dietary restriction", "cn": "饮食限制" },
+          "literalTranslation": "I eat vegetarian"
+        }
+      ]
+    }
+  ]
+}
