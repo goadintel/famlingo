@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "appVersion": "0.1.0",
+  "lastSync": "2025-10-11T23:44:07.817Z",
+  "family": {
+    "id": "7b5f2ee2-5c58-44a6-83b4-06c462cea0f2",
+    "name": {
+      "en": "The RenGoad family",
+      "cn": "The RenGoad family"
+    },
+    "created": "2025-10-11T22:46:43.600Z",
+    "users": [
+      {
+        "id": "e84d27ca-4d8f-47b4-8a58-c2a0f9a2ece4",
+        "name": {
+          "en": "Clint",
+          "cn": "Dragon"
+        },
+        "avatar": "👨",
+        "ageGroup": "adult",
+        "learningDirection": "en-to-cn",
+        "level": "beginner",
+        "created": "2025-10-11T22:46:43.613Z",
+        "stats": {
+          "totalSessions": 0,
+          "totalPhrases": 0,
+          "currentStreak": 0,
+          "longestStreak": 0,
+          "accuracy": 0,
+          "lastPractice": null
+        },
+        "progress": {}
+      }
+    ]
+  },
+  "users": [
+    {
+      "id": "e84d27ca-4d8f-47b4-8a58-c2a0f9a2ece4",
+      "name": {
+        "en": "Clint",
+        "cn": "Dragon"
+      },
+      "avatar": "👨",
+      "ageGroup": "adult",
+      "learningDirection": "en-to-cn",
+      "level": "beginner",
+      "created": "2025-10-11T22:46:43.613Z",
+      "stats": {
+        "totalSessions": 0,
+        "totalPhrases": 0,
+        "currentStreak": 0,
+        "longestStreak": 0,
+        "accuracy": 0,
+        "lastPractice": null
+      },
+      "progress": {}
+    }
+  ]
+}
