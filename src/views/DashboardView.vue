@@ -100,8 +100,8 @@
                 <div class="flex items-center gap-3 mb-2">
                   <span class="text-3xl">{{ category.icon }}</span>
                   <div class="flex-1">
-                    <div class="font-bold text-gray-800 text-sm">{{ category.name.en }}</div>
-                    <div class="text-xs text-gray-600">{{ category.name.cn }}</div>
+                    <div class="font-bold text-gray-800 text-sm">{{ category.name?.en || 'Category' }}</div>
+                    <div class="text-xs text-gray-600">{{ category.name?.cn || '类别' }}</div>
                   </div>
                 </div>
                 <div class="text-xs font-bold text-purple-600">
@@ -233,6 +233,12 @@ const familyStore = useFamilyStore()
 const phrasesStore = usePhrasesStore()
 const { autoSyncOnLoad } = useGitHubSync()
 
+// Load family from localStorage immediately
+familyStore.loadFamilyFromStorage()
+
+// Initialize phrases store immediately (without custom phrases first)
+phrasesStore.initialize()
+
 const family = computed(() => familyStore.family)
 const currentUser = computed(() => familyStore.currentUser)
 const familyStats = computed(() => familyStore.familyStats)
@@ -240,12 +246,11 @@ const usersByStreak = computed(() => familyStore.usersByStreak)
 const categories = computed(() => phrasesStore.categories)
 
 onMounted(async () => {
-  // Load family from localStorage
-  familyStore.loadFamilyFromStorage()
-
-  // Initialize phrases with current user ID (to load custom phrases)
+  // Load custom phrases for current user
   const currentUserId = familyStore.currentUser?.id
-  phrasesStore.initialize(currentUserId)
+  if (currentUserId) {
+    phrasesStore.loadCustomPhrases(currentUserId)
+  }
 
   // Auto-sync from GitHub on load (if configured)
   await autoSyncOnLoad()
