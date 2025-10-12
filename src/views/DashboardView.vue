@@ -222,20 +222,34 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useFamilyStore } from '../stores/family'
 import { usePhrasesStore } from '../stores/phrases'
+import { useGitHubSync } from '../composables/useGitHubSync'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
 const familyStore = useFamilyStore()
 const phrasesStore = usePhrasesStore()
+const { autoSyncOnLoad } = useGitHubSync()
 
 const family = computed(() => familyStore.family)
 const currentUser = computed(() => familyStore.currentUser)
 const familyStats = computed(() => familyStore.familyStats)
 const usersByStreak = computed(() => familyStore.usersByStreak)
 const categories = computed(() => phrasesStore.categories)
+
+onMounted(async () => {
+  // Load family from localStorage
+  familyStore.loadFamilyFromStorage()
+
+  // Initialize phrases with current user ID (to load custom phrases)
+  const currentUserId = familyStore.currentUser?.id
+  phrasesStore.initialize(currentUserId)
+
+  // Auto-sync from GitHub on load (if configured)
+  await autoSyncOnLoad()
+})
 
 function switchToUser(userId) {
   familyStore.switchUser(userId)
