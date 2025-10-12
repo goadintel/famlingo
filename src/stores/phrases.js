@@ -4,6 +4,7 @@ import phrasesData from '../data/phrases.json'
 export const usePhrasesStore = defineStore('phrases', {
   state: () => ({
     phrases: phrasesData.categories,
+    customPhrases: [], // Custom phrases added by users
     phases: phrasesData.phases,
     version: phrasesData.version,
     lastUpdated: phrasesData.lastUpdated,
@@ -11,9 +12,11 @@ export const usePhrasesStore = defineStore('phrases', {
   }),
 
   getters: {
-    // Get all phrases as flat array
+    // Get all phrases as flat array (including custom phrases)
     allPhrases: (state) => {
       const all = []
+
+      // Add standard phrases
       state.phrases.forEach(category => {
         category.phrases.forEach(phrase => {
           all.push({
@@ -24,11 +27,25 @@ export const usePhrasesStore = defineStore('phrases', {
           })
         })
       })
+
+      // Add custom phrases
+      state.customPhrases.forEach(phrase => {
+        all.push({
+          ...phrase,
+          categoryId: 'custom',
+          categoryName: { en: 'Common Phrases', cn: '常用短语' },
+          categoryIcon: '⭐'
+        })
+      })
+
       return all
     },
 
     // Get phrases by category ID
     getPhrasesByCategory: (state) => (categoryId) => {
+      if (categoryId === 'custom') {
+        return state.customPhrases
+      }
       const category = state.phrases.find(c => c.id === categoryId)
       return category ? category.phrases : []
     },
@@ -85,22 +102,85 @@ export const usePhrasesStore = defineStore('phrases', {
       return all
     },
 
-    // Get all categories
-    categories: (state) => state.phrases.map(c => ({
-      id: c.id,
-      name: c.name,
-      icon: c.icon,
-      phase: c.phase,
-      phraseCount: c.phrases.length
-    }))
+    // Get all categories (including custom if exists)
+    categories: (state) => {
+      const cats = state.phrases.map(c => ({
+        id: c.id,
+        name: c.name,
+        icon: c.icon,
+        phase: c.phase,
+        phraseCount: c.phrases.length
+      }))
+
+      // Add custom category if there are custom phrases
+      if (state.customPhrases.length > 0) {
+        cats.unshift({
+          id: 'custom',
+          name: { en: 'Common Phrases', cn: '常用短语' },
+          icon: '⭐',
+          phase: 'custom',
+          phraseCount: state.customPhrases.length
+        })
+      }
+
+      return cats
+    }
   },
 
   actions: {
-    // Initialize phrase library (future: load from IndexedDB or API)
-    initialize() {
+    // Initialize phrase library and load custom phrases
+    initialize(currentUserId = null) {
       console.log(`📚 Phrase library loaded: ${this.totalPhrases} phrases`)
       console.log(`📖 Categories: ${this.phrases.length}`)
       console.log(`🎯 Phases: ${Object.keys(this.phases).length}`)
+
+      // Load custom phrases for current user
+      if (currentUserId) {
+        this.loadCustomPhrases(currentUserId)
+      }
+    },
+
+    // Load custom phrases from localStorage for specific user
+    loadCustomPhrases(userId) {
+      const saved = localStorage.getItem(`famlingo_custom_phrases_${userId}`)
+      if (saved) {
+        this.customPhrases = JSON.parse(saved)
+        console.log(`⭐ Loaded ${this.customPhrases.length} custom phrases for user ${userId}`)
+      } else {
+        this.customPhrases = []
+      }
+    },
+
+    // Add a custom phrase (and save to localStorage)
+    addCustomPhrase(userId, phrase) {
+      this.customPhrases.unshift(phrase)
+      this.saveCustomPhrases(userId)
+      console.log('⭐ Custom phrase added:', phrase.en, '/', phrase.cn)
+    },
+
+    // Remove a custom phrase
+    removeCustomPhrase(userId, phraseId) {
+      this.customPhrases = this.customPhrases.filter(p => p.id !== phraseId)
+      this.saveCustomPhrases(userId)
+      console.log('🗑️ Custom phrase removed:', phraseId)
+    },
+
+    // Save custom phrases to localStorage
+    saveCustomPhrases(userId) {
+      localStorage.setItem(`famlingo_custom_phrases_${userId}`, JSON.stringify(this.customPhrases))
+    },
+
+    // Play audio for a phrase (text-to-speech)
+    playAudio(text, language = 'zh-CN') {
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text)
+        utterance.lang = language // 'zh-CN' for Chinese, 'en-US' for English
+        utterance.rate = 0.8 // Slightly slower for learning
+        window.speechSynthesis.speak(utterance)
+        console.log(`🔊 Playing audio: ${text}`)
+      } else {
+        console.warn('⚠️ Speech synthesis not supported in this browser')
+      }
     }
   }
 })

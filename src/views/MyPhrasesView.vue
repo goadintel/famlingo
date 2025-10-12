@@ -225,7 +225,16 @@
           >
             <div class="flex items-start justify-between">
               <div class="flex-1">
-                <div class="text-2xl font-bold text-gray-800">{{ phrase.cn }}</div>
+                <div class="flex items-center gap-3 mb-1">
+                  <div class="text-2xl font-bold text-gray-800">{{ phrase.cn }}</div>
+                  <button
+                    @click="phrasesStore.playAudio(phrase.cn, 'zh-CN')"
+                    class="text-xl hover:scale-110 transition-transform"
+                    title="Play audio / 播放音频"
+                  >
+                    🔊
+                  </button>
+                </div>
                 <div class="text-sm text-gray-500">{{ phrase.pinyin }}</div>
                 <div class="text-lg text-gray-700 mt-1">{{ phrase.en }}</div>
                 <div class="text-xs text-gray-500 mt-2">
@@ -251,11 +260,13 @@
 import { ref, computed, onMounted } from 'vue'
 import { useDeepSeek } from '../composables/useDeepSeek'
 import { useFamilyStore } from '../stores/family'
+import { usePhrasesStore } from '../stores/phrases'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
 const deepSeek = useDeepSeek()
 const familyStore = useFamilyStore()
+const phrasesStore = usePhrasesStore()
 
 // Form state
 const inputText = ref('')
@@ -265,29 +276,16 @@ const aiLoading = computed(() => deepSeek.loading.value)
 const aiError = computed(() => deepSeek.error.value)
 const hasApiKey = computed(() => !!deepSeek.getApiKey())
 
-// Custom phrases (stored per user)
-const customPhrases = ref([])
+// Custom phrases (from store)
+const customPhrases = computed(() => phrasesStore.customPhrases)
 
 onMounted(() => {
-  loadCustomPhrases()
-})
-
-function loadCustomPhrases() {
+  // Custom phrases are already loaded by the store
   const currentUser = familyStore.currentUser
-  if (!currentUser) return
-
-  const saved = localStorage.getItem(`famlingo_custom_phrases_${currentUser.id}`)
-  if (saved) {
-    customPhrases.value = JSON.parse(saved)
+  if (currentUser) {
+    phrasesStore.loadCustomPhrases(currentUser.id)
   }
-}
-
-function saveCustomPhrases() {
-  const currentUser = familyStore.currentUser
-  if (!currentUser) return
-
-  localStorage.setItem(`famlingo_custom_phrases_${currentUser.id}`, JSON.stringify(customPhrases.value))
-}
+})
 
 async function translate() {
   try {
@@ -299,6 +297,9 @@ async function translate() {
 
 function savePhrase() {
   if (!translation.value) return
+
+  const currentUser = familyStore.currentUser
+  if (!currentUser) return
 
   const newPhrase = {
     id: crypto.randomUUID(),
@@ -317,17 +318,19 @@ function savePhrase() {
     custom: true
   }
 
-  customPhrases.value.unshift(newPhrase)
-  saveCustomPhrases()
+  // Add to store (which handles localStorage)
+  phrasesStore.addCustomPhrase(currentUser.id, newPhrase)
 
-  alert('Phrase saved! It will appear in your practice sessions. / 短语已保存！它将出现在您的练习中。')
+  alert('Phrase saved! It will appear in Browse and Practice. / 短语已保存！它将出现在浏览和练习中。')
   resetForm()
 }
 
 function deletePhrase(id) {
   if (confirm('Delete this phrase? / 删除这个短语？')) {
-    customPhrases.value = customPhrases.value.filter(p => p.id !== id)
-    saveCustomPhrases()
+    const currentUser = familyStore.currentUser
+    if (currentUser) {
+      phrasesStore.removeCustomPhrase(currentUser.id, id)
+    }
   }
 }
 

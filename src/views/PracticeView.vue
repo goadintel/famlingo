@@ -49,10 +49,19 @@
           <div class="text-sm text-gray-500 mb-4">
             {{ direction === 'cn-to-en' ? 'Translate to English / 翻译成英文' : 'Translate to Chinese / 翻译成中文' }}
           </div>
-          <div class="text-5xl font-bold text-gray-800 mb-4">
-            {{ direction === 'cn-to-en' ? currentPhrase.cn : currentPhrase.en }}
+          <div class="flex items-center justify-center gap-4">
+            <div class="text-5xl font-bold text-gray-800">
+              {{ direction === 'cn-to-en' ? currentPhrase.cn : currentPhrase.en }}
+            </div>
+            <button
+              @click="playPhrase"
+              class="text-3xl hover:scale-110 transition-transform"
+              title="Play audio / 播放音频"
+            >
+              🔊
+            </button>
           </div>
-          <div v-if="direction === 'cn-to-en'" class="text-2xl text-gray-500">
+          <div v-if="direction === 'cn-to-en'" class="text-2xl text-gray-500 mt-4">
             {{ currentPhrase.pinyin }}
           </div>
         </div>
@@ -294,24 +303,17 @@ onMounted(() => {
 })
 
 function initializePractice() {
-  // Get standard phrases
-  const standardPhrases = phrasesStore.allPhrases
-
-  // Load custom phrases for current user
   const currentUser = familyStore.currentUser
-  let customPhrases = []
-  if (currentUser) {
-    const saved = localStorage.getItem(`famlingo_custom_phrases_${currentUser.id}`)
-    if (saved) {
-      customPhrases = JSON.parse(saved)
-    }
 
+  // Load custom phrases for current user (if not already loaded)
+  if (currentUser) {
+    phrasesStore.loadCustomPhrases(currentUser.id)
     // Set direction based on user preference
     direction.value = currentUser.learningDirection
   }
 
-  // Merge standard + custom phrases
-  const allPhrases = [...standardPhrases, ...customPhrases]
+  // Get all phrases (includes standard + custom from store)
+  const allPhrases = phrasesStore.allPhrases
 
   // Get random 10 phrases for practice
   practiceSet.value = shuffleArray([...allPhrases]).slice(0, 10)
@@ -418,5 +420,14 @@ function exitPractice() {
   if (confirm('Exit practice session? / 退出练习？')) {
     router.push('/dashboard')
   }
+}
+
+function playPhrase() {
+  if (!currentPhrase.value) return
+
+  const text = direction.value === 'cn-to-en' ? currentPhrase.value.cn : currentPhrase.value.en
+  const language = direction.value === 'cn-to-en' ? 'zh-CN' : 'en-US'
+
+  phrasesStore.playAudio(text, language)
 }
 </script>

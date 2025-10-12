@@ -55,9 +55,18 @@
             class="border-l-4 border-purple-500 bg-gray-50 rounded-r-lg p-6 hover:shadow-lg transition-all cursor-pointer"
             @click="selectPhrase(phrase)"
           >
-            <!-- Chinese -->
-            <div class="text-3xl font-bold text-gray-800 mb-2">
-              {{ phrase.cn }}
+            <!-- Chinese with Audio -->
+            <div class="flex items-center gap-3 mb-2">
+              <div class="text-3xl font-bold text-gray-800">
+                {{ phrase.cn }}
+              </div>
+              <button
+                @click.stop="playAudio(phrase.cn, 'zh-CN')"
+                class="text-2xl hover:scale-110 transition-transform"
+                title="Play Chinese / 播放中文"
+              >
+                🔊
+              </button>
             </div>
 
             <!-- Pinyin -->
@@ -147,5 +156,9 @@ onMounted(() => {
 
 function selectPhrase(phrase) {
   selectedPhraseId.value = selectedPhraseId.value === phrase.id ? null : phrase.id
+}
+
+function playAudio(text, language = 'zh-CN') {
+  phrasesStore.playAudio(text, language)
 }
 </script>

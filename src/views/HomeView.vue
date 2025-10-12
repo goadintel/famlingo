@@ -170,8 +170,11 @@ const isFamilyInitialized = computed(() => familyStore.isFamilyInitialized)
 const familyUsers = computed(() => familyStore.family.users.length)
 
 onMounted(async () => {
-  phrasesStore.initialize()
   familyStore.loadFamilyFromStorage()
+
+  // Initialize phrases with current user ID (to load custom phrases)
+  const currentUserId = familyStore.currentUser?.id
+  phrasesStore.initialize(currentUserId)
 
   // Auto-sync from GitHub on load (if configured)
   await autoSyncOnLoad()
