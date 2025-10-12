@@ -83,7 +83,7 @@
           </div>
 
           <!-- Browse Categories -->
-          <div class="bg-white rounded-2xl shadow-xl p-6">
+          <div v-if="categories && categories.length > 0" class="bg-white rounded-2xl shadow-xl p-6">
             <BilingualText
               en="📚 Browse by Category"
               cn="📚 按类别浏览"
@@ -94,7 +94,7 @@
               <button
                 v-for="category in categories"
                 :key="category.id"
-                @click="$router.push({ name: 'browse', query: { category: category.id } })"
+                @click="goToBrowse(category.id)"
                 class="border-2 border-gray-200 rounded-xl p-4 hover:border-purple-400 hover:shadow-lg transition-all cursor-pointer text-left"
               >
                 <div class="flex items-center gap-3 mb-2">
@@ -223,21 +223,33 @@
 
 <script setup>
 import { computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useFamilyStore } from '../stores/family'
 import { usePhrasesStore } from '../stores/phrases'
 import { useGitHubSync } from '../composables/useGitHubSync'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
+const router = useRouter()
 const familyStore = useFamilyStore()
 const phrasesStore = usePhrasesStore()
 const { autoSyncOnLoad } = useGitHubSync()
 
-// Load family from localStorage immediately
-familyStore.loadFamilyFromStorage()
+// Load family from localStorage immediately with error handling
+try {
+  familyStore.loadFamilyFromStorage()
+  console.log('✅ Family loaded from localStorage')
+} catch (error) {
+  console.error('❌ Error loading family from localStorage:', error)
+}
 
 // Initialize phrases store immediately (without custom phrases first)
-phrasesStore.initialize()
+try {
+  phrasesStore.initialize()
+  console.log('✅ Phrases store initialized')
+} catch (error) {
+  console.error('❌ Error initializing phrases store:', error)
+}
 
 const family = computed(() => familyStore.family)
 const currentUser = computed(() => familyStore.currentUser)
@@ -246,17 +258,35 @@ const usersByStreak = computed(() => familyStore.usersByStreak)
 const categories = computed(() => phrasesStore.categories)
 
 onMounted(async () => {
+  console.log('📊 Dashboard mounted')
+  console.log('👥 Current user:', familyStore.currentUser)
+  console.log('📚 Categories:', phrasesStore.categories)
+
   // Load custom phrases for current user
   const currentUserId = familyStore.currentUser?.id
   if (currentUserId) {
-    phrasesStore.loadCustomPhrases(currentUserId)
+    try {
+      phrasesStore.loadCustomPhrases(currentUserId)
+      console.log('⭐ Custom phrases loaded')
+    } catch (error) {
+      console.error('❌ Error loading custom phrases:', error)
+    }
   }
 
   // Auto-sync from GitHub on load (if configured)
-  await autoSyncOnLoad()
+  try {
+    await autoSyncOnLoad()
+  } catch (error) {
+    console.error('❌ Error during auto-sync:', error)
+  }
 })
 
 function switchToUser(userId) {
   familyStore.switchUser(userId)
+}
+
+function goToBrowse(categoryId) {
+  console.log('🔍 Navigating to Browse with category:', categoryId)
+  router.push({ name: 'browse', query: { category: categoryId } })
 }
 </script>
