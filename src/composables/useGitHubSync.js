@@ -72,7 +72,7 @@ export function useGitHubSync() {
   }
 
   // Push data to GitHub
-  async function pushToGitHub(data, message = 'Update family data') {
+  async function pushToGitHub(data, message = 'Update family data', retryCount = 0) {
     const settings = getGitHubSettings()
     if (!settings) {
       throw new Error('GitHub sync not configured')
@@ -80,6 +80,7 @@ export function useGitHubSync() {
 
     const { token, owner, repo, filePath } = settings
     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`
+    const MAX_RETRIES = 3
 
     try {
       // Get current file SHA (needed for update)
@@ -127,6 +128,14 @@ export function useGitHubSync() {
       })
 
       if (!response.ok) {
+        // Handle 409 Conflict - file was updated since we fetched the SHA
+        if (response.status === 409 && retryCount < MAX_RETRIES) {
+          console.log(`⚠️ Conflict detected, retrying (${retryCount + 1}/${MAX_RETRIES})...`)
+          // Wait a bit before retrying to avoid race conditions
+          await new Promise(resolve => setTimeout(resolve, 500 * (retryCount + 1)))
+          return pushToGitHub(data, message, retryCount + 1)
+        }
+
         const error = await response.json()
         throw new Error(`GitHub API error: ${response.status} - ${error.message}`)
       }
