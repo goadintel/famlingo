@@ -27,6 +27,80 @@
           class="text-center text-gray-600"
         />
 
+        <!-- Sync from GitHub Option -->
+        <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
+          <button
+            @click="showGitHubSync = !showGitHubSync"
+            class="w-full flex items-center justify-between text-left"
+          >
+            <div>
+              <div class="font-bold text-blue-800">Already have a family on another device?</div>
+              <div class="text-sm text-blue-600">已在其他设备上有家庭？</div>
+            </div>
+            <div class="text-2xl">{{ showGitHubSync ? '▼' : '▶' }}</div>
+          </button>
+
+          <div v-if="showGitHubSync" class="mt-4 space-y-3">
+            <div class="text-sm text-gray-700 mb-3">
+              Enter your GitHub sync settings to load your family data from another device.
+              输入您的 GitHub 同步设置以从其他设备加载您的家庭数据。
+            </div>
+
+            <input
+              v-model="syncToken"
+              type="password"
+              placeholder="GitHub Token (ghp_...)"
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            />
+
+            <div class="grid grid-cols-2 gap-2">
+              <input
+                v-model="syncOwner"
+                type="text"
+                placeholder="Owner (goadintel)"
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+              />
+              <input
+                v-model="syncRepo"
+                type="text"
+                placeholder="Repo (famlingo)"
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+              />
+            </div>
+
+            <input
+              v-model="syncFilePath"
+              type="text"
+              placeholder="File path (famlingo-family-data.json)"
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            />
+
+            <button
+              @click="syncFromGitHub"
+              :disabled="syncing"
+              class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:bg-gray-300"
+            >
+              {{ syncing ? '⏳ Syncing...' : '🔄 Sync from GitHub' }}
+            </button>
+
+            <div v-if="syncError" class="text-sm text-red-600 mt-2">
+              ❌ {{ syncError }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="flex items-center gap-3">
+          <div class="flex-1 h-px bg-gray-300"></div>
+          <div class="text-sm text-gray-500 font-medium">OR / 或</div>
+          <div class="flex-1 h-px bg-gray-300"></div>
+        </div>
+
+        <!-- Create New Family Section -->
+        <div class="text-center">
+          <div class="font-bold text-gray-800">Create New Family / 创建新家庭</div>
+        </div>
+
         <div class="space-y-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -208,15 +282,26 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useFamilyStore } from '../stores/family'
+import { useGitHubSync } from '../composables/useGitHubSync'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
 const router = useRouter()
 const familyStore = useFamilyStore()
+const { saveGitHubSettings, syncWithGitHub } = useGitHubSync()
 
 const step = ref(1)
 const familyNameEn = ref('')
 const familyNameCn = ref('')
+
+// GitHub sync state
+const showGitHubSync = ref(false)
+const syncToken = ref('')
+const syncOwner = ref('goadintel')
+const syncRepo = ref('famlingo')
+const syncFilePath = ref('famlingo-family-data.json')
+const syncing = ref(false)
+const syncError = ref(null)
 
 const avatarOptions = ['👦', '👧', '👨', '👩', '👴', '👵', '🧒', '🧑', '👱', '🙋']
 const userAvatar = ref('👤')
@@ -224,6 +309,40 @@ const userNameEn = ref('')
 const userNameCn = ref('')
 const userAgeGroup = ref('adult')
 const userDirection = ref('cn-to-en')
+
+async function syncFromGitHub() {
+  syncError.value = null
+
+  if (!syncToken.value || !syncOwner.value || !syncRepo.value) {
+    syncError.value = 'Please fill in all fields / 请填写所有字段'
+    return
+  }
+
+  syncing.value = true
+
+  try {
+    // Save GitHub settings
+    saveGitHubSettings(syncToken.value, syncOwner.value, syncRepo.value, syncFilePath.value)
+
+    // Sync from GitHub
+    const result = await syncWithGitHub()
+
+    console.log('✅ Sync successful!', result)
+
+    // Check if we got family data
+    if (familyStore.isFamilyInitialized) {
+      alert(`Success! Found ${result.userCount} family members / 成功！找到 ${result.userCount} 个家庭成员`)
+      router.push('/dashboard')
+    } else {
+      syncError.value = 'No family data found on GitHub. Create a new family below. / GitHub 上未找到家庭数据。请在下面创建新家庭。'
+    }
+  } catch (error) {
+    console.error('❌ Sync error:', error)
+    syncError.value = error.message
+  } finally {
+    syncing.value = false
+  }
+}
 
 function goToStep2() {
   if (!familyNameEn.value || !familyNameCn.value) {
