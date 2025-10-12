@@ -81,6 +81,35 @@
               </div>
             </div>
           </div>
+
+          <!-- Browse Categories -->
+          <div class="bg-white rounded-2xl shadow-xl p-6">
+            <BilingualText
+              en="📚 Browse by Category"
+              cn="📚 按类别浏览"
+              class="text-2xl font-bold text-center mb-6"
+            />
+
+            <div class="grid grid-cols-2 gap-4">
+              <button
+                v-for="category in categories"
+                :key="category.id"
+                @click="$router.push({ name: 'browse', query: { category: category.id } })"
+                class="border-2 border-gray-200 rounded-xl p-4 hover:border-purple-400 hover:shadow-lg transition-all cursor-pointer text-left"
+              >
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="text-3xl">{{ category.icon }}</span>
+                  <div class="flex-1">
+                    <div class="font-bold text-gray-800 text-sm">{{ category.name.en }}</div>
+                    <div class="text-xs text-gray-600">{{ category.name.cn }}</div>
+                  </div>
+                </div>
+                <div class="text-xs font-bold text-purple-600">
+                  {{ category.phraseCount }} phrases / 短语
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- Right Column: Quick Actions -->
@@ -195,15 +224,18 @@
 <script setup>
 import { computed } from 'vue'
 import { useFamilyStore } from '../stores/family'
+import { usePhrasesStore } from '../stores/phrases'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
 const familyStore = useFamilyStore()
+const phrasesStore = usePhrasesStore()
 
 const family = computed(() => familyStore.family)
 const currentUser = computed(() => familyStore.currentUser)
 const familyStats = computed(() => familyStore.familyStats)
 const usersByStreak = computed(() => familyStore.usersByStreak)
+const categories = computed(() => phrasesStore.categories)
 
 function switchToUser(userId) {
   familyStore.switchUser(userId)

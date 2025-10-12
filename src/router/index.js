@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useFamilyStore } from '../stores/family'
 
 // Views
-import HomeView from '../views/HomeView.vue'
 import SetupView from '../views/SetupView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import PracticeView from '../views/PracticeView.vue'
@@ -14,7 +13,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    redirect: '/dashboard'
   },
   {
     path: '/setup',
