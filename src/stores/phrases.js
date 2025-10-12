@@ -44,10 +44,22 @@ export const usePhrasesStore = defineStore('phrases', {
     // Get phrases by category ID
     getPhrasesByCategory: (state) => (categoryId) => {
       if (categoryId === 'custom') {
-        return state.customPhrases
+        return state.customPhrases.map(phrase => ({
+          ...phrase,
+          categoryId: 'custom',
+          categoryName: { en: 'Common Phrases', cn: '常用短语' },
+          categoryIcon: '⭐'
+        }))
       }
       const category = state.phrases.find(c => c.id === categoryId)
-      return category ? category.phrases : []
+      if (!category) return []
+
+      return category.phrases.map(phrase => ({
+        ...phrase,
+        categoryId: category.id,
+        categoryName: category.name,
+        categoryIcon: category.icon
+      }))
     },
 
     // Get phrases by phase

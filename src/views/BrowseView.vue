@@ -35,7 +35,7 @@
                      selectedCategory === category.id ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200']"
           >
             <span class="mr-2">{{ category.icon }}</span>
-            <span class="text-sm">{{ category.name.en }} / {{ category.name.cn }}</span>
+            <span class="text-sm">{{ category.name?.en || 'Category' }} / {{ category.name?.cn || '类别' }}</span>
           </button>
         </div>
       </header>
@@ -82,7 +82,7 @@
             <!-- Meta Info -->
             <div class="flex items-center justify-between text-sm">
               <div class="text-gray-500">
-                {{ phrase.categoryIcon }} {{ phrase.categoryName.en }}
+                {{ phrase.categoryIcon }} {{ phrase.categoryName?.en || '' }}
               </div>
               <div class="flex items-center gap-2">
                 <span class="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded">
@@ -95,7 +95,7 @@
             </div>
 
             <!-- Context (optional, shown on hover/click) -->
-            <div v-if="selectedPhraseId === phrase.id" class="mt-4 pt-4 border-t border-gray-200">
+            <div v-if="selectedPhraseId === phrase.id && phrase.context" class="mt-4 pt-4 border-t border-gray-200">
               <div class="text-sm text-gray-600 mb-2">
                 <strong>Context / 语境:</strong>
               </div>
@@ -105,7 +105,7 @@
               <div class="text-sm text-gray-700 mb-2">
                 🇨🇳 {{ phrase.context.cn }}
               </div>
-              <div class="text-xs text-gray-500 italic">
+              <div v-if="phrase.literalTranslation" class="text-xs text-gray-500 italic">
                 Literal: "{{ phrase.literalTranslation }}"
               </div>
             </div>
