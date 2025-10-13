@@ -66,24 +66,111 @@
           </div>
         </div>
 
+        <!-- Practice Mode Toggle -->
+        <div v-if="!showingAnswer" class="flex justify-center gap-2 mb-4">
+          <button
+            @click="practiceMode = 'text'"
+            :class="['px-4 py-2 rounded-lg font-medium transition-all text-sm',
+                     practiceMode === 'text' ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-600']"
+          >
+            ⌨️ Text
+          </button>
+          <button
+            @click="practiceMode = 'voice'"
+            :class="['px-4 py-2 rounded-lg font-medium transition-all text-sm',
+                     practiceMode === 'voice' ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-600']"
+          >
+            🎤 Voice
+          </button>
+        </div>
+
         <!-- Answer Input or Feedback -->
         <div v-if="!showingAnswer" class="space-y-4">
-          <input
-            v-model="userAnswer"
-            ref="inputRef"
-            type="text"
-            :placeholder="direction === 'cn-to-en' ? 'Type English translation...' : 'Type Chinese translation...'"
-            class="w-full px-6 py-4 text-xl border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
-            @keyup.enter="checkAnswer"
-          />
-          <BilingualButton
-            en="Check Answer"
-            cn="检查答案"
-            variant="primary"
-            size="lg"
-            class="w-full"
-            @click="checkAnswer"
-          />
+          <!-- Text Mode -->
+          <div v-if="practiceMode === 'text'" class="space-y-4">
+            <input
+              v-model="userAnswer"
+              ref="inputRef"
+              type="text"
+              :placeholder="direction === 'cn-to-en' ? 'Type English translation...' : 'Type Chinese translation...'"
+              class="w-full px-6 py-4 text-xl border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
+              @keyup.enter="checkAnswer"
+            />
+            <BilingualButton
+              en="Check Answer"
+              cn="检查答案"
+              variant="primary"
+              size="lg"
+              class="w-full"
+              @click="checkAnswer"
+            />
+          </div>
+
+          <!-- Voice Mode -->
+          <div v-else class="space-y-4">
+            <!-- Recording Status -->
+            <div class="text-center mb-4">
+              <div v-if="voiceRecording.isRecording.value" class="flex items-center justify-center gap-2 text-red-600 font-semibold">
+                <div class="w-3 h-3 bg-red-600 rounded-full animate-pulse"></div>
+                Recording... {{voiceRecording.recordingDuration.value}}s
+              </div>
+              <div v-else-if="voiceRecording.hasRecording.value" class="text-green-600 font-semibold">
+                ✅ Recording complete! {{voiceRecording.recordingDuration.value}}s
+              </div>
+              <div v-else class="text-gray-600">
+                🎙️ Press and hold the button to record
+              </div>
+            </div>
+
+            <!-- Error Message -->
+            <div v-if="voiceRecording.error.value" class="bg-red-50 border border-red-200 rounded-lg p-3 text-sm text-red-700">
+              {{ voiceRecording.error.value }}
+            </div>
+
+            <!-- Record Button -->
+            <button
+              @mousedown="startVoiceRecording"
+              @mouseup="stopVoiceRecording"
+              @touchstart="startVoiceRecording"
+              @touchend="stopVoiceRecording"
+              :disabled="pronunciationAPI.analyzing.value"
+              :class="['w-48 h-48 mx-auto rounded-full font-bold text-xl transition-all shadow-lg',
+                       voiceRecording.isRecording.value
+                         ? 'bg-red-500 text-white scale-110 shadow-2xl'
+                         : 'bg-gradient-to-br from-purple-600 to-pink-600 text-white hover:scale-105']"
+            >
+              <div v-if="pronunciationAPI.analyzing.value">
+                🤖<br>Analyzing...
+              </div>
+              <div v-else-if="voiceRecording.isRecording.value">
+                🔴<br>Release to stop
+              </div>
+              <div v-else>
+                🎙️<br>Press & Hold<br>to Record
+              </div>
+            </button>
+
+            <!-- Play Recording -->
+            <button
+              v-if="voiceRecording.hasRecording.value && !pronunciationAPI.analyzing.value"
+              @click="voiceRecording.playRecording()"
+              class="text-purple-600 hover:text-purple-700 font-medium text-sm"
+            >
+              ▶️ Play my recording / 播放录音
+            </button>
+
+            <!-- Analyzing Indicator -->
+            <div v-if="pronunciationAPI.analyzing.value" class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div class="flex items-center justify-center gap-3">
+                <div class="animate-spin text-2xl">🤖</div>
+                <div class="text-blue-700 font-medium">
+                  AI is analyzing your pronunciation...<br>
+                  AI 正在分析您的发音...
+                </div>
+              </div>
+            </div>
+          </div>
+
           <button
             @click="showAnswer"
             class="text-sm text-gray-500 hover:text-gray-700 underline"
@@ -263,6 +350,8 @@ import { useRouter } from 'vue-router'
 import { usePhrasesStore } from '../stores/phrases'
 import { useFamilyStore } from '../stores/family'
 import { useDeepSeek } from '../composables/useDeepSeek'
+import { useVoiceRecording } from '../composables/useVoiceRecording'
+import { usePronunciationAPI } from '../composables/usePronunciationAPI'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
@@ -271,8 +360,13 @@ const phrasesStore = usePhrasesStore()
 const familyStore = useFamilyStore()
 const deepSeek = useDeepSeek()
 
+// Voice recording and API
+const voiceRecording = useVoiceRecording()
+const pronunciationAPI = usePronunciationAPI()
+
 // Practice state
 const direction = ref('cn-to-en')
+const practiceMode = ref('voice') // 'text' or 'voice'
 const practiceSet = ref([])
 const currentIndex = ref(0)
 const userAnswer = ref('')
@@ -429,5 +523,86 @@ function playPhrase() {
   const language = direction.value === 'cn-to-en' ? 'zh-CN' : 'en-US'
 
   phrasesStore.playAudio(text, language)
+}
+
+// Voice recording functions
+async function startVoiceRecording() {
+  voiceRecording.resetRecording()
+  await voiceRecording.startRecording()
+}
+
+async function stopVoiceRecording() {
+  voiceRecording.stopRecording()
+
+  // Wait a moment for the recording to be processed
+  await new Promise(resolve => setTimeout(resolve, 300))
+
+  // Analyze pronunciation with backend API
+  if (voiceRecording.hasRecording.value && voiceRecording.audioBlob.value) {
+    await analyzeVoicePronunciation()
+  }
+}
+
+async function analyzeVoicePronunciation() {
+  try {
+    showingAnswer.value = true
+    sessionStats.value.total++
+
+    const currentUser = familyStore.currentUser
+    if (!currentUser) {
+      throw new Error('No user selected')
+    }
+
+    // Use targetLanguage to determine what language to practice
+    // This is independent of direction - user always practices their target language
+    const targetLanguage = currentUser.targetLanguage || 'zh-CN'
+    const isPracticingChinese = targetLanguage === 'zh-CN'
+
+    // Create a modified phrase object with correct expected phrase
+    const phraseForAnalysis = {
+      ...currentPhrase.value,
+      // Override with the language being practiced
+      cn: isPracticingChinese ? currentPhrase.value.cn : null,
+      en: !isPracticingChinese ? currentPhrase.value.en : null,
+      pinyin: isPracticingChinese ? currentPhrase.value.pinyin : null
+    }
+
+    console.log(`🎤 Analyzing ${targetLanguage} pronunciation (direction: ${direction.value})`)
+
+    // Call backend API for pronunciation analysis
+    const result = await pronunciationAPI.analyzePronunciation(
+      voiceRecording.audioBlob.value,
+      phraseForAnalysis,
+      'auto' // Let backend auto-detect best transcription service
+    )
+
+    // Set AI feedback
+    aiScore.value = result.score
+    aiFeedback.value = result
+
+    // Set transcription as user answer
+    userAnswer.value = result.transcription || ''
+
+    // Check if correct (score >= 8 is considered correct)
+    isCorrect.value = result.score >= 8.0
+
+    if (isCorrect.value) {
+      sessionStats.value.correct++
+    }
+
+    sessionStats.value.accuracy = Math.round((sessionStats.value.correct / sessionStats.value.total) * 100)
+
+    console.log('✅ Voice pronunciation analyzed:', result)
+
+  } catch (error) {
+    console.error('❌ Voice pronunciation analysis failed:', error)
+
+    // Show error but don't break the flow
+    alert('Failed to analyze pronunciation. Please check that the backend API is running.')
+
+    // Reset to allow retry
+    showingAnswer.value = false
+    voiceRecording.resetRecording()
+  }
 }
 </script>

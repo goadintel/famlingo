@@ -72,17 +72,26 @@ export const useFamilyStore = defineStore('family', {
     },
 
     // Add new user to family
-    addUser({ nameEn, nameCn, avatar, ageGroup, learningDirection, level = 'beginner' }) {
+    addUser({ nameEn, nameCn, avatar, ageGroup, learningDirection, targetLanguage, level = 'beginner' }) {
       if (this.isFamilyFull) {
         throw new Error(`Maximum ${this.maxUsers} users allowed per family`)
       }
+
+      // Default learningDirection based on common pattern
+      const direction = learningDirection || 'cn-to-en'
+
+      // Auto-set targetLanguage based on learningDirection if not provided
+      // cn-to-en = Native English learning Chinese → target is Chinese
+      // en-to-cn = Native Chinese learning English → target is English
+      const target = targetLanguage || (direction === 'cn-to-en' ? 'zh-CN' : 'en-US')
 
       const newUser = {
         id: crypto.randomUUID(),
         name: { en: nameEn, cn: nameCn },
         avatar: avatar || '👤',
         ageGroup: ageGroup || 'adult', // child, teen, adult
-        learningDirection: learningDirection || 'cn-to-en', // cn-to-en or en-to-cn
+        learningDirection: direction, // cn-to-en or en-to-cn (for text mode)
+        targetLanguage: target, // zh-CN or en-US (for voice mode - what language to practice)
         level: level, // beginner, intermediate, advanced
         created: new Date().toISOString(),
         stats: {
@@ -196,6 +205,17 @@ export const useFamilyStore = defineStore('family', {
       const saved = localStorage.getItem('famlingo_family')
       if (saved) {
         this.family = JSON.parse(saved)
+
+        // Migration: Add targetLanguage to existing users who don't have it
+        this.family.users.forEach(user => {
+          if (!user.targetLanguage) {
+            // Auto-set based on learningDirection
+            user.targetLanguage = user.learningDirection === 'cn-to-en' ? 'zh-CN' : 'en-US'
+            console.log(`🔄 Migrated user ${user.name.en}: targetLanguage = ${user.targetLanguage}`)
+          }
+        })
+
+        this.saveFamilyToStorage() // Save migrated data
         console.log('📂 Family data loaded from storage')
       }
 
