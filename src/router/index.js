@@ -8,6 +8,8 @@ import PracticeView from '../views/PracticeView.vue'
 import BrowseView from '../views/BrowseView.vue'
 import SettingsView from '../views/SettingsView.vue'
 import MyPhrasesView from '../views/MyPhrasesView.vue'
+import ChatView from '../views/ChatView.vue'
+import ListenView from '../views/ListenView.vue'
 
 const routes = [
   {
@@ -48,6 +50,18 @@ const routes = [
     path: '/my-phrases',
     name: 'my-phrases',
     component: MyPhrasesView,
+    meta: { requiresFamily: true }
+  },
+  {
+    path: '/chat',
+    name: 'chat',
+    component: ChatView,
+    meta: { requiresFamily: true }
+  },
+  {
+    path: '/listen',
+    name: 'listen',
+    component: ListenView,
     meta: { requiresFamily: true }
   }
 ]

@@ -144,6 +144,87 @@
         </div>
       </div>
 
+      <!-- Cache Management Section -->
+      <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <BilingualText
+          en="Cache & Storage Management"
+          cn="缓存与存储管理"
+          class="text-2xl font-bold mb-6"
+        />
+
+        <div class="space-y-6">
+          <!-- Cache Stats -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-purple-50 rounded-xl p-4 text-center">
+              <div class="text-3xl font-bold text-purple-600">{{ translationCacheSize }}</div>
+              <div class="text-xs text-gray-600 mt-1">Translation Cache / 翻译缓存</div>
+              <div class="text-[10px] text-gray-500 mt-1">Max: 100 entries, 30 days</div>
+            </div>
+            <div class="bg-blue-50 rounded-xl p-4 text-center">
+              <div class="text-3xl font-bold text-blue-600">{{ ttsCacheSize }}</div>
+              <div class="text-xs text-gray-600 mt-1">Audio Cache / 音频缓存</div>
+              <div class="text-[10px] text-gray-500 mt-1">Max: 50 entries, 7 days</div>
+            </div>
+            <div class="bg-green-50 rounded-xl p-4 text-center">
+              <div class="text-3xl font-bold text-green-600">{{ chatHistorySize }}</div>
+              <div class="text-xs text-gray-600 mt-1">Chat History / 聊天记录</div>
+              <div class="text-[10px] text-gray-500 mt-1">Unlimited</div>
+            </div>
+          </div>
+
+          <!-- Cache Actions -->
+          <div class="space-y-3">
+            <BilingualButton
+              en="Clear Translation Cache"
+              cn="清除翻译缓存"
+              variant="outline"
+              size="md"
+              class="w-full"
+              @click="clearTranslationCache"
+            />
+            <BilingualButton
+              en="Clear Audio Cache"
+              cn="清除音频缓存"
+              variant="outline"
+              size="md"
+              class="w-full"
+              @click="clearAudioCache"
+            />
+            <BilingualButton
+              en="Clear Chat History"
+              cn="清除聊天记录"
+              variant="outline"
+              size="md"
+              class="w-full"
+              @click="clearChatHistory"
+            />
+            <BilingualButton
+              en="Clear All Data"
+              cn="清除所有数据"
+              variant="outline"
+              size="md"
+              class="w-full text-red-600 border-red-300 hover:bg-red-50"
+              @click="clearAllData"
+            />
+          </div>
+
+          <!-- Cache Info -->
+          <div class="bg-blue-50 rounded-xl p-6">
+            <BilingualText
+              en="About Caching"
+              cn="关于缓存"
+              class="font-bold text-blue-700 mb-3"
+            />
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>✅ Translations are cached for 30 days to reduce API costs / 翻译缓存 30 天以降低 API 成本</li>
+              <li>✅ Audio files are cached for 7 days for faster playback / 音频缓存 7 天以加快播放速度</li>
+              <li>✅ Cache is automatically cleaned when limits are reached / 缓存达到限制时自动清理</li>
+              <li>✅ Clearing cache will NOT delete your custom phrases / 清除缓存不会删除您的自定义短语</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <!-- GitHub Sync Section -->
       <div class="bg-white rounded-2xl shadow-xl p-8">
         <BilingualText
@@ -335,6 +416,11 @@ const testingAI = ref(false)
 const testResult = ref(null)
 const testError = ref(null)
 
+// Cache management
+const translationCacheSize = ref(0)
+const ttsCacheSize = ref(0)
+const chatHistorySize = ref(0)
+
 // Form fields
 const token = ref('')
 const owner = ref('goadintel')
@@ -350,6 +436,7 @@ const syncErrorMsg = ref(null)
 onMounted(() => {
   loadSettings()
   loadDeepSeekSettings()
+  updateCacheStats()
 })
 
 function loadSettings() {
@@ -444,5 +531,111 @@ async function syncNow() {
 function formatDate(isoString) {
   const date = new Date(isoString)
   return date.toLocaleString()
+}
+
+// Cache management functions
+function updateCacheStats() {
+  // Count translation cache entries
+  let translationCount = 0
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key?.startsWith('translation_')) {
+      translationCount++
+    }
+  }
+  translationCacheSize.value = translationCount
+
+  // Count TTS cache entries
+  let ttsCount = 0
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key?.startsWith('tts_')) {
+      ttsCount++
+    }
+  }
+  ttsCacheSize.value = ttsCount
+
+  // Count chat history entries
+  const aiChat = localStorage.getItem('famlingo_ai_chat')
+  const translations = localStorage.getItem('famlingo_translations')
+  chatHistorySize.value = (aiChat ? JSON.parse(aiChat).length : 0) + (translations ? JSON.parse(translations).length : 0)
+}
+
+function clearTranslationCache() {
+  if (!confirm('Clear all translation cache? This will NOT delete your custom phrases.\n清除所有翻译缓存？这不会删除您的自定义短语。')) {
+    return
+  }
+
+  const keysToRemove = []
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key?.startsWith('translation_')) {
+      keysToRemove.push(key)
+    }
+  }
+
+  keysToRemove.forEach(key => localStorage.removeItem(key))
+  updateCacheStats()
+  alert(`Cleared ${keysToRemove.length} translation cache entries / 已清除 ${keysToRemove.length} 条翻译缓存`)
+}
+
+function clearAudioCache() {
+  if (!confirm('Clear all audio cache?\n清除所有音频缓存？')) {
+    return
+  }
+
+  const keysToRemove = []
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key?.startsWith('tts_')) {
+      keysToRemove.push(key)
+    }
+  }
+
+  keysToRemove.forEach(key => localStorage.removeItem(key))
+  updateCacheStats()
+  alert(`Cleared ${keysToRemove.length} audio cache entries / 已清除 ${keysToRemove.length} 条音频缓存`)
+}
+
+function clearChatHistory() {
+  if (!confirm('Clear all chat history? This cannot be undone.\n清除所有聊天记录？此操作无法撤消。')) {
+    return
+  }
+
+  localStorage.removeItem('famlingo_ai_chat')
+  localStorage.removeItem('famlingo_translations')
+  updateCacheStats()
+  alert('Chat history cleared / 聊天记录已清除')
+}
+
+function clearAllData() {
+  if (!confirm('⚠️ WARNING: Clear ALL data including cache, chat history, and settings? Custom phrases will NOT be deleted.\n\n⚠️ 警告：清除所有数据，包括缓存、聊天记录和设置？自定义短语不会被删除。')) {
+    return
+  }
+
+  // Clear all cache and chat data, but preserve family data and custom phrases
+  const keysToKeep = new Set()
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key?.startsWith('famlingo_family') || key?.startsWith('famlingo_user_') || key?.includes('custom_phrases')) {
+      keysToKeep.add(key)
+    }
+  }
+
+  const allKeys = []
+  for (let i = 0; i < localStorage.length; i++) {
+    allKeys.push(localStorage.key(i))
+  }
+
+  let clearedCount = 0
+  allKeys.forEach(key => {
+    if (!keysToKeep.has(key)) {
+      localStorage.removeItem(key)
+      clearedCount++
+    }
+  })
+
+  updateCacheStats()
+  alert(`Cleared ${clearedCount} items. Family data and custom phrases preserved.\n已清除 ${clearedCount} 项。家庭数据和自定义短语已保留。`)
 }
 </script>

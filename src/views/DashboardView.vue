@@ -163,6 +163,22 @@
                 @click="$router.push('/practice')"
               />
               <BilingualButton
+                en="🎧 Listen Mode"
+                cn="🎧 收听模式"
+                variant="secondary"
+                size="lg"
+                class="w-full"
+                @click="$router.push('/listen')"
+              />
+              <BilingualButton
+                en="Chat & Translate"
+                cn="聊天与翻译"
+                variant="secondary"
+                size="lg"
+                class="w-full"
+                @click="$router.push('/chat')"
+              />
+              <BilingualButton
                 en="My Common Phrases"
                 cn="我的常用短语"
                 variant="secondary"
