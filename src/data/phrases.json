@@ -1,7 +1,7 @@
 {
-  "version": "1.0",
-  "lastUpdated": "2025-10-12",
-  "totalPhrases": 42,
+  "version": "2.0",
+  "lastUpdated": "2025-10-14",
+  "totalPhrases": 100,
   "phases": {
     "foundation": {
       "name": { "en": "Foundation Phase", "cn": "基础阶段" },
@@ -142,6 +142,146 @@
       ]
     },
     {
+      "id": "numbers_time",
+      "name": { "en": "Numbers & Time", "cn": "数字与时间" },
+      "icon": "🕐",
+      "phase": "foundation",
+      "phrases": [
+        {
+          "id": "nt1",
+          "cn": "一",
+          "pinyin": "Yī",
+          "en": "One",
+          "audio": "numbers/yi.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "literalTranslation": "one"
+        },
+        {
+          "id": "nt2",
+          "cn": "二",
+          "pinyin": "Èr",
+          "en": "Two",
+          "audio": "numbers/er.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "literalTranslation": "two"
+        },
+        {
+          "id": "nt3",
+          "cn": "三",
+          "pinyin": "Sān",
+          "en": "Three",
+          "audio": "numbers/san.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "literalTranslation": "three"
+        },
+        {
+          "id": "nt4",
+          "cn": "十",
+          "pinyin": "Shí",
+          "en": "Ten",
+          "audio": "numbers/shi.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "literalTranslation": "ten"
+        },
+        {
+          "id": "nt5",
+          "cn": "一百",
+          "pinyin": "Yībǎi",
+          "en": "One hundred",
+          "audio": "numbers/yibai.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Larger numbers", "cn": "较大的数字" },
+          "literalTranslation": "one hundred"
+        },
+        {
+          "id": "nt6",
+          "cn": "现在几点？",
+          "pinyin": "Xiànzài jǐ diǎn?",
+          "en": "What time is it?",
+          "audio": "numbers/jidian.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking for time", "cn": "询问时间" },
+          "literalTranslation": "now how many point"
+        },
+        {
+          "id": "nt7",
+          "cn": "今天星期几？",
+          "pinyin": "Jīntiān xīngqí jǐ?",
+          "en": "What day is it today?",
+          "audio": "numbers/xingqi.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking day of week", "cn": "询问星期几" },
+          "literalTranslation": "today week how many"
+        },
+        {
+          "id": "nt8",
+          "cn": "明天",
+          "pinyin": "Míngtiān",
+          "en": "Tomorrow",
+          "audio": "numbers/mingtian.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Time reference", "cn": "时间参考" },
+          "literalTranslation": "bright day"
+        },
+        {
+          "id": "nt9",
+          "cn": "昨天",
+          "pinyin": "Zuótiān",
+          "en": "Yesterday",
+          "audio": "numbers/zuotian.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Time reference", "cn": "时间参考" },
+          "literalTranslation": "yesterday day"
+        },
+        {
+          "id": "nt10",
+          "cn": "今天",
+          "pinyin": "Jīntiān",
+          "en": "Today",
+          "audio": "numbers/jintian.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Time reference", "cn": "时间参考" },
+          "literalTranslation": "now day"
+        },
+        {
+          "id": "nt11",
+          "cn": "等一下",
+          "pinyin": "Děng yīxià",
+          "en": "Wait a moment",
+          "audio": "numbers/dengyixia.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Asking to wait", "cn": "要求等待" },
+          "literalTranslation": "wait one down"
+        },
+        {
+          "id": "nt12",
+          "cn": "快一点",
+          "pinyin": "Kuài yīdiǎn",
+          "en": "Hurry up / Faster",
+          "audio": "numbers/kuaiyidian.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking to hurry", "cn": "要求加快" },
+          "literalTranslation": "fast a little"
+        }
+      ]
+    },
+    {
       "id": "family_social",
       "name": { "en": "Family & Social", "cn": "家庭与社交" },
       "icon": "👨‍👩‍👧‍👦",
@@ -201,6 +341,179 @@
           "phase": "building",
           "context": { "en": "Birthday wishes", "cn": "生日祝福" },
           "literalTranslation": "wish you birth day happy"
+        },
+        {
+          "id": "f6",
+          "cn": "我爱你",
+          "pinyin": "Wǒ ài nǐ",
+          "en": "I love you",
+          "audio": "family/woaini.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Expression of love", "cn": "表达爱意" },
+          "literalTranslation": "I love you"
+        },
+        {
+          "id": "f7",
+          "cn": "你叫什么名字？",
+          "pinyin": "Nǐ jiào shénme míngzi?",
+          "en": "What's your name?",
+          "audio": "family/mingzi.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Asking someone's name", "cn": "询问姓名" },
+          "literalTranslation": "you call what name"
+        },
+        {
+          "id": "f8",
+          "cn": "我叫...",
+          "pinyin": "Wǒ jiào...",
+          "en": "My name is...",
+          "audio": "family/wojiao.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Introducing yourself", "cn": "自我介绍" },
+          "literalTranslation": "I call..."
+        }
+      ]
+    },
+    {
+      "id": "food_dining",
+      "name": { "en": "Food & Dining", "cn": "美食与用餐" },
+      "icon": "🍜",
+      "phase": "building",
+      "phrases": [
+        {
+          "id": "fd1",
+          "cn": "我饿了",
+          "pinyin": "Wǒ è le",
+          "en": "I'm hungry",
+          "audio": "food/ele.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Expressing hunger", "cn": "表达饥饿" },
+          "literalTranslation": "I hungry already"
+        },
+        {
+          "id": "fd2",
+          "cn": "我渴了",
+          "pinyin": "Wǒ kě le",
+          "en": "I'm thirsty",
+          "audio": "food/kele.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Expressing thirst", "cn": "表达口渴" },
+          "literalTranslation": "I thirsty already"
+        },
+        {
+          "id": "fd3",
+          "cn": "好吃",
+          "pinyin": "Hǎochī",
+          "en": "Delicious",
+          "audio": "food/haochi.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Complimenting food", "cn": "称赞食物" },
+          "literalTranslation": "good eat"
+        },
+        {
+          "id": "fd4",
+          "cn": "请给我菜单",
+          "pinyin": "Qǐng gěi wǒ càidān",
+          "en": "Please give me the menu",
+          "audio": "food/caidan.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "At restaurant", "cn": "在餐厅" },
+          "literalTranslation": "please give me dish list"
+        },
+        {
+          "id": "fd5",
+          "cn": "我要一杯水",
+          "pinyin": "Wǒ yào yī bēi shuǐ",
+          "en": "I want a glass of water",
+          "audio": "food/beishui.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Ordering drinks", "cn": "点饮料" },
+          "literalTranslation": "I want one cup water"
+        },
+        {
+          "id": "fd6",
+          "cn": "辣的",
+          "pinyin": "Là de",
+          "en": "Spicy",
+          "audio": "food/lade.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Describing food", "cn": "描述食物" },
+          "literalTranslation": "spicy"
+        },
+        {
+          "id": "fd7",
+          "cn": "不辣的",
+          "pinyin": "Bù là de",
+          "en": "Not spicy",
+          "audio": "food/bulade.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Describing food", "cn": "描述食物" },
+          "literalTranslation": "not spicy"
+        },
+        {
+          "id": "fd8",
+          "cn": "吃饱了",
+          "pinyin": "Chī bǎo le",
+          "en": "I'm full",
+          "audio": "food/chibaole.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "After eating", "cn": "吃完后" },
+          "literalTranslation": "eat full already"
+        },
+        {
+          "id": "fd9",
+          "cn": "干杯",
+          "pinyin": "Gānbēi",
+          "en": "Cheers / Bottoms up",
+          "audio": "food/ganbei.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Toasting", "cn": "敬酒" },
+          "literalTranslation": "dry cup"
+        },
+        {
+          "id": "fd10",
+          "cn": "我不喝酒",
+          "pinyin": "Wǒ bù hē jiǔ",
+          "en": "I don't drink alcohol",
+          "audio": "food/buhejiu.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Declining drinks", "cn": "拒绝饮酒" },
+          "literalTranslation": "I not drink alcohol"
+        },
+        {
+          "id": "fd11",
+          "cn": "打包",
+          "pinyin": "Dǎbāo",
+          "en": "Takeaway / To go",
+          "audio": "food/dabao.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Ordering takeout", "cn": "打包外卖" },
+          "literalTranslation": "pack"
+        },
+        {
+          "id": "fd12",
+          "cn": "筷子",
+          "pinyin": "Kuàizi",
+          "en": "Chopsticks",
+          "audio": "food/kuaizi.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Eating utensil", "cn": "餐具" },
+          "literalTranslation": "fast sticks"
         }
       ]
     },
@@ -286,12 +599,45 @@
           "phase": "building",
           "context": { "en": "When confused", "cn": "不明白时" },
           "literalTranslation": "I hear not understand"
+        },
+        {
+          "id": "a8",
+          "cn": "左边",
+          "pinyin": "Zuǒbiān",
+          "en": "Left side",
+          "audio": "around/zuobian.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Giving directions", "cn": "指路" },
+          "literalTranslation": "left side"
+        },
+        {
+          "id": "a9",
+          "cn": "右边",
+          "pinyin": "Yòubiān",
+          "en": "Right side",
+          "audio": "around/youbian.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Giving directions", "cn": "指路" },
+          "literalTranslation": "right side"
+        },
+        {
+          "id": "a10",
+          "cn": "直走",
+          "pinyin": "Zhí zǒu",
+          "en": "Go straight",
+          "audio": "around/zhizou.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Giving directions", "cn": "指路" },
+          "literalTranslation": "straight go"
         }
       ]
     },
     {
       "id": "shopping",
-      "name": { "en": "Shopping & Dining", "cn": "购物与用餐" },
+      "name": { "en": "Shopping", "cn": "购物" },
       "icon": "🛍️",
       "phase": "building",
       "phrases": [
@@ -382,6 +728,426 @@
           "phase": "building",
           "context": { "en": "Dietary restriction", "cn": "饮食限制" },
           "literalTranslation": "I eat vegetarian"
+        },
+        {
+          "id": "s9",
+          "cn": "可以试一下吗？",
+          "pinyin": "Kěyǐ shì yīxià ma?",
+          "en": "Can I try it?",
+          "audio": "shopping/shiyixia.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Trying products", "cn": "试用产品" },
+          "literalTranslation": "can try one down question"
+        },
+        {
+          "id": "s10",
+          "cn": "有没有折扣？",
+          "pinyin": "Yǒu méiyǒu zhékòu?",
+          "en": "Is there a discount?",
+          "audio": "shopping/zhekou.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking about deals", "cn": "询问优惠" },
+          "literalTranslation": "have not have discount"
+        }
+      ]
+    },
+    {
+      "id": "emotions",
+      "name": { "en": "Emotions & Feelings", "cn": "情感与感受" },
+      "icon": "😊",
+      "phase": "building",
+      "phrases": [
+        {
+          "id": "e1",
+          "cn": "我很开心",
+          "pinyin": "Wǒ hěn kāixīn",
+          "en": "I'm very happy",
+          "audio": "emotions/kaixin.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Expressing joy", "cn": "表达快乐" },
+          "literalTranslation": "I very open heart"
+        },
+        {
+          "id": "e2",
+          "cn": "我很累",
+          "pinyin": "Wǒ hěn lèi",
+          "en": "I'm very tired",
+          "audio": "emotions/lei.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Expressing fatigue", "cn": "表达疲倦" },
+          "literalTranslation": "I very tired"
+        },
+        {
+          "id": "e3",
+          "cn": "我很难过",
+          "pinyin": "Wǒ hěn nánguò",
+          "en": "I'm very sad",
+          "audio": "emotions/nanguo.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Expressing sadness", "cn": "表达悲伤" },
+          "literalTranslation": "I very difficult pass"
+        },
+        {
+          "id": "e4",
+          "cn": "没关系",
+          "pinyin": "Méi guānxi",
+          "en": "It's okay / No problem",
+          "audio": "emotions/meiguanxi.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Reassuring someone", "cn": "安慰他人" },
+          "literalTranslation": "no relation"
+        },
+        {
+          "id": "e5",
+          "cn": "别担心",
+          "pinyin": "Bié dānxīn",
+          "en": "Don't worry",
+          "audio": "emotions/biedanxin.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Comforting", "cn": "安慰" },
+          "literalTranslation": "don't worry heart"
+        },
+        {
+          "id": "e6",
+          "cn": "加油",
+          "pinyin": "Jiāyóu",
+          "en": "Good luck / Keep it up",
+          "audio": "emotions/jiayou.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Encouragement", "cn": "鼓励" },
+          "literalTranslation": "add oil"
+        },
+        {
+          "id": "e7",
+          "cn": "我想你",
+          "pinyin": "Wǒ xiǎng nǐ",
+          "en": "I miss you",
+          "audio": "emotions/woxiangni.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Missing someone", "cn": "想念某人" },
+          "literalTranslation": "I think you"
+        },
+        {
+          "id": "e8",
+          "cn": "我生气了",
+          "pinyin": "Wǒ shēngqì le",
+          "en": "I'm angry",
+          "audio": "emotions/shengqi.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Expressing anger", "cn": "表达愤怒" },
+          "literalTranslation": "I generate anger already"
+        },
+        {
+          "id": "e9",
+          "cn": "别生气",
+          "pinyin": "Bié shēngqì",
+          "en": "Don't be angry",
+          "audio": "emotions/bieshengqi.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Calming someone", "cn": "安抚某人" },
+          "literalTranslation": "don't generate anger"
+        },
+        {
+          "id": "e10",
+          "cn": "恭喜",
+          "pinyin": "Gōngxǐ",
+          "en": "Congratulations",
+          "audio": "emotions/gongxi.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Celebrating success", "cn": "庆祝成功" },
+          "literalTranslation": "respectfully happy"
+        }
+      ]
+    },
+    {
+      "id": "emergency",
+      "name": { "en": "Emergency & Health", "cn": "紧急情况与健康" },
+      "icon": "🆘",
+      "phase": "advanced",
+      "phrases": [
+        {
+          "id": "em1",
+          "cn": "救命",
+          "pinyin": "Jiùmìng",
+          "en": "Help / Save me",
+          "audio": "emergency/jiuming.mp3",
+          "difficulty": 3,
+          "phase": "advanced",
+          "context": { "en": "Emergency situation", "cn": "紧急情况" },
+          "literalTranslation": "save life"
+        },
+        {
+          "id": "em2",
+          "cn": "请叫救护车",
+          "pinyin": "Qǐng jiào jiùhùchē",
+          "en": "Please call an ambulance",
+          "audio": "emergency/jiuhuche.mp3",
+          "difficulty": 3,
+          "phase": "advanced",
+          "context": { "en": "Medical emergency", "cn": "医疗紧急情况" },
+          "literalTranslation": "please call save protect car"
+        },
+        {
+          "id": "em3",
+          "cn": "我需要医生",
+          "pinyin": "Wǒ xūyào yīshēng",
+          "en": "I need a doctor",
+          "audio": "emergency/yisheng.mp3",
+          "difficulty": 3,
+          "phase": "advanced",
+          "context": { "en": "Health issue", "cn": "健康问题" },
+          "literalTranslation": "I need doctor"
+        },
+        {
+          "id": "em4",
+          "cn": "我不舒服",
+          "pinyin": "Wǒ bù shūfu",
+          "en": "I don't feel well",
+          "audio": "emergency/bushufu.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Feeling sick", "cn": "感觉不适" },
+          "literalTranslation": "I not comfortable"
+        },
+        {
+          "id": "em5",
+          "cn": "我头疼",
+          "pinyin": "Wǒ tóuténg",
+          "en": "I have a headache",
+          "audio": "emergency/touteng.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Describing pain", "cn": "描述疼痛" },
+          "literalTranslation": "I head pain"
+        },
+        {
+          "id": "em6",
+          "cn": "药店在哪里？",
+          "pinyin": "Yàodiàn zài nǎlǐ?",
+          "en": "Where is the pharmacy?",
+          "audio": "emergency/yaodian.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Finding medical help", "cn": "寻找医疗帮助" },
+          "literalTranslation": "medicine shop at where"
+        },
+        {
+          "id": "em7",
+          "cn": "小心",
+          "pinyin": "Xiǎoxīn",
+          "en": "Be careful / Watch out",
+          "audio": "emergency/xiaoxin.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Warning", "cn": "警告" },
+          "literalTranslation": "small heart"
+        },
+        {
+          "id": "em8",
+          "cn": "危险",
+          "pinyin": "Wēixiǎn",
+          "en": "Danger",
+          "audio": "emergency/weixian.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Warning of danger", "cn": "危险警告" },
+          "literalTranslation": "danger"
+        },
+        {
+          "id": "em9",
+          "cn": "我迷路了",
+          "pinyin": "Wǒ mílù le",
+          "en": "I'm lost",
+          "audio": "emergency/milu.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "When lost", "cn": "迷路时" },
+          "literalTranslation": "I lost road already"
+        },
+        {
+          "id": "em10",
+          "cn": "请帮帮我",
+          "pinyin": "Qǐng bāng bāng wǒ",
+          "en": "Please help me",
+          "audio": "emergency/bangbangwo.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking for help", "cn": "寻求帮助" },
+          "literalTranslation": "please help help me"
+        },
+        {
+          "id": "em11",
+          "cn": "我过敏",
+          "pinyin": "Wǒ guòmǐn",
+          "en": "I'm allergic",
+          "audio": "emergency/guomin.mp3",
+          "difficulty": 3,
+          "phase": "advanced",
+          "context": { "en": "Medical condition", "cn": "医疗状况" },
+          "literalTranslation": "I pass sensitive"
+        },
+        {
+          "id": "em12",
+          "cn": "报警",
+          "pinyin": "Bàojǐng",
+          "en": "Call the police",
+          "audio": "emergency/baojing.mp3",
+          "difficulty": 3,
+          "phase": "advanced",
+          "context": { "en": "Emergency", "cn": "紧急情况" },
+          "literalTranslation": "report police"
+        }
+      ]
+    },
+    {
+      "id": "work_school",
+      "name": { "en": "Work & School", "cn": "工作与学习" },
+      "icon": "💼",
+      "phase": "advanced",
+      "phrases": [
+        {
+          "id": "w1",
+          "cn": "你在哪里工作？",
+          "pinyin": "Nǐ zài nǎlǐ gōngzuò?",
+          "en": "Where do you work?",
+          "audio": "work/gongzuo.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking about work", "cn": "询问工作" },
+          "literalTranslation": "you at where work"
+        },
+        {
+          "id": "w2",
+          "cn": "我是学生",
+          "pinyin": "Wǒ shì xuésheng",
+          "en": "I'm a student",
+          "audio": "work/xuesheng.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Describing occupation", "cn": "描述职业" },
+          "literalTranslation": "I am study person"
+        },
+        {
+          "id": "w3",
+          "cn": "我是老师",
+          "pinyin": "Wǒ shì lǎoshī",
+          "en": "I'm a teacher",
+          "audio": "work/laoshi.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Describing occupation", "cn": "描述职业" },
+          "literalTranslation": "I am old teacher"
+        },
+        {
+          "id": "w4",
+          "cn": "我在学中文",
+          "pinyin": "Wǒ zài xué Zhōngwén",
+          "en": "I'm learning Chinese",
+          "audio": "work/xuezhongwen.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Talking about studies", "cn": "谈论学习" },
+          "literalTranslation": "I at study Chinese language"
+        },
+        {
+          "id": "w5",
+          "cn": "很难",
+          "pinyin": "Hěn nán",
+          "en": "Very difficult",
+          "audio": "work/hennan.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Describing difficulty", "cn": "描述难度" },
+          "literalTranslation": "very difficult"
+        },
+        {
+          "id": "w6",
+          "cn": "很容易",
+          "pinyin": "Hěn róngyì",
+          "en": "Very easy",
+          "audio": "work/rongyi.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Describing difficulty", "cn": "描述难度" },
+          "literalTranslation": "very easy"
+        },
+        {
+          "id": "w7",
+          "cn": "我懂了",
+          "pinyin": "Wǒ dǒng le",
+          "en": "I understand",
+          "audio": "work/dongle.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Showing understanding", "cn": "表示理解" },
+          "literalTranslation": "I understand already"
+        },
+        {
+          "id": "w8",
+          "cn": "我不懂",
+          "pinyin": "Wǒ bù dǒng",
+          "en": "I don't understand",
+          "audio": "work/budong.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Showing confusion", "cn": "表示不理解" },
+          "literalTranslation": "I not understand"
+        },
+        {
+          "id": "w9",
+          "cn": "请再说一遍",
+          "pinyin": "Qǐng zàishuō yībiàn",
+          "en": "Please say it again",
+          "audio": "work/zaishuo.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking for repetition", "cn": "要求重复" },
+          "literalTranslation": "please again say one time"
+        },
+        {
+          "id": "w10",
+          "cn": "我明白",
+          "pinyin": "Wǒ míngbai",
+          "en": "I understand / I see",
+          "audio": "work/mingbai.mp3",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Showing comprehension", "cn": "表示明白" },
+          "literalTranslation": "I bright white"
+        },
+        {
+          "id": "w11",
+          "cn": "努力",
+          "pinyin": "Nǔlì",
+          "en": "Work hard / Make effort",
+          "audio": "work/nuli.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Encouragement", "cn": "鼓励" },
+          "literalTranslation": "exert strength"
+        },
+        {
+          "id": "w12",
+          "cn": "成功",
+          "pinyin": "Chénggōng",
+          "en": "Success / Succeed",
+          "audio": "work/chenggong.mp3",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Achievement", "cn": "成就" },
+          "literalTranslation": "become merit"
         }
       ]
     }

@@ -166,6 +166,29 @@
                 </div>
               </div>
 
+              <!-- Category Selection -->
+              <div class="mt-6 pt-6 border-t border-gray-200">
+                <label class="block text-sm font-medium text-gray-700 mb-3">
+                  Select Category / 选择分类
+                </label>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                  <button
+                    v-for="(category, index) in categories"
+                    :key="category.id"
+                    @click="selectedCategoryIndex = index"
+                    :class="['p-3 rounded-lg border-2 text-sm font-medium transition-all text-left',
+                             selectedCategoryIndex === index
+                               ? 'border-purple-600 bg-purple-50 text-purple-700'
+                               : 'border-gray-200 hover:border-purple-300']"
+                  >
+                    <div class="flex items-center gap-2">
+                      <span class="text-lg">{{ category.icon }}</span>
+                      <span class="text-xs">{{ category.display }}</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
               <!-- Save Button -->
               <div class="mt-6 flex gap-3">
                 <BilingualButton
@@ -272,6 +295,20 @@ const phrasesStore = usePhrasesStore()
 const inputText = ref('')
 const direction = ref('en-to-cn')
 const translation = ref(null)
+
+// Category selection
+const categories = ref([
+  { id: 'greetings', icon: '👋', display: 'Greetings / 问候与基础' },
+  { id: 'numbers_time', icon: '🕐', display: 'Numbers & Time / 数字与时间' },
+  { id: 'family_social', icon: '👨‍👩‍👧‍👦', display: 'Family & Social / 家庭与社交' },
+  { id: 'food_dining', icon: '🍜', display: 'Food & Dining / 美食与用餐' },
+  { id: 'getting_around', icon: '🚶', display: 'Getting Around / 出行导航' },
+  { id: 'shopping', icon: '🛍️', display: 'Shopping / 购物' },
+  { id: 'emotions', icon: '😊', display: 'Emotions / 情感与感受' },
+  { id: 'emergency', icon: '🆘', display: 'Emergency / 紧急情况与健康' },
+  { id: 'work_school', icon: '💼', display: 'Work & School / 工作与学习' }
+])
+const selectedCategoryIndex = ref(0)
 const aiLoading = computed(() => deepSeek.loading.value)
 const aiError = computed(() => deepSeek.error.value)
 const hasApiKey = computed(() => !!deepSeek.getApiKey())
@@ -301,6 +338,8 @@ function savePhrase() {
   const currentUser = familyStore.currentUser
   if (!currentUser) return
 
+  const selectedCategory = categories.value[selectedCategoryIndex.value]
+
   const newPhrase = {
     id: crypto.randomUUID(),
     cn: direction.value === 'en-to-cn' ? translation.value.chinese : inputText.value,
@@ -308,7 +347,8 @@ function savePhrase() {
     en: direction.value === 'en-to-cn' ? inputText.value : translation.value.english,
     difficulty: 2,
     phase: 'custom',
-    category: 'custom',
+    category: selectedCategory.id,
+    categoryIcon: selectedCategory.icon,
     context: {
       en: translation.value.context || '',
       cn: translation.value.contextCN || ''
