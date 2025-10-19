@@ -4,7 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/famlingo/', // GitHub Pages path
+  base: '/', // Production at root domain
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
