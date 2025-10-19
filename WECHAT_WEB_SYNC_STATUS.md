@@ -1,11 +1,11 @@
 # WeChat ↔ Web Sync Status
 
-**Last Updated:** 2025-10-19
+**Last Updated:** 2025-10-19 (Updated)
 **Purpose:** Track feature parity between FamLingo WeChat mini program and web app
 
 ---
 
-## ✅ Completed Sync (2025-10-19)
+## ✅ Completed Sync (2025-10-19 - UPDATED)
 
 ### 1. Listen Mode Feature - FULLY PORTED ✅
 **Status:** Complete implementation from WeChat to Web
@@ -56,12 +56,56 @@
 
 ---
 
+### 3. Phrase Data Sync ✅ **NEW!**
+**Status:** Complete phrase library synced from WeChat to Web
+
+**Changes:**
+- `phrases.json` expanded from **389 lines → 1155 lines**
+- Phrase count: **~34 phrases → ~100+ phrases**
+- All new categories with full bilingual content
+- Includes phases: foundation, building, advanced
+- Each phrase has: id, cn, pinyin, en, audio, difficulty, phase, context, literalTranslation
+
+**Categories Synced:**
+- 👋 Greetings & Basics
+- 🕐 Numbers & Time
+- 👨‍👩‍👧‍👦 Family & Social
+- 🍜 Food & Dining
+- 🚶 Getting Around
+- 🛍️ Shopping
+- 😊 Emotions & Feelings
+- 🆘 Emergency & Health
+- 💼 Work & School
+
+---
+
+### 4. My Common Phrases Category Feature ✅ **NEW!**
+**Status:** Category selection fully ported from WeChat to Web
+
+**Features Added:**
+- Category selector UI with 9 categories
+- Visual category selection with icons and bilingual labels
+- Selected category saved with each custom phrase
+- Category icon stored in phrase data for display
+- Grid layout matching WeChat UX patterns
+
+**Implementation:**
+- Added category selection before "Save Phrase" button
+- Categories array with id, icon, and display name
+- `selectedCategoryIndex` state management
+- Updates phrase save logic to include category and categoryIcon
+
+**File Modified:**
+- `src/views/MyPhrasesView.vue` - Added 40+ lines for category UI and logic
+
+---
+
 ## 📋 Feature Comparison Matrix (Updated)
 
 | Feature | Web | WeChat | Sync Status |
 |---------|-----|--------|-------------|
 | **Core Features** |
-| 42 Bilingual Phrases | ✅ | ✅ | ✅ Identical data |
+| 100+ Bilingual Phrases | ✅ | ✅ | ✅ **NEWLY SYNCED** |
 | Voice Recording | ✅ | ✅ | ✅ Both use Whisper + DeepSeek |
 | Text Practice | ✅ | ✅ | ✅ Synced |
 | **Listen Mode** | ✅ | ✅ | ✅ **NEWLY SYNCED** |
@@ -78,6 +122,7 @@
 | Listen Mode | ✅ | ✅ | ✅ **NEWLY SYNCED** |
 | Chat & Translate | ✅ | ✅ | ✅ Synced |
 | My Phrases | ✅ | ✅ | ✅ Synced |
+| My Phrases Categories | ✅ | ✅ | ✅ **NEWLY SYNCED** |
 | Settings/Sync | ✅ | ✅ | ✅ Synced |
 | Profile | ✅ | ✅ | ✅ Synced |
 
@@ -197,8 +242,22 @@ npm run dev
 
 ## ✨ Summary
 
-The FamLingo web and WeChat versions are now **highly aligned** with the addition of Listen Mode to the web version. The only remaining differences are minor UI enhancements that don't affect core functionality.
+The FamLingo web and WeChat versions are now **FULLY ALIGNED** with all major features synced!
 
-**Key Achievement:** Listen Mode successfully ported from WeChat to Web with full feature parity!
+**Today's Achievements (2025-10-19):**
+1. ✅ Listen Mode successfully ported from WeChat to Web
+2. ✅ Phrase library synced (~34 → 100+ phrases)
+3. ✅ My Common Phrases category selection added
+4. ✅ API updated to point to Alibaba Cloud production
 
-**Status:** ✅ **Ready for testing and validation**
+**Phrase Data:**
+- **3x increase** in phrase count
+- All 9 categories fully populated
+- Complete bilingual content with pinyin, context, literal translations
+
+**Feature Completeness:**
+- Listen Mode: Full hands-free pronunciation practice
+- Category Selection: 9 categories for custom phrases
+- 100+ curated phrases across all difficulty levels
+
+**Status:** ✅ **FULLY SYNCED - Ready for testing and production deployment**
