@@ -1,6 +1,9 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-3xl w-full">
+      <!-- Subscription Banner -->
+      <SubscriptionBanner />
+
       <!-- Header with Direction Toggle -->
       <div class="flex items-center justify-between mb-8">
         <BilingualButton
@@ -354,6 +357,7 @@ import { useVoiceRecording } from '../composables/useVoiceRecording'
 import { usePronunciationAPI } from '../composables/usePronunciationAPI'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
+import SubscriptionBanner from '../components/SubscriptionBanner.vue'
 
 const router = useRouter()
 const phrasesStore = usePhrasesStore()
@@ -550,7 +554,7 @@ async function analyzeVoicePronunciation() {
 
     const currentUser = familyStore.currentUser
     if (!currentUser) {
-      throw new Error('No user selected')
+      throw new Error('No family member selected. Please go to the Dashboard and click on a family member to select them, then try again.')
     }
 
     // Use targetLanguage to determine what language to practice
@@ -597,8 +601,9 @@ async function analyzeVoicePronunciation() {
   } catch (error) {
     console.error('❌ Voice pronunciation analysis failed:', error)
 
-    // Show error but don't break the flow
-    alert('Failed to analyze pronunciation. Please check that the backend API is running.')
+    // Show specific error message
+    const errorMessage = error.message || 'Failed to analyze pronunciation. Please check that the backend API is running.'
+    alert(errorMessage)
 
     // Reset to allow retry
     showingAnswer.value = false

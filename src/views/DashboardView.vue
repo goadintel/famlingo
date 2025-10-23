@@ -278,6 +278,31 @@ onMounted(async () => {
   console.log('👥 Current user:', familyStore.currentUser)
   console.log('📚 Categories:', phrasesStore.categories)
 
+  // Auto-create default user if no family exists (for solo users)
+  if (!familyStore.isFamilyInitialized) {
+    console.log('🎯 No family found - creating default solo user...')
+    familyStore.initializeFamily('My Family', '我的家庭')
+    const userId = familyStore.addUser({
+      nameEn: 'Solo Learner',
+      nameCn: '学习者',
+      avatar: '🎓',
+      ageGroup: 'adult',
+      learningDirection: 'en-to-cn',
+      targetLanguage: 'zh-CN',
+      level: 'beginner'
+    })
+    familyStore.switchUser(userId)
+    console.log('✅ Default solo user created and activated')
+  }
+
+  // Auto-select first family member if no one is currently selected
+  if (!familyStore.currentUser && familyStore.family.users.length > 0) {
+    console.log('🎯 No user selected - auto-selecting first family member...')
+    const firstUserId = familyStore.family.users[0].id
+    familyStore.switchUser(firstUserId)
+    console.log('✅ Auto-selected:', familyStore.family.users[0].name.en)
+  }
+
   // Load custom phrases for current user
   const currentUserId = familyStore.currentUser?.id
   if (currentUserId) {
