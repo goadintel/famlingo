@@ -21,14 +21,14 @@
             :class="['px-4 py-2 rounded-md font-medium transition-all text-sm',
                      direction === 'cn-to-en' ? 'bg-white shadow text-purple-700' : 'text-gray-600']"
           >
-            🇨🇳 → 🇺🇸
+            🇨🇳 → 🇬🇧
           </button>
           <button
             @click="direction = 'en-to-cn'"
             :class="['px-4 py-2 rounded-md font-medium transition-all text-sm',
                      direction === 'en-to-cn' ? 'bg-white shadow text-purple-700' : 'text-gray-600']"
           >
-            🇺🇸 → 🇨🇳
+            🇬🇧 → 🇨🇳
           </button>
         </div>
 

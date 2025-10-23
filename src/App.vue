@@ -5,7 +5,16 @@
 </template>
 
 <script setup>
-// Main app component - routes handle all views
+import { onMounted } from 'vue'
+import { useAdminStore } from './stores/admin'
+
+// Initialize admin store on app load
+const adminStore = useAdminStore()
+
+onMounted(() => {
+  adminStore.loadFromStorage()
+  console.log('✅ Admin store initialized')
+})
 </script>
 
 <style>

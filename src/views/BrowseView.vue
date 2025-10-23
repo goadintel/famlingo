@@ -100,7 +100,7 @@
                 <strong>Context / 语境:</strong>
               </div>
               <div class="text-sm text-gray-700 mb-2">
-                🇺🇸 {{ phrase.context.en }}
+                🇬🇧 {{ phrase.context.en }}
               </div>
               <div class="text-sm text-gray-700 mb-2">
                 🇨🇳 {{ phrase.context.cn }}

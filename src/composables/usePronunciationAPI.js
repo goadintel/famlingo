@@ -2,14 +2,16 @@
 // Connects to the backend API for voice analysis
 
 import { ref } from 'vue'
+import { useUsageTracking } from './useUsageTracking'
 
 export function usePronunciationAPI() {
   const analyzing = ref(false)
   const error = ref(null)
+  const usageTracking = useUsageTracking()
 
-  // Get API URL from localStorage or use default
+  // Get API URL from environment variable or localStorage or use default
   function getApiUrl() {
-    return localStorage.getItem('famlingo_api_url') || 'http://localhost:3000'
+    return import.meta.env.VITE_API_URL || localStorage.getItem('famlingo_api_url') || 'http://localhost:3001'
   }
 
   // Set API URL
@@ -27,6 +29,14 @@ export function usePronunciationAPI() {
   async function analyzePronunciation(audioBlob, phrase, region = 'auto') {
     analyzing.value = true
     error.value = null
+
+    // Check usage limits before proceeding
+    const limitCheck = usageTracking.checkPronunciationLimit()
+    if (!limitCheck.allowed) {
+      error.value = limitCheck.message
+      analyzing.value = false
+      throw new Error(limitCheck.message)
+    }
 
     try {
       const apiUrl = getApiUrl()
@@ -54,7 +64,7 @@ export function usePronunciationAPI() {
       const expectedPhrase = phrase.cn || phrase.en
 
       console.log(`🤖 Analyzing ${language} pronunciation...`)
-      const analysisResponse = await fetch(`${apiUrl}/api/pronunciation/analyze-pronunciation`, {
+      const analysisResponse = await fetch(`${apiUrl}/api/analyze-pronunciation`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -75,6 +85,9 @@ export function usePronunciationAPI() {
 
       const analysisData = await analysisResponse.json()
       console.log('✅ Analysis complete:', analysisData)
+
+      // Track usage after successful analysis
+      usageTracking.trackPronunciation(0.004)
 
       return {
         transcription: analysisData.transcription,

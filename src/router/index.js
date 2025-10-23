@@ -10,6 +10,7 @@ import SettingsView from '../views/SettingsView.vue'
 import MyPhrasesView from '../views/MyPhrasesView.vue'
 import ChatView from '../views/ChatView.vue'
 import ListenView from '../views/ListenView.vue'
+import AdminView from '../views/AdminView.vue'
 
 const routes = [
   {
@@ -63,6 +64,12 @@ const routes = [
     name: 'listen',
     component: ListenView,
     meta: { requiresFamily: true }
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: AdminView
+    // No requiresFamily - admin access is separate
   }
 ]
 
@@ -72,7 +79,7 @@ const router = createRouter({
 })
 
 // Navigation guard - redirect to setup if family not initialized
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const familyStore = useFamilyStore()
 
   if (to.meta.requiresFamily && !familyStore.isFamilyInitialized) {
