@@ -182,6 +182,12 @@
       <div class="change-setup" @click="showSetup">
         <span>🔄 Change Settings</span>
       </div>
+
+      <!-- Wake Lock Status -->
+      <div v-if="isPlaying" class="wake-lock-notice">
+        <span class="icon">🔒</span>
+        <span class="text">Screen lock disabled - listening mode active</span>
+      </div>
     </div>
   </div>
 </template>
@@ -226,6 +232,7 @@ const setupVisible = ref(true)
 let audioContext = null
 let currentAudio = null
 let playbackTimeout = null
+let wakeLock = null
 
 // Load categories
 onMounted(() => {
@@ -236,6 +243,7 @@ onMounted(() => {
 // Cleanup on unmount
 onUnmounted(() => {
   stopPlayback()
+  releaseWakeLock()
 })
 
 function loadCategories() {
@@ -305,6 +313,10 @@ async function startListening() {
 
   isPlaying.value = true
   isPaused.value = false
+
+  // Request wake lock to keep screen on
+  await requestWakeLock()
+
   await playCurrentPhrase()
 }
 
@@ -312,11 +324,13 @@ function pauseListening() {
   isPlaying.value = false
   isPaused.value = true
   stopPlayback()
+  releaseWakeLock()
 }
 
-function resumeListening() {
+async function resumeListening() {
   isPlaying.value = true
   isPaused.value = false
+  await requestWakeLock()
   playCurrentPhrase()
 }
 
@@ -384,9 +398,38 @@ async function playText(text, lang) {
 
 function getVoice(lang) {
   const voices = window.speechSynthesis.getVoices()
-  // Try to find a voice matching the language
-  const matchingVoice = voices.find(v => v.lang.startsWith(lang.split('-')[0]))
-  return matchingVoice || voices[0]
+
+  // Determine if we want male or female voice based on user selection
+  const wantFemale = voice.value === 'alloy'
+
+  // Filter voices by language first
+  const langVoices = voices.filter(v => v.lang.startsWith(lang.split('-')[0]))
+
+  if (langVoices.length === 0) {
+    return voices[0] // Fallback to first available voice
+  }
+
+  // Try to find a voice matching the desired gender
+  // Female voices often have these keywords
+  const femaleKeywords = ['female', 'woman', 'samantha', 'alloy', 'nova', 'shimmer', 'karen', 'victoria', 'fiona']
+  // Male voices often have these keywords
+  const maleKeywords = ['male', 'man', 'echo', 'onyx', 'daniel', 'alex', 'fred', 'diego']
+
+  let selectedVoice
+  if (wantFemale) {
+    // Try to find a female voice
+    selectedVoice = langVoices.find(v =>
+      femaleKeywords.some(keyword => v.name.toLowerCase().includes(keyword))
+    )
+  } else {
+    // Try to find a male voice
+    selectedVoice = langVoices.find(v =>
+      maleKeywords.some(keyword => v.name.toLowerCase().includes(keyword))
+    )
+  }
+
+  // Fallback to first voice of that language if no gender match found
+  return selectedVoice || langVoices[0]
 }
 
 function sleep(ms) {
@@ -452,6 +495,40 @@ function showSetup() {
   isPlaying.value = false
   isPaused.value = false
   setupVisible.value = true
+  releaseWakeLock()
+}
+
+// Wake Lock API to keep screen on during playback
+async function requestWakeLock() {
+  try {
+    // Check if Wake Lock API is supported
+    if ('wakeLock' in navigator) {
+      wakeLock = await navigator.wakeLock.request('screen')
+      console.log('✅ Wake Lock acquired - screen will stay on')
+
+      // Handle wake lock release (e.g., when screen locks anyway)
+      wakeLock.addEventListener('release', () => {
+        console.log('⚠️ Wake Lock released')
+      })
+    } else {
+      console.warn('⚠️ Wake Lock API not supported on this device')
+    }
+  } catch (err) {
+    console.error('❌ Failed to acquire Wake Lock:', err)
+  }
+}
+
+function releaseWakeLock() {
+  if (wakeLock !== null) {
+    wakeLock.release()
+      .then(() => {
+        wakeLock = null
+        console.log('🔓 Wake Lock released manually')
+      })
+      .catch((err) => {
+        console.error('❌ Failed to release Wake Lock:', err)
+      })
+  }
 }
 </script>
 
@@ -815,5 +892,27 @@ function showSetup() {
 
 .change-setup:hover {
   text-decoration: underline;
+}
+
+.wake-lock-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+  border: 1px solid #4CAF50;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 0.85em;
+  color: #2E7D32;
+}
+
+.wake-lock-notice .icon {
+  font-size: 1.2em;
+}
+
+.wake-lock-notice .text {
+  font-weight: 500;
 }
 </style>
