@@ -75,7 +75,7 @@
                 :class="['flex-1 py-3 rounded-lg border-2 font-medium transition-all',
                          direction === 'en-to-cn' ? 'border-purple-600 bg-purple-50 text-purple-700' : 'border-gray-200 hover:border-purple-300']"
               >
-                🇬🇧 → 🇨🇳
+                EN → 🇨🇳
                 <div class="text-sm">English to Chinese</div>
               </button>
               <button
@@ -83,7 +83,7 @@
                 :class="['flex-1 py-3 rounded-lg border-2 font-medium transition-all',
                          direction === 'cn-to-en' ? 'border-purple-600 bg-purple-50 text-purple-700' : 'border-gray-200 hover:border-purple-300']"
               >
-                🇨🇳 → 🇬🇧
+                🇨🇳 → EN
                 <div class="text-sm">Chinese to English</div>
               </button>
             </div>

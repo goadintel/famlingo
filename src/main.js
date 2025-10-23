@@ -8,7 +8,7 @@ import { useFamilyStore } from './stores/family'
 console.log('🚀 FamLingo (家语) v0.1.0 - Family Language Learning')
 console.log('📚 Bilingual UI as Pedagogy - Every element teaches!')
 console.log('👨‍👩‍👧‍👦 Multi-user family system - Up to 10 users')
-console.log('🇨🇳🇬🇧 Bidirectional learning - CN→EN and EN→CN')
+console.log('🇨🇳 CN ⟷ EN Bidirectional learning')
 
 const app = createApp(App)
 const pinia = createPinia()

@@ -100,10 +100,10 @@
                 <strong>Context / 语境:</strong>
               </div>
               <div class="text-sm text-gray-700 mb-2">
-                🇬🇧 {{ phrase.context.en }}
+                EN: {{ phrase.context.en }}
               </div>
               <div class="text-sm text-gray-700 mb-2">
-                🇨🇳 {{ phrase.context.cn }}
+                🇨🇳: {{ phrase.context.cn }}
               </div>
               <div v-if="phrase.literalTranslation" class="text-xs text-gray-500 italic">
                 Literal: "{{ phrase.literalTranslation }}"

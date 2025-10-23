@@ -238,7 +238,7 @@
               :class="['py-4 rounded-lg border-2 font-medium transition-all',
                        userDirection === 'cn-to-en' ? 'border-purple-600 bg-purple-50 text-purple-700' : 'border-gray-200 hover:border-purple-300']"
             >
-              <div class="text-xl mb-1">🇨🇳 → 🇬🇧</div>
+              <div class="text-xl mb-1">🇨🇳 → EN</div>
               <div>Chinese → English</div>
               <div class="text-sm">中文 → 英文</div>
             </button>
@@ -247,7 +247,7 @@
               :class="['py-4 rounded-lg border-2 font-medium transition-all',
                        userDirection === 'en-to-cn' ? 'border-purple-600 bg-purple-50 text-purple-700' : 'border-gray-200 hover:border-purple-300']"
             >
-              <div class="text-xl mb-1">🇬🇧 → 🇨🇳</div>
+              <div class="text-xl mb-1">EN → 🇨🇳</div>
               <div>English → Chinese</div>
               <div class="text-sm">英文 → 中文</div>
             </button>
