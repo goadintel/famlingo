@@ -121,7 +121,7 @@
                 ✅ Recording complete! {{voiceRecording.recordingDuration.value}}s
               </div>
               <div v-else class="text-gray-600">
-                🎙️ Press and hold the button to record
+                🎙️ Click to start recording
               </div>
             </div>
 
@@ -130,26 +130,30 @@
               {{ voiceRecording.error.value }}
             </div>
 
-            <!-- Record Button -->
+            <!-- Record Button (Toggle) -->
             <button
-              @mousedown="startVoiceRecording"
-              @mouseup="stopVoiceRecording"
-              @touchstart="startVoiceRecording"
-              @touchend="stopVoiceRecording"
+              @click="handleRecordingToggle"
               :disabled="pronunciationAPI.analyzing.value"
               :class="['w-48 h-48 mx-auto rounded-full font-bold text-xl transition-all shadow-lg',
-                       voiceRecording.isRecording.value
-                         ? 'bg-red-500 text-white scale-110 shadow-2xl'
+                       pronunciationAPI.analyzing.value
+                         ? 'bg-gray-400 text-white cursor-not-allowed'
+                         : voiceRecording.isRecording.value
+                         ? 'bg-red-500 text-white scale-110 shadow-2xl animate-pulse'
+                         : voiceRecording.hasRecording.value
+                         ? 'bg-green-500 text-white hover:scale-105'
                          : 'bg-gradient-to-br from-purple-600 to-pink-600 text-white hover:scale-105']"
             >
               <div v-if="pronunciationAPI.analyzing.value">
                 🤖<br>Analyzing...
               </div>
               <div v-else-if="voiceRecording.isRecording.value">
-                🔴<br>Release to stop
+                🔴<br>Click to Stop
+              </div>
+              <div v-else-if="voiceRecording.hasRecording.value">
+                ✅<br>Recording Ready
               </div>
               <div v-else>
-                🎙️<br>Press & Hold<br>to Record
+                🎙️<br>Click to Record
               </div>
             </button>
 
@@ -529,21 +533,23 @@ function playPhrase() {
   phrasesStore.playAudio(text, language)
 }
 
-// Voice recording functions
-async function startVoiceRecording() {
-  voiceRecording.resetRecording()
-  await voiceRecording.startRecording()
-}
+// Voice recording functions (toggle-based)
+async function handleRecordingToggle() {
+  if (voiceRecording.isRecording.value) {
+    // Stop recording
+    voiceRecording.stopRecording()
 
-async function stopVoiceRecording() {
-  voiceRecording.stopRecording()
+    // Wait a moment for the recording to be processed
+    await new Promise(resolve => setTimeout(resolve, 300))
 
-  // Wait a moment for the recording to be processed
-  await new Promise(resolve => setTimeout(resolve, 300))
-
-  // Analyze pronunciation with backend API
-  if (voiceRecording.hasRecording.value && voiceRecording.audioBlob.value) {
-    await analyzeVoicePronunciation()
+    // Analyze pronunciation with backend API
+    if (voiceRecording.hasRecording.value && voiceRecording.audioBlob.value) {
+      await analyzeVoicePronunciation()
+    }
+  } else {
+    // Start new recording
+    voiceRecording.resetRecording()
+    await voiceRecording.startRecording()
   }
 }
 

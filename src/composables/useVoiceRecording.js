@@ -156,6 +156,17 @@ export function useVoiceRecording() {
   }
 
   /**
+   * Toggle recording (start/stop with single click)
+   */
+  function toggleRecording() {
+    if (isRecording.value) {
+      stopRecording()
+    } else {
+      startRecording()
+    }
+  }
+
+  /**
    * Check if browser supports audio recording
    */
   function isSupported() {
@@ -174,6 +185,7 @@ export function useVoiceRecording() {
     // Methods
     startRecording,
     stopRecording,
+    toggleRecording,
     playRecording,
     resetRecording,
     uploadRecording,
