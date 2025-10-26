@@ -49,23 +49,44 @@ https://famlingo-api.com
 
 ## 🚀 Deployment Steps
 
-### 1. Build Production Bundle
+⚠️ **IMPORTANT SERVER NOTES:**
+- **Web App Server:** DigitalOcean at 128.199.245.225 (famlingo-api.com)
+- **API Server (China):** Alibaba Cloud at 139.224.49.63 (for China compliance)
+- **DO NOT confuse the two servers!** The web app and main API are on DigitalOcean.
+- Alibaba Cloud is ONLY for the China-authorized API endpoint.
+
+### Recommended: Use Deployment Script (Prevents Errors!)
 
 ```bash
 cd /home/cmantra/famlingo
+./deploy.sh
+```
+
+This script:
+- ✅ Builds production bundle
+- ✅ ALWAYS deploys to correct path: `/var/www/famlingo-web/`
+- ✅ Shows confirmation before deploying
+- ✅ Prevents deployment to wrong directory
+
+### Manual Deployment (Not Recommended)
+
+If you must deploy manually:
+
+**Step 1: Build**
+```bash
 npm run build
 ```
 
-Creates optimized static files in `dist/` folder.
-
-### 2. Upload to Digital Ocean
-
+**Step 2: Deploy** (⚠️ **USE CORRECT PATH!**)
 ```bash
-rsync -avz --progress \
+rsync -avz --delete \
   -e "ssh -i ~/.ssh/famlingo-digitalocean" \
-  /home/cmantra/famlingo/dist/ \
+  dist/ \
   root@128.199.245.225:/var/www/famlingo-web/
 ```
+
+⚠️ **CRITICAL**: The path is `/var/www/famlingo-web/` (with trailing slash!)
+❌ **WRONG**: `/var/www/famlingo` (this directory exists but is NOT used by nginx!)
 
 ### 3. Configure Nginx
 
