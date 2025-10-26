@@ -199,6 +199,10 @@
             <div class="text-3xl font-bold text-gray-800">
               {{ direction === 'cn-to-en' ? currentPhrase.en : currentPhrase.cn }}
             </div>
+            <!-- Show pinyin for EN → CN direction -->
+            <div v-if="direction === 'en-to-cn'" class="text-xl text-gray-500 mt-3">
+              {{ currentPhrase.pinyin }}
+            </div>
           </div>
 
           <!-- User's Answer (if they typed something) -->
