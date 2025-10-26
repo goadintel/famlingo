@@ -567,7 +567,7 @@ async function handleRecordingToggle() {
 
 async function analyzeVoicePronunciation() {
   try {
-    showingAnswer.value = true
+    // Don't show answer yet - keep the analyzing UI visible
     sessionStats.value.total++
 
     const currentUser = familyStore.currentUser
@@ -615,6 +615,9 @@ async function analyzeVoicePronunciation() {
     sessionStats.value.accuracy = Math.round((sessionStats.value.correct / sessionStats.value.total) * 100)
 
     console.log('✅ Voice pronunciation analyzed:', result)
+
+    // NOW show the answer after analysis is complete
+    showingAnswer.value = true
 
   } catch (error) {
     console.error('❌ Voice pronunciation analysis failed:', error)
