@@ -113,7 +113,11 @@
           <div v-else class="space-y-4">
             <!-- Recording Status -->
             <div class="text-center mb-4">
-              <div v-if="voiceRecording.isRecording.value" class="flex items-center justify-center gap-2 text-red-600 font-semibold">
+              <div v-if="pronunciationAPI.analyzing.value" class="flex items-center justify-center gap-2 text-blue-600 font-semibold">
+                <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+                🤖 Analyzing your pronunciation... {{voiceRecording.recordingDuration.value}}s recorded
+              </div>
+              <div v-else-if="voiceRecording.isRecording.value" class="flex items-center justify-center gap-2 text-red-600 font-semibold">
                 <div class="w-3 h-3 bg-red-600 rounded-full animate-pulse"></div>
                 Recording... {{voiceRecording.recordingDuration.value}}s
               </div>
@@ -136,7 +140,7 @@
               :disabled="pronunciationAPI.analyzing.value"
               :class="['w-48 h-48 mx-auto rounded-full font-bold text-xl transition-all shadow-lg',
                        pronunciationAPI.analyzing.value
-                         ? 'bg-gray-400 text-white cursor-not-allowed'
+                         ? 'bg-blue-500 text-white cursor-wait animate-pulse'
                          : voiceRecording.isRecording.value
                          ? 'bg-red-500 text-white scale-110 shadow-2xl animate-pulse'
                          : voiceRecording.hasRecording.value
@@ -144,7 +148,8 @@
                          : 'bg-gradient-to-br from-purple-600 to-pink-600 text-white hover:scale-105']"
             >
               <div v-if="pronunciationAPI.analyzing.value">
-                🤖<br>Analyzing...
+                🤖<br>Analyzing...<br>
+                <span class="text-sm">Please wait</span>
               </div>
               <div v-else-if="voiceRecording.isRecording.value">
                 🔴<br>Click to Stop
@@ -157,17 +162,17 @@
               </div>
             </button>
 
-            <!-- Play Recording -->
+            <!-- Play Recording - Show AFTER analysis completes -->
             <button
-              v-if="voiceRecording.hasRecording.value && !pronunciationAPI.analyzing.value"
+              v-if="showingAnswer && userAnswer"
               @click="voiceRecording.playRecording()"
-              class="text-purple-600 hover:text-purple-700 font-medium text-sm"
+              class="mt-4 text-purple-600 hover:text-purple-700 font-medium text-sm px-4 py-2 border border-purple-300 rounded-lg hover:bg-purple-50"
             >
               ▶️ Play my recording / 播放录音
             </button>
 
-            <!-- Analyzing Indicator -->
-            <div v-if="pronunciationAPI.analyzing.value" class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <!-- Analyzing Status Message -->
+            <div v-if="pronunciationAPI.analyzing.value" class="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
               <div class="flex items-center justify-center gap-3">
                 <div class="animate-spin text-2xl">🤖</div>
                 <div class="text-blue-700 font-medium">
