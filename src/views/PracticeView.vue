@@ -495,6 +495,9 @@ async function nextPhrase() {
     aiFeedback.value = null
     aiScoring.value = false
 
+    // Reset voice recording state
+    voiceRecording.resetRecording()
+
     // Focus input
     await nextTick()
     inputRef.value?.focus()
