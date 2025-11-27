@@ -141,6 +141,9 @@
           <p class="english">{{ currentPhrase?.en }}</p>
           <p class="chinese">{{ currentPhrase?.cn }}</p>
           <p class="pinyin">{{ currentPhrase?.pinyin }}</p>
+          <p v-if="currentPhrase?.literalTranslation" class="literal">
+            "{{ currentPhrase?.literalTranslation }}"
+          </p>
         </div>
 
         <!-- Progress -->
@@ -783,6 +786,13 @@ function releaseWakeLock() {
   font-size: 1.2em;
   color: #666;
   font-style: italic;
+}
+
+.literal {
+  font-size: 0.95em;
+  color: #888;
+  font-style: italic;
+  margin-top: 8px;
 }
 
 .progress-bar {

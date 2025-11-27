@@ -1,12 +1,15 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+  <AuthGate>
+    <div id="app">
+      <router-view />
+    </div>
+  </AuthGate>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
 import { useAdminStore } from './stores/admin'
+import AuthGate from './components/AuthGate.vue'
 
 // Initialize admin store on app load
 const adminStore = useAdminStore()

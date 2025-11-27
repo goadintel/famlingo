@@ -1,7 +1,7 @@
 {
-  "version": "2.0",
-  "lastUpdated": "2025-10-14",
-  "totalPhrases": 100,
+  "version": "3.0",
+  "lastUpdated": "2025-11-28",
+  "totalPhrases": 205,
   "phases": {
     "foundation": {
       "name": { "en": "Foundation Phase", "cn": "基础阶段" },
@@ -23,6 +23,514 @@
     }
   },
   "categories": [
+    {
+      "id": "top50",
+      "name": { "en": "Top 50 Essential Phrases", "cn": "50个必备短语" },
+      "icon": "⭐",
+      "phase": "foundation",
+      "phrases": [
+        {
+          "id": "t1",
+          "cn": "你好",
+          "pinyin": "Nǐ hǎo",
+          "en": "Hello",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Most common greeting", "cn": "最常用的问候语" },
+          "literalTranslation": "you good"
+        },
+        {
+          "id": "t2",
+          "cn": "谢谢",
+          "pinyin": "Xièxiè",
+          "en": "Thank you",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Express gratitude", "cn": "表达感谢" },
+          "literalTranslation": "thank thank"
+        },
+        {
+          "id": "t3",
+          "cn": "不客气",
+          "pinyin": "Bú kèqi",
+          "en": "You're welcome",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Response to thank you", "cn": "回应谢谢" },
+          "literalTranslation": "not polite"
+        },
+        {
+          "id": "t4",
+          "cn": "对不起",
+          "pinyin": "Duìbuqǐ",
+          "en": "Sorry",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Apologizing", "cn": "道歉" },
+          "literalTranslation": "face not up"
+        },
+        {
+          "id": "t5",
+          "cn": "没关系",
+          "pinyin": "Méi guānxi",
+          "en": "No problem / It's okay",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Reassuring someone", "cn": "安慰他人" },
+          "literalTranslation": "no relation"
+        },
+        {
+          "id": "t6",
+          "cn": "再见",
+          "pinyin": "Zàijiàn",
+          "en": "Goodbye",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Parting phrase", "cn": "告别用语" },
+          "literalTranslation": "again see"
+        },
+        {
+          "id": "t7",
+          "cn": "早上好",
+          "pinyin": "Zǎoshang hǎo",
+          "en": "Good morning",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Morning greeting", "cn": "早晨问候" },
+          "literalTranslation": "morning good"
+        },
+        {
+          "id": "t8",
+          "cn": "晚安",
+          "pinyin": "Wǎn'ān",
+          "en": "Good night",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Before sleeping", "cn": "睡前说" },
+          "literalTranslation": "night peace"
+        },
+        {
+          "id": "t9",
+          "cn": "是",
+          "pinyin": "Shì",
+          "en": "Yes / Correct",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Affirmative response", "cn": "肯定回答" },
+          "literalTranslation": "is"
+        },
+        {
+          "id": "t10",
+          "cn": "不是",
+          "pinyin": "Bú shì",
+          "en": "No / Incorrect",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Negative response", "cn": "否定回答" },
+          "literalTranslation": "not is"
+        },
+        {
+          "id": "t11",
+          "cn": "我不会说中文",
+          "pinyin": "Wǒ bú huì shuō zhōngwén",
+          "en": "I can't speak Chinese",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Explaining language ability", "cn": "解释语言能力" },
+          "literalTranslation": "I not able speak Chinese language"
+        },
+        {
+          "id": "t12",
+          "cn": "请慢一点说",
+          "pinyin": "Qǐng màn yīdiǎn shuō",
+          "en": "Please speak slower",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "When someone speaks too fast", "cn": "别人说太快时" },
+          "literalTranslation": "please slow a little speak"
+        },
+        {
+          "id": "t13",
+          "cn": "我听不懂",
+          "pinyin": "Wǒ tīng bù dǒng",
+          "en": "I don't understand",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "When confused", "cn": "听不明白时" },
+          "literalTranslation": "I hear not understand"
+        },
+        {
+          "id": "t14",
+          "cn": "请再说一遍",
+          "pinyin": "Qǐng zài shuō yí biàn",
+          "en": "Please say it again",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking for repetition", "cn": "请求重复" },
+          "literalTranslation": "please again say one time"
+        },
+        {
+          "id": "t15",
+          "cn": "这个怎么说？",
+          "pinyin": "Zhège zěnme shuō?",
+          "en": "How do you say this?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Learning new words", "cn": "学习新词" },
+          "literalTranslation": "this how say"
+        },
+        {
+          "id": "t16",
+          "cn": "什么意思？",
+          "pinyin": "Shénme yìsi?",
+          "en": "What does this mean?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking for meaning", "cn": "询问含义" },
+          "literalTranslation": "what meaning"
+        },
+        {
+          "id": "t17",
+          "cn": "可以用英语吗？",
+          "pinyin": "Kěyǐ yòng yīngyǔ ma?",
+          "en": "Can you use English?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Requesting English", "cn": "请求用英语" },
+          "literalTranslation": "can use English question"
+        },
+        {
+          "id": "t18",
+          "cn": "我用翻译软件",
+          "pinyin": "Wǒ yòng fānyì ruǎnjiàn",
+          "en": "I'm using a translator",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Explaining translation app use", "cn": "解释使用翻译软件" },
+          "literalTranslation": "I use translate software"
+        },
+        {
+          "id": "t19",
+          "cn": "好的",
+          "pinyin": "Hǎo de",
+          "en": "Okay / Alright",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Agreement", "cn": "同意" },
+          "literalTranslation": "good"
+        },
+        {
+          "id": "t20",
+          "cn": "我知道了",
+          "pinyin": "Wǒ zhīdào le",
+          "en": "I understand / Got it",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Acknowledging information", "cn": "表示明白了" },
+          "literalTranslation": "I know already"
+        },
+        {
+          "id": "t21",
+          "cn": "多少钱？",
+          "pinyin": "Duōshǎo qián?",
+          "en": "How much?",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Asking price", "cn": "询问价格" },
+          "literalTranslation": "how much money"
+        },
+        {
+          "id": "t22",
+          "cn": "太贵了",
+          "pinyin": "Tài guì le",
+          "en": "Too expensive",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Price negotiation", "cn": "价格谈判" },
+          "literalTranslation": "too expensive already"
+        },
+        {
+          "id": "t23",
+          "cn": "便宜一点",
+          "pinyin": "Piányi yīdiǎn",
+          "en": "A bit cheaper please",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Bargaining", "cn": "讨价还价" },
+          "literalTranslation": "cheap a little"
+        },
+        {
+          "id": "t24",
+          "cn": "我要这个",
+          "pinyin": "Wǒ yào zhège",
+          "en": "I want this one",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Making a selection", "cn": "做选择" },
+          "literalTranslation": "I want this"
+        },
+        {
+          "id": "t25",
+          "cn": "不要",
+          "pinyin": "Bú yào",
+          "en": "I don't want it",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Declining something", "cn": "拒绝某物" },
+          "literalTranslation": "not want"
+        },
+        {
+          "id": "t26",
+          "cn": "可以刷卡吗？",
+          "pinyin": "Kěyǐ shuākǎ ma?",
+          "en": "Can I pay by card?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Payment method", "cn": "支付方式" },
+          "literalTranslation": "can swipe card question"
+        },
+        {
+          "id": "t27",
+          "cn": "微信支付",
+          "pinyin": "Wēixìn zhīfù",
+          "en": "WeChat Pay",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Mobile payment in China", "cn": "中国移动支付" },
+          "literalTranslation": "WeChat pay"
+        },
+        {
+          "id": "t28",
+          "cn": "支付宝",
+          "pinyin": "Zhīfùbǎo",
+          "en": "Alipay",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Mobile payment in China", "cn": "中国移动支付" },
+          "literalTranslation": "pay treasure"
+        },
+        {
+          "id": "t29",
+          "cn": "我饿了",
+          "pinyin": "Wǒ è le",
+          "en": "I'm hungry",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Expressing hunger", "cn": "表达饥饿" },
+          "literalTranslation": "I hungry already"
+        },
+        {
+          "id": "t30",
+          "cn": "菜单",
+          "pinyin": "Càidān",
+          "en": "Menu",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "At restaurant", "cn": "在餐厅" },
+          "literalTranslation": "dish list"
+        },
+        {
+          "id": "t31",
+          "cn": "点菜",
+          "pinyin": "Diǎn cài",
+          "en": "Order food",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "At restaurant", "cn": "在餐厅" },
+          "literalTranslation": "point dish"
+        },
+        {
+          "id": "t32",
+          "cn": "买单",
+          "pinyin": "Mǎidān",
+          "en": "Bill please",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Requesting bill", "cn": "要求结账" },
+          "literalTranslation": "buy bill"
+        },
+        {
+          "id": "t33",
+          "cn": "不要辣",
+          "pinyin": "Bú yào là",
+          "en": "No spicy please",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Food preference", "cn": "饮食偏好" },
+          "literalTranslation": "not want spicy"
+        },
+        {
+          "id": "t34",
+          "cn": "少放盐",
+          "pinyin": "Shǎo fàng yán",
+          "en": "Less salt please",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Food preference", "cn": "饮食偏好" },
+          "literalTranslation": "less put salt"
+        },
+        {
+          "id": "t35",
+          "cn": "打包",
+          "pinyin": "Dǎbāo",
+          "en": "Takeaway / To go",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Taking food home", "cn": "打包带走" },
+          "literalTranslation": "pack"
+        },
+        {
+          "id": "t36",
+          "cn": "好吃",
+          "pinyin": "Hǎo chī",
+          "en": "Delicious",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Complimenting food", "cn": "称赞食物" },
+          "literalTranslation": "good eat"
+        },
+        {
+          "id": "t37",
+          "cn": "在哪里？",
+          "pinyin": "Zài nǎlǐ?",
+          "en": "Where is it?",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Asking location", "cn": "询问位置" },
+          "literalTranslation": "at where"
+        },
+        {
+          "id": "t38",
+          "cn": "厕所在哪里？",
+          "pinyin": "Cèsuǒ zài nǎlǐ?",
+          "en": "Where is the toilet?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Finding restroom", "cn": "找厕所" },
+          "literalTranslation": "toilet at where"
+        },
+        {
+          "id": "t39",
+          "cn": "我要去...",
+          "pinyin": "Wǒ yào qù...",
+          "en": "I want to go to...",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Stating destination", "cn": "说明目的地" },
+          "literalTranslation": "I want go..."
+        },
+        {
+          "id": "t40",
+          "cn": "左边",
+          "pinyin": "Zuǒbiān",
+          "en": "Left",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Directions", "cn": "方向" },
+          "literalTranslation": "left side"
+        },
+        {
+          "id": "t41",
+          "cn": "右边",
+          "pinyin": "Yòubiān",
+          "en": "Right",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Directions", "cn": "方向" },
+          "literalTranslation": "right side"
+        },
+        {
+          "id": "t42",
+          "cn": "直走",
+          "pinyin": "Zhí zǒu",
+          "en": "Go straight",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Directions", "cn": "方向" },
+          "literalTranslation": "straight go"
+        },
+        {
+          "id": "t43",
+          "cn": "到了",
+          "pinyin": "Dào le",
+          "en": "We've arrived",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Arriving at destination", "cn": "到达目的地" },
+          "literalTranslation": "arrive already"
+        },
+        {
+          "id": "t44",
+          "cn": "停这里",
+          "pinyin": "Tíng zhèlǐ",
+          "en": "Stop here",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "In taxi/car", "cn": "在出租车/车里" },
+          "literalTranslation": "stop here"
+        },
+        {
+          "id": "t45",
+          "cn": "帮帮我",
+          "pinyin": "Bāng bāng wǒ",
+          "en": "Help me please",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Asking for help", "cn": "寻求帮助" },
+          "literalTranslation": "help help me"
+        },
+        {
+          "id": "t46",
+          "cn": "我迷路了",
+          "pinyin": "Wǒ mílù le",
+          "en": "I'm lost",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "When lost", "cn": "迷路时" },
+          "literalTranslation": "I lost road already"
+        },
+        {
+          "id": "t47",
+          "cn": "我需要医生",
+          "pinyin": "Wǒ xūyào yīshēng",
+          "en": "I need a doctor",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Medical emergency", "cn": "医疗紧急情况" },
+          "literalTranslation": "I need doctor"
+        },
+        {
+          "id": "t48",
+          "cn": "报警",
+          "pinyin": "Bàojǐng",
+          "en": "Call police",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Emergency", "cn": "紧急情况" },
+          "literalTranslation": "report police"
+        },
+        {
+          "id": "t49",
+          "cn": "我的手机号码是...",
+          "pinyin": "Wǒ de shǒujī hàomǎ shì...",
+          "en": "My phone number is...",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Sharing contact info", "cn": "分享联系方式" },
+          "literalTranslation": "my hand machine number is..."
+        },
+        {
+          "id": "t50",
+          "cn": "请帮我叫我老婆",
+          "pinyin": "Qǐng bāng wǒ jiào wǒ lǎopo",
+          "en": "Please call my wife",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Emergency contact", "cn": "紧急联系人" },
+          "literalTranslation": "please help me call my old woman"
+        }
+      ]
+    },
     {
       "id": "greetings",
       "name": { "en": "Greetings & Basics", "cn": "问候与基础" },
@@ -138,6 +646,46 @@
           "phase": "foundation",
           "context": { "en": "Polite requests", "cn": "礼貌请求" },
           "literalTranslation": "invite/request"
+        },
+        {
+          "id": "g11",
+          "cn": "是",
+          "pinyin": "Shì",
+          "en": "Yes / Correct",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Affirmative response", "cn": "肯定回答" },
+          "literalTranslation": "is"
+        },
+        {
+          "id": "g12",
+          "cn": "不是",
+          "pinyin": "Bú shì",
+          "en": "No / Incorrect",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Negative response", "cn": "否定回答" },
+          "literalTranslation": "not is"
+        },
+        {
+          "id": "g13",
+          "cn": "好的",
+          "pinyin": "Hǎo de",
+          "en": "Okay / Alright",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Agreement", "cn": "同意" },
+          "literalTranslation": "good"
+        },
+        {
+          "id": "g14",
+          "cn": "我知道了",
+          "pinyin": "Wǒ zhīdào le",
+          "en": "I understand / Got it",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Acknowledging information", "cn": "表示明白了" },
+          "literalTranslation": "I know already"
         }
       ]
     },
@@ -147,6 +695,16 @@
       "icon": "🕐",
       "phase": "foundation",
       "phrases": [
+        {
+          "id": "nt0",
+          "cn": "零",
+          "pinyin": "Líng",
+          "en": "Zero",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "literalTranslation": "zero"
+        },
         {
           "id": "nt1",
           "cn": "一",
@@ -166,8 +724,18 @@
           "audio": "numbers/er.mp3",
           "difficulty": 1,
           "phase": "foundation",
-          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "context": { "en": "Basic counting - use 两 (liǎng) for 'two of something'", "cn": "基础计数 - 数量用两" },
           "literalTranslation": "two"
+        },
+        {
+          "id": "nt2b",
+          "cn": "两",
+          "pinyin": "Liǎng",
+          "en": "Two (for quantity)",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Two of something (两个 = two items)", "cn": "数量词（两个 = 两件东西）" },
+          "literalTranslation": "two (quantity)"
         },
         {
           "id": "nt3",
@@ -179,6 +747,66 @@
           "phase": "foundation",
           "context": { "en": "Basic counting", "cn": "基础计数" },
           "literalTranslation": "three"
+        },
+        {
+          "id": "nt3b",
+          "cn": "四",
+          "pinyin": "Sì",
+          "en": "Four",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "literalTranslation": "four"
+        },
+        {
+          "id": "nt3c",
+          "cn": "五",
+          "pinyin": "Wǔ",
+          "en": "Five",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "literalTranslation": "five"
+        },
+        {
+          "id": "nt3d",
+          "cn": "六",
+          "pinyin": "Liù",
+          "en": "Six",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "literalTranslation": "six"
+        },
+        {
+          "id": "nt3e",
+          "cn": "七",
+          "pinyin": "Qī",
+          "en": "Seven",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "literalTranslation": "seven"
+        },
+        {
+          "id": "nt3f",
+          "cn": "八",
+          "pinyin": "Bā",
+          "en": "Eight",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting - lucky number in China", "cn": "基础计数 - 中国的吉祥数字" },
+          "literalTranslation": "eight"
+        },
+        {
+          "id": "nt3g",
+          "cn": "九",
+          "pinyin": "Jiǔ",
+          "en": "Nine",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Basic counting", "cn": "基础计数" },
+          "literalTranslation": "nine"
         },
         {
           "id": "nt4",
@@ -201,6 +829,26 @@
           "phase": "building",
           "context": { "en": "Larger numbers", "cn": "较大的数字" },
           "literalTranslation": "one hundred"
+        },
+        {
+          "id": "nt5b",
+          "cn": "一千",
+          "pinyin": "Yīqiān",
+          "en": "One thousand",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Larger numbers", "cn": "较大的数字" },
+          "literalTranslation": "one thousand"
+        },
+        {
+          "id": "nt5c",
+          "cn": "一百万",
+          "pinyin": "Yībǎi wàn",
+          "en": "One million",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Large numbers - note: Chinese uses 万 (10,000) as a unit", "cn": "大数字 - 注意：中文用万作为单位" },
+          "literalTranslation": "one hundred ten-thousands"
         },
         {
           "id": "nt6",
@@ -374,6 +1022,116 @@
           "phase": "foundation",
           "context": { "en": "Introducing yourself", "cn": "自我介绍" },
           "literalTranslation": "I call..."
+        },
+        {
+          "id": "f9",
+          "cn": "我女儿",
+          "pinyin": "Wǒ nǚ'ér",
+          "en": "My daughter",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Talking about family", "cn": "谈论家人" },
+          "literalTranslation": "my female child"
+        },
+        {
+          "id": "f10",
+          "cn": "她几岁？",
+          "pinyin": "Tā jǐ suì?",
+          "en": "How old is she?",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Asking about age", "cn": "询问年龄" },
+          "literalTranslation": "she how many years"
+        },
+        {
+          "id": "f11",
+          "cn": "五岁",
+          "pinyin": "Wǔ suì",
+          "en": "Five years old",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Stating age", "cn": "说明年龄" },
+          "literalTranslation": "five years"
+        },
+        {
+          "id": "f12",
+          "cn": "幼儿园",
+          "pinyin": "Yòu'éryuán",
+          "en": "Kindergarten",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "School type", "cn": "学校类型" },
+          "literalTranslation": "young child garden"
+        },
+        {
+          "id": "f13",
+          "cn": "小学",
+          "pinyin": "Xiǎoxué",
+          "en": "Primary school",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "School type", "cn": "学校类型" },
+          "literalTranslation": "small study"
+        },
+        {
+          "id": "f14",
+          "cn": "我老婆是中国人",
+          "pinyin": "Wǒ lǎopo shì zhōngguó rén",
+          "en": "My wife is Chinese",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Talking about spouse", "cn": "谈论配偶" },
+          "literalTranslation": "my old woman is China person"
+        },
+        {
+          "id": "f15",
+          "cn": "她会说",
+          "pinyin": "Tā huì shuō",
+          "en": "She can speak (for you)",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "When your wife can translate", "cn": "老婆可以翻译时" },
+          "literalTranslation": "she can speak"
+        },
+        {
+          "id": "f16",
+          "cn": "你是哪国人？",
+          "pinyin": "Nǐ shì nǎ guó rén?",
+          "en": "What country are you from?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking nationality", "cn": "询问国籍" },
+          "literalTranslation": "you are which country person"
+        },
+        {
+          "id": "f17",
+          "cn": "我是澳大利亚人",
+          "pinyin": "Wǒ shì àodàlìyà rén",
+          "en": "I'm Australian",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Stating nationality", "cn": "说明国籍" },
+          "literalTranslation": "I am Australia person"
+        },
+        {
+          "id": "f18",
+          "cn": "我在中国住三年",
+          "pinyin": "Wǒ zài zhōngguó zhù sān nián",
+          "en": "I'll live in China for 3 years",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Talking about plans", "cn": "谈论计划" },
+          "literalTranslation": "I at China live three years"
+        },
+        {
+          "id": "f19",
+          "cn": "很高兴认识你",
+          "pinyin": "Hěn gāoxìng rènshi nǐ",
+          "en": "Nice to meet you",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "When meeting someone new", "cn": "认识新朋友时" },
+          "literalTranslation": "very happy know you"
         }
       ]
     },
@@ -514,6 +1272,46 @@
           "phase": "foundation",
           "context": { "en": "Eating utensil", "cn": "餐具" },
           "literalTranslation": "fast sticks"
+        },
+        {
+          "id": "fd13",
+          "cn": "不要辣",
+          "pinyin": "Bú yào là",
+          "en": "No spicy please",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Food preference", "cn": "饮食偏好" },
+          "literalTranslation": "not want spicy"
+        },
+        {
+          "id": "fd14",
+          "cn": "少放盐",
+          "pinyin": "Shǎo fàng yán",
+          "en": "Less salt please",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Food preference", "cn": "饮食偏好" },
+          "literalTranslation": "less put salt"
+        },
+        {
+          "id": "fd15",
+          "cn": "点菜",
+          "pinyin": "Diǎn cài",
+          "en": "Order food",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "At restaurant", "cn": "在餐厅" },
+          "literalTranslation": "point dish"
+        },
+        {
+          "id": "fd16",
+          "cn": "菜单",
+          "pinyin": "Càidān",
+          "en": "Menu",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "At restaurant", "cn": "在餐厅" },
+          "literalTranslation": "dish list"
         }
       ]
     },
@@ -632,6 +1430,56 @@
           "phase": "foundation",
           "context": { "en": "Giving directions", "cn": "指路" },
           "literalTranslation": "straight go"
+        },
+        {
+          "id": "a11",
+          "cn": "到了",
+          "pinyin": "Dào le",
+          "en": "We've arrived",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Arriving at destination", "cn": "到达目的地" },
+          "literalTranslation": "arrive already"
+        },
+        {
+          "id": "a12",
+          "cn": "停这里",
+          "pinyin": "Tíng zhèlǐ",
+          "en": "Stop here",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "In taxi/car", "cn": "在出租车/车里" },
+          "literalTranslation": "stop here"
+        },
+        {
+          "id": "a13",
+          "cn": "我要去...",
+          "pinyin": "Wǒ yào qù...",
+          "en": "I want to go to...",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Stating destination", "cn": "说明目的地" },
+          "literalTranslation": "I want go..."
+        },
+        {
+          "id": "a14",
+          "cn": "厕所在哪里？",
+          "pinyin": "Cèsuǒ zài nǎlǐ?",
+          "en": "Where is the toilet?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Finding restroom", "cn": "找厕所" },
+          "literalTranslation": "toilet at where"
+        },
+        {
+          "id": "a15",
+          "cn": "在哪里？",
+          "pinyin": "Zài nǎlǐ?",
+          "en": "Where is it?",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Asking location", "cn": "询问位置" },
+          "literalTranslation": "at where"
         }
       ]
     },
@@ -750,6 +1598,66 @@
           "phase": "building",
           "context": { "en": "Asking about deals", "cn": "询问优惠" },
           "literalTranslation": "have not have discount"
+        },
+        {
+          "id": "s11",
+          "cn": "我要这个",
+          "pinyin": "Wǒ yào zhège",
+          "en": "I want this one",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Making a selection", "cn": "做选择" },
+          "literalTranslation": "I want this"
+        },
+        {
+          "id": "s12",
+          "cn": "不要",
+          "pinyin": "Bú yào",
+          "en": "I don't want it",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Declining something", "cn": "拒绝某物" },
+          "literalTranslation": "not want"
+        },
+        {
+          "id": "s13",
+          "cn": "便宜一点",
+          "pinyin": "Piányi yīdiǎn",
+          "en": "A bit cheaper please",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Bargaining", "cn": "讨价还价" },
+          "literalTranslation": "cheap a little"
+        },
+        {
+          "id": "s14",
+          "cn": "可以刷卡吗？",
+          "pinyin": "Kěyǐ shuākǎ ma?",
+          "en": "Can I pay by card?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Payment method", "cn": "支付方式" },
+          "literalTranslation": "can swipe card question"
+        },
+        {
+          "id": "s15",
+          "cn": "微信支付",
+          "pinyin": "Wēixìn zhīfù",
+          "en": "WeChat Pay",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Mobile payment in China", "cn": "中国移动支付" },
+          "literalTranslation": "WeChat pay"
+        },
+        {
+          "id": "s16",
+          "cn": "支付宝",
+          "pinyin": "Zhīfùbǎo",
+          "en": "Alipay",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Mobile payment in China", "cn": "中国移动支付" },
+          "literalTranslation": "pay treasure"
         }
       ]
     },
@@ -1008,6 +1916,36 @@
           "phase": "advanced",
           "context": { "en": "Emergency", "cn": "紧急情况" },
           "literalTranslation": "report police"
+        },
+        {
+          "id": "em13",
+          "cn": "我的手机号码是...",
+          "pinyin": "Wǒ de shǒujī hàomǎ shì...",
+          "en": "My phone number is...",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Sharing contact info", "cn": "分享联系方式" },
+          "literalTranslation": "my hand machine number is..."
+        },
+        {
+          "id": "em14",
+          "cn": "请帮我叫我老婆",
+          "pinyin": "Qǐng bāng wǒ jiào wǒ lǎopo",
+          "en": "Please call my wife",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Emergency contact", "cn": "紧急联系人" },
+          "literalTranslation": "please help me call my old woman"
+        },
+        {
+          "id": "em15",
+          "cn": "帮帮我",
+          "pinyin": "Bāng bāng wǒ",
+          "en": "Help me please",
+          "difficulty": 1,
+          "phase": "foundation",
+          "context": { "en": "Asking for help", "cn": "寻求帮助" },
+          "literalTranslation": "help help me"
         }
       ]
     },
@@ -1148,6 +2086,66 @@
           "phase": "building",
           "context": { "en": "Achievement", "cn": "成就" },
           "literalTranslation": "become merit"
+        },
+        {
+          "id": "w13",
+          "cn": "我不会说中文",
+          "pinyin": "Wǒ bú huì shuō zhōngwén",
+          "en": "I can't speak Chinese",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Explaining language ability", "cn": "解释语言能力" },
+          "literalTranslation": "I not able speak Chinese language"
+        },
+        {
+          "id": "w14",
+          "cn": "请慢一点说",
+          "pinyin": "Qǐng màn yīdiǎn shuō",
+          "en": "Please speak slower",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "When someone speaks too fast", "cn": "别人说太快时" },
+          "literalTranslation": "please slow a little speak"
+        },
+        {
+          "id": "w15",
+          "cn": "这个怎么说？",
+          "pinyin": "Zhège zěnme shuō?",
+          "en": "How do you say this?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Learning new words", "cn": "学习新词" },
+          "literalTranslation": "this how say"
+        },
+        {
+          "id": "w16",
+          "cn": "什么意思？",
+          "pinyin": "Shénme yìsi?",
+          "en": "What does this mean?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Asking for meaning", "cn": "询问含义" },
+          "literalTranslation": "what meaning"
+        },
+        {
+          "id": "w17",
+          "cn": "可以用英语吗？",
+          "pinyin": "Kěyǐ yòng yīngyǔ ma?",
+          "en": "Can you use English?",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Requesting English", "cn": "请求用英语" },
+          "literalTranslation": "can use English question"
+        },
+        {
+          "id": "w18",
+          "cn": "我用翻译软件",
+          "pinyin": "Wǒ yòng fānyì ruǎnjiàn",
+          "en": "I'm using a translator",
+          "difficulty": 2,
+          "phase": "building",
+          "context": { "en": "Explaining translation app use", "cn": "解释使用翻译软件" },
+          "literalTranslation": "I use translate software"
         }
       ]
     }

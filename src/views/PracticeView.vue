@@ -205,6 +205,67 @@
             </div>
           </div>
 
+          <!-- Voice Practice (if in voice mode) - Allow practice even after showing answer -->
+          <div v-if="practiceMode === 'voice'" class="bg-purple-50 border-2 border-purple-200 rounded-xl p-6">
+            <div class="text-sm font-medium text-purple-700 mb-4 text-center">
+              🎙️ Practice Pronunciation / 练习发音
+            </div>
+
+            <!-- Recording Status -->
+            <div class="text-center mb-4">
+              <div v-if="pronunciationAPI.analyzing.value" class="flex items-center justify-center gap-2 text-blue-600 font-semibold">
+                <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
+                🤖 Analyzing your pronunciation... {{voiceRecording.recordingDuration.value}}s recorded
+              </div>
+              <div v-else-if="voiceRecording.isRecording.value" class="flex items-center justify-center gap-2 text-red-600 font-semibold">
+                <div class="w-3 h-3 bg-red-600 rounded-full animate-pulse"></div>
+                Recording... {{voiceRecording.recordingDuration.value}}s
+              </div>
+              <div v-else-if="voiceRecording.hasRecording.value" class="text-green-600 font-semibold">
+                ✅ Recording complete! {{voiceRecording.recordingDuration.value}}s
+              </div>
+              <div v-else class="text-gray-600">
+                🎙️ Click to record the correct answer
+              </div>
+            </div>
+
+            <!-- Record Button -->
+            <button
+              @click="handleRecordingToggle"
+              :disabled="pronunciationAPI.analyzing.value"
+              :class="['w-32 h-32 mx-auto rounded-full font-bold text-lg transition-all shadow-lg',
+                       pronunciationAPI.analyzing.value
+                         ? 'bg-blue-500 text-white cursor-wait animate-pulse'
+                         : voiceRecording.isRecording.value
+                         ? 'bg-red-500 text-white scale-110 shadow-2xl animate-pulse'
+                         : voiceRecording.hasRecording.value
+                         ? 'bg-green-500 text-white hover:scale-105'
+                         : 'bg-gradient-to-br from-purple-600 to-pink-600 text-white hover:scale-105']"
+            >
+              <div v-if="pronunciationAPI.analyzing.value">
+                🤖<br>Analyzing...
+              </div>
+              <div v-else-if="voiceRecording.isRecording.value">
+                🔴<br>Stop
+              </div>
+              <div v-else-if="voiceRecording.hasRecording.value">
+                ✅<br>Ready
+              </div>
+              <div v-else>
+                🎙️<br>Record
+              </div>
+            </button>
+
+            <!-- Play Recording -->
+            <button
+              v-if="voiceRecording.hasRecording.value && !pronunciationAPI.analyzing.value"
+              @click="voiceRecording.playRecording()"
+              class="mt-4 text-purple-600 hover:text-purple-700 font-medium text-sm px-4 py-2 border border-purple-300 rounded-lg hover:bg-purple-50"
+            >
+              ▶️ Play my recording / 播放录音
+            </button>
+          </div>
+
           <!-- User's Answer (if they typed something) -->
           <div v-if="userAnswer" class="bg-gray-50 rounded-xl p-6">
             <div class="text-sm text-gray-600 mb-2">Your Answer / 你的答案:</div>
