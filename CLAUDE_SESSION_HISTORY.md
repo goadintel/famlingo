@@ -627,5 +627,76 @@ User Action → Pinia Store → IndexedDB (immediate) → GitHub (background)
 
 ---
 
-**Last Updated:** 2025-10-12
-**Next Session:** Begin Week 1 development - Core Infrastructure
+**Last Updated:** 2025-11-29
+**Next Session:** Continue testing Listen Mode, add more features
+
+---
+
+## 🔧 CURRENT DEPLOYMENT & INFRASTRUCTURE
+
+### Server Details
+- **Host**: DigitalOcean droplet at `128.199.245.225`
+- **Domain**: `famlingo-api.com` (also `famlingoapi.com`)
+- **SSH Key**: `~/.ssh/famlingo-digitalocean`
+- **Web Root**: `/var/www/famlingo-web/` (static Vue app)
+- **API Root**: `/var/www/famlingo-api/` (Express.js)
+- **Process Manager**: PM2 (`pm2 restart famlingo-api`)
+
+### Deployment Commands
+```bash
+# Build locally
+npm run build
+
+# Deploy frontend
+rsync -avz --delete dist/ root@128.199.245.225:/var/www/famlingo-web/ -e "ssh -i ~/.ssh/famlingo-digitalocean"
+
+# Restart API (after server-side changes)
+ssh -i ~/.ssh/famlingo-digitalocean root@128.199.245.225 "pm2 restart famlingo-api"
+```
+
+### TTS Configuration
+- **Provider**: Alibaba Cloud Qwen3-TTS (DashScope API)
+- **API Key**: Set in `/var/www/famlingo-api/.env` as `ALIBABA_DASHSCOPE_API_KEY`
+- **Voices**: Cherry (female), Ethan (male) - and 15 others including dialect voices
+- **Service File**: `/var/www/famlingo-api/services/alibaba-tts.js`
+- **Route File**: `/var/www/famlingo-api/routes/tts.js`
+
+### Nginx Configuration
+- **Config File**: `/etc/nginx/sites-enabled/famlingo`
+- **Key Locations**:
+  - `/` → Static web app
+  - `/api/` → Proxy to localhost:3001
+  - `/uploads/` → Proxy to localhost:3001/uploads/ (audio files)
+
+---
+
+## 📊 CURRENT FEATURE STATUS (2025-11-29)
+
+### Completed Features
+- ✅ Vue 3 + Vite + Pinia + TailwindCSS setup
+- ✅ Multi-user family system (create, switch, delete users)
+- ✅ GitHub sync for cross-device data
+- ✅ 205+ phrases in library (Top 50 Essential, greetings, numbers, food, etc.)
+- ✅ Practice Mode with voice recording & AI analysis
+- ✅ Listen Mode with:
+  - Category selection
+  - Phrase count selection (5, 10, 20, All)
+  - Loop mode with "Shuffle Each Loop"
+  - Male/Female voice selection (Alibaba TTS)
+  - Playback speed control (Slow/Normal/Fast)
+  - Repeat count (1x, 2x, 3x)
+  - Pause duration (Short/Medium/Long)
+  - Literal translations display
+  - Skip forward/back controls
+  - Wake Lock (screen stays on)
+- ✅ Dashboard with category browsing
+- ✅ Bilingual UI throughout
+
+### Known Issues
+- Rate limiting on Alibaba TTS API during heavy testing
+
+### Next Priorities
+- [ ] More phrase categories
+- [ ] Spaced repetition algorithm
+- [ ] Family leaderboard
+- [ ] WeChat Mini Program version
