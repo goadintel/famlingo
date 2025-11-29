@@ -61,6 +61,12 @@
             <div class="toggle-dot"></div>
           </div>
         </div>
+        <div v-if="loopMode" class="loop-toggle sub-toggle" @click="shuffleEachLoop = !shuffleEachLoop">
+          <span class="loop-label">🎲 Shuffle Each Loop (new phrases)</span>
+          <div :class="['toggle', { active: shuffleEachLoop }]">
+            <div class="toggle-dot"></div>
+          </div>
+        </div>
       </div>
 
       <!-- Playback Settings -->
@@ -72,14 +78,14 @@
           <label class="setting-sublabel">Voice:</label>
           <div class="setting-options">
             <div
-              :class="['option', { active: voice === 'alloy' }]"
-              @click="voice = 'alloy'"
+              :class="['option', { active: voice === 'Cherry' }]"
+              @click="voice = 'Cherry'"
             >
               <span>👩 Female</span>
             </div>
             <div
-              :class="['option', { active: voice === 'echo' }]"
-              @click="voice = 'echo'"
+              :class="['option', { active: voice === 'Ethan' }]"
+              @click="voice = 'Ethan'"
             >
               <span>👨 Male</span>
             </div>
@@ -125,6 +131,31 @@
             </div>
           </div>
         </div>
+
+        <!-- Playback Speed -->
+        <div class="setting-group">
+          <label class="setting-sublabel">Playback Speed:</label>
+          <div class="setting-options">
+            <div
+              :class="['option', { active: playbackSpeed === 0.7 }]"
+              @click="playbackSpeed = 0.7"
+            >
+              <span>Slow</span>
+            </div>
+            <div
+              :class="['option', { active: playbackSpeed === 0.9 }]"
+              @click="playbackSpeed = 0.9"
+            >
+              <span>Normal</span>
+            </div>
+            <div
+              :class="['option', { active: playbackSpeed === 1.1 }]"
+              @click="playbackSpeed = 1.1"
+            >
+              <span>Fast</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Start Button -->
@@ -150,46 +181,35 @@
         <div class="progress-bar">
           <div class="progress-fill" :style="{ width: `${progress}%` }"></div>
         </div>
-        <p class="progress-text">Phrase {{ currentIndex + 1 }} of {{ totalPhrases }}</p>
+        <p class="progress-text">{{ currentIndex + 1 }} / {{ totalPhrases }}</p>
       </div>
 
       <!-- Playback Controls -->
       <div class="controls">
-        <!-- Previous -->
         <button class="control-btn" @click="prevPhrase">
           <span class="icon">⏮️</span>
-          <span class="label">Prev</span>
         </button>
-
-        <!-- Play/Pause -->
         <button class="control-btn-large" @click="togglePlayback">
           <span class="icon-large">{{ isPlaying ? '⏸️' : '▶️' }}</span>
         </button>
-
-        <!-- Next -->
         <button class="control-btn" @click="nextPhrase">
           <span class="icon">⏭️</span>
-          <span class="label">Next</span>
         </button>
       </div>
 
-      <!-- Try It Button -->
-      <div class="try-it-section">
+      <!-- Bottom Actions -->
+      <div class="bottom-actions">
         <button class="try-it-btn" @click="tryItNow">
-          🎤 Try It Now
+          🎤 Try It
         </button>
-        <p class="try-it-hint">Record yourself and get AI feedback</p>
-      </div>
-
-      <!-- Change Setup Button -->
-      <div class="change-setup" @click="showSetup">
-        <span>🔄 Change Settings</span>
+        <button class="settings-btn" @click="showSetup">
+          ⚙️
+        </button>
       </div>
 
       <!-- Wake Lock Status -->
       <div v-if="isPlaying" class="wake-lock-notice">
-        <span class="icon">🔒</span>
-        <span class="text">Screen lock disabled - listening mode active</span>
+        🔒 Screen stays on
       </div>
     </div>
   </div>
@@ -219,10 +239,13 @@ const progress = computed(() => totalPhrases.value > 0 ? ((currentIndex.value + 
 // Settings
 const repeatCount = ref(2)
 const pauseDuration = ref(2000)
-const voice = ref('alloy') // OpenAI TTS voices: alloy (female), echo (male)
+const voice = ref('Cherry') // Alibaba TTS voices: Cherry (female), Ethan (male)
+const playbackSpeed = ref(0.9) // Speech rate: 0.7 (slow), 0.9 (normal), 1.1 (fast)
 const loopMode = ref(false)
+const shuffleEachLoop = ref(true) // When looping, pick new random phrases each time
 const maxPhrases = ref(20)
 const selectedCategory = ref(null)
+const recentlyPlayedIds = ref([]) // Track recently played to minimize repeats
 
 // Categories
 const categories = ref([])
@@ -236,6 +259,7 @@ let audioContext = null
 let currentAudio = null
 let playbackTimeout = null
 let wakeLock = null
+let currentPlaybackId = 0 // Track which phrase playback is active
 
 // Load categories
 onMounted(() => {
@@ -272,7 +296,7 @@ async function startSession() {
   }, 500)
 }
 
-function loadPhrases(category) {
+function loadPhrases(category, isReshuffle = false) {
   let loadedPhrases = []
 
   // Filter by category if specified
@@ -289,16 +313,38 @@ function loadPhrases(category) {
     }
   })
 
-  // Shuffle for variety
-  loadedPhrases = shuffleArray(loadedPhrases)
+  // Store all available phrases
+  if (!isReshuffle) {
+    allPhrases.value = [...loadedPhrases]
+  }
+
+  // If reshuffling with minimal overlap, prioritize phrases not recently played
+  if (isReshuffle && shuffleEachLoop.value && recentlyPlayedIds.value.length > 0) {
+    // Separate into not-recently-played and recently-played
+    const notRecent = loadedPhrases.filter(p => !recentlyPlayedIds.value.includes(p.id))
+    const recent = loadedPhrases.filter(p => recentlyPlayedIds.value.includes(p.id))
+
+    // Shuffle both groups
+    const shuffledNotRecent = shuffleArray(notRecent)
+    const shuffledRecent = shuffleArray(recent)
+
+    // Prioritize not-recently-played, then fill with recent if needed
+    loadedPhrases = [...shuffledNotRecent, ...shuffledRecent]
+  } else {
+    // Regular shuffle
+    loadedPhrases = shuffleArray(loadedPhrases)
+  }
 
   // Limit phrases based on maxPhrases setting
   if (maxPhrases.value > 0) {
     loadedPhrases = loadedPhrases.slice(0, maxPhrases.value)
   }
 
+  // Track these as recently played (keep last 2-3 batches worth)
+  const newIds = loadedPhrases.map(p => p.id)
+  recentlyPlayedIds.value = [...newIds, ...recentlyPlayedIds.value].slice(0, maxPhrases.value * 3)
+
   phrases.value = loadedPhrases
-  allPhrases.value = [...loadedPhrases]
   currentIndex.value = 0
 }
 
@@ -351,25 +397,35 @@ function stopPlayback() {
 async function playCurrentPhrase() {
   if (!currentPhrase.value || !isPlaying.value) return
 
+  // Increment playback ID to track this specific playback session
+  currentPlaybackId++
+  const myPlaybackId = currentPlaybackId
+
   try {
     // Play English first
     await playText(currentPhrase.value.en, 'en-US')
+    if (myPlaybackId !== currentPlaybackId) return // User skipped, abort
+
     await sleep(1000)
+    if (myPlaybackId !== currentPlaybackId) return
 
     // Play Chinese (repeat based on settings)
     for (let i = 0; i < repeatCount.value; i++) {
-      if (!isPlaying.value) break
+      if (!isPlaying.value || myPlaybackId !== currentPlaybackId) break
       await playText(currentPhrase.value.cn, 'zh-CN')
+      if (myPlaybackId !== currentPlaybackId) return
       if (i < repeatCount.value - 1) {
         await sleep(pauseDuration.value)
+        if (myPlaybackId !== currentPlaybackId) return
       }
     }
 
     // Pause before next phrase
     await sleep(pauseDuration.value)
+    if (myPlaybackId !== currentPlaybackId) return
 
     // Auto-advance to next phrase
-    if (isPlaying.value) {
+    if (isPlaying.value && myPlaybackId === currentPlaybackId) {
       nextPhrase()
     }
   } catch (error) {
@@ -377,62 +433,103 @@ async function playCurrentPhrase() {
   }
 }
 
+// API base URL
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://famlingo-api.com'
+
 async function playText(text, lang) {
-  return new Promise((resolve, reject) => {
-    if (!isPlaying.value) {
-      resolve()
-      return
+  if (!isPlaying.value) return
+
+  console.log('🔊 playText called:', { text, lang, voice: voice.value })
+
+  try {
+    // Use backend TTS API - Alibaba Cloud Qwen3-TTS
+    const requestBody = {
+      text,
+      voice: voice.value, // 'Cherry' (female) or 'Ethan' (male)
+      language: lang,
+      speed: playbackSpeed.value
+    }
+    console.log('📤 TTS Request:', requestBody)
+
+    const response = await fetch(`${API_BASE_URL}/api/tts`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(requestBody)
+    })
+
+    if (!response.ok) {
+      throw new Error('TTS API failed: ' + response.status)
     }
 
-    // Use Web Speech API for TTS
-    const utterance = new SpeechSynthesisUtterance(text)
-    utterance.lang = lang
-    utterance.voice = getVoice(lang)
+    // API returns JSON with audioUrl
+    const data = await response.json()
+    console.log('📥 TTS Response:', data)
+    const audioUrl = `${API_BASE_URL}${data.audioUrl}`
+    console.log('🎵 Playing audio from:', audioUrl)
 
-    utterance.onend = () => resolve()
-    utterance.onerror = (error) => {
-      console.error('Speech error:', error)
-      resolve() // Continue even if there's an error
-    }
+    return new Promise((resolve) => {
+      if (!isPlaying.value) {
+        resolve()
+        return
+      }
 
-    window.speechSynthesis.speak(utterance)
-  })
-}
+      // Stop any existing audio first
+      if (currentAudio) {
+        currentAudio.pause()
+        currentAudio.src = ''
+        currentAudio = null
+      }
 
-function getVoice(lang) {
-  const voices = window.speechSynthesis.getVoices()
+      const audio = new Audio()
+      currentAudio = audio
+      let hasStartedPlaying = false
+      let resolved = false
 
-  // Determine if we want male or female voice based on user selection
-  const wantFemale = voice.value === 'alloy'
+      const safeResolve = () => {
+        if (!resolved) {
+          resolved = true
+          resolve()
+        }
+      }
 
-  // Filter voices by language first
-  const langVoices = voices.filter(v => v.lang.startsWith(lang.split('-')[0]))
+      audio.onended = () => {
+        console.log('✅ Audio ended')
+        safeResolve()
+      }
+      audio.onerror = (e) => {
+        // Only log error if we haven't started playing (ignore spurious errors)
+        if (!hasStartedPlaying) {
+          console.warn('⚠️ Audio error event (may recover):', e.type)
+        }
+        // Don't resolve here - wait for canplaythrough or a real failure
+      }
+      audio.oncanplaythrough = () => {
+        if (hasStartedPlaying) return // Already playing
+        hasStartedPlaying = true
+        console.log('▶️ Audio ready, playing...')
+        audio.play().catch((e) => {
+          console.error('❌ Audio play() failed:', e)
+          safeResolve()
+        })
+      }
 
-  if (langVoices.length === 0) {
-    return voices[0] // Fallback to first available voice
+      // Fallback timeout in case audio never loads
+      setTimeout(() => {
+        if (!hasStartedPlaying && !resolved) {
+          console.error('❌ Audio load timeout')
+          safeResolve()
+        }
+      }, 10000)
+
+      // Set source after attaching handlers
+      audio.src = audioUrl
+      audio.load()
+    })
+  } catch (error) {
+    console.error('❌ TTS API error (skipping phrase):', error)
+    // Don't fallback to browser TTS - just skip to avoid wrong voice
+    return
   }
-
-  // Try to find a voice matching the desired gender
-  // Female voices often have these keywords
-  const femaleKeywords = ['female', 'woman', 'samantha', 'alloy', 'nova', 'shimmer', 'karen', 'victoria', 'fiona']
-  // Male voices often have these keywords
-  const maleKeywords = ['male', 'man', 'echo', 'onyx', 'daniel', 'alex', 'fred', 'diego']
-
-  let selectedVoice
-  if (wantFemale) {
-    // Try to find a female voice
-    selectedVoice = langVoices.find(v =>
-      femaleKeywords.some(keyword => v.name.toLowerCase().includes(keyword))
-    )
-  } else {
-    // Try to find a male voice
-    selectedVoice = langVoices.find(v =>
-      maleKeywords.some(keyword => v.name.toLowerCase().includes(keyword))
-    )
-  }
-
-  // Fallback to first voice of that language if no gender match found
-  return selectedVoice || langVoices[0]
 }
 
 function sleep(ms) {
@@ -474,7 +571,13 @@ function nextPhrase() {
   } else {
     // Reached end
     if (loopMode.value) {
-      currentIndex.value = 0
+      // Reshuffle if enabled, otherwise just restart
+      if (shuffleEachLoop.value) {
+        console.log('🔄 Loop complete - reshuffling with new phrases')
+        loadPhrases(selectedCategory.value, true) // true = reshuffle mode
+      } else {
+        currentIndex.value = 0
+      }
       if (isPlaying.value) {
         playCurrentPhrase()
       }
@@ -539,24 +642,24 @@ function releaseWakeLock() {
 .listen-container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 16px;
   min-height: 100vh;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .title {
-  font-size: 2em;
-  margin-bottom: 5px;
+  font-size: 1.8em;
+  margin-bottom: 4px;
   color: #4CAF50;
 }
 
 .subtitle {
   color: #666;
-  font-size: 0.9em;
+  font-size: 0.85em;
 }
 
 .loading {
@@ -663,6 +766,13 @@ function releaseWakeLock() {
   cursor: pointer;
 }
 
+.loop-toggle.sub-toggle {
+  margin-top: 8px;
+  margin-left: 16px;
+  background: #eef5ee;
+  font-size: 0.9em;
+}
+
 .loop-label {
   font-weight: 500;
 }
@@ -749,58 +859,60 @@ function releaseWakeLock() {
   transform: translateY(-2px);
 }
 
-/* Listening Content */
+/* Listening Content - fits on one screen */
 .content {
-  max-height: calc(100vh - 100px);
-  overflow-y: auto;
+  height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .phrase-display {
   background: white;
   border-radius: 12px;
-  padding: 30px;
-  margin-bottom: 20px;
+  padding: 16px;
+  margin-bottom: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .phrase-card {
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .english {
-  font-size: 1.8em;
+  font-size: 1.4em;
   font-weight: 600;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .chinese {
-  font-size: 2.5em;
+  font-size: 2.2em;
   font-weight: 700;
   color: #4CAF50;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .pinyin {
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: #666;
   font-style: italic;
 }
 
 .literal {
-  font-size: 0.95em;
+  font-size: 0.9em;
   color: #888;
   font-style: italic;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .progress-bar {
-  height: 8px;
+  height: 6px;
   background: #e0e0e0;
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-top: 12px;
+  margin-bottom: 4px;
 }
 
 .progress-fill {
@@ -812,15 +924,16 @@ function releaseWakeLock() {
 .progress-text {
   text-align: center;
   color: #666;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 .controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 25px;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-shrink: 0;
 }
 
 .control-btn, .control-btn-large {
@@ -830,19 +943,18 @@ function releaseWakeLock() {
   cursor: pointer;
   transition: all 0.2s;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 .control-btn {
-  width: 70px;
-  height: 70px;
+  width: 56px;
+  height: 56px;
 }
 
 .control-btn-large {
-  width: 90px;
-  height: 90px;
+  width: 72px;
+  height: 72px;
 }
 
 .control-btn:hover, .control-btn-large:hover {
@@ -851,78 +963,59 @@ function releaseWakeLock() {
 }
 
 .icon {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .icon-large {
-  font-size: 2.5em;
+  font-size: 2em;
 }
 
-.label {
-  font-size: 0.7em;
-  color: #666;
-  margin-top: 2px;
-}
-
-.try-it-section {
-  text-align: center;
-  margin-bottom: 20px;
+.bottom-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
 }
 
 .try-it-btn {
-  width: 100%;
-  padding: 16px;
+  flex: 1;
+  padding: 12px;
   background: linear-gradient(135deg, #2196F3, #1976D2);
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s;
-  margin-bottom: 8px;
 }
 
 .try-it-btn:hover {
   transform: translateY(-2px);
 }
 
-.try-it-hint {
-  font-size: 0.85em;
-  color: #666;
-}
-
-.change-setup {
-  text-align: center;
+.settings-btn {
+  width: 48px;
   padding: 12px;
-  color: #2196F3;
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1.2em;
   cursor: pointer;
-  font-weight: 500;
+  transition: all 0.2s;
 }
 
-.change-setup:hover {
-  text-decoration: underline;
+.settings-btn:hover {
+  border-color: #4CAF50;
 }
 
 .wake-lock-notice {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
-  border: 1px solid #4CAF50;
-  border-radius: 8px;
-  margin-top: 15px;
-  font-size: 0.85em;
+  text-align: center;
+  padding: 6px;
+  background: #E8F5E9;
+  border-radius: 6px;
+  font-size: 0.75em;
   color: #2E7D32;
-}
-
-.wake-lock-notice .icon {
-  font-size: 1.2em;
-}
-
-.wake-lock-notice .text {
-  font-weight: 500;
+  flex-shrink: 0;
 }
 </style>

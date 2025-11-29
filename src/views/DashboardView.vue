@@ -95,17 +95,15 @@
                 v-for="category in categories"
                 :key="category.id"
                 @click="goToBrowse(category.id)"
-                class="border-2 border-gray-200 rounded-xl p-4 hover:border-purple-400 hover:shadow-lg transition-all cursor-pointer text-left"
+                class="border-2 border-gray-200 rounded-xl p-3 hover:border-purple-400 hover:shadow-lg transition-all cursor-pointer text-left relative"
               >
-                <div class="flex items-center gap-3 mb-2">
-                  <span class="text-3xl">{{ category.icon }}</span>
-                  <div class="flex-1">
-                    <div class="font-bold text-gray-800 text-sm">{{ category.name?.en || 'Category' }}</div>
-                    <div class="text-xs text-gray-600">{{ category.name?.cn || '类别' }}</div>
+                <span class="text-2xl absolute top-2 left-2">{{ category.icon }}</span>
+                <div class="pt-8 pl-1">
+                  <div class="font-bold text-gray-800 text-sm truncate">{{ category.name?.en || 'Category' }}</div>
+                  <div class="text-xs text-gray-600 truncate">{{ category.name?.cn || '类别' }}</div>
+                  <div class="text-xs font-bold text-purple-600 mt-1">
+                    {{ category.phraseCount }} phrases
                   </div>
-                </div>
-                <div class="text-xs font-bold text-purple-600">
-                  {{ category.phraseCount }} phrases / 短语
                 </div>
               </button>
             </div>
