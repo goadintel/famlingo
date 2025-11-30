@@ -137,20 +137,20 @@
           <label class="setting-sublabel">Playback Speed:</label>
           <div class="setting-options">
             <div
-              :class="['option', { active: playbackSpeed === 0.7 }]"
-              @click="playbackSpeed = 0.7"
+              :class="['option', { active: playbackSpeed === 0.6 }]"
+              @click="playbackSpeed = 0.6"
             >
               <span>Slow</span>
             </div>
             <div
-              :class="['option', { active: playbackSpeed === 0.9 }]"
-              @click="playbackSpeed = 0.9"
+              :class="['option', { active: playbackSpeed === 0.8 }]"
+              @click="playbackSpeed = 0.8"
             >
               <span>Normal</span>
             </div>
             <div
-              :class="['option', { active: playbackSpeed === 1.1 }]"
-              @click="playbackSpeed = 1.1"
+              :class="['option', { active: playbackSpeed === 1.0 }]"
+              @click="playbackSpeed = 1.0"
             >
               <span>Fast</span>
             </div>
@@ -240,7 +240,7 @@ const progress = computed(() => totalPhrases.value > 0 ? ((currentIndex.value + 
 const repeatCount = ref(2)
 const pauseDuration = ref(2000)
 const voice = ref('Cherry') // Alibaba TTS voices: Cherry (female), Ethan (male)
-const playbackSpeed = ref(0.9) // Speech rate: 0.7 (slow), 0.9 (normal), 1.1 (fast)
+const playbackSpeed = ref(0.8) // Speech rate: 0.6 (slow), 0.8 (normal), 1.0 (fast)
 const loopMode = ref(false)
 const shuffleEachLoop = ref(true) // When looping, pick new random phrases each time
 const maxPhrases = ref(20)
@@ -265,6 +265,7 @@ let currentPlaybackId = 0 // Track which phrase playback is active
 onMounted(() => {
   loadCategories()
   loading.value = false
+  setupMediaSession()
 })
 
 // Cleanup on unmount
@@ -272,6 +273,51 @@ onUnmounted(() => {
   stopPlayback()
   releaseWakeLock()
 })
+
+// Setup Media Session API for background playback and lock screen controls
+function setupMediaSession() {
+  if ('mediaSession' in navigator) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: 'FamLingo Listen Mode',
+      artist: 'Language Practice',
+      album: 'FamLingo 家语'
+    })
+
+    navigator.mediaSession.setActionHandler('play', () => {
+      if (!isPlaying.value) {
+        resumeListening()
+      }
+    })
+
+    navigator.mediaSession.setActionHandler('pause', () => {
+      if (isPlaying.value) {
+        pauseListening()
+      }
+    })
+
+    navigator.mediaSession.setActionHandler('previoustrack', () => {
+      prevPhrase()
+    })
+
+    navigator.mediaSession.setActionHandler('nexttrack', () => {
+      nextPhrase()
+    })
+
+    console.log('✅ Media Session API configured for background playback')
+  }
+}
+
+// Update media session with current phrase
+function updateMediaSessionMetadata() {
+  if ('mediaSession' in navigator && currentPhrase.value) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: currentPhrase.value.cn,
+      artist: currentPhrase.value.en,
+      album: 'FamLingo 家语'
+    })
+    navigator.mediaSession.playbackState = isPlaying.value ? 'playing' : 'paused'
+  }
+}
 
 function loadCategories() {
   categories.value = phrasesData.categories.map(cat => ({
@@ -396,6 +442,9 @@ function stopPlayback() {
 
 async function playCurrentPhrase() {
   if (!currentPhrase.value || !isPlaying.value) return
+
+  // Update lock screen / notification with current phrase
+  updateMediaSessionMetadata()
 
   // Increment playback ID to track this specific playback session
   currentPlaybackId++
