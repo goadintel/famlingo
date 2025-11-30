@@ -132,25 +132,25 @@
           </div>
         </div>
 
-        <!-- Playback Speed -->
+        <!-- Playback Speed (Chinese only) -->
         <div class="setting-group">
-          <label class="setting-sublabel">Playback Speed:</label>
+          <label class="setting-sublabel">Chinese Speed:</label>
           <div class="setting-options">
             <div
-              :class="['option', { active: playbackSpeed === 0.6 }]"
-              @click="playbackSpeed = 0.6"
+              :class="['option', { active: playbackSpeed === 0.5 }]"
+              @click="playbackSpeed = 0.5"
             >
               <span>Slow</span>
             </div>
             <div
-              :class="['option', { active: playbackSpeed === 0.8 }]"
-              @click="playbackSpeed = 0.8"
+              :class="['option', { active: playbackSpeed === 0.7 }]"
+              @click="playbackSpeed = 0.7"
             >
               <span>Normal</span>
             </div>
             <div
-              :class="['option', { active: playbackSpeed === 1.0 }]"
-              @click="playbackSpeed = 1.0"
+              :class="['option', { active: playbackSpeed === 0.9 }]"
+              @click="playbackSpeed = 0.9"
             >
               <span>Fast</span>
             </div>
@@ -240,7 +240,7 @@ const progress = computed(() => totalPhrases.value > 0 ? ((currentIndex.value + 
 const repeatCount = ref(2)
 const pauseDuration = ref(2000)
 const voice = ref('Cherry') // Alibaba TTS voices: Cherry (female), Ethan (male)
-const playbackSpeed = ref(0.8) // Speech rate: 0.6 (slow), 0.8 (normal), 1.0 (fast)
+const playbackSpeed = ref(0.7) // Chinese speech rate: 0.5 (slow), 0.7 (normal), 0.9 (fast)
 const loopMode = ref(false)
 const shuffleEachLoop = ref(true) // When looping, pick new random phrases each time
 const maxPhrases = ref(20)
@@ -490,8 +490,13 @@ async function playText(text, lang) {
 
   console.log('🔊 playText called:', { text, lang, voice: voice.value })
 
+  // Use device speech for English (more native), Alibaba TTS for Chinese
+  if (lang === 'en-US') {
+    return playWithDeviceSpeech(text, lang)
+  }
+
   try {
-    // Use backend TTS API - Alibaba Cloud Qwen3-TTS
+    // Use backend TTS API - Alibaba Cloud Qwen3-TTS for Chinese
     const requestBody = {
       text,
       voice: voice.value, // 'Cherry' (female) or 'Ethan' (male)
@@ -579,6 +584,33 @@ async function playText(text, lang) {
     // Don't fallback to browser TTS - just skip to avoid wrong voice
     return
   }
+}
+
+// Use device's native speech synthesis for English (sounds more natural)
+function playWithDeviceSpeech(text, lang) {
+  return new Promise((resolve) => {
+    if (!isPlaying.value) {
+      resolve()
+      return
+    }
+
+    console.log('🗣️ Using device speech for:', text)
+
+    const utterance = new SpeechSynthesisUtterance(text)
+    utterance.lang = lang
+    utterance.rate = 0.9 // Slightly slower for clarity
+
+    utterance.onend = () => {
+      console.log('✅ Device speech ended')
+      resolve()
+    }
+    utterance.onerror = (e) => {
+      console.error('❌ Device speech error:', e)
+      resolve()
+    }
+
+    window.speechSynthesis.speak(utterance)
+  })
 }
 
 function sleep(ms) {
