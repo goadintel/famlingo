@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useFamilyStore } from '../stores/family'
+import { useAuth } from '../composables/useAuth'
 
 // Views
+import LoginView from '../views/LoginView.vue'
 import SetupView from '../views/SetupView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import PracticeView from '../views/PracticeView.vue'
@@ -19,74 +21,89 @@ const routes = [
     redirect: '/dashboard'
   },
   {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
     path: '/setup',
     name: 'setup',
-    component: SetupView
+    component: SetupView,
+    meta: { requiresAuth: true }
   },
   {
     path: '/dashboard',
     name: 'dashboard',
     component: DashboardView,
-    meta: { requiresFamily: true }
+    meta: { requiresAuth: true, requiresFamily: true }
   },
   {
     path: '/practice',
     name: 'practice',
     component: PracticeView,
-    meta: { requiresFamily: true }
+    meta: { requiresAuth: true, requiresFamily: true }
   },
   {
     path: '/browse',
     name: 'browse',
     component: BrowseView,
-    meta: { requiresFamily: true }
+    meta: { requiresAuth: true, requiresFamily: true }
   },
   {
     path: '/settings',
     name: 'settings',
     component: SettingsView,
-    meta: { requiresFamily: true }
+    meta: { requiresAuth: true, requiresFamily: true }
   },
   {
     path: '/my-phrases',
     name: 'my-phrases',
     component: MyPhrasesView,
-    meta: { requiresFamily: true }
+    meta: { requiresAuth: true, requiresFamily: true }
   },
   {
     path: '/chat',
     name: 'chat',
     component: ChatView,
-    meta: { requiresFamily: true }
+    meta: { requiresAuth: true, requiresFamily: true }
   },
   {
     path: '/listen',
     name: 'listen',
     component: ListenView,
-    meta: { requiresFamily: true }
+    meta: { requiresAuth: true, requiresFamily: true }
   },
   {
     path: '/admin',
     name: 'admin',
     component: AdminView
-    // No requiresFamily - admin access is separate
+    // No requiresAuth - admin access is separate
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory('/famlingo/'), // Match vite base path
+  history: createWebHistory('/'),
   routes
 })
 
-// Navigation guard - redirect to setup if family not initialized
+// Navigation guard
 router.beforeEach((to, _from, next) => {
+  const auth = useAuth()
   const familyStore = useFamilyStore()
 
+  // Check auth first
+  if (to.meta.requiresAuth && !auth.isLoggedIn.value) {
+    next('/login')
+    return
+  }
+
+  // Then check family
   if (to.meta.requiresFamily && !familyStore.isFamilyInitialized) {
     next('/setup')
-  } else {
-    next()
+    return
   }
+
+  next()
 })
 
 export default router

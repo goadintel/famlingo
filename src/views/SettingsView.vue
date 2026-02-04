@@ -19,6 +19,83 @@
         </div>
       </header>
 
+      <!-- Account Section -->
+      <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <div class="flex justify-between items-center mb-6">
+          <BilingualText
+            en="Account"
+            cn="账户"
+            class="text-2xl font-bold"
+          />
+          <span class="text-xs text-gray-400">v2.1</span>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Logged in status -->
+          <div v-if="auth.isLoggedIn.value" class="bg-green-50 border-2 border-green-300 rounded-xl p-4">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-2xl">✅</span>
+              <BilingualText
+                en="Logged In"
+                cn="已登录"
+                class="font-bold text-green-700"
+              />
+            </div>
+            <div class="text-sm text-gray-600">
+              <div>Email: {{ auth.authEmail.value }}</div>
+              <div v-if="familyStore.family?.name">Family: {{ familyStore.family.name.en }} / {{ familyStore.family.name.cn }}</div>
+              <div>{{ familyStore.family?.users?.length || 0 }} family members</div>
+            </div>
+          </div>
+
+          <div v-else class="bg-yellow-50 border-2 border-yellow-300 rounded-xl p-4">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">⚠️</span>
+              <BilingualText
+                en="Not Logged In"
+                cn="未登录"
+                class="font-bold text-yellow-700"
+              />
+            </div>
+          </div>
+
+          <!-- Logout Button -->
+          <BilingualButton
+            v-if="auth.isLoggedIn.value"
+            en="Logout"
+            cn="退出登录"
+            variant="outline"
+            size="lg"
+            class="w-full text-red-600 border-red-300 hover:bg-red-50"
+            @click="handleLogout"
+          />
+
+          <BilingualButton
+            v-else
+            en="Login"
+            cn="登录"
+            variant="primary"
+            size="lg"
+            class="w-full"
+            @click="$router.push('/login')"
+          />
+
+          <!-- Info -->
+          <div class="bg-blue-50 rounded-xl p-6">
+            <BilingualText
+              en="About Your Account"
+              cn="关于您的账户"
+              class="font-bold text-blue-700 mb-3"
+            />
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>✅ Your data is securely stored on the FamLingo server / 您的数据安全存储在 FamLingo 服务器上</li>
+              <li>✅ Custom phrases sync across all your devices / 自定义短语在所有设备间同步</li>
+              <li>✅ Logging out will clear local data / 退出登录将清除本地数据</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <!-- DeepSeek AI Section -->
       <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
         <BilingualText
@@ -225,178 +302,24 @@
         </div>
       </div>
 
-      <!-- GitHub Sync Section -->
-      <div class="bg-white rounded-2xl shadow-xl p-8">
-        <BilingualText
-          en="GitHub Sync Settings"
-          cn="GitHub 同步设置"
-          class="text-2xl font-bold mb-6"
-        />
-
-        <div class="space-y-6">
-          <!-- Status -->
-          <div v-if="githubSettings" class="bg-green-50 border-2 border-green-300 rounded-xl p-4">
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-2xl">✅</span>
-              <BilingualText
-                en="GitHub Sync Enabled"
-                cn="GitHub 同步已启用"
-                class="font-bold text-green-700"
-              />
-            </div>
-            <div class="text-sm text-gray-600">
-              <div>Repository: {{ githubSettings.owner }}/{{ githubSettings.repo }}</div>
-              <div>File: {{ githubSettings.filePath }}</div>
-              <div v-if="lastSyncTime">Last sync: {{ formatDate(lastSyncTime) }}</div>
-            </div>
-          </div>
-
-          <div v-else class="bg-yellow-50 border-2 border-yellow-300 rounded-xl p-4">
-            <div class="flex items-center gap-3">
-              <span class="text-2xl">⚠️</span>
-              <BilingualText
-                en="GitHub Sync Not Configured"
-                cn="GitHub 同步未配置"
-                class="font-bold text-yellow-700"
-              />
-            </div>
-          </div>
-
-          <!-- Configuration Form -->
-          <div class="space-y-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                GitHub Personal Access Token / GitHub 个人访问令牌
-              </label>
-              <input
-                v-model="token"
-                type="password"
-                placeholder="ghp_..."
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none font-mono text-sm"
-              />
-              <p class="text-xs text-gray-500 mt-1">
-                Create token at: <a href="https://github.com/settings/tokens" target="_blank" class="text-purple-600 hover:underline">github.com/settings/tokens</a>
-                <br>Required scopes: <code class="bg-gray-100 px-1 rounded">repo</code>
-              </p>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">
-                  Owner / 所有者
-                </label>
-                <input
-                  v-model="owner"
-                  type="text"
-                  placeholder="goadintel"
-                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">
-                  Repository / 仓库
-                </label>
-                <input
-                  v-model="repo"
-                  type="text"
-                  placeholder="famlingo"
-                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                File Path / 文件路径
-              </label>
-              <input
-                v-model="filePath"
-                type="text"
-                placeholder="famlingo-family-data.json"
-                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
-              />
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="flex gap-3">
-              <BilingualButton
-                en="Save Settings"
-                cn="保存设置"
-                variant="primary"
-                size="lg"
-                class="flex-1"
-                @click="saveSettings"
-              />
-              <BilingualButton
-                v-if="githubSettings"
-                en="Sync Now"
-                cn="立即同步"
-                variant="secondary"
-                size="lg"
-                class="flex-1"
-                :disabled="syncing"
-                @click="syncNow"
-              />
-            </div>
-
-            <!-- Sync Status -->
-            <div v-if="syncing" class="bg-blue-50 rounded-xl p-4 text-center">
-              <div class="text-2xl mb-2">🔄</div>
-              <BilingualText
-                en="Syncing..."
-                cn="同步中..."
-                class="font-medium text-blue-700"
-              />
-            </div>
-
-            <div v-if="syncResult" class="bg-green-50 rounded-xl p-4">
-              <div class="text-2xl mb-2">✅</div>
-              <div class="font-medium text-green-700">
-                Sync successful! / 同步成功！
-              </div>
-              <div class="text-sm text-gray-600 mt-2">
-                {{ syncResult.userCount }} users synced / {{ syncResult.userCount }} 个用户已同步
-              </div>
-            </div>
-
-            <div v-if="syncErrorMsg" class="bg-red-50 rounded-xl p-4">
-              <div class="text-2xl mb-2">❌</div>
-              <div class="font-medium text-red-700">
-                Sync failed / 同步失败
-              </div>
-              <div class="text-sm text-gray-600 mt-2">
-                {{ syncErrorMsg }}
-              </div>
-            </div>
-          </div>
-
-          <!-- Instructions -->
-          <div class="bg-purple-50 rounded-xl p-6">
-            <BilingualText
-              en="How GitHub Sync Works"
-              cn="GitHub 同步的工作原理"
-              class="font-bold text-purple-700 mb-3"
-            />
-            <ul class="text-sm text-gray-700 space-y-2">
-              <li>✅ Data syncs automatically on app load / 应用加载时自动同步数据</li>
-              <li>✅ All family members' progress syncs / 所有家庭成员的进度都会同步</li>
-              <li>✅ Works across all devices / 在所有设备上都能使用</li>
-              <li>✅ Your data stays in your GitHub repo / 您的数据保留在您的 GitHub 仓库中</li>
-              <li>✅ Private and secure / 私密且安全</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <!-- GitHub Sync removed - backend server is now source of truth -->
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { useGitHubSync } from '../composables/useGitHubSync'
 import { useDeepSeek } from '../composables/useDeepSeek'
+import { useAuth } from '../composables/useAuth'
+import { useFamilyStore } from '../stores/family'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
+
+const router = useRouter()
+const auth = useAuth()
+const familyStore = useFamilyStore()
 
 const {
   syncing,
@@ -637,5 +560,40 @@ function clearAllData() {
 
   updateCacheStats()
   alert(`Cleared ${clearedCount} items. Family data and custom phrases preserved.\n已清除 ${clearedCount} 项。家庭数据和自定义短语已保留。`)
+}
+
+// Logout - clears all local data and redirects to login
+function handleLogout() {
+  if (!confirm('Logout and clear all local data? You will need to login again to access your family data.\n\n退出登录并清除所有本地数据？您需要重新登录才能访问家庭数据。')) {
+    return
+  }
+
+  // Clear auth token
+  auth.logout()
+
+  // Clear family store
+  familyStore.family = null
+  familyStore.currentUserId = null
+
+  // Clear ALL localStorage (fresh start)
+  const keysToRemove = []
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key?.startsWith('famlingo_')) {
+      keysToRemove.push(key)
+    }
+  }
+  keysToRemove.forEach(key => localStorage.removeItem(key))
+
+  // Also clear GitHub settings so old data doesn't come back
+  localStorage.removeItem('github_token')
+  localStorage.removeItem('github_owner')
+  localStorage.removeItem('github_repo')
+  localStorage.removeItem('github_file_path')
+
+  console.log('🚪 Logged out and cleared all local data')
+
+  // Redirect to login
+  router.push('/login')
 }
 </script>

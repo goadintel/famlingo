@@ -239,7 +239,7 @@ const progress = computed(() => totalPhrases.value > 0 ? ((currentIndex.value + 
 // Settings
 const repeatCount = ref(2)
 const pauseDuration = ref(2000)
-const voice = ref('Cherry') // Alibaba TTS voices: Cherry (female), Ethan (male)
+const voice = ref('Cherry') // Voice: Cherry (female) or Ethan (male) - server maps to OpenAI/Alibaba voices
 const playbackSpeed = ref(0.7) // Chinese speech rate: 0.5 (slow), 0.7 (normal), 0.9 (fast)
 const loopMode = ref(false)
 const shuffleEachLoop = ref(true) // When looping, pick new random phrases each time
@@ -459,9 +459,22 @@ async function playCurrentPhrase() {
     if (myPlaybackId !== currentPlaybackId) return
 
     // Play Chinese (repeat based on settings)
+    // Speed progression: first at normal, then progressively slower for learning
+    const baseSpeed = playbackSpeed.value
     for (let i = 0; i < repeatCount.value; i++) {
       if (!isPlaying.value || myPlaybackId !== currentPlaybackId) break
-      await playText(currentPhrase.value.cn, 'zh-CN')
+
+      // Calculate speed for this repetition: first=fast, last=slow
+      // e.g., 3 repeats with baseSpeed 0.7: [0.9, 0.7, 0.5]
+      let repSpeed = baseSpeed
+      if (repeatCount.value > 1) {
+        const speedRange = 0.4 // Range from fastest to slowest
+        const step = speedRange / (repeatCount.value - 1)
+        repSpeed = baseSpeed + 0.2 - (i * step) // Start 0.2 faster, end 0.2 slower
+        repSpeed = Math.max(0.4, Math.min(1.0, repSpeed)) // Clamp to valid range
+      }
+
+      await playTextWithAPI(currentPhrase.value.cn, 'zh-CN', repSpeed)
       if (myPlaybackId !== currentPlaybackId) return
       if (i < repeatCount.value - 1) {
         await sleep(pauseDuration.value)
@@ -490,10 +503,16 @@ async function playText(text, lang) {
 
   console.log('🔊 playText called:', { text, lang, voice: voice.value })
 
-  // Use device speech for English (more native), Alibaba TTS for Chinese
-  if (lang === 'en-US') {
-    return playWithDeviceSpeech(text, lang)
-  }
+  // Use API for all TTS:
+  // - English: OpenAI TTS (native quality)
+  // - Chinese: Alibaba TTS (proper tones)
+  const speed = lang === 'en-US' ? 1.0 : playbackSpeed.value
+  return playTextWithAPI(text, lang, speed)
+}
+
+// Play text via API (server routes to OpenAI for English, Alibaba for Chinese)
+async function playTextWithAPI(text, lang, speed) {
+  if (!isPlaying.value) return
 
   try {
     // Use backend TTS API - Alibaba Cloud Qwen3-TTS for Chinese
@@ -501,9 +520,9 @@ async function playText(text, lang) {
       text,
       voice: voice.value, // 'Cherry' (female) or 'Ethan' (male)
       language: lang,
-      speed: playbackSpeed.value
+      speed: speed
     }
-    console.log('📤 TTS Request:', requestBody)
+    console.log('📤 TTS Request:', requestBody, `(speed: ${speed.toFixed(2)})`)
 
     const response = await fetch(`${API_BASE_URL}/api/tts`, {
       method: 'POST',
@@ -586,19 +605,103 @@ async function playText(text, lang) {
   }
 }
 
+// Cache for selected English voice
+let cachedEnglishVoice = null
+let cachedVoiceGender = null
+let voicesLoaded = false
+
+// Preload voices on page load
+function preloadVoices() {
+  return new Promise((resolve) => {
+    const voices = window.speechSynthesis.getVoices()
+    if (voices.length > 0) {
+      voicesLoaded = true
+      console.log('📢 Voices preloaded:', voices.length, 'voices available')
+      resolve(voices)
+    } else {
+      // Wait for voices to load
+      window.speechSynthesis.onvoiceschanged = () => {
+        const loadedVoices = window.speechSynthesis.getVoices()
+        voicesLoaded = true
+        console.log('📢 Voices loaded:', loadedVoices.length, 'voices available')
+        resolve(loadedVoices)
+      }
+      // Fallback timeout
+      setTimeout(() => {
+        if (!voicesLoaded) {
+          console.warn('⚠️ Voice loading timeout')
+          resolve([])
+        }
+      }, 2000)
+    }
+  })
+}
+
+// Call preload on startup
+preloadVoices()
+
 // Use device's native speech synthesis for English (sounds more natural)
-function playWithDeviceSpeech(text, lang) {
+async function playWithDeviceSpeech(text, lang) {
+  if (!isPlaying.value) return
+
+  console.log('🗣️ Using device speech for:', text)
+
+  // Ensure voices are loaded
+  if (!voicesLoaded) {
+    await preloadVoices()
+  }
+
   return new Promise((resolve) => {
     if (!isPlaying.value) {
       resolve()
       return
     }
 
-    console.log('🗣️ Using device speech for:', text)
-
     const utterance = new SpeechSynthesisUtterance(text)
     utterance.lang = lang
     utterance.rate = 0.9 // Slightly slower for clarity
+
+    const wantMale = voice.value === 'Ethan'
+
+    // Use cached voice if gender matches
+    if (cachedEnglishVoice && cachedVoiceGender === wantMale) {
+      utterance.voice = cachedEnglishVoice
+    } else {
+      // Find and cache appropriate voice
+      const voices = window.speechSynthesis.getVoices()
+
+      // Log all available English voices for debugging
+      const englishVoices = voices.filter(v => v.lang.startsWith('en'))
+      console.log('📢 Available English voices:', englishVoices.map(v => `${v.name} (${v.lang})`))
+
+      if (englishVoices.length > 0) {
+        let selectedVoice = null
+
+        // Look for voice with matching gender indicator
+        for (const v of englishVoices) {
+          const nameLower = v.name.toLowerCase()
+          // Check for explicit gender or common name patterns
+          const isMaleVoice = nameLower.includes('male') && !nameLower.includes('female') ||
+            /\b(david|daniel|james|john|tom|alex|mark|guy|aaron|gordon|rishi|oliver|george|fred|lee|evan)\b/.test(nameLower)
+          const isFemaleVoice = nameLower.includes('female') ||
+            /\b(samantha|karen|victoria|susan|kate|fiona|moira|tessa|allison|ava|zoe|nicky|siri|ellen|emily)\b/.test(nameLower)
+
+          if (wantMale && isMaleVoice) {
+            selectedVoice = v
+            break
+          } else if (!wantMale && isFemaleVoice) {
+            selectedVoice = v
+            break
+          }
+        }
+
+        // Fallback to first English voice
+        cachedEnglishVoice = selectedVoice || englishVoices[0]
+        cachedVoiceGender = wantMale
+        utterance.voice = cachedEnglishVoice
+        console.log('🎤 Selected voice:', cachedEnglishVoice?.name, wantMale ? '(wanted male)' : '(wanted female)')
+      }
+    }
 
     utterance.onend = () => {
       console.log('✅ Device speech ended')

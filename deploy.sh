@@ -10,7 +10,7 @@ echo ""
 
 # Configuration
 REMOTE_USER="root"
-REMOTE_HOST="128.199.245.225"
+REMOTE_HOST="134.209.102.164"
 REMOTE_PATH="/var/www/famlingo-web/"
 SSH_KEY="$HOME/.ssh/famlingo-digitalocean"
 BUILD_DIR="dist"

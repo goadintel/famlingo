@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import phrasesData from '../data/phrases.json'
+import { useAuth } from '../composables/useAuth'
 
 export const usePhrasesStore = defineStore('phrases', {
   state: () => ({
@@ -8,7 +9,8 @@ export const usePhrasesStore = defineStore('phrases', {
     phases: phrasesData.phases,
     version: phrasesData.version,
     lastUpdated: phrasesData.lastUpdated,
-    totalPhrases: phrasesData.totalPhrases
+    totalPhrases: phrasesData.totalPhrases,
+    currentMemberId: null // Track current member for backend sync
   }),
 
   getters: {
@@ -82,6 +84,18 @@ export const usePhrasesStore = defineStore('phrases', {
 
     // Get single phrase by ID
     getPhraseById: (state) => (phraseId) => {
+      // Check custom phrases first
+      const customPhrase = state.customPhrases.find(p => p.id === phraseId)
+      if (customPhrase) {
+        return {
+          ...customPhrase,
+          categoryId: 'custom',
+          categoryName: { en: 'Common Phrases', cn: '常用短语' },
+          categoryIcon: '⭐'
+        }
+      }
+
+      // Then check standard phrases
       for (const category of state.phrases) {
         const phrase = category.phrases.find(p => p.id === phraseId)
         if (phrase) {
@@ -141,45 +155,104 @@ export const usePhrasesStore = defineStore('phrases', {
 
   actions: {
     // Initialize phrase library and load custom phrases
-    initialize(currentUserId = null) {
+    async initialize(memberId = null) {
       console.log(`📚 Phrase library loaded: ${this.totalPhrases} phrases`)
       console.log(`📖 Categories: ${this.phrases.length}`)
       console.log(`🎯 Phases: ${Object.keys(this.phases).length}`)
 
-      // Load custom phrases for current user
-      if (currentUserId) {
-        this.loadCustomPhrases(currentUserId)
+      this.currentMemberId = memberId
+
+      // Load custom phrases for current member
+      if (memberId) {
+        await this.loadCustomPhrases(memberId)
       }
     },
 
-    // Load custom phrases from localStorage for specific user
-    loadCustomPhrases(userId) {
-      const saved = localStorage.getItem(`famlingo_custom_phrases_${userId}`)
-      if (saved) {
-        this.customPhrases = JSON.parse(saved)
-        console.log(`⭐ Loaded ${this.customPhrases.length} custom phrases for user ${userId}`)
-      } else {
-        this.customPhrases = []
+    // Load custom phrases from backend
+    async loadCustomPhrases(memberId) {
+      // First load from localStorage (for immediate display)
+      const saved = localStorage.getItem(`famlingo_custom_phrases_${memberId}`)
+      const localPhrases = saved ? JSON.parse(saved) : []
+      this.customPhrases = localPhrases
+
+      if (localPhrases.length > 0) {
+        console.log(`⭐ Loaded ${localPhrases.length} custom phrases from local storage`)
+      }
+
+      // Then load from backend
+      try {
+        const auth = useAuth()
+        if (!auth.isLoggedIn.value) {
+          console.log('⏭️ Not logged in, skipping backend sync')
+          return
+        }
+
+        const backendPhrases = await auth.getPhrases(memberId)
+
+        if (backendPhrases.length > 0) {
+          // Backend is source of truth
+          this.customPhrases = backendPhrases
+          // Update local cache
+          this.saveCustomPhrasesLocally(memberId)
+          console.log(`⭐ Loaded ${backendPhrases.length} custom phrases from backend`)
+        } else if (localPhrases.length > 0) {
+          // We have local phrases but none on backend - sync them up
+          console.log(`🔄 Syncing ${localPhrases.length} local phrases to backend`)
+          for (const phrase of localPhrases) {
+            try {
+              await auth.addPhrase(memberId, phrase)
+            } catch (err) {
+              console.warn('⚠️ Could not sync phrase:', err.message)
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('⚠️ Could not load phrases from backend:', err.message)
+        // Continue with local phrases only
       }
     },
 
-    // Add a custom phrase (and save to localStorage)
-    addCustomPhrase(userId, phrase) {
+    // Add a custom phrase (save to backend + localStorage)
+    async addCustomPhrase(memberId, phrase) {
+      // Add to local state immediately
       this.customPhrases.unshift(phrase)
-      this.saveCustomPhrases(userId)
+      this.saveCustomPhrasesLocally(memberId)
       console.log('⭐ Custom phrase added:', phrase.en, '/', phrase.cn)
+
+      // Sync to backend
+      try {
+        const auth = useAuth()
+        if (auth.isLoggedIn.value) {
+          await auth.addPhrase(memberId, phrase)
+          console.log('✅ Phrase synced to backend')
+        }
+      } catch (err) {
+        console.warn('⚠️ Could not sync phrase to backend:', err.message)
+        // Phrase is still saved locally
+      }
     },
 
     // Remove a custom phrase
-    removeCustomPhrase(userId, phraseId) {
+    async removeCustomPhrase(memberId, phraseId) {
       this.customPhrases = this.customPhrases.filter(p => p.id !== phraseId)
-      this.saveCustomPhrases(userId)
+      this.saveCustomPhrasesLocally(memberId)
       console.log('🗑️ Custom phrase removed:', phraseId)
+
+      // Sync to backend
+      try {
+        const auth = useAuth()
+        if (auth.isLoggedIn.value) {
+          await auth.deletePhrase(phraseId)
+          console.log('✅ Phrase deleted from backend')
+        }
+      } catch (err) {
+        console.warn('⚠️ Could not delete phrase from backend:', err.message)
+      }
     },
 
-    // Save custom phrases to localStorage
-    saveCustomPhrases(userId) {
-      localStorage.setItem(`famlingo_custom_phrases_${userId}`, JSON.stringify(this.customPhrases))
+    // Save custom phrases to localStorage (local cache)
+    saveCustomPhrasesLocally(memberId) {
+      localStorage.setItem(`famlingo_custom_phrases_${memberId}`, JSON.stringify(this.customPhrases))
     },
 
     // Play audio for a phrase (text-to-speech)

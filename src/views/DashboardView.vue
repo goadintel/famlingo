@@ -240,14 +240,14 @@ import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useFamilyStore } from '../stores/family'
 import { usePhrasesStore } from '../stores/phrases'
-import { useGitHubSync } from '../composables/useGitHubSync'
+// import { useGitHubSync } from '../composables/useGitHubSync'  // Disabled - backend is source of truth
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
 const router = useRouter()
 const familyStore = useFamilyStore()
 const phrasesStore = usePhrasesStore()
-const { autoSyncOnLoad } = useGitHubSync()
+// const { autoSyncOnLoad } = useGitHubSync()  // Disabled - backend is source of truth
 
 // Load family from localStorage immediately with error handling
 try {
@@ -312,12 +312,13 @@ onMounted(async () => {
     }
   }
 
-  // Auto-sync from GitHub on load (if configured)
-  try {
-    await autoSyncOnLoad()
-  } catch (error) {
-    console.error('❌ Error during auto-sync:', error)
-  }
+  // NOTE: GitHub auto-sync disabled - backend server is now source of truth
+  // GitHub sync is available manually in Settings for backup purposes only
+  // try {
+  //   await autoSyncOnLoad()
+  // } catch (error) {
+  //   console.error('❌ Error during auto-sync:', error)
+  // }
 })
 
 function switchToUser(userId) {
