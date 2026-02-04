@@ -1,5 +1,21 @@
 # FamLingo - Claude Session Context
 
+**Last Session:** 2026-02-04
+**Status:** All working, deployed to production
+
+## Recent Session Summary (2026-02-04)
+Implemented email/password authentication replacing GitHub sync:
+- Added `useAuth.js` composable for auth
+- Added `LoginView.vue` for login/register
+- Added Account section to Settings with Logout button
+- Removed GitHub sync UI (was restoring deleted users)
+- Disabled auto GitHub sync on dashboard
+- Migrated to new server: 134.209.102.164
+- Fixed Cloudflare DNS pointing to old server
+- All changes committed and frontend pushed to GitHub
+
+**Current State:** App is live at https://famlingo-api.com with working auth
+
 ## Project Overview
 Family language learning app (Chinese/English) with Vue 3 frontend and Express.js backend.
 
@@ -56,6 +72,11 @@ cd /home/cmantra/famlingo
 - Auth composable: `/home/cmantra/famlingo/src/composables/useAuth.js`
 - Family store: `/home/cmantra/famlingo/src/stores/family.js`
 - Settings view: `/home/cmantra/famlingo/src/views/SettingsView.vue`
+
+## Pending / Notes
+- Backend repo (`famlingo-api`) not on GitHub (local only, deployed to server)
+- User testing auth system - may report issues
+- Old docs (DIGITAL_OCEAN_WEB_DEPLOYMENT.md etc.) have outdated IPs - use OPERATIONS.md
 
 ## See Also
 - `OPERATIONS.md` - Full operations guide
