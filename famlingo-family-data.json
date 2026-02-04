@@ -1,14 +1,14 @@
 {
   "version": "1.0",
   "appVersion": "0.1.0",
-  "lastSync": "2026-02-04T01:51:26.417Z",
+  "lastSync": "2026-02-04T01:59:28.481Z",
   "family": {
-    "id": "dc4f5e99-b97b-4fed-9b81-b88718e31c34",
+    "id": "5cb161f4-2797-4f76-b1e7-95e360ca2c20",
     "name": {
-      "en": "RenGoad Family",
-      "cn": "RenGoad Family"
+      "en": "RenGoad family",
+      "cn": "RenGoad family"
     },
-    "created": "2026-02-04 00:38:55",
+    "created": "2026-02-04 01:58:23",
     "users": [
       {
         "id": "e84d27ca-4d8f-47b4-8a58-c2a0f9a2ece4",
@@ -53,6 +53,28 @@
         },
         "progress": {},
         "created": "2026-02-04 00:38:56"
+      },
+      {
+        "id": "71c0d667-d5b2-4104-b6b9-9d402d9171b3",
+        "name": {
+          "en": "Clint",
+          "cn": "Long"
+        },
+        "avatar": "🧒",
+        "ageGroup": "adult",
+        "learningDirection": "en-to-cn",
+        "targetLanguage": "zh-CN",
+        "level": "beginner",
+        "stats": {
+          "totalSessions": 0,
+          "totalPhrases": 0,
+          "currentStreak": 0,
+          "longestStreak": 0,
+          "accuracy": 0,
+          "lastPractice": null
+        },
+        "progress": {},
+        "created": "2026-02-04 01:58:24"
       }
     ]
   },
@@ -100,6 +122,28 @@
       },
       "progress": {},
       "created": "2026-02-04 00:38:56"
+    },
+    {
+      "id": "71c0d667-d5b2-4104-b6b9-9d402d9171b3",
+      "name": {
+        "en": "Clint",
+        "cn": "Long"
+      },
+      "avatar": "🧒",
+      "ageGroup": "adult",
+      "learningDirection": "en-to-cn",
+      "targetLanguage": "zh-CN",
+      "level": "beginner",
+      "stats": {
+        "totalSessions": 0,
+        "totalPhrases": 0,
+        "currentStreak": 0,
+        "longestStreak": 0,
+        "accuracy": 0,
+        "lastPractice": null
+      },
+      "progress": {},
+      "created": "2026-02-04 01:58:24"
     }
   ]
 }
