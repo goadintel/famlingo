@@ -1,14 +1,14 @@
 {
   "version": "1.0",
   "appVersion": "0.1.0",
-  "lastSync": "2026-02-04T00:20:50.740Z",
+  "lastSync": "2026-02-04T00:38:56.857Z",
   "family": {
-    "id": "7b5f2ee2-5c58-44a6-83b4-06c462cea0f2",
+    "id": "dc4f5e99-b97b-4fed-9b81-b88718e31c34",
     "name": {
-      "en": "The RenGoad family",
-      "cn": "The RenGoad family"
+      "en": "RenGoad Family",
+      "cn": "RenGoad Family"
     },
-    "created": "2025-10-11T22:46:43.600Z",
+    "created": "2026-02-04 00:38:55",
     "users": [
       {
         "id": "e84d27ca-4d8f-47b4-8a58-c2a0f9a2ece4",
@@ -30,6 +30,29 @@
           "lastPractice": null
         },
         "progress": {}
+      },
+      {
+        "id": "bbe915dc-361a-47fd-9770-c49245bc279a",
+        "familyId": "dc4f5e99-b97b-4fed-9b81-b88718e31c34",
+        "name": {
+          "en": "Clint",
+          "cn": "Long"
+        },
+        "avatar": "👴",
+        "ageGroup": "adult",
+        "learningDirection": "en-to-cn",
+        "targetLanguage": "zh-CN",
+        "level": "beginner",
+        "stats": {
+          "totalSessions": 0,
+          "totalPhrases": 0,
+          "currentStreak": 0,
+          "longestStreak": 0,
+          "accuracy": 0,
+          "lastPractice": null
+        },
+        "progress": {},
+        "created": "2026-02-04 00:38:56"
       }
     ]
   },
@@ -54,6 +77,29 @@
         "lastPractice": null
       },
       "progress": {}
+    },
+    {
+      "id": "bbe915dc-361a-47fd-9770-c49245bc279a",
+      "familyId": "dc4f5e99-b97b-4fed-9b81-b88718e31c34",
+      "name": {
+        "en": "Clint",
+        "cn": "Long"
+      },
+      "avatar": "👴",
+      "ageGroup": "adult",
+      "learningDirection": "en-to-cn",
+      "targetLanguage": "zh-CN",
+      "level": "beginner",
+      "stats": {
+        "totalSessions": 0,
+        "totalPhrases": 0,
+        "currentStreak": 0,
+        "longestStreak": 0,
+        "accuracy": 0,
+        "lastPractice": null
+      },
+      "progress": {},
+      "created": "2026-02-04 00:38:56"
     }
   ]
 }
