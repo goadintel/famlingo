@@ -74,9 +74,47 @@
               {{ phrase.pinyin }}
             </div>
 
-            <!-- English -->
-            <div class="text-xl text-gray-700 mb-4">
-              {{ phrase.en }}
+            <!-- English (editable when in edit mode) -->
+            <div v-if="editingPhraseId === phrase.id" class="mb-4">
+              <textarea
+                v-model="editingText"
+                rows="2"
+                class="w-full px-3 py-2 text-xl text-gray-700 border-2 border-purple-400 rounded-lg focus:border-purple-600 focus:outline-none bg-white"
+                @click.stop
+              ></textarea>
+              <div class="flex gap-2 mt-2">
+                <button
+                  @click.stop="aiUpdateCard(phrase)"
+                  :disabled="aiUpdating || !editingText.trim()"
+                  :class="['flex items-center gap-1.5 px-4 py-2 rounded-lg font-medium transition-all text-sm',
+                           aiUpdating
+                             ? 'bg-blue-400 text-white cursor-wait'
+                             : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg']"
+                >
+                  <span v-if="aiUpdating">Updating... / 更新中...</span>
+                  <span v-else>AI Update / AI 更新</span>
+                </button>
+                <button
+                  @click.stop="cancelEdit"
+                  class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium text-sm hover:bg-gray-300 transition-all"
+                >
+                  Cancel / 取消
+                </button>
+              </div>
+              <div v-if="aiError" class="mt-2 text-sm text-red-600">{{ aiError }}</div>
+            </div>
+            <div v-else class="flex items-center gap-2 mb-4">
+              <div class="text-xl text-gray-700 flex-1">
+                {{ phrase.en }}
+              </div>
+              <button
+                v-if="selectedPhraseId === phrase.id"
+                @click.stop="startEdit(phrase)"
+                class="text-gray-400 hover:text-purple-600 transition-colors flex-shrink-0"
+                title="Edit English / 编辑英文"
+              >
+                &#9998;
+              </button>
             </div>
 
             <!-- Meta Info -->
@@ -130,14 +168,24 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { usePhrasesStore } from '../stores/phrases'
+import { useFamilyStore } from '../stores/family'
+import { useDeepSeek } from '../composables/useDeepSeek'
 import BilingualText from '../components/BilingualText.vue'
 import BilingualButton from '../components/BilingualButton.vue'
 
 const route = useRoute()
 const phrasesStore = usePhrasesStore()
+const familyStore = useFamilyStore()
+const deepSeek = useDeepSeek()
 
 const selectedCategory = ref(null)
 const selectedPhraseId = ref(null)
+
+// Edit mode state
+const editingPhraseId = ref(null)
+const editingText = ref('')
+const aiUpdating = ref(false)
+const aiError = ref(null)
 
 const categories = computed(() => phrasesStore.categories)
 const filteredPhrases = computed(() => {
@@ -160,5 +208,51 @@ function selectPhrase(phrase) {
 
 function playAudio(text, language = 'zh-CN') {
   phrasesStore.playAudio(text, language)
+}
+
+function startEdit(phrase) {
+  editingPhraseId.value = phrase.id
+  editingText.value = phrase.en
+  aiError.value = null
+}
+
+function cancelEdit() {
+  editingPhraseId.value = null
+  editingText.value = ''
+  aiError.value = null
+}
+
+async function aiUpdateCard(phrase) {
+  const currentUser = familyStore.currentUser
+  if (!currentUser) return
+
+  if (!deepSeek.getApiKey()) {
+    aiError.value = 'DeepSeek API key not configured. Go to Settings to add it.'
+    return
+  }
+
+  aiUpdating.value = true
+  aiError.value = null
+
+  try {
+    const result = await deepSeek.updateCardFromEnglish(editingText.value.trim())
+
+    const updates = {
+      en: editingText.value.trim(),
+      cn: result.cn,
+      pinyin: result.pinyin
+    }
+    if (result.literalTranslation) updates.literalTranslation = result.literalTranslation
+    if (result.context) updates.context = result.context
+
+    await phrasesStore.updatePhrase(currentUser.id, phrase.id, updates)
+
+    editingPhraseId.value = null
+    editingText.value = ''
+  } catch (err) {
+    aiError.value = err.message
+  } finally {
+    aiUpdating.value = false
+  }
 }
 </script>

@@ -185,6 +185,22 @@
                 @click="$router.push('/my-phrases')"
               />
               <BilingualButton
+                en="Courses"
+                cn="课程"
+                variant="secondary"
+                size="md"
+                class="w-full"
+                @click="$router.push('/courses')"
+              />
+              <BilingualButton
+                en="Reference Library"
+                cn="参考图书馆"
+                variant="secondary"
+                size="md"
+                class="w-full"
+                @click="$router.push('/library')"
+              />
+              <BilingualButton
                 en="Browse Phrases"
                 cn="浏览短语"
                 variant="outline"

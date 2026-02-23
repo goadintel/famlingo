@@ -12,6 +12,9 @@ import SettingsView from '../views/SettingsView.vue'
 import MyPhrasesView from '../views/MyPhrasesView.vue'
 import ChatView from '../views/ChatView.vue'
 import ListenView from '../views/ListenView.vue'
+import CoursesView from '../views/CoursesView.vue'
+import LessonView from '../views/LessonView.vue'
+import LibraryView from '../views/LibraryView.vue'
 import AdminView from '../views/AdminView.vue'
 
 const routes = [
@@ -71,6 +74,24 @@ const routes = [
     path: '/listen',
     name: 'listen',
     component: ListenView,
+    meta: { requiresAuth: true, requiresFamily: true }
+  },
+  {
+    path: '/courses',
+    name: 'courses',
+    component: CoursesView,
+    meta: { requiresAuth: true, requiresFamily: true }
+  },
+  {
+    path: '/courses/:levelId/:lessonId',
+    name: 'lesson',
+    component: LessonView,
+    meta: { requiresAuth: true, requiresFamily: true }
+  },
+  {
+    path: '/library',
+    name: 'library',
+    component: LibraryView,
     meta: { requiresAuth: true, requiresFamily: true }
   },
   {

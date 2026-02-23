@@ -1,0 +1,4921 @@
+{
+  "version": "1.0",
+  "levels": [
+    {
+      "id": "level-1",
+      "name": {
+        "en": "Level 1 - Absolute Beginner",
+        "cn": "第一级 - 零基础"
+      },
+      "description": {
+        "en": "Essential daily situations and basic phrases",
+        "cn": "基本日常情景和常用短语"
+      },
+      "icon": "🌱",
+      "lessons": [
+        {
+          "id": "L1-006",
+          "title": "Meeting - Time for Class",
+          "audioPath": "courses/level-1/audio/006-meeting-time-for-class.mp3",
+          "order": 1
+        },
+        {
+          "id": "L1-009",
+          "title": "Eating - Ordering Noodles",
+          "audioPath": "courses/level-1/audio/009-eating-ordering-noodles.mp3",
+          "order": 2
+        },
+        {
+          "id": "L1-011",
+          "title": "Eating - Waiter, the Bill!",
+          "audioPath": "courses/level-1/audio/011-eating-waiter-the-bill.mp3",
+          "order": 3
+        },
+        {
+          "id": "L1-012",
+          "title": "Lights, Camera, Chinese Fame!",
+          "audioPath": "courses/level-1/audio/012-lights-camera-chinese-fame.mp3",
+          "order": 4
+        },
+        {
+          "id": "L1-013",
+          "title": "The Great Chinese Potty Dilemma",
+          "audioPath": "courses/level-1/audio/013-the-great-chinese-potty-dilemma.mp3",
+          "order": 5
+        },
+        {
+          "id": "L1-016",
+          "title": "Essentials - No, Thanks!",
+          "audioPath": "courses/level-1/audio/016-essentials-no-thanks.mp3",
+          "order": 6
+        },
+        {
+          "id": "L1-017",
+          "title": "Getting Around- Finding the Subway in China",
+          "audioPath": "courses/level-1/audio/017-getting-around-finding-the-subway-in-china.mp3",
+          "order": 7
+        },
+        {
+          "id": "L1-018",
+          "title": "Getting Around in China- Does This Bus Go to...",
+          "audioPath": "courses/level-1/audio/018-getting-around-in-china-does-this-bus-go-to.mp3",
+          "order": 8
+        },
+        {
+          "id": "L1-019",
+          "title": "Getting Around in China- How Do I Get Home",
+          "audioPath": "courses/level-1/audio/019-getting-around-in-china-how-do-i-get-home.mp3",
+          "order": 9
+        },
+        {
+          "id": "L1-021",
+          "title": "Getting Around - Asking Directions in China",
+          "audioPath": "courses/level-1/audio/021-getting-around-asking-directions-in-china.mp3",
+          "order": 10
+        },
+        {
+          "id": "L1-022",
+          "title": "Buying - This and That in China",
+          "audioPath": "courses/level-1/audio/022-buying-this-and-that-in-china.mp3",
+          "order": 11
+        },
+        {
+          "id": "L1-024",
+          "title": "Buying - Finding a Phone Card in China",
+          "audioPath": "courses/level-1/audio/024-buying-finding-a-phone-card-in-china.mp3",
+          "order": 12
+        },
+        {
+          "id": "L1-025",
+          "title": "Buying - By Train or by Plane in China",
+          "audioPath": "courses/level-1/audio/025-buying-by-train-or-by-plane-in-china.mp3",
+          "order": 13
+        },
+        {
+          "id": "L1-026",
+          "title": "Buying - Getting a Train Ticket in China",
+          "audioPath": "courses/level-1/audio/026-buying-getting-a-train-ticket-in-china.mp3",
+          "order": 14
+        },
+        {
+          "id": "L1-028",
+          "title": "Not too Shabby",
+          "audioPath": "courses/level-1/audio/028-not-too-shabby.mp3",
+          "order": 15
+        },
+        {
+          "id": "L1-030",
+          "title": "Why Are You Crying",
+          "audioPath": "courses/level-1/audio/030-why-are-you-crying.mp3",
+          "order": 16
+        },
+        {
+          "id": "L1-031",
+          "title": "Too Tired for Fun in China",
+          "audioPath": "courses/level-1/audio/031-too-tired-for-fun-in-china.mp3",
+          "order": 17
+        },
+        {
+          "id": "L1-033",
+          "title": "Two Hungry Stomachs in China",
+          "audioPath": "courses/level-1/audio/033-two-hungry-stomachs-in-china.mp3",
+          "order": 18
+        },
+        {
+          "id": "L1-034",
+          "title": "Excuses for Being Late in China",
+          "audioPath": "courses/level-1/audio/034-excuses-for-being-late-in-china.mp3",
+          "order": 19
+        },
+        {
+          "id": "L1-036",
+          "title": "What_s the Rush in China",
+          "audioPath": "courses/level-1/audio/036-whats-the-rush-in-china.mp3",
+          "order": 20
+        },
+        {
+          "id": "L1-037",
+          "title": "The Brand New Chinese Bike",
+          "audioPath": "courses/level-1/audio/037-the-brand-new-chinese-bike.mp3",
+          "order": 21
+        },
+        {
+          "id": "L1-038",
+          "title": "We All Scream for Ice Cream in China!",
+          "audioPath": "courses/level-1/audio/038-we-all-scream-for-ice-cream-in-china.mp3",
+          "order": 22
+        },
+        {
+          "id": "L1-039",
+          "title": "The Clueless Chinese Linguist",
+          "audioPath": "courses/level-1/audio/039-the-clueless-chinese-linguist.mp3",
+          "order": 23
+        },
+        {
+          "id": "L1-041",
+          "title": "The Broken Refrigerator",
+          "audioPath": "courses/level-1/audio/041-the-broken-refrigerator.mp3",
+          "order": 24
+        },
+        {
+          "id": "L1-043",
+          "title": "Bright Lights, Big City",
+          "audioPath": "courses/level-1/audio/043-bright-lights-big-city.mp3",
+          "order": 25
+        },
+        {
+          "id": "L1-044",
+          "title": "The Easy Way",
+          "audioPath": "courses/level-1/audio/044-the-easy-way.mp3",
+          "order": 26
+        },
+        {
+          "id": "L1-048",
+          "title": "Chinese Colors",
+          "audioPath": "courses/level-1/audio/048-chinese-colors.mp3",
+          "order": 27
+        },
+        {
+          "id": "L1-051",
+          "title": "Playing the China Card",
+          "audioPath": "courses/level-1/audio/051-playing-the-china-card.mp3",
+          "order": 28
+        },
+        {
+          "id": "L1-052",
+          "title": "Feeling sick in China",
+          "audioPath": "courses/level-1/audio/052-feeling-sick-in-china.mp3",
+          "order": 29
+        },
+        {
+          "id": "L1-053",
+          "title": "Being a Chinese culinary champion",
+          "audioPath": "courses/level-1/audio/053-being-a-chinese-culinary-champion.mp3",
+          "order": 30
+        },
+        {
+          "id": "L1-058",
+          "title": "Planning a fun night in China",
+          "audioPath": "courses/level-1/audio/058-planning-a-fun-night-in-china.mp3",
+          "order": 31
+        },
+        {
+          "id": "L1-060",
+          "title": "You_ve got a lot to complain about in Chinese",
+          "audioPath": "courses/level-1/audio/060-youve-got-a-lot-to-complain-about-in-chinese.mp3",
+          "order": 32
+        },
+        {
+          "id": "L1-061",
+          "title": "Too many Chinese culinary choices",
+          "audioPath": "courses/level-1/audio/061-too-many-chinese-culinary-choices.mp3",
+          "order": 33
+        },
+        {
+          "id": "L1-062",
+          "title": "Tell them what you really think in Chinese",
+          "audioPath": "courses/level-1/audio/062-tell-them-what-you-really-think-in-chinese.mp3",
+          "order": 34
+        },
+        {
+          "id": "L1-063",
+          "title": "Saving Energy in China",
+          "audioPath": "courses/level-1/audio/063-saving-energy-in-china.mp3",
+          "order": 35
+        },
+        {
+          "id": "L1-064",
+          "title": "Do these Chinese clothes make me look fat",
+          "audioPath": "courses/level-1/audio/064-do-these-chinese-clothes-make-me-look-fat.mp3",
+          "order": 36
+        },
+        {
+          "id": "L1-065",
+          "title": "Finding Important Places in China",
+          "audioPath": "courses/level-1/audio/065-finding-important-places-in-china.mp3",
+          "order": 37
+        },
+        {
+          "id": "L1-066",
+          "title": "It_s All About Who You Know in China",
+          "audioPath": "courses/level-1/audio/066-its-all-about-who-you-know-in-china.mp3",
+          "order": 38
+        },
+        {
+          "id": "L1-067",
+          "title": "Time, precious time in China",
+          "audioPath": "courses/level-1/audio/067-time-precious-time-in-china.mp3",
+          "order": 39
+        },
+        {
+          "id": "L1-069",
+          "title": "A stressful subway experience in China",
+          "audioPath": "courses/level-1/audio/069-a-stressful-subway-experience-in-china.mp3",
+          "order": 40
+        },
+        {
+          "id": "L1-071",
+          "title": "In China, turning Japanese",
+          "audioPath": "courses/level-1/audio/071-in-china-turning-japanese.mp3",
+          "order": 41
+        },
+        {
+          "id": "L1-073",
+          "title": "Be entertained in China",
+          "audioPath": "courses/level-1/audio/073-be-entertained-in-china.mp3",
+          "order": 42
+        },
+        {
+          "id": "L1-077",
+          "title": "Chinese Beauty Secrets",
+          "audioPath": "courses/level-1/audio/077-chinese-beauty-secrets.mp3",
+          "order": 43
+        },
+        {
+          "id": "L1-080",
+          "title": "Calling for an Ambulance in China",
+          "audioPath": "courses/level-1/audio/080-calling-for-an-ambulance-in-china.mp3",
+          "order": 44
+        },
+        {
+          "id": "L1-081",
+          "title": "Getting News in China",
+          "audioPath": "courses/level-1/audio/081-getting-news-in-china.mp3",
+          "order": 45
+        },
+        {
+          "id": "L1-082",
+          "title": "Taking Photos in China",
+          "audioPath": "courses/level-1/audio/082-taking-photos-in-china.mp3",
+          "order": 46
+        },
+        {
+          "id": "L1-083",
+          "title": "Turning On the Light in China",
+          "audioPath": "courses/level-1/audio/083-turning-on-the-light-in-china.mp3",
+          "order": 47
+        },
+        {
+          "id": "L1-087",
+          "title": "Searching for Information in China",
+          "audioPath": "courses/level-1/audio/087-searching-for-information-in-china.mp3",
+          "order": 48
+        },
+        {
+          "id": "L1-088",
+          "title": "Weekend Hiking in China",
+          "audioPath": "courses/level-1/audio/088-weekend-hiking-in-china.mp3",
+          "order": 49
+        },
+        {
+          "id": "L1-089",
+          "title": "Out of Cash in China",
+          "audioPath": "courses/level-1/audio/089-out-of-cash-in-china.mp3",
+          "order": 50
+        },
+        {
+          "id": "L1-090",
+          "title": "The Unwanted Chinese Caller",
+          "audioPath": "courses/level-1/audio/090-the-unwanted-chinese-caller.mp3",
+          "order": 51
+        },
+        {
+          "id": "L1-091",
+          "title": "Chinese Power Crisis",
+          "audioPath": "courses/level-1/audio/091-chinese-power-crisis.mp3",
+          "order": 52
+        },
+        {
+          "id": "L1-092",
+          "title": "She_s Your Chinese Mom",
+          "audioPath": "courses/level-1/audio/092-shes-your-chinese-mom.mp3",
+          "order": 53
+        },
+        {
+          "id": "L1-093",
+          "title": "Wishing You a Happy Chinese Birthday",
+          "audioPath": "courses/level-1/audio/093-wishing-you-a-happy-chinese-birthday.mp3",
+          "order": 54
+        },
+        {
+          "id": "L1-094",
+          "title": "What_s Your Email Address in China",
+          "audioPath": "courses/level-1/audio/094-whats-your-email-address-in-china.mp3",
+          "order": 55
+        },
+        {
+          "id": "L1-095",
+          "title": "On the Way",
+          "audioPath": "courses/level-1/audio/095-on-the-way.mp3",
+          "order": 56
+        },
+        {
+          "id": "L1-098",
+          "title": "Fat Cat in China",
+          "audioPath": "courses/level-1/audio/098-fat-cat-in-china.mp3",
+          "order": 57
+        },
+        {
+          "id": "L1-100",
+          "title": "The Concert in Beijing",
+          "audioPath": "courses/level-1/audio/100-the-concert-in-beijing.mp3",
+          "order": 58
+        },
+        {
+          "id": "L1-101",
+          "title": "Beijing Restaurant Renovation",
+          "audioPath": "courses/level-1/audio/101-beijing-restaurant-renovation.mp3",
+          "order": 59
+        }
+      ],
+      "materials": [
+        {
+          "id": "L1-M001-lesson",
+          "title": "Lesson Notes 001",
+          "type": "lesson",
+          "path": "courses/level-1/materials/001-lesson.pdf"
+        },
+        {
+          "id": "L1-M001-script",
+          "title": "Recording Script 001",
+          "type": "script",
+          "path": "courses/level-1/materials/001-recording-script.pdf"
+        },
+        {
+          "id": "L1-M002-lesson",
+          "title": "Lesson Notes 002",
+          "type": "lesson",
+          "path": "courses/level-1/materials/002-lesson.pdf"
+        },
+        {
+          "id": "L1-M003-lesson",
+          "title": "Lesson Notes 003",
+          "type": "lesson",
+          "path": "courses/level-1/materials/003-lesson.pdf"
+        },
+        {
+          "id": "L1-M003-script",
+          "title": "Recording Script 003",
+          "type": "script",
+          "path": "courses/level-1/materials/003-recording-script.pdf"
+        },
+        {
+          "id": "L1-M004-hanzi",
+          "title": "Hanzi Closeup 004",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/004-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M004-lesson",
+          "title": "Lesson Notes 004",
+          "type": "lesson",
+          "path": "courses/level-1/materials/004-lesson.pdf"
+        },
+        {
+          "id": "L1-M005-hanzi",
+          "title": "Hanzi Closeup 005",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/005-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M005-lesson",
+          "title": "Lesson Notes 005",
+          "type": "lesson",
+          "path": "courses/level-1/materials/005-lesson.pdf"
+        },
+        {
+          "id": "L1-M008-hanzi",
+          "title": "Hanzi Closeup 008",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/008-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M008-lesson",
+          "title": "Lesson Notes 008",
+          "type": "lesson",
+          "path": "courses/level-1/materials/008-lesson.pdf"
+        },
+        {
+          "id": "L1-M008-script",
+          "title": "Recording Script 008",
+          "type": "script",
+          "path": "courses/level-1/materials/008-recording-script.pdf"
+        },
+        {
+          "id": "L1-M009-hanzi",
+          "title": "Hanzi Closeup 009",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/009-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M009-lesson",
+          "title": "Lesson Notes 009",
+          "type": "lesson",
+          "path": "courses/level-1/materials/009-lesson.pdf"
+        },
+        {
+          "id": "L1-M009-script",
+          "title": "Recording Script 009",
+          "type": "script",
+          "path": "courses/level-1/materials/009-recording-script.pdf"
+        },
+        {
+          "id": "L1-M010-hanzi",
+          "title": "Hanzi Closeup 010",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/010-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M010-lesson",
+          "title": "Lesson Notes 010",
+          "type": "lesson",
+          "path": "courses/level-1/materials/010-lesson.pdf"
+        },
+        {
+          "id": "L1-M010-script",
+          "title": "Recording Script 010",
+          "type": "script",
+          "path": "courses/level-1/materials/010-recording-script.pdf"
+        },
+        {
+          "id": "L1-M011-lesson",
+          "title": "Lesson Notes 011",
+          "type": "lesson",
+          "path": "courses/level-1/materials/011-lesson.pdf"
+        },
+        {
+          "id": "L1-M011-script",
+          "title": "Recording Script 011",
+          "type": "script",
+          "path": "courses/level-1/materials/011-recording-script.pdf"
+        },
+        {
+          "id": "L1-M012-hanzi",
+          "title": "Hanzi Closeup 012",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/012-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M012-script",
+          "title": "Recording Script 012",
+          "type": "script",
+          "path": "courses/level-1/materials/012-recording-script.pdf"
+        },
+        {
+          "id": "L1-M013-hanzi",
+          "title": "Hanzi Closeup 013",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/013-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M013-lesson",
+          "title": "Lesson Notes 013",
+          "type": "lesson",
+          "path": "courses/level-1/materials/013-lesson.pdf"
+        },
+        {
+          "id": "L1-M013-script",
+          "title": "Recording Script 013",
+          "type": "script",
+          "path": "courses/level-1/materials/013-recording-script.pdf"
+        },
+        {
+          "id": "L1-M014-lesson",
+          "title": "Lesson Notes 014",
+          "type": "lesson",
+          "path": "courses/level-1/materials/014-lesson.pdf"
+        },
+        {
+          "id": "L1-M015-script",
+          "title": "Recording Script 015",
+          "type": "script",
+          "path": "courses/level-1/materials/015-recording-script.pdf"
+        },
+        {
+          "id": "L1-M016-lesson",
+          "title": "Lesson Notes 016",
+          "type": "lesson",
+          "path": "courses/level-1/materials/016-lesson.pdf"
+        },
+        {
+          "id": "L1-M017-lesson",
+          "title": "Lesson Notes 017",
+          "type": "lesson",
+          "path": "courses/level-1/materials/017-lesson.pdf"
+        },
+        {
+          "id": "L1-M017-script",
+          "title": "Recording Script 017",
+          "type": "script",
+          "path": "courses/level-1/materials/017-recording-script.pdf"
+        },
+        {
+          "id": "L1-M018-lesson",
+          "title": "Lesson Notes 018",
+          "type": "lesson",
+          "path": "courses/level-1/materials/018-lesson.pdf"
+        },
+        {
+          "id": "L1-M019-lesson",
+          "title": "Lesson Notes 019",
+          "type": "lesson",
+          "path": "courses/level-1/materials/019-lesson.pdf"
+        },
+        {
+          "id": "L1-M019-script",
+          "title": "Recording Script 019",
+          "type": "script",
+          "path": "courses/level-1/materials/019-recording-script.pdf"
+        },
+        {
+          "id": "L1-M020-hanzi",
+          "title": "Hanzi Closeup 020",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/020-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M020-lesson",
+          "title": "Lesson Notes 020",
+          "type": "lesson",
+          "path": "courses/level-1/materials/020-lesson.pdf"
+        },
+        {
+          "id": "L1-M020-script",
+          "title": "Recording Script 020",
+          "type": "script",
+          "path": "courses/level-1/materials/020-recording-script.pdf"
+        },
+        {
+          "id": "L1-M021-script",
+          "title": "Recording Script 021",
+          "type": "script",
+          "path": "courses/level-1/materials/021-recording-script.pdf"
+        },
+        {
+          "id": "L1-M022-hanzi",
+          "title": "Hanzi Closeup 022",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/022-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M022-script",
+          "title": "Recording Script 022",
+          "type": "script",
+          "path": "courses/level-1/materials/022-recording-script.pdf"
+        },
+        {
+          "id": "L1-M023-lesson",
+          "title": "Lesson Notes 023",
+          "type": "lesson",
+          "path": "courses/level-1/materials/023-lesson.pdf"
+        },
+        {
+          "id": "L1-M023-script",
+          "title": "Recording Script 023",
+          "type": "script",
+          "path": "courses/level-1/materials/023-recording-script.pdf"
+        },
+        {
+          "id": "L1-M024-lesson",
+          "title": "Lesson Notes 024",
+          "type": "lesson",
+          "path": "courses/level-1/materials/024-lesson.pdf"
+        },
+        {
+          "id": "L1-M025-lesson",
+          "title": "Lesson Notes 025",
+          "type": "lesson",
+          "path": "courses/level-1/materials/025-lesson.pdf"
+        },
+        {
+          "id": "L1-M025-script",
+          "title": "Recording Script 025",
+          "type": "script",
+          "path": "courses/level-1/materials/025-recording-script.pdf"
+        },
+        {
+          "id": "L1-M026-hanzi",
+          "title": "Hanzi Closeup 026",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/026-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M026-lesson",
+          "title": "Lesson Notes 026",
+          "type": "lesson",
+          "path": "courses/level-1/materials/026-lesson.pdf"
+        },
+        {
+          "id": "L1-M026-script",
+          "title": "Recording Script 026",
+          "type": "script",
+          "path": "courses/level-1/materials/026-recording-script.pdf"
+        },
+        {
+          "id": "L1-M027-hanzi",
+          "title": "Hanzi Closeup 027",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/027-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M027-lesson",
+          "title": "Lesson Notes 027",
+          "type": "lesson",
+          "path": "courses/level-1/materials/027-lesson.pdf"
+        },
+        {
+          "id": "L1-M027-script",
+          "title": "Recording Script 027",
+          "type": "script",
+          "path": "courses/level-1/materials/027-recording-script.pdf"
+        },
+        {
+          "id": "L1-M028-lesson",
+          "title": "Lesson Notes 028",
+          "type": "lesson",
+          "path": "courses/level-1/materials/028-lesson.pdf"
+        },
+        {
+          "id": "L1-M029-hanzi",
+          "title": "Hanzi Closeup 029",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/029-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M029-script",
+          "title": "Recording Script 029",
+          "type": "script",
+          "path": "courses/level-1/materials/029-recording-script.pdf"
+        },
+        {
+          "id": "L1-M030-lesson",
+          "title": "Lesson Notes 030",
+          "type": "lesson",
+          "path": "courses/level-1/materials/030-lesson.pdf"
+        },
+        {
+          "id": "L1-M030-script",
+          "title": "Recording Script 030",
+          "type": "script",
+          "path": "courses/level-1/materials/030-recording-script.pdf"
+        },
+        {
+          "id": "L1-M031-lesson",
+          "title": "Lesson Notes 031",
+          "type": "lesson",
+          "path": "courses/level-1/materials/031-lesson.pdf"
+        },
+        {
+          "id": "L1-M031-script",
+          "title": "Recording Script 031",
+          "type": "script",
+          "path": "courses/level-1/materials/031-recording-script.pdf"
+        },
+        {
+          "id": "L1-M032-lesson",
+          "title": "Lesson Notes 032",
+          "type": "lesson",
+          "path": "courses/level-1/materials/032-lesson.pdf"
+        },
+        {
+          "id": "L1-M032-script",
+          "title": "Recording Script 032",
+          "type": "script",
+          "path": "courses/level-1/materials/032-recording-script.pdf"
+        },
+        {
+          "id": "L1-M033-lesson",
+          "title": "Lesson Notes 033",
+          "type": "lesson",
+          "path": "courses/level-1/materials/033-lesson.pdf"
+        },
+        {
+          "id": "L1-M033-script",
+          "title": "Recording Script 033",
+          "type": "script",
+          "path": "courses/level-1/materials/033-recording-script.pdf"
+        },
+        {
+          "id": "L1-M034-script",
+          "title": "Recording Script 034",
+          "type": "script",
+          "path": "courses/level-1/materials/034-recording-script.pdf"
+        },
+        {
+          "id": "L1-M035-lesson",
+          "title": "Lesson Notes 035",
+          "type": "lesson",
+          "path": "courses/level-1/materials/035-lesson.pdf"
+        },
+        {
+          "id": "L1-M035-script",
+          "title": "Recording Script 035",
+          "type": "script",
+          "path": "courses/level-1/materials/035-recording-script.pdf"
+        },
+        {
+          "id": "L1-M036-lesson",
+          "title": "Lesson Notes 036",
+          "type": "lesson",
+          "path": "courses/level-1/materials/036-lesson.pdf"
+        },
+        {
+          "id": "L1-M036-script",
+          "title": "Recording Script 036",
+          "type": "script",
+          "path": "courses/level-1/materials/036-recording-script.pdf"
+        },
+        {
+          "id": "L1-M037-hanzi",
+          "title": "Hanzi Closeup 037",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/037-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M037-lesson",
+          "title": "Lesson Notes 037",
+          "type": "lesson",
+          "path": "courses/level-1/materials/037-lesson.pdf"
+        },
+        {
+          "id": "L1-M038-hanzi",
+          "title": "Hanzi Closeup 038",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/038-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M038-script",
+          "title": "Recording Script 038",
+          "type": "script",
+          "path": "courses/level-1/materials/038-recording-script.pdf"
+        },
+        {
+          "id": "L1-M039-lesson",
+          "title": "Lesson Notes 039",
+          "type": "lesson",
+          "path": "courses/level-1/materials/039-lesson.pdf"
+        },
+        {
+          "id": "L1-M039-script",
+          "title": "Recording Script 039",
+          "type": "script",
+          "path": "courses/level-1/materials/039-recording-script.pdf"
+        },
+        {
+          "id": "L1-M040-script",
+          "title": "Recording Script 040",
+          "type": "script",
+          "path": "courses/level-1/materials/040-recording-script.pdf"
+        },
+        {
+          "id": "L1-M041-script",
+          "title": "Recording Script 041",
+          "type": "script",
+          "path": "courses/level-1/materials/041-recording-script.pdf"
+        },
+        {
+          "id": "L1-M042-hanzi",
+          "title": "Hanzi Closeup 042",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/042-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M042-lesson",
+          "title": "Lesson Notes 042",
+          "type": "lesson",
+          "path": "courses/level-1/materials/042-lesson.pdf"
+        },
+        {
+          "id": "L1-M043-hanzi",
+          "title": "Hanzi Closeup 043",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/043-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M043-lesson",
+          "title": "Lesson Notes 043",
+          "type": "lesson",
+          "path": "courses/level-1/materials/043-lesson.pdf"
+        },
+        {
+          "id": "L1-M043-script",
+          "title": "Recording Script 043",
+          "type": "script",
+          "path": "courses/level-1/materials/043-recording-script.pdf"
+        },
+        {
+          "id": "L1-M044-script",
+          "title": "Recording Script 044",
+          "type": "script",
+          "path": "courses/level-1/materials/044-recording-script.pdf"
+        },
+        {
+          "id": "L1-M045-hanzi",
+          "title": "Hanzi Closeup 045",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/045-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M045-script",
+          "title": "Recording Script 045",
+          "type": "script",
+          "path": "courses/level-1/materials/045-recording-script.pdf"
+        },
+        {
+          "id": "L1-M046-hanzi",
+          "title": "Hanzi Closeup 046",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/046-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M046-lesson",
+          "title": "Lesson Notes 046",
+          "type": "lesson",
+          "path": "courses/level-1/materials/046-lesson.pdf"
+        },
+        {
+          "id": "L1-M046-script",
+          "title": "Recording Script 046",
+          "type": "script",
+          "path": "courses/level-1/materials/046-recording-script.pdf"
+        },
+        {
+          "id": "L1-M048-lesson",
+          "title": "Lesson Notes 048",
+          "type": "lesson",
+          "path": "courses/level-1/materials/048-lesson.pdf"
+        },
+        {
+          "id": "L1-M048-script",
+          "title": "Recording Script 048",
+          "type": "script",
+          "path": "courses/level-1/materials/048-recording-script.pdf"
+        },
+        {
+          "id": "L1-M049-script",
+          "title": "Recording Script 049",
+          "type": "script",
+          "path": "courses/level-1/materials/049-recording-script.pdf"
+        },
+        {
+          "id": "L1-M050-lesson",
+          "title": "Lesson Notes 050",
+          "type": "lesson",
+          "path": "courses/level-1/materials/050-lesson.pdf"
+        },
+        {
+          "id": "L1-M050-script",
+          "title": "Recording Script 050",
+          "type": "script",
+          "path": "courses/level-1/materials/050-recording-script.pdf"
+        },
+        {
+          "id": "L1-M051-lesson",
+          "title": "Lesson Notes 051",
+          "type": "lesson",
+          "path": "courses/level-1/materials/051-lesson.pdf"
+        },
+        {
+          "id": "L1-M051-script",
+          "title": "Recording Script 051",
+          "type": "script",
+          "path": "courses/level-1/materials/051-recording-script.pdf"
+        },
+        {
+          "id": "L1-M052-hanzi",
+          "title": "Hanzi Closeup 052",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/052-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M052-lesson",
+          "title": "Lesson Notes 052",
+          "type": "lesson",
+          "path": "courses/level-1/materials/052-lesson.pdf"
+        },
+        {
+          "id": "L1-M052-script",
+          "title": "Recording Script 052",
+          "type": "script",
+          "path": "courses/level-1/materials/052-recording-script.pdf"
+        },
+        {
+          "id": "L1-M053-hanzi",
+          "title": "Hanzi Closeup 053",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/053-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M053-lesson",
+          "title": "Lesson Notes 053",
+          "type": "lesson",
+          "path": "courses/level-1/materials/053-lesson.pdf"
+        },
+        {
+          "id": "L1-M054-hanzi",
+          "title": "Hanzi Closeup 054",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/054-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M054-lesson",
+          "title": "Lesson Notes 054",
+          "type": "lesson",
+          "path": "courses/level-1/materials/054-lesson.pdf"
+        },
+        {
+          "id": "L1-M054-script",
+          "title": "Recording Script 054",
+          "type": "script",
+          "path": "courses/level-1/materials/054-recording-script.pdf"
+        },
+        {
+          "id": "L1-M055-lesson",
+          "title": "Lesson Notes 055",
+          "type": "lesson",
+          "path": "courses/level-1/materials/055-lesson.pdf"
+        },
+        {
+          "id": "L1-M055-script",
+          "title": "Recording Script 055",
+          "type": "script",
+          "path": "courses/level-1/materials/055-recording-script.pdf"
+        },
+        {
+          "id": "L1-M056-hanzi",
+          "title": "Hanzi Closeup 056",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/056-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M056-lesson",
+          "title": "Lesson Notes 056",
+          "type": "lesson",
+          "path": "courses/level-1/materials/056-lesson.pdf"
+        },
+        {
+          "id": "L1-M057-script",
+          "title": "Recording Script 057",
+          "type": "script",
+          "path": "courses/level-1/materials/057-recording-script.pdf"
+        },
+        {
+          "id": "L1-M058-lesson",
+          "title": "Lesson Notes 058",
+          "type": "lesson",
+          "path": "courses/level-1/materials/058-lesson.pdf"
+        },
+        {
+          "id": "L1-M058-script",
+          "title": "Recording Script 058",
+          "type": "script",
+          "path": "courses/level-1/materials/058-recording-script.pdf"
+        },
+        {
+          "id": "L1-M059-hanzi",
+          "title": "Hanzi Closeup 059",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/059-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M060-lesson",
+          "title": "Lesson Notes 060",
+          "type": "lesson",
+          "path": "courses/level-1/materials/060-lesson.pdf"
+        },
+        {
+          "id": "L1-M060-script",
+          "title": "Recording Script 060",
+          "type": "script",
+          "path": "courses/level-1/materials/060-recording-script.pdf"
+        },
+        {
+          "id": "L1-M061-hanzi",
+          "title": "Hanzi Closeup 061",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/061-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M061-lesson",
+          "title": "Lesson Notes 061",
+          "type": "lesson",
+          "path": "courses/level-1/materials/061-lesson.pdf"
+        },
+        {
+          "id": "L1-M062-lesson",
+          "title": "Lesson Notes 062",
+          "type": "lesson",
+          "path": "courses/level-1/materials/062-lesson.pdf"
+        },
+        {
+          "id": "L1-M062-script",
+          "title": "Recording Script 062",
+          "type": "script",
+          "path": "courses/level-1/materials/062-recording-script.pdf"
+        },
+        {
+          "id": "L1-M063-lesson",
+          "title": "Lesson Notes 063",
+          "type": "lesson",
+          "path": "courses/level-1/materials/063-lesson.pdf"
+        },
+        {
+          "id": "L1-M063-script",
+          "title": "Recording Script 063",
+          "type": "script",
+          "path": "courses/level-1/materials/063-recording-script.pdf"
+        },
+        {
+          "id": "L1-M064-hanzi",
+          "title": "Hanzi Closeup 064",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/064-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M064-lesson",
+          "title": "Lesson Notes 064",
+          "type": "lesson",
+          "path": "courses/level-1/materials/064-lesson.pdf"
+        },
+        {
+          "id": "L1-M064-script",
+          "title": "Recording Script 064",
+          "type": "script",
+          "path": "courses/level-1/materials/064-recording-script.pdf"
+        },
+        {
+          "id": "L1-M066-hanzi",
+          "title": "Hanzi Closeup 066",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/066-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M066-script",
+          "title": "Recording Script 066",
+          "type": "script",
+          "path": "courses/level-1/materials/066-recording-script.pdf"
+        },
+        {
+          "id": "L1-M067-script",
+          "title": "Recording Script 067",
+          "type": "script",
+          "path": "courses/level-1/materials/067-recording-script.pdf"
+        },
+        {
+          "id": "L1-M068-lesson",
+          "title": "Lesson Notes 068",
+          "type": "lesson",
+          "path": "courses/level-1/materials/068-lesson.pdf"
+        },
+        {
+          "id": "L1-M068-script",
+          "title": "Recording Script 068",
+          "type": "script",
+          "path": "courses/level-1/materials/068-recording-script.pdf"
+        },
+        {
+          "id": "L1-M069-hanzi",
+          "title": "Hanzi Closeup 069",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/069-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M070-hanzi",
+          "title": "Hanzi Closeup 070",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/070-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M070-script",
+          "title": "Recording Script 070",
+          "type": "script",
+          "path": "courses/level-1/materials/070-recording-script.pdf"
+        },
+        {
+          "id": "L1-M071-hanzi",
+          "title": "Hanzi Closeup 071",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/071-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M071-lesson",
+          "title": "Lesson Notes 071",
+          "type": "lesson",
+          "path": "courses/level-1/materials/071-lesson.pdf"
+        },
+        {
+          "id": "L1-M071-script",
+          "title": "Recording Script 071",
+          "type": "script",
+          "path": "courses/level-1/materials/071-recording-script.pdf"
+        },
+        {
+          "id": "L1-M073-hanzi",
+          "title": "Hanzi Closeup 073",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/073-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M073-script",
+          "title": "Recording Script 073",
+          "type": "script",
+          "path": "courses/level-1/materials/073-recording-script.pdf"
+        },
+        {
+          "id": "L1-M074-hanzi",
+          "title": "Hanzi Closeup 074",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/074-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M074-lesson",
+          "title": "Lesson Notes 074",
+          "type": "lesson",
+          "path": "courses/level-1/materials/074-lesson.pdf"
+        },
+        {
+          "id": "L1-M075-lesson",
+          "title": "Lesson Notes 075",
+          "type": "lesson",
+          "path": "courses/level-1/materials/075-lesson.pdf"
+        },
+        {
+          "id": "L1-M075-script",
+          "title": "Recording Script 075",
+          "type": "script",
+          "path": "courses/level-1/materials/075-recording-script.pdf"
+        },
+        {
+          "id": "L1-M076-hanzi",
+          "title": "Hanzi Closeup 076",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/076-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M078-lesson",
+          "title": "Lesson Notes 078",
+          "type": "lesson",
+          "path": "courses/level-1/materials/078-lesson.pdf"
+        },
+        {
+          "id": "L1-M079-lesson",
+          "title": "Lesson Notes 079",
+          "type": "lesson",
+          "path": "courses/level-1/materials/079-lesson.pdf"
+        },
+        {
+          "id": "L1-M080-script",
+          "title": "Recording Script 080",
+          "type": "script",
+          "path": "courses/level-1/materials/080-recording-script.pdf"
+        },
+        {
+          "id": "L1-M082-hanzi",
+          "title": "Hanzi Closeup 082",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/082-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M084-hanzi",
+          "title": "Hanzi Closeup 084",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/084-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M084-lesson",
+          "title": "Lesson Notes 084",
+          "type": "lesson",
+          "path": "courses/level-1/materials/084-lesson.pdf"
+        },
+        {
+          "id": "L1-M084-script",
+          "title": "Recording Script 084",
+          "type": "script",
+          "path": "courses/level-1/materials/084-recording-script.pdf"
+        },
+        {
+          "id": "L1-M085-lesson",
+          "title": "Lesson Notes 085",
+          "type": "lesson",
+          "path": "courses/level-1/materials/085-lesson.pdf"
+        },
+        {
+          "id": "L1-M086-lesson",
+          "title": "Lesson Notes 086",
+          "type": "lesson",
+          "path": "courses/level-1/materials/086-lesson.pdf"
+        },
+        {
+          "id": "L1-M087-hanzi",
+          "title": "Hanzi Closeup 087",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/087-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M087-script",
+          "title": "Recording Script 087",
+          "type": "script",
+          "path": "courses/level-1/materials/087-recording-script.pdf"
+        },
+        {
+          "id": "L1-M088-hanzi",
+          "title": "Hanzi Closeup 088",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/088-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M088-lesson",
+          "title": "Lesson Notes 088",
+          "type": "lesson",
+          "path": "courses/level-1/materials/088-lesson.pdf"
+        },
+        {
+          "id": "L1-M089-lesson",
+          "title": "Lesson Notes 089",
+          "type": "lesson",
+          "path": "courses/level-1/materials/089-lesson.pdf"
+        },
+        {
+          "id": "L1-M090-script",
+          "title": "Recording Script 090",
+          "type": "script",
+          "path": "courses/level-1/materials/090-recording-script.pdf"
+        },
+        {
+          "id": "L1-M091-hanzi",
+          "title": "Hanzi Closeup 091",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/091-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M091-lesson",
+          "title": "Lesson Notes 091",
+          "type": "lesson",
+          "path": "courses/level-1/materials/091-lesson.pdf"
+        },
+        {
+          "id": "L1-M091-script",
+          "title": "Recording Script 091",
+          "type": "script",
+          "path": "courses/level-1/materials/091-recording-script.pdf"
+        },
+        {
+          "id": "L1-M092-lesson",
+          "title": "Lesson Notes 092",
+          "type": "lesson",
+          "path": "courses/level-1/materials/092-lesson.pdf"
+        },
+        {
+          "id": "L1-M092-script",
+          "title": "Recording Script 092",
+          "type": "script",
+          "path": "courses/level-1/materials/092-recording-script.pdf"
+        },
+        {
+          "id": "L1-M093-lesson",
+          "title": "Lesson Notes 093",
+          "type": "lesson",
+          "path": "courses/level-1/materials/093-lesson.pdf"
+        },
+        {
+          "id": "L1-M093-script",
+          "title": "Recording Script 093",
+          "type": "script",
+          "path": "courses/level-1/materials/093-recording-script.pdf"
+        },
+        {
+          "id": "L1-M094-hanzi",
+          "title": "Hanzi Closeup 094",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/094-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M094-lesson",
+          "title": "Lesson Notes 094",
+          "type": "lesson",
+          "path": "courses/level-1/materials/094-lesson.pdf"
+        },
+        {
+          "id": "L1-M095-hanzi",
+          "title": "Hanzi Closeup 095",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/095-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M095-script",
+          "title": "Recording Script 095",
+          "type": "script",
+          "path": "courses/level-1/materials/095-recording-script.pdf"
+        },
+        {
+          "id": "L1-M096-lesson",
+          "title": "Lesson Notes 096",
+          "type": "lesson",
+          "path": "courses/level-1/materials/096-lesson.pdf"
+        },
+        {
+          "id": "L1-M096-script",
+          "title": "Recording Script 096",
+          "type": "script",
+          "path": "courses/level-1/materials/096-recording-script.pdf"
+        },
+        {
+          "id": "L1-M097-hanzi",
+          "title": "Hanzi Closeup 097",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/097-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M097-lesson",
+          "title": "Lesson Notes 097",
+          "type": "lesson",
+          "path": "courses/level-1/materials/097-lesson.pdf"
+        },
+        {
+          "id": "L1-M098-lesson",
+          "title": "Lesson Notes 098",
+          "type": "lesson",
+          "path": "courses/level-1/materials/098-lesson.pdf"
+        },
+        {
+          "id": "L1-M098-script",
+          "title": "Recording Script 098",
+          "type": "script",
+          "path": "courses/level-1/materials/098-recording-script.pdf"
+        },
+        {
+          "id": "L1-M099-script",
+          "title": "Recording Script 099",
+          "type": "script",
+          "path": "courses/level-1/materials/099-recording-script.pdf"
+        },
+        {
+          "id": "L1-M100-hanzi",
+          "title": "Hanzi Closeup 100",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/100-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M100-lesson",
+          "title": "Lesson Notes 100",
+          "type": "lesson",
+          "path": "courses/level-1/materials/100-lesson.pdf"
+        },
+        {
+          "id": "L1-M101-hanzi",
+          "title": "Hanzi Closeup 101",
+          "type": "hanzi",
+          "path": "courses/level-1/materials/101-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L1-M101-script",
+          "title": "Recording Script 101",
+          "type": "script",
+          "path": "courses/level-1/materials/101-recording-script.pdf"
+        }
+      ]
+    },
+    {
+      "id": "level-2",
+      "name": {
+        "en": "Level 2 - Beginner",
+        "cn": "第二级 - 初学者"
+      },
+      "description": {
+        "en": "Daily life and cultural immersion",
+        "cn": "日常生活和文化体验"
+      },
+      "icon": "🌿",
+      "lessons": [
+        {
+          "id": "L2-005",
+          "title": "Welcome to China! Avoid Immersion Shock with this Lesson",
+          "audioPath": "courses/level-2/audio/005-welcome-to-china-avoid-immersion-shock-with-this-lesson.mp3",
+          "order": 1
+        },
+        {
+          "id": "L2-006",
+          "title": "Don_t Miss Your Chance - How to Close the Deal in Chinese",
+          "audioPath": "courses/level-2/audio/006-dont-miss-your-chance-how-to-close-the-deal-in-chinese.mp3",
+          "order": 2
+        },
+        {
+          "id": "L2-014",
+          "title": "Making the Most of Your Time in China",
+          "audioPath": "courses/level-2/audio/014-making-the-most-of-your-time-in-china.mp3",
+          "order": 3
+        },
+        {
+          "id": "L2-016",
+          "title": "Fitting In and Making Friends—Several Surefire Chinese Phrases to Help Your Social Life",
+          "audioPath": "courses/level-2/audio/016-fitting-in-and-making-friends-several-surefire-chinese-phrases-to-help-your-social-life.mp3",
+          "order": 4
+        },
+        {
+          "id": "L2-020",
+          "title": "You_d Better Ask Before you Do This in China",
+          "audioPath": "courses/level-2/audio/020-youd-better-ask-before-you-do-this-in-china.mp3",
+          "order": 5
+        },
+        {
+          "id": "L2-028",
+          "title": "Taking the Scenic Route in China",
+          "audioPath": "courses/level-2/audio/028-taking-the-scenic-route-in-china.mp3",
+          "order": 6
+        },
+        {
+          "id": "L2-030",
+          "title": "Parting is Sweet and Sour",
+          "audioPath": "courses/level-2/audio/030-parting-is-sweet-and-sour.mp3",
+          "order": 7
+        },
+        {
+          "id": "L2-031",
+          "title": "Catching Up With a Friend in China",
+          "audioPath": "courses/level-2/audio/031-catching-up-with-a-friend-in-china.mp3",
+          "order": 8
+        },
+        {
+          "id": "L2-033",
+          "title": "Having a Happy Birthday in China",
+          "audioPath": "courses/level-2/audio/033-having-a-happy-birthday-in-china.mp3",
+          "order": 9
+        },
+        {
+          "id": "L2-037",
+          "title": "What_s the Obvious Solution in China",
+          "audioPath": "courses/level-2/audio/037-whats-the-obvious-solution-in-china.mp3",
+          "order": 10
+        },
+        {
+          "id": "L2-038",
+          "title": "How Much do you Love Chinese Cuisine",
+          "audioPath": "courses/level-2/audio/038-how-much-do-you-love-chinese-cuisine.mp3",
+          "order": 11
+        },
+        {
+          "id": "L2-041",
+          "title": "What_s Your Chinese Sign",
+          "audioPath": "courses/level-2/audio/041-whats-your-chinese-sign.mp3",
+          "order": 12
+        },
+        {
+          "id": "L2-049",
+          "title": "Feeling Under the Weather in China",
+          "audioPath": "courses/level-2/audio/049-feeling-under-the-weather-in-china.mp3",
+          "order": 13
+        },
+        {
+          "id": "L2-052",
+          "title": "What Do You Do in Your Spare Time in China",
+          "audioPath": "courses/level-2/audio/052-what-do-you-do-in-your-spare-time-in-china.mp3",
+          "order": 14
+        },
+        {
+          "id": "L2-053",
+          "title": "What a Cute Chinese Child!",
+          "audioPath": "courses/level-2/audio/053-what-a-cute-chinese-child.mp3",
+          "order": 15
+        },
+        {
+          "id": "L2-055",
+          "title": "Have You Heard of my Chinese Band",
+          "audioPath": "courses/level-2/audio/055-have-you-heard-of-my-chinese-band.mp3",
+          "order": 16
+        },
+        {
+          "id": "L2-056",
+          "title": "Chinese Traffic Chaos",
+          "audioPath": "courses/level-2/audio/056-chinese-traffic-chaos.mp3",
+          "order": 17
+        },
+        {
+          "id": "L2-057",
+          "title": "You_d Better Use a Chinese Dictionary",
+          "audioPath": "courses/level-2/audio/057-youd-better-use-a-chinese-dictionary.mp3",
+          "order": 18
+        },
+        {
+          "id": "L2-059",
+          "title": "Man vs. Printer in China",
+          "audioPath": "courses/level-2/audio/059-man-vs-printer-in-china.mp3",
+          "order": 19
+        },
+        {
+          "id": "L2-060",
+          "title": "Do you Have an Unreasonable Chinese Landlord",
+          "audioPath": "courses/level-2/audio/060-do-you-have-an-unreasonable-chinese-landlord.mp3",
+          "order": 20
+        },
+        {
+          "id": "L2-062",
+          "title": "It_s All About Impressing the Bartender in China",
+          "audioPath": "courses/level-2/audio/062-its-all-about-impressing-the-bartender-in-china.mp3",
+          "order": 21
+        },
+        {
+          "id": "L2-063",
+          "title": "A Convoluted Chinese Checkin Process",
+          "audioPath": "courses/level-2/audio/063-a-convoluted-chinese-checkin-process.mp3",
+          "order": 22
+        },
+        {
+          "id": "L2-064",
+          "title": "Seeking Treatment in China",
+          "audioPath": "courses/level-2/audio/064-seeking-treatment-in-china.mp3",
+          "order": 23
+        },
+        {
+          "id": "L2-065",
+          "title": "Getting Nowhere Fast in China",
+          "audioPath": "courses/level-2/audio/065-getting-nowhere-fast-in-china.mp3",
+          "order": 24
+        },
+        {
+          "id": "L2-066",
+          "title": "Listen to your Chinese Personal Trainer",
+          "audioPath": "courses/level-2/audio/066-listen-to-your-chinese-personal-trainer.mp3",
+          "order": 25
+        },
+        {
+          "id": "L2-068",
+          "title": "How Much are you Willing to Pay for an iPhone in China",
+          "audioPath": "courses/level-2/audio/068-how-much-are-you-willing-to-pay-for-an-iphone-in-china.mp3",
+          "order": 26
+        },
+        {
+          "id": "L2-071",
+          "title": "Do You Have a Hidden Talent for Speaking Chinese",
+          "audioPath": "courses/level-2/audio/071-do-you-have-a-hidden-talent-for-speaking-chinese.mp3",
+          "order": 27
+        },
+        {
+          "id": "L2-073",
+          "title": "Partying in Old-school Beijing",
+          "audioPath": "courses/level-2/audio/073-partying-in-old-school-beijing.mp3",
+          "order": 28
+        },
+        {
+          "id": "L2-074",
+          "title": "Patience is a Virtue in China",
+          "audioPath": "courses/level-2/audio/074-patience-is-a-virtue-in-china.mp3",
+          "order": 29
+        },
+        {
+          "id": "L2-076",
+          "title": "An Awkward Situation in China",
+          "audioPath": "courses/level-2/audio/076-an-awkward-situation-in-china.mp3",
+          "order": 30
+        },
+        {
+          "id": "L2-080",
+          "title": "Culinary Confusion in China",
+          "audioPath": "courses/level-2/audio/080-culinary-confusion-in-china.mp3",
+          "order": 31
+        }
+      ],
+      "materials": [
+        {
+          "id": "L2-M001-lesson",
+          "title": "Lesson Notes 001",
+          "type": "lesson",
+          "path": "courses/level-2/materials/001-lesson.pdf"
+        },
+        {
+          "id": "L2-M001-script",
+          "title": "Recording Script 001",
+          "type": "script",
+          "path": "courses/level-2/materials/001-recording-script.pdf"
+        },
+        {
+          "id": "L2-M002-hanzi",
+          "title": "Hanzi Closeup 002",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/002-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M002-lesson",
+          "title": "Lesson Notes 002",
+          "type": "lesson",
+          "path": "courses/level-2/materials/002-lesson.pdf"
+        },
+        {
+          "id": "L2-M002-script",
+          "title": "Recording Script 002",
+          "type": "script",
+          "path": "courses/level-2/materials/002-recording-script.pdf"
+        },
+        {
+          "id": "L2-M003-lesson",
+          "title": "Lesson Notes 003",
+          "type": "lesson",
+          "path": "courses/level-2/materials/003-lesson.pdf"
+        },
+        {
+          "id": "L2-M004-script",
+          "title": "Recording Script 004",
+          "type": "script",
+          "path": "courses/level-2/materials/004-recording-script.pdf"
+        },
+        {
+          "id": "L2-M005-lesson",
+          "title": "Lesson Notes 005",
+          "type": "lesson",
+          "path": "courses/level-2/materials/005-lesson.pdf"
+        },
+        {
+          "id": "L2-M005-script",
+          "title": "Recording Script 005",
+          "type": "script",
+          "path": "courses/level-2/materials/005-recording-script.pdf"
+        },
+        {
+          "id": "L2-M006-hanzi",
+          "title": "Hanzi Closeup 006",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/006-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M006-lesson",
+          "title": "Lesson Notes 006",
+          "type": "lesson",
+          "path": "courses/level-2/materials/006-lesson.pdf"
+        },
+        {
+          "id": "L2-M006-script",
+          "title": "Recording Script 006",
+          "type": "script",
+          "path": "courses/level-2/materials/006-recording-script.pdf"
+        },
+        {
+          "id": "L2-M007-hanzi",
+          "title": "Hanzi Closeup 007",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/007-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M007-lesson",
+          "title": "Lesson Notes 007",
+          "type": "lesson",
+          "path": "courses/level-2/materials/007-lesson-2.pdf"
+        },
+        {
+          "id": "L2-M007-lesson",
+          "title": "Lesson Notes 007",
+          "type": "lesson",
+          "path": "courses/level-2/materials/007-lesson.pdf"
+        },
+        {
+          "id": "L2-M008-lesson",
+          "title": "Lesson Notes 008",
+          "type": "lesson",
+          "path": "courses/level-2/materials/008-lesson.pdf"
+        },
+        {
+          "id": "L2-M008-script",
+          "title": "Recording Script 008",
+          "type": "script",
+          "path": "courses/level-2/materials/008-recording-script.pdf"
+        },
+        {
+          "id": "L2-M009-lesson",
+          "title": "Lesson Notes 009",
+          "type": "lesson",
+          "path": "courses/level-2/materials/009-lesson.pdf"
+        },
+        {
+          "id": "L2-M009-script",
+          "title": "Recording Script 009",
+          "type": "script",
+          "path": "courses/level-2/materials/009-recording-script.pdf"
+        },
+        {
+          "id": "L2-M010-hanzi",
+          "title": "Hanzi Closeup 010",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/010-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M010-lesson",
+          "title": "Lesson Notes 010",
+          "type": "lesson",
+          "path": "courses/level-2/materials/010-lesson.pdf"
+        },
+        {
+          "id": "L2-M011-hanzi",
+          "title": "Hanzi Closeup 011",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/011-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M011-lesson",
+          "title": "Lesson Notes 011",
+          "type": "lesson",
+          "path": "courses/level-2/materials/011-lesson.pdf"
+        },
+        {
+          "id": "L2-M011-script",
+          "title": "Recording Script 011",
+          "type": "script",
+          "path": "courses/level-2/materials/011-recording-script.pdf"
+        },
+        {
+          "id": "L2-M012-hanzi",
+          "title": "Hanzi Closeup 012",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/012-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M012-lesson",
+          "title": "Lesson Notes 012",
+          "type": "lesson",
+          "path": "courses/level-2/materials/012-lesson.pdf"
+        },
+        {
+          "id": "L2-M012-script",
+          "title": "Recording Script 012",
+          "type": "script",
+          "path": "courses/level-2/materials/012-recording-script.pdf"
+        },
+        {
+          "id": "L2-M013-hanzi",
+          "title": "Hanzi Closeup 013",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/013-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M013-lesson",
+          "title": "Lesson Notes 013",
+          "type": "lesson",
+          "path": "courses/level-2/materials/013-lesson.pdf"
+        },
+        {
+          "id": "L2-M014-hanzi",
+          "title": "Hanzi Closeup 014",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/014-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M014-lesson",
+          "title": "Lesson Notes 014",
+          "type": "lesson",
+          "path": "courses/level-2/materials/014-lesson.pdf"
+        },
+        {
+          "id": "L2-M014-script",
+          "title": "Recording Script 014",
+          "type": "script",
+          "path": "courses/level-2/materials/014-recording-script.pdf"
+        },
+        {
+          "id": "L2-M015-script",
+          "title": "Recording Script 015",
+          "type": "script",
+          "path": "courses/level-2/materials/015-recording-script.pdf"
+        },
+        {
+          "id": "L2-M016-hanzi",
+          "title": "Hanzi Closeup 016",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/016-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M016-lesson",
+          "title": "Lesson Notes 016",
+          "type": "lesson",
+          "path": "courses/level-2/materials/016-lesson.pdf"
+        },
+        {
+          "id": "L2-M016-script",
+          "title": "Recording Script 016",
+          "type": "script",
+          "path": "courses/level-2/materials/016-recording-script.pdf"
+        },
+        {
+          "id": "L2-M017-script",
+          "title": "Recording Script 017",
+          "type": "script",
+          "path": "courses/level-2/materials/017-recording-script.pdf"
+        },
+        {
+          "id": "L2-M018-hanzi",
+          "title": "Hanzi Closeup 018",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/018-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M018-lesson",
+          "title": "Lesson Notes 018",
+          "type": "lesson",
+          "path": "courses/level-2/materials/018-lesson.pdf"
+        },
+        {
+          "id": "L2-M018-script",
+          "title": "Recording Script 018",
+          "type": "script",
+          "path": "courses/level-2/materials/018-recording-script.pdf"
+        },
+        {
+          "id": "L2-M019-lesson",
+          "title": "Lesson Notes 019",
+          "type": "lesson",
+          "path": "courses/level-2/materials/019-lesson.pdf"
+        },
+        {
+          "id": "L2-M019-script",
+          "title": "Recording Script 019",
+          "type": "script",
+          "path": "courses/level-2/materials/019-recording-script.pdf"
+        },
+        {
+          "id": "L2-M020-hanzi",
+          "title": "Hanzi Closeup 020",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/020-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M020-lesson",
+          "title": "Lesson Notes 020",
+          "type": "lesson",
+          "path": "courses/level-2/materials/020-lesson.pdf"
+        },
+        {
+          "id": "L2-M020-script",
+          "title": "Recording Script 020",
+          "type": "script",
+          "path": "courses/level-2/materials/020-recording-script.pdf"
+        },
+        {
+          "id": "L2-M021-hanzi",
+          "title": "Hanzi Closeup 021",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/021-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M021-lesson",
+          "title": "Lesson Notes 021",
+          "type": "lesson",
+          "path": "courses/level-2/materials/021-lesson.pdf"
+        },
+        {
+          "id": "L2-M021-script",
+          "title": "Recording Script 021",
+          "type": "script",
+          "path": "courses/level-2/materials/021-recording-script.pdf"
+        },
+        {
+          "id": "L2-M022-hanzi",
+          "title": "Hanzi Closeup 022",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/022-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M022-lesson",
+          "title": "Lesson Notes 022",
+          "type": "lesson",
+          "path": "courses/level-2/materials/022-lesson.pdf"
+        },
+        {
+          "id": "L2-M022-script",
+          "title": "Recording Script 022",
+          "type": "script",
+          "path": "courses/level-2/materials/022-recording-script.pdf"
+        },
+        {
+          "id": "L2-M023-lesson",
+          "title": "Lesson Notes 023",
+          "type": "lesson",
+          "path": "courses/level-2/materials/023-lesson.pdf"
+        },
+        {
+          "id": "L2-M023-script",
+          "title": "Recording Script 023",
+          "type": "script",
+          "path": "courses/level-2/materials/023-recording-script.pdf"
+        },
+        {
+          "id": "L2-M024-hanzi",
+          "title": "Hanzi Closeup 024",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/024-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M024-lesson",
+          "title": "Lesson Notes 024",
+          "type": "lesson",
+          "path": "courses/level-2/materials/024-lesson.pdf"
+        },
+        {
+          "id": "L2-M024-script",
+          "title": "Recording Script 024",
+          "type": "script",
+          "path": "courses/level-2/materials/024-recording-script.pdf"
+        },
+        {
+          "id": "L2-M025-hanzi",
+          "title": "Hanzi Closeup 025",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/025-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M025-script",
+          "title": "Recording Script 025",
+          "type": "script",
+          "path": "courses/level-2/materials/025-recording-script.pdf"
+        },
+        {
+          "id": "L2-M026-hanzi",
+          "title": "Hanzi Closeup 026",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/026-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M026-lesson",
+          "title": "Lesson Notes 026",
+          "type": "lesson",
+          "path": "courses/level-2/materials/026-lesson.pdf"
+        },
+        {
+          "id": "L2-M026-script",
+          "title": "Recording Script 026",
+          "type": "script",
+          "path": "courses/level-2/materials/026-recording-script.pdf"
+        },
+        {
+          "id": "L2-M027-hanzi",
+          "title": "Hanzi Closeup 027",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/027-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M027-lesson",
+          "title": "Lesson Notes 027",
+          "type": "lesson",
+          "path": "courses/level-2/materials/027-lesson.pdf"
+        },
+        {
+          "id": "L2-M027-script",
+          "title": "Recording Script 027",
+          "type": "script",
+          "path": "courses/level-2/materials/027-recording-script.pdf"
+        },
+        {
+          "id": "L2-M028-hanzi",
+          "title": "Hanzi Closeup 028",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/028-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M028-lesson",
+          "title": "Lesson Notes 028",
+          "type": "lesson",
+          "path": "courses/level-2/materials/028-lesson.pdf"
+        },
+        {
+          "id": "L2-M028-script",
+          "title": "Recording Script 028",
+          "type": "script",
+          "path": "courses/level-2/materials/028-recording-script.pdf"
+        },
+        {
+          "id": "L2-M029-lesson",
+          "title": "Lesson Notes 029",
+          "type": "lesson",
+          "path": "courses/level-2/materials/029-lesson.pdf"
+        },
+        {
+          "id": "L2-M029-script",
+          "title": "Recording Script 029",
+          "type": "script",
+          "path": "courses/level-2/materials/029-recording-script.pdf"
+        },
+        {
+          "id": "L2-M030-hanzi",
+          "title": "Hanzi Closeup 030",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/030-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M030-lesson",
+          "title": "Lesson Notes 030",
+          "type": "lesson",
+          "path": "courses/level-2/materials/030-lesson.pdf"
+        },
+        {
+          "id": "L2-M031-hanzi",
+          "title": "Hanzi Closeup 031",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/031-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M031-lesson",
+          "title": "Lesson Notes 031",
+          "type": "lesson",
+          "path": "courses/level-2/materials/031-lesson.pdf"
+        },
+        {
+          "id": "L2-M031-script",
+          "title": "Recording Script 031",
+          "type": "script",
+          "path": "courses/level-2/materials/031-recording-script.pdf"
+        },
+        {
+          "id": "L2-M032-hanzi",
+          "title": "Hanzi Closeup 032",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/032-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M032-lesson",
+          "title": "Lesson Notes 032",
+          "type": "lesson",
+          "path": "courses/level-2/materials/032-lesson.pdf"
+        },
+        {
+          "id": "L2-M033-hanzi",
+          "title": "Hanzi Closeup 033",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/033-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M033-lesson",
+          "title": "Lesson Notes 033",
+          "type": "lesson",
+          "path": "courses/level-2/materials/033-lesson.pdf"
+        },
+        {
+          "id": "L2-M034-hanzi",
+          "title": "Hanzi Closeup 034",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/034-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M034-lesson",
+          "title": "Lesson Notes 034",
+          "type": "lesson",
+          "path": "courses/level-2/materials/034-lesson.pdf"
+        },
+        {
+          "id": "L2-M034-script",
+          "title": "Recording Script 034",
+          "type": "script",
+          "path": "courses/level-2/materials/034-recording-script.pdf"
+        },
+        {
+          "id": "L2-M035-lesson",
+          "title": "Lesson Notes 035",
+          "type": "lesson",
+          "path": "courses/level-2/materials/035-lesson.pdf"
+        },
+        {
+          "id": "L2-M035-script",
+          "title": "Recording Script 035",
+          "type": "script",
+          "path": "courses/level-2/materials/035-recording-script.pdf"
+        },
+        {
+          "id": "L2-M036-lesson",
+          "title": "Lesson Notes 036",
+          "type": "lesson",
+          "path": "courses/level-2/materials/036-lesson.pdf"
+        },
+        {
+          "id": "L2-M036-script",
+          "title": "Recording Script 036",
+          "type": "script",
+          "path": "courses/level-2/materials/036-recording-script.pdf"
+        },
+        {
+          "id": "L2-M037-lesson",
+          "title": "Lesson Notes 037",
+          "type": "lesson",
+          "path": "courses/level-2/materials/037-lesson.pdf"
+        },
+        {
+          "id": "L2-M037-script",
+          "title": "Recording Script 037",
+          "type": "script",
+          "path": "courses/level-2/materials/037-recording-script.pdf"
+        },
+        {
+          "id": "L2-M038-hanzi",
+          "title": "Hanzi Closeup 038",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/038-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M038-lesson",
+          "title": "Lesson Notes 038",
+          "type": "lesson",
+          "path": "courses/level-2/materials/038-lesson.pdf"
+        },
+        {
+          "id": "L2-M039-hanzi",
+          "title": "Hanzi Closeup 039",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/039-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M040-hanzi",
+          "title": "Hanzi Closeup 040",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/040-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M040-lesson",
+          "title": "Lesson Notes 040",
+          "type": "lesson",
+          "path": "courses/level-2/materials/040-lesson.pdf"
+        },
+        {
+          "id": "L2-M040-script",
+          "title": "Recording Script 040",
+          "type": "script",
+          "path": "courses/level-2/materials/040-recording-script.pdf"
+        },
+        {
+          "id": "L2-M041-lesson",
+          "title": "Lesson Notes 041",
+          "type": "lesson",
+          "path": "courses/level-2/materials/041-lesson.pdf"
+        },
+        {
+          "id": "L2-M041-script",
+          "title": "Recording Script 041",
+          "type": "script",
+          "path": "courses/level-2/materials/041-recording-script.pdf"
+        },
+        {
+          "id": "L2-M042-hanzi",
+          "title": "Hanzi Closeup 042",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/042-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M042-lesson",
+          "title": "Lesson Notes 042",
+          "type": "lesson",
+          "path": "courses/level-2/materials/042-lesson.pdf"
+        },
+        {
+          "id": "L2-M042-script",
+          "title": "Recording Script 042",
+          "type": "script",
+          "path": "courses/level-2/materials/042-recording-script.pdf"
+        },
+        {
+          "id": "L2-M043-lesson",
+          "title": "Lesson Notes 043",
+          "type": "lesson",
+          "path": "courses/level-2/materials/043-lesson.pdf"
+        },
+        {
+          "id": "L2-M044-hanzi",
+          "title": "Hanzi Closeup 044",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/044-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M044-script",
+          "title": "Recording Script 044",
+          "type": "script",
+          "path": "courses/level-2/materials/044-recording-script.pdf"
+        },
+        {
+          "id": "L2-M045-lesson",
+          "title": "Lesson Notes 045",
+          "type": "lesson",
+          "path": "courses/level-2/materials/045-lesson.pdf"
+        },
+        {
+          "id": "L2-M045-script",
+          "title": "Recording Script 045",
+          "type": "script",
+          "path": "courses/level-2/materials/045-recording-script.pdf"
+        },
+        {
+          "id": "L2-M046-lesson",
+          "title": "Lesson Notes 046",
+          "type": "lesson",
+          "path": "courses/level-2/materials/046-lesson.pdf"
+        },
+        {
+          "id": "L2-M047-hanzi",
+          "title": "Hanzi Closeup 047",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/047-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M047-lesson",
+          "title": "Lesson Notes 047",
+          "type": "lesson",
+          "path": "courses/level-2/materials/047-lesson.pdf"
+        },
+        {
+          "id": "L2-M047-script",
+          "title": "Recording Script 047",
+          "type": "script",
+          "path": "courses/level-2/materials/047-recording-script.pdf"
+        },
+        {
+          "id": "L2-M048-lesson",
+          "title": "Lesson Notes 048",
+          "type": "lesson",
+          "path": "courses/level-2/materials/048-lesson.pdf"
+        },
+        {
+          "id": "L2-M048-script",
+          "title": "Recording Script 048",
+          "type": "script",
+          "path": "courses/level-2/materials/048-recording-script.pdf"
+        },
+        {
+          "id": "L2-M049-hanzi",
+          "title": "Hanzi Closeup 049",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/049-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M049-lesson",
+          "title": "Lesson Notes 049",
+          "type": "lesson",
+          "path": "courses/level-2/materials/049-lesson.pdf"
+        },
+        {
+          "id": "L2-M049-script",
+          "title": "Recording Script 049",
+          "type": "script",
+          "path": "courses/level-2/materials/049-recording-script.pdf"
+        },
+        {
+          "id": "L2-M050-lesson",
+          "title": "Lesson Notes 050",
+          "type": "lesson",
+          "path": "courses/level-2/materials/050-lesson.pdf"
+        },
+        {
+          "id": "L2-M050-script",
+          "title": "Recording Script 050",
+          "type": "script",
+          "path": "courses/level-2/materials/050-recording-script.pdf"
+        },
+        {
+          "id": "L2-M051-lesson",
+          "title": "Lesson Notes 051",
+          "type": "lesson",
+          "path": "courses/level-2/materials/051-lesson.pdf"
+        },
+        {
+          "id": "L2-M051-script",
+          "title": "Recording Script 051",
+          "type": "script",
+          "path": "courses/level-2/materials/051-recording-script.pdf"
+        },
+        {
+          "id": "L2-M052-hanzi",
+          "title": "Hanzi Closeup 052",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/052-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M052-lesson",
+          "title": "Lesson Notes 052",
+          "type": "lesson",
+          "path": "courses/level-2/materials/052-lesson.pdf"
+        },
+        {
+          "id": "L2-M052-script",
+          "title": "Recording Script 052",
+          "type": "script",
+          "path": "courses/level-2/materials/052-recording-script.pdf"
+        },
+        {
+          "id": "L2-M053-script",
+          "title": "Recording Script 053",
+          "type": "script",
+          "path": "courses/level-2/materials/053-recording-script.pdf"
+        },
+        {
+          "id": "L2-M054-hanzi",
+          "title": "Hanzi Closeup 054",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/054-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M054-lesson",
+          "title": "Lesson Notes 054",
+          "type": "lesson",
+          "path": "courses/level-2/materials/054-lesson.pdf"
+        },
+        {
+          "id": "L2-M054-script",
+          "title": "Recording Script 054",
+          "type": "script",
+          "path": "courses/level-2/materials/054-recording-script.pdf"
+        },
+        {
+          "id": "L2-M055-hanzi",
+          "title": "Hanzi Closeup 055",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/055-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M055-lesson",
+          "title": "Lesson Notes 055",
+          "type": "lesson",
+          "path": "courses/level-2/materials/055-lesson.pdf"
+        },
+        {
+          "id": "L2-M056-hanzi",
+          "title": "Hanzi Closeup 056",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/056-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M056-lesson",
+          "title": "Lesson Notes 056",
+          "type": "lesson",
+          "path": "courses/level-2/materials/056-lesson.pdf"
+        },
+        {
+          "id": "L2-M056-script",
+          "title": "Recording Script 056",
+          "type": "script",
+          "path": "courses/level-2/materials/056-recording-script.pdf"
+        },
+        {
+          "id": "L2-M057-lesson",
+          "title": "Lesson Notes 057",
+          "type": "lesson",
+          "path": "courses/level-2/materials/057-lesson.pdf"
+        },
+        {
+          "id": "L2-M057-script",
+          "title": "Recording Script 057",
+          "type": "script",
+          "path": "courses/level-2/materials/057-recording-script.pdf"
+        },
+        {
+          "id": "L2-M058-lesson",
+          "title": "Lesson Notes 058",
+          "type": "lesson",
+          "path": "courses/level-2/materials/058-lesson.pdf"
+        },
+        {
+          "id": "L2-M058-script",
+          "title": "Recording Script 058",
+          "type": "script",
+          "path": "courses/level-2/materials/058-recording-script.pdf"
+        },
+        {
+          "id": "L2-M059-hanzi",
+          "title": "Hanzi Closeup 059",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/059-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M059-lesson",
+          "title": "Lesson Notes 059",
+          "type": "lesson",
+          "path": "courses/level-2/materials/059-lesson.pdf"
+        },
+        {
+          "id": "L2-M059-script",
+          "title": "Recording Script 059",
+          "type": "script",
+          "path": "courses/level-2/materials/059-recording-script.pdf"
+        },
+        {
+          "id": "L2-M060-hanzi",
+          "title": "Hanzi Closeup 060",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/060-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M060-lesson",
+          "title": "Lesson Notes 060",
+          "type": "lesson",
+          "path": "courses/level-2/materials/060-lesson.pdf"
+        },
+        {
+          "id": "L2-M060-script",
+          "title": "Recording Script 060",
+          "type": "script",
+          "path": "courses/level-2/materials/060-recording-script.pdf"
+        },
+        {
+          "id": "L2-M061-lesson",
+          "title": "Lesson Notes 061",
+          "type": "lesson",
+          "path": "courses/level-2/materials/061-lesson.pdf"
+        },
+        {
+          "id": "L2-M061-script",
+          "title": "Recording Script 061",
+          "type": "script",
+          "path": "courses/level-2/materials/061-recording-script.pdf"
+        },
+        {
+          "id": "L2-M062-hanzi",
+          "title": "Hanzi Closeup 062",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/062-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M062-lesson",
+          "title": "Lesson Notes 062",
+          "type": "lesson",
+          "path": "courses/level-2/materials/062-lesson.pdf"
+        },
+        {
+          "id": "L2-M063-lesson",
+          "title": "Lesson Notes 063",
+          "type": "lesson",
+          "path": "courses/level-2/materials/063-lesson.pdf"
+        },
+        {
+          "id": "L2-M063-script",
+          "title": "Recording Script 063",
+          "type": "script",
+          "path": "courses/level-2/materials/063-recording-script.pdf"
+        },
+        {
+          "id": "L2-M064-lesson",
+          "title": "Lesson Notes 064",
+          "type": "lesson",
+          "path": "courses/level-2/materials/064-lesson.pdf"
+        },
+        {
+          "id": "L2-M065-lesson",
+          "title": "Lesson Notes 065",
+          "type": "lesson",
+          "path": "courses/level-2/materials/065-lesson.pdf"
+        },
+        {
+          "id": "L2-M065-script",
+          "title": "Recording Script 065",
+          "type": "script",
+          "path": "courses/level-2/materials/065-recording-script.pdf"
+        },
+        {
+          "id": "L2-M066-hanzi",
+          "title": "Hanzi Closeup 066",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/066-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M066-lesson",
+          "title": "Lesson Notes 066",
+          "type": "lesson",
+          "path": "courses/level-2/materials/066-lesson.pdf"
+        },
+        {
+          "id": "L2-M066-script",
+          "title": "Recording Script 066",
+          "type": "script",
+          "path": "courses/level-2/materials/066-recording-script.pdf"
+        },
+        {
+          "id": "L2-M067-hanzi",
+          "title": "Hanzi Closeup 067",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/067-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M067-lesson",
+          "title": "Lesson Notes 067",
+          "type": "lesson",
+          "path": "courses/level-2/materials/067-lesson.pdf"
+        },
+        {
+          "id": "L2-M068-lesson",
+          "title": "Lesson Notes 068",
+          "type": "lesson",
+          "path": "courses/level-2/materials/068-lesson.pdf"
+        },
+        {
+          "id": "L2-M069-lesson",
+          "title": "Lesson Notes 069",
+          "type": "lesson",
+          "path": "courses/level-2/materials/069-lesson.pdf"
+        },
+        {
+          "id": "L2-M069-script",
+          "title": "Recording Script 069",
+          "type": "script",
+          "path": "courses/level-2/materials/069-recording-script.pdf"
+        },
+        {
+          "id": "L2-M070-hanzi",
+          "title": "Hanzi Closeup 070",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/070-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M070-lesson",
+          "title": "Lesson Notes 070",
+          "type": "lesson",
+          "path": "courses/level-2/materials/070-lesson.pdf"
+        },
+        {
+          "id": "L2-M070-script",
+          "title": "Recording Script 070",
+          "type": "script",
+          "path": "courses/level-2/materials/070-recording-script.pdf"
+        },
+        {
+          "id": "L2-M071-hanzi",
+          "title": "Hanzi Closeup 071",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/071-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M071-lesson",
+          "title": "Lesson Notes 071",
+          "type": "lesson",
+          "path": "courses/level-2/materials/071-lesson.pdf"
+        },
+        {
+          "id": "L2-M071-script",
+          "title": "Recording Script 071",
+          "type": "script",
+          "path": "courses/level-2/materials/071-recording-script.pdf"
+        },
+        {
+          "id": "L2-M072-hanzi",
+          "title": "Hanzi Closeup 072",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/072-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M072-script",
+          "title": "Recording Script 072",
+          "type": "script",
+          "path": "courses/level-2/materials/072-recording-script.pdf"
+        },
+        {
+          "id": "L2-M073-lesson",
+          "title": "Lesson Notes 073",
+          "type": "lesson",
+          "path": "courses/level-2/materials/073-lesson.pdf"
+        },
+        {
+          "id": "L2-M073-script",
+          "title": "Recording Script 073",
+          "type": "script",
+          "path": "courses/level-2/materials/073-recording-script.pdf"
+        },
+        {
+          "id": "L2-M074-lesson",
+          "title": "Lesson Notes 074",
+          "type": "lesson",
+          "path": "courses/level-2/materials/074-lesson.pdf"
+        },
+        {
+          "id": "L2-M074-script",
+          "title": "Recording Script 074",
+          "type": "script",
+          "path": "courses/level-2/materials/074-recording-script.pdf"
+        },
+        {
+          "id": "L2-M075-hanzi",
+          "title": "Hanzi Closeup 075",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/075-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M075-lesson",
+          "title": "Lesson Notes 075",
+          "type": "lesson",
+          "path": "courses/level-2/materials/075-lesson.pdf"
+        },
+        {
+          "id": "L2-M075-script",
+          "title": "Recording Script 075",
+          "type": "script",
+          "path": "courses/level-2/materials/075-recording-script.pdf"
+        },
+        {
+          "id": "L2-M076-hanzi",
+          "title": "Hanzi Closeup 076",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/076-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M076-script",
+          "title": "Recording Script 076",
+          "type": "script",
+          "path": "courses/level-2/materials/076-recording-script.pdf"
+        },
+        {
+          "id": "L2-M077-lesson",
+          "title": "Lesson Notes 077",
+          "type": "lesson",
+          "path": "courses/level-2/materials/077-lesson.pdf"
+        },
+        {
+          "id": "L2-M077-script",
+          "title": "Recording Script 077",
+          "type": "script",
+          "path": "courses/level-2/materials/077-recording-script.pdf"
+        },
+        {
+          "id": "L2-M078-hanzi",
+          "title": "Hanzi Closeup 078",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/078-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M078-lesson",
+          "title": "Lesson Notes 078",
+          "type": "lesson",
+          "path": "courses/level-2/materials/078-lesson.pdf"
+        },
+        {
+          "id": "L2-M078-script",
+          "title": "Recording Script 078",
+          "type": "script",
+          "path": "courses/level-2/materials/078-recording-script.pdf"
+        },
+        {
+          "id": "L2-M079-hanzi",
+          "title": "Hanzi Closeup 079",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/079-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M079-lesson",
+          "title": "Lesson Notes 079",
+          "type": "lesson",
+          "path": "courses/level-2/materials/079-lesson.pdf"
+        },
+        {
+          "id": "L2-M079-script",
+          "title": "Recording Script 079",
+          "type": "script",
+          "path": "courses/level-2/materials/079-recording-script.pdf"
+        },
+        {
+          "id": "L2-M080-hanzi",
+          "title": "Hanzi Closeup 080",
+          "type": "hanzi",
+          "path": "courses/level-2/materials/080-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L2-M080-script",
+          "title": "Recording Script 080",
+          "type": "script",
+          "path": "courses/level-2/materials/080-recording-script.pdf"
+        }
+      ]
+    },
+    {
+      "id": "level-3",
+      "name": {
+        "en": "Level 3 - Lower Intermediate",
+        "cn": "第三级 - 中级入门"
+      },
+      "description": {
+        "en": "Social interactions and deeper conversations",
+        "cn": "社交互动和深入对话"
+      },
+      "icon": "🌳",
+      "lessons": [
+        {
+          "id": "L3-012",
+          "title": "How to Make Friends in China",
+          "audioPath": "courses/level-3/audio/012-how-to-make-friends-in-china.mp3",
+          "order": 1
+        }
+      ],
+      "materials": [
+        {
+          "id": "L3-M001-lesson",
+          "title": "Lesson Notes 001",
+          "type": "lesson",
+          "path": "courses/level-3/materials/001-lesson.pdf"
+        },
+        {
+          "id": "L3-M001-script",
+          "title": "Recording Script 001",
+          "type": "script",
+          "path": "courses/level-3/materials/001-recording-script.pdf"
+        },
+        {
+          "id": "L3-M002-hanzi",
+          "title": "Hanzi Closeup 002",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/002-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M003-lesson",
+          "title": "Lesson Notes 003",
+          "type": "lesson",
+          "path": "courses/level-3/materials/003-lesson.pdf"
+        },
+        {
+          "id": "L3-M003-script",
+          "title": "Recording Script 003",
+          "type": "script",
+          "path": "courses/level-3/materials/003-recording-script.pdf"
+        },
+        {
+          "id": "L3-M006-lesson",
+          "title": "Lesson Notes 006",
+          "type": "lesson",
+          "path": "courses/level-3/materials/006-lesson.pdf"
+        },
+        {
+          "id": "L3-M006-script",
+          "title": "Recording Script 006",
+          "type": "script",
+          "path": "courses/level-3/materials/006-recording-script.pdf"
+        },
+        {
+          "id": "L3-M007-hanzi",
+          "title": "Hanzi Closeup 007",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/007-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M007-script",
+          "title": "Recording Script 007",
+          "type": "script",
+          "path": "courses/level-3/materials/007-recording-script.pdf"
+        },
+        {
+          "id": "L3-M008-hanzi",
+          "title": "Hanzi Closeup 008",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/008-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M008-lesson",
+          "title": "Lesson Notes 008",
+          "type": "lesson",
+          "path": "courses/level-3/materials/008-lesson.pdf"
+        },
+        {
+          "id": "L3-M008-script",
+          "title": "Recording Script 008",
+          "type": "script",
+          "path": "courses/level-3/materials/008-recording-script.pdf"
+        },
+        {
+          "id": "L3-M009-hanzi",
+          "title": "Hanzi Closeup 009",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/009-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M009-lesson",
+          "title": "Lesson Notes 009",
+          "type": "lesson",
+          "path": "courses/level-3/materials/009-lesson.pdf"
+        },
+        {
+          "id": "L3-M009-script",
+          "title": "Recording Script 009",
+          "type": "script",
+          "path": "courses/level-3/materials/009-recording-script.pdf"
+        },
+        {
+          "id": "L3-M010-script",
+          "title": "Recording Script 010",
+          "type": "script",
+          "path": "courses/level-3/materials/010-recording-script.pdf"
+        },
+        {
+          "id": "L3-M011-lesson",
+          "title": "Lesson Notes 011",
+          "type": "lesson",
+          "path": "courses/level-3/materials/011-lesson.pdf"
+        },
+        {
+          "id": "L3-M012-hanzi",
+          "title": "Hanzi Closeup 012",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/012-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M012-lesson",
+          "title": "Lesson Notes 012",
+          "type": "lesson",
+          "path": "courses/level-3/materials/012-lesson.pdf"
+        },
+        {
+          "id": "L3-M012-script",
+          "title": "Recording Script 012",
+          "type": "script",
+          "path": "courses/level-3/materials/012-recording-script.pdf"
+        },
+        {
+          "id": "L3-M013-script",
+          "title": "Recording Script 013",
+          "type": "script",
+          "path": "courses/level-3/materials/013-recording-script.pdf"
+        },
+        {
+          "id": "L3-M014-lesson",
+          "title": "Lesson Notes 014",
+          "type": "lesson",
+          "path": "courses/level-3/materials/014-lesson.pdf"
+        },
+        {
+          "id": "L3-M014-script",
+          "title": "Recording Script 014",
+          "type": "script",
+          "path": "courses/level-3/materials/014-recording-script.pdf"
+        },
+        {
+          "id": "L3-M015-lesson",
+          "title": "Lesson Notes 015",
+          "type": "lesson",
+          "path": "courses/level-3/materials/015-lesson.pdf"
+        },
+        {
+          "id": "L3-M016-lesson",
+          "title": "Lesson Notes 016",
+          "type": "lesson",
+          "path": "courses/level-3/materials/016-lesson.pdf"
+        },
+        {
+          "id": "L3-M017-hanzi",
+          "title": "Hanzi Closeup 017",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/017-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M017-lesson",
+          "title": "Lesson Notes 017",
+          "type": "lesson",
+          "path": "courses/level-3/materials/017-lesson.pdf"
+        },
+        {
+          "id": "L3-M018-lesson",
+          "title": "Lesson Notes 018",
+          "type": "lesson",
+          "path": "courses/level-3/materials/018-lesson.pdf"
+        },
+        {
+          "id": "L3-M018-script",
+          "title": "Recording Script 018",
+          "type": "script",
+          "path": "courses/level-3/materials/018-recording-script.pdf"
+        },
+        {
+          "id": "L3-M019-hanzi",
+          "title": "Hanzi Closeup 019",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/019-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M019-script",
+          "title": "Recording Script 019",
+          "type": "script",
+          "path": "courses/level-3/materials/019-recording-script.pdf"
+        },
+        {
+          "id": "L3-M020-hanzi",
+          "title": "Hanzi Closeup 020",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/020-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M020-lesson",
+          "title": "Lesson Notes 020",
+          "type": "lesson",
+          "path": "courses/level-3/materials/020-lesson.pdf"
+        },
+        {
+          "id": "L3-M021-hanzi",
+          "title": "Hanzi Closeup 021",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/021-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M021-lesson",
+          "title": "Lesson Notes 021",
+          "type": "lesson",
+          "path": "courses/level-3/materials/021-lesson.pdf"
+        },
+        {
+          "id": "L3-M021-script",
+          "title": "Recording Script 021",
+          "type": "script",
+          "path": "courses/level-3/materials/021-recording-script.pdf"
+        },
+        {
+          "id": "L3-M022-hanzi",
+          "title": "Hanzi Closeup 022",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/022-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M022-script",
+          "title": "Recording Script 022",
+          "type": "script",
+          "path": "courses/level-3/materials/022-recording-script.pdf"
+        },
+        {
+          "id": "L3-M023-lesson",
+          "title": "Lesson Notes 023",
+          "type": "lesson",
+          "path": "courses/level-3/materials/023-lesson.pdf"
+        },
+        {
+          "id": "L3-M024-hanzi",
+          "title": "Hanzi Closeup 024",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/024-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M024-lesson",
+          "title": "Lesson Notes 024",
+          "type": "lesson",
+          "path": "courses/level-3/materials/024-lesson.pdf"
+        },
+        {
+          "id": "L3-M024-script",
+          "title": "Recording Script 024",
+          "type": "script",
+          "path": "courses/level-3/materials/024-recording-script.pdf"
+        },
+        {
+          "id": "L3-M025-lesson",
+          "title": "Lesson Notes 025",
+          "type": "lesson",
+          "path": "courses/level-3/materials/025-lesson.pdf"
+        },
+        {
+          "id": "L3-M025-script",
+          "title": "Recording Script 025",
+          "type": "script",
+          "path": "courses/level-3/materials/025-recording-script.pdf"
+        },
+        {
+          "id": "L3-M026-hanzi",
+          "title": "Hanzi Closeup 026",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/026-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M026-lesson",
+          "title": "Lesson Notes 026",
+          "type": "lesson",
+          "path": "courses/level-3/materials/026-lesson.pdf"
+        },
+        {
+          "id": "L3-M026-script",
+          "title": "Recording Script 026",
+          "type": "script",
+          "path": "courses/level-3/materials/026-recording-script.pdf"
+        },
+        {
+          "id": "L3-M027-script",
+          "title": "Recording Script 027",
+          "type": "script",
+          "path": "courses/level-3/materials/027-recording-script.pdf"
+        },
+        {
+          "id": "L3-M028-script",
+          "title": "Recording Script 028",
+          "type": "script",
+          "path": "courses/level-3/materials/028-recording-script.pdf"
+        },
+        {
+          "id": "L3-M029-hanzi",
+          "title": "Hanzi Closeup 029",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/029-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M029-script",
+          "title": "Recording Script 029",
+          "type": "script",
+          "path": "courses/level-3/materials/029-recording-script.pdf"
+        },
+        {
+          "id": "L3-M031-lesson",
+          "title": "Lesson Notes 031",
+          "type": "lesson",
+          "path": "courses/level-3/materials/031-lesson.pdf"
+        },
+        {
+          "id": "L3-M031-script",
+          "title": "Recording Script 031",
+          "type": "script",
+          "path": "courses/level-3/materials/031-recording-script.pdf"
+        },
+        {
+          "id": "L3-M032-lesson",
+          "title": "Lesson Notes 032",
+          "type": "lesson",
+          "path": "courses/level-3/materials/032-lesson.pdf"
+        },
+        {
+          "id": "L3-M032-script",
+          "title": "Recording Script 032",
+          "type": "script",
+          "path": "courses/level-3/materials/032-recording-script.pdf"
+        },
+        {
+          "id": "L3-M034-lesson",
+          "title": "Lesson Notes 034",
+          "type": "lesson",
+          "path": "courses/level-3/materials/034-lesson.pdf"
+        },
+        {
+          "id": "L3-M035-script",
+          "title": "Recording Script 035",
+          "type": "script",
+          "path": "courses/level-3/materials/035-recording-script.pdf"
+        },
+        {
+          "id": "L3-M036-script",
+          "title": "Recording Script 036",
+          "type": "script",
+          "path": "courses/level-3/materials/036-recording-script.pdf"
+        },
+        {
+          "id": "L3-M037-lesson",
+          "title": "Lesson Notes 037",
+          "type": "lesson",
+          "path": "courses/level-3/materials/037-lesson.pdf"
+        },
+        {
+          "id": "L3-M038-hanzi",
+          "title": "Hanzi Closeup 038",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/038-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M038-lesson",
+          "title": "Lesson Notes 038",
+          "type": "lesson",
+          "path": "courses/level-3/materials/038-lesson.pdf"
+        },
+        {
+          "id": "L3-M039-hanzi",
+          "title": "Hanzi Closeup 039",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/039-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M039-script",
+          "title": "Recording Script 039",
+          "type": "script",
+          "path": "courses/level-3/materials/039-recording-script.pdf"
+        },
+        {
+          "id": "L3-M040-lesson",
+          "title": "Lesson Notes 040",
+          "type": "lesson",
+          "path": "courses/level-3/materials/040-lesson.pdf"
+        },
+        {
+          "id": "L3-M040-script",
+          "title": "Recording Script 040",
+          "type": "script",
+          "path": "courses/level-3/materials/040-recording-script.pdf"
+        },
+        {
+          "id": "L3-M041-lesson",
+          "title": "Lesson Notes 041",
+          "type": "lesson",
+          "path": "courses/level-3/materials/041-lesson.pdf"
+        },
+        {
+          "id": "L3-M042-lesson",
+          "title": "Lesson Notes 042",
+          "type": "lesson",
+          "path": "courses/level-3/materials/042-lesson.pdf"
+        },
+        {
+          "id": "L3-M042-script",
+          "title": "Recording Script 042",
+          "type": "script",
+          "path": "courses/level-3/materials/042-recording-script.pdf"
+        },
+        {
+          "id": "L3-M043-script",
+          "title": "Recording Script 043",
+          "type": "script",
+          "path": "courses/level-3/materials/043-recording-script.pdf"
+        },
+        {
+          "id": "L3-M044-lesson",
+          "title": "Lesson Notes 044",
+          "type": "lesson",
+          "path": "courses/level-3/materials/044-lesson.pdf"
+        },
+        {
+          "id": "L3-M044-script",
+          "title": "Recording Script 044",
+          "type": "script",
+          "path": "courses/level-3/materials/044-recording-script.pdf"
+        },
+        {
+          "id": "L3-M045-hanzi",
+          "title": "Hanzi Closeup 045",
+          "type": "hanzi",
+          "path": "courses/level-3/materials/045-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L3-M046-lesson",
+          "title": "Lesson Notes 046",
+          "type": "lesson",
+          "path": "courses/level-3/materials/046-lesson.pdf"
+        },
+        {
+          "id": "L3-M046-script",
+          "title": "Recording Script 046",
+          "type": "script",
+          "path": "courses/level-3/materials/046-recording-script.pdf"
+        },
+        {
+          "id": "L3-M047-script",
+          "title": "Recording Script 047",
+          "type": "script",
+          "path": "courses/level-3/materials/047-recording-script.pdf"
+        },
+        {
+          "id": "L3-M048-script",
+          "title": "Recording Script 048",
+          "type": "script",
+          "path": "courses/level-3/materials/048-recording-script.pdf"
+        },
+        {
+          "id": "L3-M049-lesson",
+          "title": "Lesson Notes 049",
+          "type": "lesson",
+          "path": "courses/level-3/materials/049-lesson.pdf"
+        },
+        {
+          "id": "L3-M050-lesson",
+          "title": "Lesson Notes 050",
+          "type": "lesson",
+          "path": "courses/level-3/materials/050-lesson.pdf"
+        }
+      ]
+    },
+    {
+      "id": "level-4",
+      "name": {
+        "en": "Level 4 - Intermediate",
+        "cn": "第四级 - 中级"
+      },
+      "description": {
+        "en": "Advanced daily topics and cultural nuances",
+        "cn": "高级日常话题和文化细节"
+      },
+      "icon": "🏔️",
+      "lessons": [
+        {
+          "id": "L4-008",
+          "title": "Going to the Movies in China",
+          "audioPath": "courses/level-4/audio/008-going-to-the-movies-in-china.mp3",
+          "order": 1
+        },
+        {
+          "id": "L4-010",
+          "title": "Chinese Thumb Torture",
+          "audioPath": "courses/level-4/audio/010-chinese-thumb-torture.mp3",
+          "order": 2
+        },
+        {
+          "id": "L4-011",
+          "title": "The Unmerciful Chinese Hands",
+          "audioPath": "courses/level-4/audio/011-the-unmerciful-chinese-hands.mp3",
+          "order": 3
+        },
+        {
+          "id": "L4-014",
+          "title": "The Newest Chinese Starbucks Locale",
+          "audioPath": "courses/level-4/audio/014-the-newest-chinese-starbucks-locale.mp3",
+          "order": 4
+        },
+        {
+          "id": "L4-016",
+          "title": "Winter at the Summer Palace",
+          "audioPath": "courses/level-4/audio/016-winter-at-the-summer-palace.mp3",
+          "order": 5
+        },
+        {
+          "id": "L4-019",
+          "title": "The Cat That Fought Back in China",
+          "audioPath": "courses/level-4/audio/019-the-cat-that-fought-back-in-china.mp3",
+          "order": 6
+        },
+        {
+          "id": "L4-020",
+          "title": "The Art of Using Chinese Chopsticks",
+          "audioPath": "courses/level-4/audio/020-the-art-of-using-chinese-chopsticks.mp3",
+          "order": 7
+        },
+        {
+          "id": "L4-025",
+          "title": "Rush Hour on the Beijing Metro",
+          "audioPath": "courses/level-4/audio/025-rush-hour-on-the-beijing-metro.mp3",
+          "order": 8
+        },
+        {
+          "id": "L4-026",
+          "title": "A Sinister Plot in China",
+          "audioPath": "courses/level-4/audio/026-a-sinister-plot-in-china.mp3",
+          "order": 9
+        },
+        {
+          "id": "L4-028",
+          "title": "Cracking the Safe",
+          "audioPath": "courses/level-4/audio/028-cracking-the-safe.mp3",
+          "order": 10
+        },
+        {
+          "id": "L4-034",
+          "title": "The Dubbing Room",
+          "audioPath": "courses/level-4/audio/034-the-dubbing-room.mp3",
+          "order": 11
+        },
+        {
+          "id": "L4-036",
+          "title": "What an Idiot!",
+          "audioPath": "courses/level-4/audio/036-what-an-idiot.mp3",
+          "order": 12
+        },
+        {
+          "id": "L4-037",
+          "title": "You Killed What",
+          "audioPath": "courses/level-4/audio/037-you-killed-what.mp3",
+          "order": 13
+        },
+        {
+          "id": "L4-043",
+          "title": "Hitting the Glass Ceiling",
+          "audioPath": "courses/level-4/audio/043-hitting-the-glass-ceiling.mp3",
+          "order": 14
+        },
+        {
+          "id": "L4-045",
+          "title": "Can You Take My Picture",
+          "audioPath": "courses/level-4/audio/045-can-you-take-my-picture.mp3",
+          "order": 15
+        },
+        {
+          "id": "L4-047",
+          "title": "Burning the Midnight Oil",
+          "audioPath": "courses/level-4/audio/047-burning-the-midnight-oil.mp3",
+          "order": 16
+        },
+        {
+          "id": "L4-058",
+          "title": "Dilemma of the Chinese Socialites",
+          "audioPath": "courses/level-4/audio/058-dilemma-of-the-chinese-socialites.mp3",
+          "order": 17
+        },
+        {
+          "id": "L4-059",
+          "title": "The Picky Chinese Eater",
+          "audioPath": "courses/level-4/audio/059-the-picky-chinese-eater.mp3",
+          "order": 18
+        },
+        {
+          "id": "L4-060",
+          "title": "The Jealous Girlfriend in China",
+          "audioPath": "courses/level-4/audio/060-the-jealous-girlfriend-in-china.mp3",
+          "order": 19
+        },
+        {
+          "id": "L4-062",
+          "title": "The Chinese Math Professor",
+          "audioPath": "courses/level-4/audio/062-the-chinese-math-professor.mp3",
+          "order": 20
+        },
+        {
+          "id": "L4-066",
+          "title": "A Trip to the Chinese Doctor",
+          "audioPath": "courses/level-4/audio/066-a-trip-to-the-chinese-doctor.mp3",
+          "order": 21
+        },
+        {
+          "id": "L4-068",
+          "title": "The Chinese Knock-Off Phone",
+          "audioPath": "courses/level-4/audio/068-the-chinese-knock-off-phone.mp3",
+          "order": 22
+        }
+      ],
+      "materials": [
+        {
+          "id": "L4-M005-lesson",
+          "title": "Lesson Notes 005",
+          "type": "lesson",
+          "path": "courses/level-4/materials/005-lesson.pdf"
+        },
+        {
+          "id": "L4-M005-script",
+          "title": "Recording Script 005",
+          "type": "script",
+          "path": "courses/level-4/materials/005-recording-script.pdf"
+        },
+        {
+          "id": "L4-M006-script",
+          "title": "Recording Script 006",
+          "type": "script",
+          "path": "courses/level-4/materials/006-recording-script.pdf"
+        },
+        {
+          "id": "L4-M007-script",
+          "title": "Recording Script 007",
+          "type": "script",
+          "path": "courses/level-4/materials/007-recording-script.pdf"
+        },
+        {
+          "id": "L4-M008-script",
+          "title": "Recording Script 008",
+          "type": "script",
+          "path": "courses/level-4/materials/008-recording-script.pdf"
+        },
+        {
+          "id": "L4-M009-script",
+          "title": "Recording Script 009",
+          "type": "script",
+          "path": "courses/level-4/materials/009-recording-script.pdf"
+        },
+        {
+          "id": "L4-M010-lesson",
+          "title": "Lesson Notes 010",
+          "type": "lesson",
+          "path": "courses/level-4/materials/010-lesson.pdf"
+        },
+        {
+          "id": "L4-M011-script",
+          "title": "Recording Script 011",
+          "type": "script",
+          "path": "courses/level-4/materials/011-recording-script.pdf"
+        },
+        {
+          "id": "L4-M012-lesson",
+          "title": "Lesson Notes 012",
+          "type": "lesson",
+          "path": "courses/level-4/materials/012-lesson.pdf"
+        },
+        {
+          "id": "L4-M013-hanzi",
+          "title": "Hanzi Closeup 013",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/013-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M013-script",
+          "title": "Recording Script 013",
+          "type": "script",
+          "path": "courses/level-4/materials/013-recording-script.pdf"
+        },
+        {
+          "id": "L4-M020-lesson",
+          "title": "Lesson Notes 020",
+          "type": "lesson",
+          "path": "courses/level-4/materials/020-lesson.pdf"
+        },
+        {
+          "id": "L4-M021-hanzi",
+          "title": "Hanzi Closeup 021",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/021-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M026-script",
+          "title": "Recording Script 026",
+          "type": "script",
+          "path": "courses/level-4/materials/026-recording-script.pdf"
+        },
+        {
+          "id": "L4-M030-lesson",
+          "title": "Lesson Notes 030",
+          "type": "lesson",
+          "path": "courses/level-4/materials/030-lesson.pdf"
+        },
+        {
+          "id": "L4-M032-lesson",
+          "title": "Lesson Notes 032",
+          "type": "lesson",
+          "path": "courses/level-4/materials/032-lesson.pdf"
+        },
+        {
+          "id": "L4-M033-hanzi",
+          "title": "Hanzi Closeup 033",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/033-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M034-hanzi",
+          "title": "Hanzi Closeup 034",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/034-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M034-script",
+          "title": "Recording Script 034",
+          "type": "script",
+          "path": "courses/level-4/materials/034-recording-script.pdf"
+        },
+        {
+          "id": "L4-M035-script",
+          "title": "Recording Script 035",
+          "type": "script",
+          "path": "courses/level-4/materials/035-recording-script.pdf"
+        },
+        {
+          "id": "L4-M036-hanzi",
+          "title": "Hanzi Closeup 036",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/036-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M037-lesson",
+          "title": "Lesson Notes 037",
+          "type": "lesson",
+          "path": "courses/level-4/materials/037-lesson.pdf"
+        },
+        {
+          "id": "L4-M037-script",
+          "title": "Recording Script 037",
+          "type": "script",
+          "path": "courses/level-4/materials/037-recording-script.pdf"
+        },
+        {
+          "id": "L4-M038-hanzi",
+          "title": "Hanzi Closeup 038",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/038-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M040-script",
+          "title": "Recording Script 040",
+          "type": "script",
+          "path": "courses/level-4/materials/040-recording-script.pdf"
+        },
+        {
+          "id": "L4-M041-hanzi",
+          "title": "Hanzi Closeup 041",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/041-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M042-lesson",
+          "title": "Lesson Notes 042",
+          "type": "lesson",
+          "path": "courses/level-4/materials/042-lesson.pdf"
+        },
+        {
+          "id": "L4-M043-hanzi",
+          "title": "Hanzi Closeup 043",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/043-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M043-script",
+          "title": "Recording Script 043",
+          "type": "script",
+          "path": "courses/level-4/materials/043-recording-script.pdf"
+        },
+        {
+          "id": "L4-M044-hanzi",
+          "title": "Hanzi Closeup 044",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/044-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M045-lesson",
+          "title": "Lesson Notes 045",
+          "type": "lesson",
+          "path": "courses/level-4/materials/045-lesson.pdf"
+        },
+        {
+          "id": "L4-M046-hanzi",
+          "title": "Hanzi Closeup 046",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/046-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M047-hanzi",
+          "title": "Hanzi Closeup 047",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/047-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M048-lesson",
+          "title": "Lesson Notes 048",
+          "type": "lesson",
+          "path": "courses/level-4/materials/048-lesson.pdf"
+        },
+        {
+          "id": "L4-M050-hanzi",
+          "title": "Hanzi Closeup 050",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/050-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M050-lesson",
+          "title": "Lesson Notes 050",
+          "type": "lesson",
+          "path": "courses/level-4/materials/050-lesson.pdf"
+        },
+        {
+          "id": "L4-M053-lesson",
+          "title": "Lesson Notes 053",
+          "type": "lesson",
+          "path": "courses/level-4/materials/053-lesson.pdf"
+        },
+        {
+          "id": "L4-M053-script",
+          "title": "Recording Script 053",
+          "type": "script",
+          "path": "courses/level-4/materials/053-recording-script.pdf"
+        },
+        {
+          "id": "L4-M054-hanzi",
+          "title": "Hanzi Closeup 054",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/054-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M055-lesson",
+          "title": "Lesson Notes 055",
+          "type": "lesson",
+          "path": "courses/level-4/materials/055-lesson.pdf"
+        },
+        {
+          "id": "L4-M057-script",
+          "title": "Recording Script 057",
+          "type": "script",
+          "path": "courses/level-4/materials/057-recording-script.pdf"
+        },
+        {
+          "id": "L4-M059-hanzi",
+          "title": "Hanzi Closeup 059",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/059-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M059-script",
+          "title": "Recording Script 059",
+          "type": "script",
+          "path": "courses/level-4/materials/059-recording-script.pdf"
+        },
+        {
+          "id": "L4-M060-script",
+          "title": "Recording Script 060",
+          "type": "script",
+          "path": "courses/level-4/materials/060-recording-script.pdf"
+        },
+        {
+          "id": "L4-M064-lesson",
+          "title": "Lesson Notes 064",
+          "type": "lesson",
+          "path": "courses/level-4/materials/064-lesson.pdf"
+        },
+        {
+          "id": "L4-M065-script",
+          "title": "Recording Script 065",
+          "type": "script",
+          "path": "courses/level-4/materials/065-recording-script.pdf"
+        },
+        {
+          "id": "L4-M066-lesson",
+          "title": "Lesson Notes 066",
+          "type": "lesson",
+          "path": "courses/level-4/materials/066-lesson.pdf"
+        },
+        {
+          "id": "L4-M067-hanzi",
+          "title": "Hanzi Closeup 067",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/067-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M068-hanzi",
+          "title": "Hanzi Closeup 068",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/068-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M069-lesson",
+          "title": "Lesson Notes 069",
+          "type": "lesson",
+          "path": "courses/level-4/materials/069-lesson.pdf"
+        },
+        {
+          "id": "L4-M070-script",
+          "title": "Recording Script 070",
+          "type": "script",
+          "path": "courses/level-4/materials/070-recording-script.pdf"
+        },
+        {
+          "id": "L4-M071-script",
+          "title": "Recording Script 071",
+          "type": "script",
+          "path": "courses/level-4/materials/071-recording-script.pdf"
+        },
+        {
+          "id": "L4-M072-hanzi",
+          "title": "Hanzi Closeup 072",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/072-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M072-script",
+          "title": "Recording Script 072",
+          "type": "script",
+          "path": "courses/level-4/materials/072-recording-script.pdf"
+        },
+        {
+          "id": "L4-M073-hanzi",
+          "title": "Hanzi Closeup 073",
+          "type": "hanzi",
+          "path": "courses/level-4/materials/073-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L4-M073-script",
+          "title": "Recording Script 073",
+          "type": "script",
+          "path": "courses/level-4/materials/073-recording-script.pdf"
+        }
+      ]
+    },
+    {
+      "id": "level-5",
+      "name": {
+        "en": "Level 5 - Upper Intermediate",
+        "cn": "第五级 - 中高级"
+      },
+      "description": {
+        "en": "Complex topics, business, and society",
+        "cn": "复杂话题、商务和社会"
+      },
+      "icon": "⭐",
+      "lessons": [
+        {
+          "id": "L5-001",
+          "title": "Is It Expensive to Buy an Apartment in China",
+          "audioPath": "courses/level-5/audio/001-is-it-expensive-to-buy-an-apartment-in-china.mp3",
+          "order": 1
+        },
+        {
+          "id": "L5-005",
+          "title": "How Can the Common Man Find Love in China",
+          "audioPath": "courses/level-5/audio/005-how-can-the-common-man-find-love-in-china.mp3",
+          "order": 2
+        },
+        {
+          "id": "L5-011",
+          "title": "Getting Caught in a Chinese Traffic Jam",
+          "audioPath": "courses/level-5/audio/011-getting-caught-in-a-chinese-traffic-jam.mp3",
+          "order": 3
+        },
+        {
+          "id": "L5-013",
+          "title": "Chinese Insurance Might Not be a Sure Thing!",
+          "audioPath": "courses/level-5/audio/013-chinese-insurance-might-not-be-a-sure-thing.mp3",
+          "order": 4
+        },
+        {
+          "id": "L5-015",
+          "title": "When is the Chinese Subway Not Crowded",
+          "audioPath": "courses/level-5/audio/015-when-is-the-chinese-subway-not-crowded.mp3",
+          "order": 5
+        },
+        {
+          "id": "L5-018",
+          "title": "This Chinese Online Store Sells Everything!",
+          "audioPath": "courses/level-5/audio/018-this-chinese-online-store-sells-everything.mp3",
+          "order": 6
+        },
+        {
+          "id": "L5-028",
+          "title": "Questions of Marriage",
+          "audioPath": "courses/level-5/audio/028-questions-of-marriage.mp3",
+          "order": 7
+        },
+        {
+          "id": "L5-029",
+          "title": "The Life Aquatic",
+          "audioPath": "courses/level-5/audio/029-the-life-aquatic.mp3",
+          "order": 8
+        },
+        {
+          "id": "L5-030",
+          "title": "Divorce in China",
+          "audioPath": "courses/level-5/audio/030-divorce-in-china.mp3",
+          "order": 9
+        },
+        {
+          "id": "L5-032",
+          "title": "Getting Married in China",
+          "audioPath": "courses/level-5/audio/032-getting-married-in-china.mp3",
+          "order": 10
+        },
+        {
+          "id": "L5-033",
+          "title": "Investing in the Chinese Stock Market",
+          "audioPath": "courses/level-5/audio/033-investing-in-the-chinese-stock-market.mp3",
+          "order": 11
+        },
+        {
+          "id": "L5-038",
+          "title": "What_s My Password Honey",
+          "audioPath": "courses/level-5/audio/038-whats-my-password-honey.mp3",
+          "order": 12
+        },
+        {
+          "id": "L5-041",
+          "title": "Presidential Aspirations",
+          "audioPath": "courses/level-5/audio/041-presidential-aspirations.mp3",
+          "order": 13
+        },
+        {
+          "id": "L5-043",
+          "title": "Riding bicycles in China",
+          "audioPath": "courses/level-5/audio/043-riding-bicycles-in-china.mp3",
+          "order": 14
+        },
+        {
+          "id": "L5-046",
+          "title": "The most luxurious hotel in China",
+          "audioPath": "courses/level-5/audio/046-the-most-luxurious-hotel-in-china.mp3",
+          "order": 15
+        },
+        {
+          "id": "L5-047",
+          "title": "Chinese Subway Battle",
+          "audioPath": "courses/level-5/audio/047-chinese-subway-battle.mp3",
+          "order": 16
+        },
+        {
+          "id": "L5-048",
+          "title": "Cramming it in China",
+          "audioPath": "courses/level-5/audio/048-cramming-it-in-china.mp3",
+          "order": 17
+        },
+        {
+          "id": "L5-050",
+          "title": "Airport adventure in China",
+          "audioPath": "courses/level-5/audio/050-airport-adventure-in-china.mp3",
+          "order": 18
+        },
+        {
+          "id": "L5-051",
+          "title": "A Trip to the Chinese Doctor",
+          "audioPath": "courses/level-5/audio/051-a-trip-to-the-chinese-doctor.mp3",
+          "order": 19
+        },
+        {
+          "id": "L5-053",
+          "title": "Throwing Rotten Tomatoes at a Chinese Movie",
+          "audioPath": "courses/level-5/audio/053-throwing-rotten-tomatoes-at-a-chinese-movie.mp3",
+          "order": 20
+        },
+        {
+          "id": "L5-054",
+          "title": "All You Need is Love in China",
+          "audioPath": "courses/level-5/audio/054-all-you-need-is-love-in-china.mp3",
+          "order": 21
+        },
+        {
+          "id": "L5-057",
+          "title": "Hundredth Time_s the Charm in China",
+          "audioPath": "courses/level-5/audio/057-hundredth-times-the-charm-in-china.mp3",
+          "order": 22
+        },
+        {
+          "id": "L5-059",
+          "title": "The Chinese Gold Rush",
+          "audioPath": "courses/level-5/audio/059-the-chinese-gold-rush.mp3",
+          "order": 23
+        },
+        {
+          "id": "L5-060",
+          "title": "It_s the Same Old Chinese Spring Gala",
+          "audioPath": "courses/level-5/audio/060-its-the-same-old-chinese-spring-gala.mp3",
+          "order": 24
+        },
+        {
+          "id": "L5-062",
+          "title": "Mom Knows Best in China",
+          "audioPath": "courses/level-5/audio/062-mom-knows-best-in-china.mp3",
+          "order": 25
+        },
+        {
+          "id": "L5-063",
+          "title": "An Almost Perfect Housemaid in China",
+          "audioPath": "courses/level-5/audio/063-an-almost-perfect-housemaid-in-china.mp3",
+          "order": 26
+        },
+        {
+          "id": "L5-066",
+          "title": "Making Sacrifices for Technology in China",
+          "audioPath": "courses/level-5/audio/066-making-sacrifices-for-technology-in-china.mp3",
+          "order": 27
+        },
+        {
+          "id": "L5-069",
+          "title": "A Chinese Mother with Big Dreams",
+          "audioPath": "courses/level-5/audio/069-a-chinese-mother-with-big-dreams.mp3",
+          "order": 28
+        },
+        {
+          "id": "L5-070",
+          "title": "Suffering for the Sake of Chinese Fashion",
+          "audioPath": "courses/level-5/audio/070-suffering-for-the-sake-of-chinese-fashion.mp3",
+          "order": 29
+        },
+        {
+          "id": "L5-075",
+          "title": "Sticking to a Diet is Tough in China",
+          "audioPath": "courses/level-5/audio/075-sticking-to-a-diet-is-tough-in-china.mp3",
+          "order": 30
+        }
+      ],
+      "materials": [
+        {
+          "id": "L5-M001-hanzi",
+          "title": "Hanzi Closeup 001",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/001-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M002-lesson",
+          "title": "Lesson Notes 002",
+          "type": "lesson",
+          "path": "courses/level-5/materials/002-lesson.pdf"
+        },
+        {
+          "id": "L5-M002-script",
+          "title": "Recording Script 002",
+          "type": "script",
+          "path": "courses/level-5/materials/002-recording-script.pdf"
+        },
+        {
+          "id": "L5-M003-hanzi",
+          "title": "Hanzi Closeup 003",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/003-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M003-lesson",
+          "title": "Lesson Notes 003",
+          "type": "lesson",
+          "path": "courses/level-5/materials/003-lesson.pdf"
+        },
+        {
+          "id": "L5-M003-script",
+          "title": "Recording Script 003",
+          "type": "script",
+          "path": "courses/level-5/materials/003-recording-script.pdf"
+        },
+        {
+          "id": "L5-M004-lesson",
+          "title": "Lesson Notes 004",
+          "type": "lesson",
+          "path": "courses/level-5/materials/004-lesson.pdf"
+        },
+        {
+          "id": "L5-M004-script",
+          "title": "Recording Script 004",
+          "type": "script",
+          "path": "courses/level-5/materials/004-recording-script.pdf"
+        },
+        {
+          "id": "L5-M005-lesson",
+          "title": "Lesson Notes 005",
+          "type": "lesson",
+          "path": "courses/level-5/materials/005-lesson.pdf"
+        },
+        {
+          "id": "L5-M006-hanzi",
+          "title": "Hanzi Closeup 006",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/006-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M006-script",
+          "title": "Recording Script 006",
+          "type": "script",
+          "path": "courses/level-5/materials/006-recording-script.pdf"
+        },
+        {
+          "id": "L5-M008-hanzi",
+          "title": "Hanzi Closeup 008",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/008-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M008-lesson",
+          "title": "Lesson Notes 008",
+          "type": "lesson",
+          "path": "courses/level-5/materials/008-lesson.pdf"
+        },
+        {
+          "id": "L5-M008-script",
+          "title": "Recording Script 008",
+          "type": "script",
+          "path": "courses/level-5/materials/008-recording-script.pdf"
+        },
+        {
+          "id": "L5-M009-hanzi",
+          "title": "Hanzi Closeup 009",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/009-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M009-lesson",
+          "title": "Lesson Notes 009",
+          "type": "lesson",
+          "path": "courses/level-5/materials/009-lesson.pdf"
+        },
+        {
+          "id": "L5-M009-script",
+          "title": "Recording Script 009",
+          "type": "script",
+          "path": "courses/level-5/materials/009-recording-script.pdf"
+        },
+        {
+          "id": "L5-M010-lesson",
+          "title": "Lesson Notes 010",
+          "type": "lesson",
+          "path": "courses/level-5/materials/010-lesson.pdf"
+        },
+        {
+          "id": "L5-M010-script",
+          "title": "Recording Script 010",
+          "type": "script",
+          "path": "courses/level-5/materials/010-recording-script.pdf"
+        },
+        {
+          "id": "L5-M011-hanzi",
+          "title": "Hanzi Closeup 011",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/011-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M011-lesson",
+          "title": "Lesson Notes 011",
+          "type": "lesson",
+          "path": "courses/level-5/materials/011-lesson.pdf"
+        },
+        {
+          "id": "L5-M011-script",
+          "title": "Recording Script 011",
+          "type": "script",
+          "path": "courses/level-5/materials/011-recording-script.pdf"
+        },
+        {
+          "id": "L5-M012-lesson",
+          "title": "Lesson Notes 012",
+          "type": "lesson",
+          "path": "courses/level-5/materials/012-lesson.pdf"
+        },
+        {
+          "id": "L5-M013-lesson",
+          "title": "Lesson Notes 013",
+          "type": "lesson",
+          "path": "courses/level-5/materials/013-lesson.pdf"
+        },
+        {
+          "id": "L5-M014-hanzi",
+          "title": "Hanzi Closeup 014",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/014-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M015-lesson",
+          "title": "Lesson Notes 015",
+          "type": "lesson",
+          "path": "courses/level-5/materials/015-lesson.pdf"
+        },
+        {
+          "id": "L5-M015-script",
+          "title": "Recording Script 015",
+          "type": "script",
+          "path": "courses/level-5/materials/015-recording-script.pdf"
+        },
+        {
+          "id": "L5-M016-hanzi",
+          "title": "Hanzi Closeup 016",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/016-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M016-script",
+          "title": "Recording Script 016",
+          "type": "script",
+          "path": "courses/level-5/materials/016-recording-script.pdf"
+        },
+        {
+          "id": "L5-M017-hanzi",
+          "title": "Hanzi Closeup 017",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/017-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M017-lesson",
+          "title": "Lesson Notes 017",
+          "type": "lesson",
+          "path": "courses/level-5/materials/017-lesson.pdf"
+        },
+        {
+          "id": "L5-M017-script",
+          "title": "Recording Script 017",
+          "type": "script",
+          "path": "courses/level-5/materials/017-recording-script.pdf"
+        },
+        {
+          "id": "L5-M018-hanzi",
+          "title": "Hanzi Closeup 018",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/018-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M019-hanzi",
+          "title": "Hanzi Closeup 019",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/019-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M019-lesson",
+          "title": "Lesson Notes 019",
+          "type": "lesson",
+          "path": "courses/level-5/materials/019-lesson.pdf"
+        },
+        {
+          "id": "L5-M020-hanzi",
+          "title": "Hanzi Closeup 020",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/020-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M020-script",
+          "title": "Recording Script 020",
+          "type": "script",
+          "path": "courses/level-5/materials/020-recording-script.pdf"
+        },
+        {
+          "id": "L5-M021-lesson",
+          "title": "Lesson Notes 021",
+          "type": "lesson",
+          "path": "courses/level-5/materials/021-lesson.pdf"
+        },
+        {
+          "id": "L5-M022-lesson",
+          "title": "Lesson Notes 022",
+          "type": "lesson",
+          "path": "courses/level-5/materials/022-lesson.pdf"
+        },
+        {
+          "id": "L5-M024-lesson",
+          "title": "Lesson Notes 024",
+          "type": "lesson",
+          "path": "courses/level-5/materials/024-lesson.pdf"
+        },
+        {
+          "id": "L5-M025-script",
+          "title": "Recording Script 025",
+          "type": "script",
+          "path": "courses/level-5/materials/025-recording-script.pdf"
+        },
+        {
+          "id": "L5-M026-hanzi",
+          "title": "Hanzi Closeup 026",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/026-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M028-script",
+          "title": "Recording Script 028",
+          "type": "script",
+          "path": "courses/level-5/materials/028-recording-script.pdf"
+        },
+        {
+          "id": "L5-M029-lesson",
+          "title": "Lesson Notes 029",
+          "type": "lesson",
+          "path": "courses/level-5/materials/029-lesson.pdf"
+        },
+        {
+          "id": "L5-M030-lesson",
+          "title": "Lesson Notes 030",
+          "type": "lesson",
+          "path": "courses/level-5/materials/030-lesson.pdf"
+        },
+        {
+          "id": "L5-M031-hanzi",
+          "title": "Hanzi Closeup 031",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/031-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M031-script",
+          "title": "Recording Script 031",
+          "type": "script",
+          "path": "courses/level-5/materials/031-recording-script.pdf"
+        },
+        {
+          "id": "L5-M032-lesson",
+          "title": "Lesson Notes 032",
+          "type": "lesson",
+          "path": "courses/level-5/materials/032-lesson.pdf"
+        },
+        {
+          "id": "L5-M033-script",
+          "title": "Recording Script 033",
+          "type": "script",
+          "path": "courses/level-5/materials/033-recording-script.pdf"
+        },
+        {
+          "id": "L5-M034-script",
+          "title": "Recording Script 034",
+          "type": "script",
+          "path": "courses/level-5/materials/034-recording-script.pdf"
+        },
+        {
+          "id": "L5-M035-hanzi",
+          "title": "Hanzi Closeup 035",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/035-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M035-lesson",
+          "title": "Lesson Notes 035",
+          "type": "lesson",
+          "path": "courses/level-5/materials/035-lesson.pdf"
+        },
+        {
+          "id": "L5-M036-lesson",
+          "title": "Lesson Notes 036",
+          "type": "lesson",
+          "path": "courses/level-5/materials/036-lesson.pdf"
+        },
+        {
+          "id": "L5-M037-lesson",
+          "title": "Lesson Notes 037",
+          "type": "lesson",
+          "path": "courses/level-5/materials/037-lesson.pdf"
+        },
+        {
+          "id": "L5-M037-script",
+          "title": "Recording Script 037",
+          "type": "script",
+          "path": "courses/level-5/materials/037-recording-script.pdf"
+        },
+        {
+          "id": "L5-M038-lesson",
+          "title": "Lesson Notes 038",
+          "type": "lesson",
+          "path": "courses/level-5/materials/038-lesson.pdf"
+        },
+        {
+          "id": "L5-M038-script",
+          "title": "Recording Script 038",
+          "type": "script",
+          "path": "courses/level-5/materials/038-recording-script.pdf"
+        },
+        {
+          "id": "L5-M039-hanzi",
+          "title": "Hanzi Closeup 039",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/039-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M039-lesson",
+          "title": "Lesson Notes 039",
+          "type": "lesson",
+          "path": "courses/level-5/materials/039-lesson.pdf"
+        },
+        {
+          "id": "L5-M039-script",
+          "title": "Recording Script 039",
+          "type": "script",
+          "path": "courses/level-5/materials/039-recording-script.pdf"
+        },
+        {
+          "id": "L5-M040-hanzi",
+          "title": "Hanzi Closeup 040",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/040-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M040-lesson",
+          "title": "Lesson Notes 040",
+          "type": "lesson",
+          "path": "courses/level-5/materials/040-lesson.pdf"
+        },
+        {
+          "id": "L5-M041-hanzi",
+          "title": "Hanzi Closeup 041",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/041-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M041-lesson",
+          "title": "Lesson Notes 041",
+          "type": "lesson",
+          "path": "courses/level-5/materials/041-lesson.pdf"
+        },
+        {
+          "id": "L5-M042-hanzi",
+          "title": "Hanzi Closeup 042",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/042-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M042-script",
+          "title": "Recording Script 042",
+          "type": "script",
+          "path": "courses/level-5/materials/042-recording-script.pdf"
+        },
+        {
+          "id": "L5-M044-lesson",
+          "title": "Lesson Notes 044",
+          "type": "lesson",
+          "path": "courses/level-5/materials/044-lesson.pdf"
+        },
+        {
+          "id": "L5-M044-script",
+          "title": "Recording Script 044",
+          "type": "script",
+          "path": "courses/level-5/materials/044-recording-script.pdf"
+        },
+        {
+          "id": "L5-M045-lesson",
+          "title": "Lesson Notes 045",
+          "type": "lesson",
+          "path": "courses/level-5/materials/045-lesson.pdf"
+        },
+        {
+          "id": "L5-M046-hanzi",
+          "title": "Hanzi Closeup 046",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/046-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M046-lesson",
+          "title": "Lesson Notes 046",
+          "type": "lesson",
+          "path": "courses/level-5/materials/046-lesson.pdf"
+        },
+        {
+          "id": "L5-M046-script",
+          "title": "Recording Script 046",
+          "type": "script",
+          "path": "courses/level-5/materials/046-recording-script.pdf"
+        },
+        {
+          "id": "L5-M047-hanzi",
+          "title": "Hanzi Closeup 047",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/047-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M047-lesson",
+          "title": "Lesson Notes 047",
+          "type": "lesson",
+          "path": "courses/level-5/materials/047-lesson.pdf"
+        },
+        {
+          "id": "L5-M047-script",
+          "title": "Recording Script 047",
+          "type": "script",
+          "path": "courses/level-5/materials/047-recording-script.pdf"
+        },
+        {
+          "id": "L5-M048-lesson",
+          "title": "Lesson Notes 048",
+          "type": "lesson",
+          "path": "courses/level-5/materials/048-lesson.pdf"
+        },
+        {
+          "id": "L5-M049-lesson",
+          "title": "Lesson Notes 049",
+          "type": "lesson",
+          "path": "courses/level-5/materials/049-lesson.pdf"
+        },
+        {
+          "id": "L5-M050-script",
+          "title": "Recording Script 050",
+          "type": "script",
+          "path": "courses/level-5/materials/050-recording-script.pdf"
+        },
+        {
+          "id": "L5-M051-hanzi",
+          "title": "Hanzi Closeup 051",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/051-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M051-script",
+          "title": "Recording Script 051",
+          "type": "script",
+          "path": "courses/level-5/materials/051-recording-script.pdf"
+        },
+        {
+          "id": "L5-M052-hanzi",
+          "title": "Hanzi Closeup 052",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/052-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M052-script",
+          "title": "Recording Script 052",
+          "type": "script",
+          "path": "courses/level-5/materials/052-recording-script.pdf"
+        },
+        {
+          "id": "L5-M053-hanzi",
+          "title": "Hanzi Closeup 053",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/053-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M054-lesson",
+          "title": "Lesson Notes 054",
+          "type": "lesson",
+          "path": "courses/level-5/materials/054-lesson.pdf"
+        },
+        {
+          "id": "L5-M056-hanzi",
+          "title": "Hanzi Closeup 056",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/056-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M056-lesson",
+          "title": "Lesson Notes 056",
+          "type": "lesson",
+          "path": "courses/level-5/materials/056-lesson.pdf"
+        },
+        {
+          "id": "L5-M057-lesson",
+          "title": "Lesson Notes 057",
+          "type": "lesson",
+          "path": "courses/level-5/materials/057-lesson.pdf"
+        },
+        {
+          "id": "L5-M058-lesson",
+          "title": "Lesson Notes 058",
+          "type": "lesson",
+          "path": "courses/level-5/materials/058-lesson.pdf"
+        },
+        {
+          "id": "L5-M058-script",
+          "title": "Recording Script 058",
+          "type": "script",
+          "path": "courses/level-5/materials/058-recording-script.pdf"
+        },
+        {
+          "id": "L5-M059-lesson",
+          "title": "Lesson Notes 059",
+          "type": "lesson",
+          "path": "courses/level-5/materials/059-lesson.pdf"
+        },
+        {
+          "id": "L5-M061-lesson",
+          "title": "Lesson Notes 061",
+          "type": "lesson",
+          "path": "courses/level-5/materials/061-lesson.pdf"
+        },
+        {
+          "id": "L5-M061-script",
+          "title": "Recording Script 061",
+          "type": "script",
+          "path": "courses/level-5/materials/061-recording-script.pdf"
+        },
+        {
+          "id": "L5-M063-lesson",
+          "title": "Lesson Notes 063",
+          "type": "lesson",
+          "path": "courses/level-5/materials/063-lesson.pdf"
+        },
+        {
+          "id": "L5-M063-script",
+          "title": "Recording Script 063",
+          "type": "script",
+          "path": "courses/level-5/materials/063-recording-script.pdf"
+        },
+        {
+          "id": "L5-M064-script",
+          "title": "Recording Script 064",
+          "type": "script",
+          "path": "courses/level-5/materials/064-recording-script.pdf"
+        },
+        {
+          "id": "L5-M066-hanzi",
+          "title": "Hanzi Closeup 066",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/066-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M066-lesson",
+          "title": "Lesson Notes 066",
+          "type": "lesson",
+          "path": "courses/level-5/materials/066-lesson.pdf"
+        },
+        {
+          "id": "L5-M066-script",
+          "title": "Recording Script 066",
+          "type": "script",
+          "path": "courses/level-5/materials/066-recording-script.pdf"
+        },
+        {
+          "id": "L5-M067-script",
+          "title": "Recording Script 067",
+          "type": "script",
+          "path": "courses/level-5/materials/067-recording-script.pdf"
+        },
+        {
+          "id": "L5-M068-lesson",
+          "title": "Lesson Notes 068",
+          "type": "lesson",
+          "path": "courses/level-5/materials/068-lesson.pdf"
+        },
+        {
+          "id": "L5-M069-hanzi",
+          "title": "Hanzi Closeup 069",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/069-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M069-script",
+          "title": "Recording Script 069",
+          "type": "script",
+          "path": "courses/level-5/materials/069-recording-script.pdf"
+        },
+        {
+          "id": "L5-M070-hanzi",
+          "title": "Hanzi Closeup 070",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/070-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M070-script",
+          "title": "Recording Script 070",
+          "type": "script",
+          "path": "courses/level-5/materials/070-recording-script.pdf"
+        },
+        {
+          "id": "L5-M071-lesson",
+          "title": "Lesson Notes 071",
+          "type": "lesson",
+          "path": "courses/level-5/materials/071-lesson.pdf"
+        },
+        {
+          "id": "L5-M071-script",
+          "title": "Recording Script 071",
+          "type": "script",
+          "path": "courses/level-5/materials/071-recording-script.pdf"
+        },
+        {
+          "id": "L5-M072-lesson",
+          "title": "Lesson Notes 072",
+          "type": "lesson",
+          "path": "courses/level-5/materials/072-lesson.pdf"
+        },
+        {
+          "id": "L5-M073-script",
+          "title": "Recording Script 073",
+          "type": "script",
+          "path": "courses/level-5/materials/073-recording-script.pdf"
+        },
+        {
+          "id": "L5-M074-lesson",
+          "title": "Lesson Notes 074",
+          "type": "lesson",
+          "path": "courses/level-5/materials/074-lesson.pdf"
+        },
+        {
+          "id": "L5-M074-script",
+          "title": "Recording Script 074",
+          "type": "script",
+          "path": "courses/level-5/materials/074-recording-script.pdf"
+        },
+        {
+          "id": "L5-M075-hanzi",
+          "title": "Hanzi Closeup 075",
+          "type": "hanzi",
+          "path": "courses/level-5/materials/075-hanzi-closeup.pdf"
+        },
+        {
+          "id": "L5-M075-lesson",
+          "title": "Lesson Notes 075",
+          "type": "lesson",
+          "path": "courses/level-5/materials/075-lesson.pdf"
+        }
+      ]
+    },
+    {
+      "id": "study-notes",
+      "name": {
+        "en": "Study Notes Course",
+        "cn": "学习笔记课程"
+      },
+      "description": {
+        "en": "Progressive reading course through pen-pal letters with grammar & vocab",
+        "cn": "通过笔友信件的渐进阅读课程，包含语法和词汇"
+      },
+      "icon": "📝",
+      "lessons": [
+        {
+          "id": "SN-00",
+          "title": "Foundations: Strokes, Radicals & Rules",
+          "order": 1
+        },
+        {
+          "id": "SN-01",
+          "title": "Letter 1: Self-Introduction",
+          "order": 2
+        },
+        {
+          "id": "SN-02",
+          "title": "Letter 2: My Family & Hobbies",
+          "order": 3
+        },
+        {
+          "id": "SN-03",
+          "title": "Letter 3: The Library",
+          "order": 4
+        },
+        {
+          "id": "SN-04",
+          "title": "Letter 4: Finding a Kitten",
+          "order": 5
+        },
+        {
+          "id": "SN-05",
+          "title": "Letter 5: Adopting the Kitten",
+          "order": 6
+        },
+        {
+          "id": "SN-06",
+          "title": "Letter 6: Exams & Beach Trip",
+          "order": 7
+        },
+        {
+          "id": "SN-07",
+          "title": "Letter 7: At the Beach",
+          "order": 8
+        },
+        {
+          "id": "SN-08",
+          "title": "Letter 8: Birthday & Numbers",
+          "order": 9
+        },
+        {
+          "id": "SN-09",
+          "title": "Letter 9: Swimming Lessons",
+          "order": 10
+        },
+        {
+          "id": "SN-10",
+          "title": "Letter 10: Starting Junior High",
+          "order": 11
+        },
+        {
+          "id": "SN-DC01",
+          "title": "14-Day Challenge: Day 1 - Basics",
+          "order": 12
+        },
+        {
+          "id": "SN-DC02",
+          "title": "14-Day Challenge: Day 2 - Greetings",
+          "order": 13
+        },
+        {
+          "id": "SN-DC03",
+          "title": "14-Day Challenge: Day 3 - Getting Around",
+          "order": 14
+        },
+        {
+          "id": "SN-DC04",
+          "title": "14-Day Challenge: Day 4 - Food & Time",
+          "order": 15
+        },
+        {
+          "id": "SN-DC05",
+          "title": "14-Day Challenge: Day 5 - Feelings & Directions",
+          "order": 16
+        },
+        {
+          "id": "SN-DC06",
+          "title": "14-Day Challenge: Day 6 - Drinks & Activities",
+          "order": 17
+        },
+        {
+          "id": "SN-DC07",
+          "title": "14-Day Challenge: Day 7 - Preferences",
+          "order": 18
+        },
+        {
+          "id": "SN-DC08",
+          "title": "14-Day Challenge: Day 8 - Shopping",
+          "order": 19
+        },
+        {
+          "id": "SN-DC09",
+          "title": "14-Day Challenge: Day 9 - Social",
+          "order": 20
+        },
+        {
+          "id": "SN-DC10",
+          "title": "14-Day Challenge: Day 10 - Food & Drink",
+          "order": 21
+        },
+        {
+          "id": "SN-DC11",
+          "title": "14-Day Challenge: Day 11 - Polite Expressions",
+          "order": 22
+        },
+        {
+          "id": "SN-DC12",
+          "title": "14-Day Challenge: Day 12 - Travel",
+          "order": 23
+        },
+        {
+          "id": "SN-DC13",
+          "title": "14-Day Challenge: Day 13 - Culture",
+          "order": 24
+        },
+        {
+          "id": "SN-DC14",
+          "title": "14-Day Challenge: Day 14 - Review",
+          "order": 25
+        }
+      ]
+    }
+  ],
+  "vocab": [
+    {
+      "id": "V-ENZH029",
+      "title": "Vocabulary ENZH029",
+      "audioPath": "courses/vocab/enzh029.mp3"
+    },
+    {
+      "id": "V-ENZH039",
+      "title": "Vocabulary ENZH039",
+      "audioPath": "courses/vocab/enzh039.mp3"
+    },
+    {
+      "id": "V-ENZH041",
+      "title": "Vocabulary ENZH041",
+      "audioPath": "courses/vocab/enzh041.mp3"
+    },
+    {
+      "id": "V-ENZH043",
+      "title": "Vocabulary ENZH043",
+      "audioPath": "courses/vocab/enzh043.mp3"
+    },
+    {
+      "id": "V-ENZH045",
+      "title": "Vocabulary ENZH045",
+      "audioPath": "courses/vocab/enzh045.mp3"
+    },
+    {
+      "id": "V-ENZH047",
+      "title": "Vocabulary ENZH047",
+      "audioPath": "courses/vocab/enzh047.mp3"
+    },
+    {
+      "id": "V-ENZH048",
+      "title": "Vocabulary ENZH048",
+      "audioPath": "courses/vocab/enzh048.mp3"
+    },
+    {
+      "id": "V-ENZH050",
+      "title": "Vocabulary ENZH050",
+      "audioPath": "courses/vocab/enzh050.mp3"
+    },
+    {
+      "id": "V-ENZH051",
+      "title": "Vocabulary ENZH051",
+      "audioPath": "courses/vocab/enzh051.mp3"
+    },
+    {
+      "id": "V-ENZH052",
+      "title": "Vocabulary ENZH052",
+      "audioPath": "courses/vocab/enzh052.mp3"
+    },
+    {
+      "id": "V-ENZH055",
+      "title": "Vocabulary ENZH055",
+      "audioPath": "courses/vocab/enzh055.mp3"
+    },
+    {
+      "id": "V-ENZH060",
+      "title": "Vocabulary ENZH060",
+      "audioPath": "courses/vocab/enzh060.mp3"
+    },
+    {
+      "id": "V-ENZH061",
+      "title": "Vocabulary ENZH061",
+      "audioPath": "courses/vocab/enzh061.mp3"
+    },
+    {
+      "id": "V-ENZH063",
+      "title": "Vocabulary ENZH063",
+      "audioPath": "courses/vocab/enzh063.mp3"
+    },
+    {
+      "id": "V-ENZH064",
+      "title": "Vocabulary ENZH064",
+      "audioPath": "courses/vocab/enzh064.mp3"
+    },
+    {
+      "id": "V-ENZH066",
+      "title": "Vocabulary ENZH066",
+      "audioPath": "courses/vocab/enzh066.mp3"
+    },
+    {
+      "id": "V-ENZH067",
+      "title": "Vocabulary ENZH067",
+      "audioPath": "courses/vocab/enzh067.mp3"
+    },
+    {
+      "id": "V-ENZH068",
+      "title": "Vocabulary ENZH068",
+      "audioPath": "courses/vocab/enzh068.mp3"
+    },
+    {
+      "id": "V-ENZH069",
+      "title": "Vocabulary ENZH069",
+      "audioPath": "courses/vocab/enzh069.mp3"
+    },
+    {
+      "id": "V-ENZH070",
+      "title": "Vocabulary ENZH070",
+      "audioPath": "courses/vocab/enzh070.mp3"
+    },
+    {
+      "id": "V-ENZH071",
+      "title": "Vocabulary ENZH071",
+      "audioPath": "courses/vocab/enzh071.mp3"
+    },
+    {
+      "id": "V-ENZH072",
+      "title": "Vocabulary ENZH072",
+      "audioPath": "courses/vocab/enzh072.mp3"
+    },
+    {
+      "id": "V-ENZH073",
+      "title": "Vocabulary ENZH073",
+      "audioPath": "courses/vocab/enzh073.mp3"
+    },
+    {
+      "id": "V-ENZH074",
+      "title": "Vocabulary ENZH074",
+      "audioPath": "courses/vocab/enzh074.mp3"
+    },
+    {
+      "id": "V-ENZH075",
+      "title": "Vocabulary ENZH075",
+      "audioPath": "courses/vocab/enzh075.mp3"
+    },
+    {
+      "id": "V-ENZH076",
+      "title": "Vocabulary ENZH076",
+      "audioPath": "courses/vocab/enzh076.mp3"
+    },
+    {
+      "id": "V-ENZH077",
+      "title": "Vocabulary ENZH077",
+      "audioPath": "courses/vocab/enzh077.mp3"
+    },
+    {
+      "id": "V-ENZH078",
+      "title": "Vocabulary ENZH078",
+      "audioPath": "courses/vocab/enzh078.mp3"
+    },
+    {
+      "id": "V-ENZH079",
+      "title": "Vocabulary ENZH079",
+      "audioPath": "courses/vocab/enzh079.mp3"
+    },
+    {
+      "id": "V-ENZH082",
+      "title": "Vocabulary ENZH082",
+      "audioPath": "courses/vocab/enzh082.mp3"
+    },
+    {
+      "id": "V-ENZH084",
+      "title": "Vocabulary ENZH084",
+      "audioPath": "courses/vocab/enzh084.mp3"
+    },
+    {
+      "id": "V-ENZH085",
+      "title": "Vocabulary ENZH085",
+      "audioPath": "courses/vocab/enzh085.mp3"
+    },
+    {
+      "id": "V-ENZH086",
+      "title": "Vocabulary ENZH086",
+      "audioPath": "courses/vocab/enzh086.mp3"
+    },
+    {
+      "id": "V-ENZH087",
+      "title": "Vocabulary ENZH087",
+      "audioPath": "courses/vocab/enzh087.mp3"
+    },
+    {
+      "id": "V-ENZH088",
+      "title": "Vocabulary ENZH088",
+      "audioPath": "courses/vocab/enzh088.mp3"
+    },
+    {
+      "id": "V-ENZH089",
+      "title": "Vocabulary ENZH089",
+      "audioPath": "courses/vocab/enzh089.mp3"
+    },
+    {
+      "id": "V-ENZH090",
+      "title": "Vocabulary ENZH090",
+      "audioPath": "courses/vocab/enzh090.mp3"
+    },
+    {
+      "id": "V-ENZH092",
+      "title": "Vocabulary ENZH092",
+      "audioPath": "courses/vocab/enzh092.mp3"
+    },
+    {
+      "id": "V-ENZH093",
+      "title": "Vocabulary ENZH093",
+      "audioPath": "courses/vocab/enzh093.mp3"
+    },
+    {
+      "id": "V-ENZH094",
+      "title": "Vocabulary ENZH094",
+      "audioPath": "courses/vocab/enzh094.mp3"
+    },
+    {
+      "id": "V-ENZH095",
+      "title": "Vocabulary ENZH095",
+      "audioPath": "courses/vocab/enzh095.mp3"
+    },
+    {
+      "id": "V-ENZH096",
+      "title": "Vocabulary ENZH096",
+      "audioPath": "courses/vocab/enzh096.mp3"
+    },
+    {
+      "id": "V-ENZH097",
+      "title": "Vocabulary ENZH097",
+      "audioPath": "courses/vocab/enzh097.mp3"
+    },
+    {
+      "id": "V-ENZH098",
+      "title": "Vocabulary ENZH098",
+      "audioPath": "courses/vocab/enzh098.mp3"
+    },
+    {
+      "id": "V-ENZH100",
+      "title": "Vocabulary ENZH100",
+      "audioPath": "courses/vocab/enzh100.mp3"
+    }
+  ]
+}

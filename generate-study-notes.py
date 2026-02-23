@@ -1,0 +1,693 @@
+#!/usr/bin/env python3
+"""
+Generate study-notes-cards.json from the PDF content structure.
+Since the PDF CJK characters are garbled, we use the English definitions
+extracted from the PDF and pair them with the correct Chinese + pinyin.
+"""
+
+import json
+
+study_notes = {}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 0: Foundations - Strokes, Radicals & Grammar Rules
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-00"] = {
+    "lessonTitle": "Foundations: Strokes, Radicals & Grammar Rules",
+    "vocab": [
+        {"id": "SN-00-V01", "cn": "笔画", "pinyin": "bǐhuà", "en": "stroke (of a character)", "pos": "noun"},
+        {"id": "SN-00-V02", "cn": "部首", "pinyin": "bùshǒu", "en": "radical (component of a character)", "pos": "noun"},
+        {"id": "SN-00-V03", "cn": "从左到右", "pinyin": "cóng zuǒ dào yòu", "en": "from left to right", "pos": "phrase"},
+        {"id": "SN-00-V04", "cn": "从上到下", "pinyin": "cóng shàng dào xià", "en": "from top to bottom", "pos": "phrase"},
+        {"id": "SN-00-V05", "cn": "横", "pinyin": "héng", "en": "horizontal stroke", "pos": "noun"},
+        {"id": "SN-00-V06", "cn": "竖", "pinyin": "shù", "en": "vertical stroke", "pos": "noun"},
+        {"id": "SN-00-V07", "cn": "撇", "pinyin": "piě", "en": "left-falling stroke", "pos": "noun"},
+        {"id": "SN-00-V08", "cn": "捺", "pinyin": "nà", "en": "right-falling stroke", "pos": "noun"},
+        {"id": "SN-00-V09", "cn": "拼音", "pinyin": "pīnyīn", "en": "pinyin (romanization system)", "pos": "noun"},
+        {"id": "SN-00-V10", "cn": "声调", "pinyin": "shēngdiào", "en": "tone", "pos": "noun"},
+    ],
+    "sentences": [
+        {"id": "SN-00-S01", "cn": "中文的基本语序是主谓宾。", "pinyin": "Zhōngwén de jīběn yǔxù shì zhǔ-wèi-bīn.", "en": "The basic word order in Chinese is Subject-Verb-Object."},
+        {"id": "SN-00-S02", "cn": "中文没有时态变化。", "pinyin": "Zhōngwén méiyǒu shítài biànhuà.", "en": "Chinese doesn't have tense changes."},
+        {"id": "SN-00-S03", "cn": "中文没有动词变位。", "pinyin": "Zhōngwén méiyǒu dòngcí biànwèi.", "en": "Chinese doesn't have verb conjugations."},
+        {"id": "SN-00-S04", "cn": "中文一般不区分单数和复数。", "pinyin": "Zhōngwén yībān bù qūfēn dānshù hé fùshù.", "en": "Chinese generally doesn't distinguish singular and plural."},
+        {"id": "SN-00-S05", "cn": "先学好拼音很重要。", "pinyin": "Xiān xué hǎo pīnyīn hěn zhòngyào.", "en": "Learning pinyin first is very important."},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 1: Self-Introduction (Letter 1)
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-01"] = {
+    "lessonTitle": "Letter 1: Self-Introduction",
+    "vocab": [
+        {"id": "SN-01-V01", "cn": "亲爱的", "pinyin": "qīn'ài de", "en": "dear", "pos": "adjective"},
+        {"id": "SN-01-V02", "cn": "你好", "pinyin": "nǐ hǎo", "en": "hello (literally 'you good')", "pos": "phrase"},
+        {"id": "SN-01-V03", "cn": "很", "pinyin": "hěn", "en": "very", "pos": "adverb"},
+        {"id": "SN-01-V04", "cn": "高兴", "pinyin": "gāoxìng", "en": "happy", "pos": "adjective"},
+        {"id": "SN-01-V05", "cn": "认识", "pinyin": "rènshi", "en": "to know / be acquainted", "pos": "verb"},
+        {"id": "SN-01-V06", "cn": "你", "pinyin": "nǐ", "en": "you", "pos": "pronoun"},
+        {"id": "SN-01-V07", "cn": "我", "pinyin": "wǒ", "en": "I, me", "pos": "pronoun"},
+        {"id": "SN-01-V08", "cn": "是", "pinyin": "shì", "en": "to be", "pos": "verb"},
+        {"id": "SN-01-V09", "cn": "叫", "pinyin": "jiào", "en": "to call / be called", "pos": "verb"},
+        {"id": "SN-01-V10", "cn": "马来西亚", "pinyin": "Mǎláixīyà", "en": "Malaysia", "pos": "noun"},
+        {"id": "SN-01-V11", "cn": "人", "pinyin": "rén", "en": "person, human", "pos": "noun"},
+        {"id": "SN-01-V12", "cn": "今年", "pinyin": "jīnnián", "en": "this year", "pos": "noun"},
+        {"id": "SN-01-V13", "cn": "十二", "pinyin": "shí'èr", "en": "twelve", "pos": "number"},
+        {"id": "SN-01-V14", "cn": "的", "pinyin": "de", "en": "(possessive particle)", "pos": "particle"},
+        {"id": "SN-01-V15", "cn": "爱好", "pinyin": "àihào", "en": "hobby", "pos": "noun"},
+        {"id": "SN-01-V16", "cn": "看", "pinyin": "kàn", "en": "to see / look / watch / read", "pos": "verb"},
+        {"id": "SN-01-V17", "cn": "书", "pinyin": "shū", "en": "book", "pos": "noun"},
+        {"id": "SN-01-V18", "cn": "电影", "pinyin": "diànyǐng", "en": "movie, film", "pos": "noun"},
+        {"id": "SN-01-V19", "cn": "多", "pinyin": "duō", "en": "many, much", "pos": "adjective"},
+        {"id": "SN-01-V20", "cn": "经常", "pinyin": "jīngcháng", "en": "often", "pos": "adverb"},
+        {"id": "SN-01-V21", "cn": "小说", "pinyin": "xiǎoshuō", "en": "novel", "pos": "noun"},
+    ],
+    "sentences": [
+        {"id": "SN-01-S01", "cn": "你好！很高兴认识你。", "pinyin": "Nǐ hǎo! Hěn gāoxìng rènshi nǐ.", "en": "Hello! Nice to meet you."},
+        {"id": "SN-01-S02", "cn": "我叫小雅。", "pinyin": "Wǒ jiào Xiǎoyǎ.", "en": "My name is Xiaoaya."},
+        {"id": "SN-01-S03", "cn": "我是马来西亚人。", "pinyin": "Wǒ shì Mǎláixīyà rén.", "en": "I'm Malaysian."},
+        {"id": "SN-01-S04", "cn": "我今年十二岁。", "pinyin": "Wǒ jīnnián shí'èr suì.", "en": "I'm 12 years old this year."},
+        {"id": "SN-01-S05", "cn": "我的爱好是看书和看电影。", "pinyin": "Wǒ de àihào shì kàn shū hé kàn diànyǐng.", "en": "My hobbies are reading and watching films."},
+        {"id": "SN-01-S06", "cn": "我们家里有很多书。", "pinyin": "Wǒmen jiālǐ yǒu hěn duō shū.", "en": "We have a lot of books at home."},
+        {"id": "SN-01-S07", "cn": "我经常看小说。", "pinyin": "Wǒ jīngcháng kàn xiǎoshuō.", "en": "I read novels often."},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 2: Family & Likes (Letter 2)
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-02"] = {
+    "lessonTitle": "Letter 2: My Family & Hobbies",
+    "vocab": [
+        {"id": "SN-02-V01", "cn": "爸爸", "pinyin": "bàba", "en": "father, dad", "pos": "noun"},
+        {"id": "SN-02-V02", "cn": "妈妈", "pinyin": "māma", "en": "mother, mom", "pos": "noun"},
+        {"id": "SN-02-V03", "cn": "哥哥", "pinyin": "gēge", "en": "older brother", "pos": "noun"},
+        {"id": "SN-02-V04", "cn": "姐姐", "pinyin": "jiějie", "en": "older sister", "pos": "noun"},
+        {"id": "SN-02-V05", "cn": "弟弟", "pinyin": "dìdi", "en": "younger brother", "pos": "noun"},
+        {"id": "SN-02-V06", "cn": "妹妹", "pinyin": "mèimei", "en": "younger sister", "pos": "noun"},
+        {"id": "SN-02-V07", "cn": "十七", "pinyin": "shíqī", "en": "seventeen", "pos": "number"},
+        {"id": "SN-02-V08", "cn": "十四", "pinyin": "shísì", "en": "fourteen", "pos": "number"},
+        {"id": "SN-02-V09", "cn": "都", "pinyin": "dōu", "en": "all, both", "pos": "adverb"},
+        {"id": "SN-02-V10", "cn": "喜欢", "pinyin": "xǐhuan", "en": "to like", "pos": "verb"},
+        {"id": "SN-02-V11", "cn": "运动", "pinyin": "yùndòng", "en": "to exercise / sport", "pos": "noun/verb"},
+        {"id": "SN-02-V12", "cn": "朋友", "pinyin": "péngyou", "en": "friend", "pos": "noun"},
+        {"id": "SN-02-V13", "cn": "一起", "pinyin": "yìqǐ", "en": "together", "pos": "adverb"},
+        {"id": "SN-02-V14", "cn": "打篮球", "pinyin": "dǎ lánqiú", "en": "to play basketball", "pos": "verb phrase"},
+        {"id": "SN-02-V15", "cn": "游泳", "pinyin": "yóuyǒng", "en": "to swim", "pos": "verb"},
+        {"id": "SN-02-V16", "cn": "比起", "pinyin": "bǐqǐ", "en": "compared to", "pos": "preposition"},
+        {"id": "SN-02-V17", "cn": "更", "pinyin": "gèng", "en": "more / much", "pos": "adverb"},
+        {"id": "SN-02-V18", "cn": "特别是", "pinyin": "tèbié shì", "en": "especially", "pos": "adverb"},
+        {"id": "SN-02-V19", "cn": "也", "pinyin": "yě", "en": "also, too", "pos": "adverb"},
+        {"id": "SN-02-V20", "cn": "漫画", "pinyin": "mànhuà", "en": "comics, manga", "pos": "noun"},
+    ],
+    "sentences": [
+        {"id": "SN-02-S01", "cn": "我家里有爸爸、妈妈、哥哥、姐姐和我。", "pinyin": "Wǒ jiālǐ yǒu bàba, māma, gēge, jiějie hé wǒ.", "en": "In my family there are dad, mom, older brother, older sister and me."},
+        {"id": "SN-02-S02", "cn": "我没有弟弟妹妹。", "pinyin": "Wǒ méiyǒu dìdi mèimei.", "en": "I don't have younger brothers or sisters."},
+        {"id": "SN-02-S03", "cn": "他们都喜欢运动。", "pinyin": "Tāmen dōu xǐhuan yùndòng.", "en": "They all like sports."},
+        {"id": "SN-02-S04", "cn": "哥哥喜欢和朋友一起打篮球。", "pinyin": "Gēge xǐhuan hé péngyou yìqǐ dǎ lánqiú.", "en": "My brother likes playing basketball with friends."},
+        {"id": "SN-02-S05", "cn": "姐姐喜欢游泳。", "pinyin": "Jiějie xǐhuan yóuyǒng.", "en": "My sister likes swimming."},
+        {"id": "SN-02-S06", "cn": "我不喜欢运动。", "pinyin": "Wǒ bù xǐhuan yùndòng.", "en": "I don't like sports."},
+        {"id": "SN-02-S07", "cn": "比起运动，我更喜欢看书。", "pinyin": "Bǐqǐ yùndòng, wǒ gèng xǐhuan kàn shū.", "en": "Compared to sports, I prefer reading."},
+        {"id": "SN-02-S08", "cn": "姐姐也喜欢看书。她喜欢看漫画。", "pinyin": "Jiějie yě xǐhuan kàn shū. Tā xǐhuan kàn mànhuà.", "en": "My sister also likes reading. She likes reading comics."},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 3: Places & Activities (Letter 3)
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-03"] = {
+    "lessonTitle": "Letter 3: The Library",
+    "vocab": [
+        {"id": "SN-03-V01", "cn": "附近", "pinyin": "fùjìn", "en": "nearby", "pos": "noun"},
+        {"id": "SN-03-V02", "cn": "座", "pinyin": "zuò", "en": "measure word for buildings", "pos": "measure word"},
+        {"id": "SN-03-V03", "cn": "图书馆", "pinyin": "túshūguǎn", "en": "library", "pos": "noun"},
+        {"id": "SN-03-V04", "cn": "去", "pinyin": "qù", "en": "to go", "pos": "verb"},
+        {"id": "SN-03-V05", "cn": "那里", "pinyin": "nàlǐ", "en": "there", "pos": "pronoun"},
+        {"id": "SN-03-V06", "cn": "大", "pinyin": "dà", "en": "to be big", "pos": "adjective"},
+        {"id": "SN-03-V07", "cn": "不过", "pinyin": "búguò", "en": "but, however", "pos": "conjunction"},
+        {"id": "SN-03-V08", "cn": "每天", "pinyin": "měitiān", "en": "everyday", "pos": "adverb"},
+        {"id": "SN-03-V09", "cn": "来", "pinyin": "lái", "en": "to come", "pos": "verb"},
+        {"id": "SN-03-V10", "cn": "借", "pinyin": "jiè", "en": "to borrow / lend", "pos": "verb"},
+        {"id": "SN-03-V11", "cn": "少", "pinyin": "shǎo", "en": "to be few, not many", "pos": "adjective"},
+        {"id": "SN-03-V12", "cn": "所以", "pinyin": "suǒyǐ", "en": "so, therefore", "pos": "conjunction"},
+        {"id": "SN-03-V13", "cn": "环境", "pinyin": "huánjìng", "en": "environment", "pos": "noun"},
+        {"id": "SN-03-V14", "cn": "非常", "pinyin": "fēicháng", "en": "very (much)", "pos": "adverb"},
+        {"id": "SN-03-V15", "cn": "安静", "pinyin": "ānjìng", "en": "to be quiet", "pos": "adjective"},
+        {"id": "SN-03-V16", "cn": "今天", "pinyin": "jīntiān", "en": "today", "pos": "noun"},
+        {"id": "SN-03-V17", "cn": "本", "pinyin": "běn", "en": "measure word for books", "pos": "measure word"},
+        {"id": "SN-03-V18", "cn": "侦探小说", "pinyin": "zhēntàn xiǎoshuō", "en": "detective novel", "pos": "noun"},
+    ],
+    "sentences": [
+        {"id": "SN-03-S01", "cn": "我们家附近有一座图书馆。", "pinyin": "Wǒmen jiā fùjìn yǒu yī zuò túshūguǎn.", "en": "There's a library near our house."},
+        {"id": "SN-03-S02", "cn": "我和姐姐经常去那里看书。", "pinyin": "Wǒ hé jiějie jīngcháng qù nàlǐ kàn shū.", "en": "My older sister and I often go there to read."},
+        {"id": "SN-03-S03", "cn": "图书馆很大，书也很多。", "pinyin": "Túshūguǎn hěn dà, shū yě hěn duō.", "en": "The library is huge, and there are a lot of books."},
+        {"id": "SN-03-S04", "cn": "每天来借书的人很少。", "pinyin": "Měitiān lái jiè shū de rén hěn shǎo.", "en": "Few people come to borrow books every day."},
+        {"id": "SN-03-S05", "cn": "所以环境非常安静。", "pinyin": "Suǒyǐ huánjìng fēicháng ānjìng.", "en": "So it's very quiet."},
+        {"id": "SN-03-S06", "cn": "我今天也去了图书馆。", "pinyin": "Wǒ jīntiān yě qù le túshūguǎn.", "en": "I went to the library today as well."},
+        {"id": "SN-03-S07", "cn": "我借了一本侦探小说。", "pinyin": "Wǒ jiè le yī běn zhēntàn xiǎoshuō.", "en": "I borrowed a detective novel."},
+        {"id": "SN-03-S08", "cn": "你喜欢看侦探小说吗？", "pinyin": "Nǐ xǐhuan kàn zhēntàn xiǎoshuō ma?", "en": "Do you like detective novels?"},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 4: Finding a Kitten (Letter 4)
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-04"] = {
+    "lessonTitle": "Letter 4: Finding a Kitten",
+    "vocab": [
+        {"id": "SN-04-V01", "cn": "公园", "pinyin": "gōngyuán", "en": "park", "pos": "noun"},
+        {"id": "SN-04-V02", "cn": "散步", "pinyin": "sànbù", "en": "to take a stroll / walk", "pos": "verb"},
+        {"id": "SN-04-V03", "cn": "突然", "pinyin": "tūrán", "en": "suddenly", "pos": "adverb"},
+        {"id": "SN-04-V04", "cn": "听到", "pinyin": "tīngdào", "en": "to hear", "pos": "verb"},
+        {"id": "SN-04-V05", "cn": "喵", "pinyin": "miāo", "en": "meow", "pos": "onomatopoeia"},
+        {"id": "SN-04-V06", "cn": "找", "pinyin": "zhǎo", "en": "to look for / search", "pos": "verb"},
+        {"id": "SN-04-V07", "cn": "半天", "pinyin": "bàntiān", "en": "a long time (lit. half a day)", "pos": "noun"},
+        {"id": "SN-04-V08", "cn": "最后", "pinyin": "zuìhòu", "en": "in the end, finally", "pos": "adverb"},
+        {"id": "SN-04-V09", "cn": "箱子", "pinyin": "xiāngzi", "en": "box", "pos": "noun"},
+        {"id": "SN-04-V10", "cn": "树", "pinyin": "shù", "en": "tree", "pos": "noun"},
+        {"id": "SN-04-V11", "cn": "下面", "pinyin": "xiàmiàn", "en": "below, underneath", "pos": "noun"},
+        {"id": "SN-04-V12", "cn": "小", "pinyin": "xiǎo", "en": "small, little", "pos": "adjective"},
+        {"id": "SN-04-V13", "cn": "猫", "pinyin": "māo", "en": "cat", "pos": "noun"},
+        {"id": "SN-04-V14", "cn": "只", "pinyin": "zhī", "en": "measure word for animals", "pos": "measure word"},
+        {"id": "SN-04-V15", "cn": "上面", "pinyin": "shàngmiàn", "en": "on top, above", "pos": "noun"},
+        {"id": "SN-04-V16", "cn": "后面", "pinyin": "hòumiàn", "en": "behind", "pos": "noun"},
+        {"id": "SN-04-V17", "cn": "前面", "pinyin": "qiánmiàn", "en": "in front of", "pos": "noun"},
+        {"id": "SN-04-V18", "cn": "里面", "pinyin": "lǐmiàn", "en": "inside", "pos": "noun"},
+    ],
+    "sentences": [
+        {"id": "SN-04-S01", "cn": "前天我们找到了一只小猫。", "pinyin": "Qiántiān wǒmen zhǎodào le yī zhī xiǎo māo.", "en": "We found a kitten two days ago."},
+        {"id": "SN-04-S02", "cn": "我们一家人在公园散步。", "pinyin": "Wǒmen yī jiā rén zài gōngyuán sànbù.", "en": "My family and I were taking a stroll in the park."},
+        {"id": "SN-04-S03", "cn": "突然，我们听到了一声喵。", "pinyin": "Tūrán, wǒmen tīngdào le yī shēng miāo.", "en": "Suddenly, we heard a meow."},
+        {"id": "SN-04-S04", "cn": "我们找了半天。", "pinyin": "Wǒmen zhǎo le bàntiān.", "en": "We searched for quite a while."},
+        {"id": "SN-04-S05", "cn": "最后在树下面找到了一个箱子。", "pinyin": "Zuìhòu zài shù xiàmiàn zhǎodào le yī gè xiāngzi.", "en": "In the end, we found a box under a tree."},
+        {"id": "SN-04-S06", "cn": "手机在桌子上面。", "pinyin": "Shǒujī zài zhuōzi shàngmiàn.", "en": "The phone is on the table."},
+        {"id": "SN-04-S07", "cn": "小猫在树下面睡觉。", "pinyin": "Xiǎo māo zài shù xiàmiàn shuìjiào.", "en": "The kitten is sleeping under the tree."},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 5: Adopting the Kitten (Letter 5)
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-05"] = {
+    "lessonTitle": "Letter 5: Adopting the Kitten",
+    "vocab": [
+        {"id": "SN-05-V01", "cn": "想", "pinyin": "xiǎng", "en": "to think / to want to", "pos": "verb"},
+        {"id": "SN-05-V02", "cn": "告诉", "pinyin": "gàosu", "en": "to tell, inform", "pos": "verb"},
+        {"id": "SN-05-V03", "cn": "好", "pinyin": "hǎo", "en": "good", "pos": "adjective"},
+        {"id": "SN-05-V04", "cn": "消息", "pinyin": "xiāoxi", "en": "news", "pos": "noun"},
+        {"id": "SN-05-V05", "cn": "终于", "pinyin": "zhōngyú", "en": "finally", "pos": "adverb"},
+        {"id": "SN-05-V06", "cn": "领养", "pinyin": "lǐngyǎng", "en": "to adopt", "pos": "verb"},
+        {"id": "SN-05-V07", "cn": "现在", "pinyin": "xiànzài", "en": "now", "pos": "noun"},
+        {"id": "SN-05-V08", "cn": "一份子", "pinyin": "yī fènzi", "en": "a member of", "pos": "noun"},
+        {"id": "SN-05-V09", "cn": "给", "pinyin": "gěi", "en": "(indicates action done for someone)", "pos": "preposition"},
+        {"id": "SN-05-V10", "cn": "取名", "pinyin": "qǔmíng", "en": "to name", "pos": "verb"},
+        {"id": "SN-05-V11", "cn": "但是", "pinyin": "dànshì", "en": "but, however", "pos": "conjunction"},
+        {"id": "SN-05-V12", "cn": "雪", "pinyin": "xuě", "en": "snow", "pos": "noun"},
+        {"id": "SN-05-V13", "cn": "因为", "pinyin": "yīnwèi", "en": "because", "pos": "conjunction"},
+        {"id": "SN-05-V14", "cn": "毛", "pinyin": "máo", "en": "fur, hair", "pos": "noun"},
+        {"id": "SN-05-V15", "cn": "白", "pinyin": "bái", "en": "white", "pos": "adjective"},
+        {"id": "SN-05-V16", "cn": "软", "pinyin": "ruǎn", "en": "soft", "pos": "adjective"},
+        {"id": "SN-05-V17", "cn": "像...一样", "pinyin": "xiàng...yīyàng", "en": "just like", "pos": "phrase"},
+        {"id": "SN-05-V18", "cn": "可爱", "pinyin": "kě'ài", "en": "cute", "pos": "adjective"},
+        {"id": "SN-05-V19", "cn": "明天", "pinyin": "míngtiān", "en": "tomorrow", "pos": "noun"},
+        {"id": "SN-05-V20", "cn": "会", "pinyin": "huì", "en": "(indicates future)", "pos": "auxiliary verb"},
+        {"id": "SN-05-V21", "cn": "宠物", "pinyin": "chǒngwù", "en": "pet", "pos": "noun"},
+        {"id": "SN-05-V22", "cn": "店", "pinyin": "diàn", "en": "shop, store", "pos": "noun"},
+        {"id": "SN-05-V23", "cn": "买", "pinyin": "mǎi", "en": "to buy", "pos": "verb"},
+        {"id": "SN-05-V24", "cn": "猫粮", "pinyin": "māoliáng", "en": "cat food", "pos": "noun"},
+        {"id": "SN-05-V25", "cn": "床", "pinyin": "chuáng", "en": "bed", "pos": "noun"},
+    ],
+    "sentences": [
+        {"id": "SN-05-S01", "cn": "我想告诉你一个好消息。", "pinyin": "Wǒ xiǎng gàosu nǐ yī gè hǎo xiāoxi.", "en": "I want to tell you some good news."},
+        {"id": "SN-05-S02", "cn": "我们终于领养了那只小猫！", "pinyin": "Wǒmen zhōngyú lǐngyǎng le nà zhī xiǎo māo!", "en": "We finally adopted the kitten!"},
+        {"id": "SN-05-S03", "cn": "它现在是我们家的一份子了。", "pinyin": "Tā xiànzài shì wǒmen jiā de yī fènzi le.", "en": "It's now part of our family."},
+        {"id": "SN-05-S04", "cn": "我想叫它小雪。", "pinyin": "Wǒ xiǎng jiào tā Xiǎo Xuě.", "en": "I want to call it Snowy."},
+        {"id": "SN-05-S05", "cn": "因为它的毛又白又软，看起来像雪一样。", "pinyin": "Yīnwèi tā de máo yòu bái yòu ruǎn, kàn qǐlái xiàng xuě yīyàng.", "en": "Because its fur is white and soft, it looks just like snow."},
+        {"id": "SN-05-S06", "cn": "小雪很可爱，我们都很喜欢它。", "pinyin": "Xiǎo Xuě hěn kě'ài, wǒmen dōu hěn xǐhuan tā.", "en": "Snowy is cute, and we all love it."},
+        {"id": "SN-05-S07", "cn": "明天我们会去宠物店买猫粮和床。", "pinyin": "Míngtiān wǒmen huì qù chǒngwù diàn mǎi māoliáng hé chuáng.", "en": "Tomorrow we'll go to the pet store to buy cat food and a bed."},
+        {"id": "SN-05-S08", "cn": "它现在正在睡觉。", "pinyin": "Tā xiànzài zhèngzài shuìjiào.", "en": "It's sleeping right now."},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 6: Beach Trip & Exams (Letter 6)
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-06"] = {
+    "lessonTitle": "Letter 6: Exams & Beach Trip",
+    "vocab": [
+        {"id": "SN-06-V01", "cn": "最近", "pinyin": "zuìjìn", "en": "recently", "pos": "adverb"},
+        {"id": "SN-06-V02", "cn": "怎么样", "pinyin": "zěnmeyàng", "en": "how (is it)?", "pos": "question word"},
+        {"id": "SN-06-V03", "cn": "前天", "pinyin": "qiántiān", "en": "the day before yesterday", "pos": "noun"},
+        {"id": "SN-06-V04", "cn": "考", "pinyin": "kǎo", "en": "to take (a test)", "pos": "verb"},
+        {"id": "SN-06-V05", "cn": "完", "pinyin": "wán", "en": "to finish", "pos": "verb"},
+        {"id": "SN-06-V06", "cn": "期末考试", "pinyin": "qīmò kǎoshì", "en": "end-of-term exam", "pos": "noun"},
+        {"id": "SN-06-V07", "cn": "为了", "pinyin": "wèile", "en": "in order to", "pos": "preposition"},
+        {"id": "SN-06-V08", "cn": "庆祝", "pinyin": "qìngzhù", "en": "to celebrate", "pos": "verb"},
+        {"id": "SN-06-V09", "cn": "海边", "pinyin": "hǎibiān", "en": "beach, seaside", "pos": "noun"},
+        {"id": "SN-06-V10", "cn": "担心", "pinyin": "dānxīn", "en": "to worry", "pos": "verb"},
+        {"id": "SN-06-V11", "cn": "迷路", "pinyin": "mílù", "en": "to get lost", "pos": "verb"},
+        {"id": "SN-06-V12", "cn": "请求", "pinyin": "qǐngqiú", "en": "to request (as a favour)", "pos": "verb"},
+        {"id": "SN-06-V13", "cn": "邻居", "pinyin": "línjū", "en": "neighbour", "pos": "noun"},
+        {"id": "SN-06-V14", "cn": "照顾", "pinyin": "zhàogù", "en": "to look after, take care of", "pos": "verb"},
+        {"id": "SN-06-V15", "cn": "你们", "pinyin": "nǐmen", "en": "you (plural)", "pos": "pronoun"},
+        {"id": "SN-06-V16", "cn": "暑假", "pinyin": "shǔjià", "en": "summer holidays", "pos": "noun"},
+        {"id": "SN-06-V17", "cn": "明年", "pinyin": "míngnián", "en": "next year", "pos": "noun"},
+        {"id": "SN-06-V18", "cn": "玩", "pinyin": "wán", "en": "to play, to have fun", "pos": "verb"},
+        {"id": "SN-06-V19", "cn": "问", "pinyin": "wèn", "en": "to ask (a question)", "pos": "verb"},
+        {"id": "SN-06-V20", "cn": "能", "pinyin": "néng", "en": "can (ability)", "pos": "auxiliary verb"},
+        {"id": "SN-06-V21", "cn": "可以", "pinyin": "kěyǐ", "en": "may (permission)", "pos": "auxiliary verb"},
+    ],
+    "sentences": [
+        {"id": "SN-06-S01", "cn": "你最近怎么样？", "pinyin": "Nǐ zuìjìn zěnmeyàng?", "en": "How have you been recently?"},
+        {"id": "SN-06-S02", "cn": "我前天终于考完了期末考试！", "pinyin": "Wǒ qiántiān zhōngyú kǎo wán le qīmò kǎoshì!", "en": "I finally finished my end-of-term exams two days ago!"},
+        {"id": "SN-06-S03", "cn": "为了庆祝，我们一家人去了海边。", "pinyin": "Wèile qìngzhù, wǒmen yī jiā rén qù le hǎibiān.", "en": "To celebrate, my family went to the beach."},
+        {"id": "SN-06-S04", "cn": "我们担心小雪会迷路。", "pinyin": "Wǒmen dānxīn Xiǎo Xuě huì mílù.", "en": "We were worried Snowy would get lost."},
+        {"id": "SN-06-S05", "cn": "所以请求了邻居照顾小雪。", "pinyin": "Suǒyǐ qǐngqiú le línjū zhàogù Xiǎo Xuě.", "en": "So we asked our neighbour to look after Snowy."},
+        {"id": "SN-06-S06", "cn": "暑假你能来马来西亚玩吗？", "pinyin": "Shǔjià nǐ néng lái Mǎláixīyà wán ma?", "en": "Can you come to Malaysia during summer holidays to visit?"},
+        {"id": "SN-06-S07", "cn": "我可以进来吗？", "pinyin": "Wǒ kěyǐ jìnlái ma?", "en": "May I come in?"},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 7: At the Beach (Letter 7 continued)
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-07"] = {
+    "lessonTitle": "Letter 7: At the Beach",
+    "vocab": [
+        {"id": "SN-07-V01", "cn": "海滩", "pinyin": "hǎitān", "en": "beach (sandy area)", "pos": "noun"},
+        {"id": "SN-07-V02", "cn": "吃", "pinyin": "chī", "en": "to eat", "pos": "verb"},
+        {"id": "SN-07-V03", "cn": "三明治", "pinyin": "sānmíngzhì", "en": "sandwich", "pos": "noun"},
+        {"id": "SN-07-V04", "cn": "风景", "pinyin": "fēngjǐng", "en": "view, scenery", "pos": "noun"},
+        {"id": "SN-07-V05", "cn": "美丽", "pinyin": "měilì", "en": "beautiful", "pos": "adjective"},
+        {"id": "SN-07-V06", "cn": "以后", "pinyin": "yǐhòu", "en": "in the future, after", "pos": "noun"},
+        {"id": "SN-07-V07", "cn": "长大", "pinyin": "zhǎngdà", "en": "to grow up", "pos": "verb"},
+        {"id": "SN-07-V08", "cn": "房子", "pinyin": "fángzi", "en": "house", "pos": "noun"},
+        {"id": "SN-07-V09", "cn": "天天", "pinyin": "tiāntiān", "en": "everyday", "pos": "adverb"},
+        {"id": "SN-07-V10", "cn": "海", "pinyin": "hǎi", "en": "sea, ocean", "pos": "noun"},
+        {"id": "SN-07-V11", "cn": "这里", "pinyin": "zhèlǐ", "en": "here", "pos": "pronoun"},
+        {"id": "SN-07-V12", "cn": "平时", "pinyin": "píngshí", "en": "usually", "pos": "adverb"},
+        {"id": "SN-07-V13", "cn": "刚好", "pinyin": "gānghǎo", "en": "just so happen that", "pos": "adverb"},
+        {"id": "SN-07-V14", "cn": "拍", "pinyin": "pāi", "en": "to take (photos)", "pos": "verb"},
+        {"id": "SN-07-V15", "cn": "照片", "pinyin": "zhàopiàn", "en": "photo", "pos": "noun"},
+        {"id": "SN-07-V16", "cn": "之后", "pinyin": "zhīhòu", "en": "after", "pos": "noun"},
+        {"id": "SN-07-V17", "cn": "一定", "pinyin": "yīdìng", "en": "definitely", "pos": "adverb"},
+        {"id": "SN-07-V18", "cn": "寄", "pinyin": "jì", "en": "to post (by mail)", "pos": "verb"},
+        {"id": "SN-07-V19", "cn": "太", "pinyin": "tài", "en": "too (excessively)", "pos": "adverb"},
+        {"id": "SN-07-V20", "cn": "之前", "pinyin": "zhīqián", "en": "before", "pos": "noun"},
+        {"id": "SN-07-V21", "cn": "人山人海", "pinyin": "rén shān rén hǎi", "en": "extremely crowded (idiom: people-mountain-people-sea)", "pos": "idiom"},
+    ],
+    "sentences": [
+        {"id": "SN-07-S01", "cn": "我现在和妈妈坐在海滩上。", "pinyin": "Wǒ xiànzài hé māma zuò zài hǎitān shàng.", "en": "I'm sitting on the beach with mom right now."},
+        {"id": "SN-07-S02", "cn": "妈妈在吃三明治。", "pinyin": "Māma zài chī sānmíngzhì.", "en": "Mom is eating a sandwich."},
+        {"id": "SN-07-S03", "cn": "哥哥、姐姐和爸爸都在游泳。", "pinyin": "Gēge, jiějie hé bàba dōu zài yóuyǒng.", "en": "My brother, sister and dad are all swimming."},
+        {"id": "SN-07-S04", "cn": "我也很想和他们一起玩。", "pinyin": "Wǒ yě hěn xiǎng hé tāmen yìqǐ wán.", "en": "I really want to join them too."},
+        {"id": "SN-07-S05", "cn": "但是我不会游泳。", "pinyin": "Dànshì wǒ bú huì yóuyǒng.", "en": "But I can't swim."},
+        {"id": "SN-07-S06", "cn": "这里的风景太美丽了！", "pinyin": "Zhèlǐ de fēngjǐng tài měilì le!", "en": "The view here is too beautiful!"},
+        {"id": "SN-07-S07", "cn": "长大以后，我想在海边买房子。", "pinyin": "Zhǎngdà yǐhòu, wǒ xiǎng zài hǎibiān mǎi fángzi.", "en": "When I grow up, I want to buy a house by the beach."},
+        {"id": "SN-07-S08", "cn": "我拍了很多照片，回家之后一定会寄给你。", "pinyin": "Wǒ pāi le hěn duō zhàopiàn, huí jiā zhīhòu yīdìng huì jì gěi nǐ.", "en": "I took lots of photos, I'll definitely send them to you after I get home."},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 8: Birthday & Numbers (Letter 8)
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-08"] = {
+    "lessonTitle": "Letter 8: Birthday & Numbers",
+    "vocab": [
+        {"id": "SN-08-V01", "cn": "年", "pinyin": "nián", "en": "year", "pos": "noun"},
+        {"id": "SN-08-V02", "cn": "月", "pinyin": "yuè", "en": "month / moon", "pos": "noun"},
+        {"id": "SN-08-V03", "cn": "日", "pinyin": "rì", "en": "day (formal)", "pos": "noun"},
+        {"id": "SN-08-V04", "cn": "生日", "pinyin": "shēngrì", "en": "birthday", "pos": "noun"},
+        {"id": "SN-08-V05", "cn": "过", "pinyin": "guò", "en": "to pass (time)", "pos": "verb"},
+        {"id": "SN-08-V06", "cn": "就", "pinyin": "jiù", "en": "then, just", "pos": "adverb"},
+        {"id": "SN-08-V07", "cn": "带", "pinyin": "dài", "en": "to bring, to take", "pos": "verb"},
+        {"id": "SN-08-V08", "cn": "家", "pinyin": "jiā", "en": "m.w for shops / home / family", "pos": "measure word"},
+        {"id": "SN-08-V09", "cn": "茶楼", "pinyin": "chálóu", "en": "teahouse (dim sum restaurant)", "pos": "noun"},
+        {"id": "SN-08-V10", "cn": "早餐", "pinyin": "zǎocān", "en": "breakfast", "pos": "noun"},
+        {"id": "SN-08-V11", "cn": "点", "pinyin": "diǎn", "en": "to order (food)", "pos": "verb"},
+        {"id": "SN-08-V12", "cn": "点心", "pinyin": "diǎnxin", "en": "dim sum", "pos": "noun"},
+        {"id": "SN-08-V13", "cn": "杯", "pinyin": "bēi", "en": "cup, glass", "pos": "measure word"},
+        {"id": "SN-08-V14", "cn": "奶茶", "pinyin": "nǎichá", "en": "milk tea", "pos": "noun"},
+        {"id": "SN-08-V15", "cn": "电影院", "pinyin": "diànyǐngyuàn", "en": "cinema", "pos": "noun"},
+        {"id": "SN-08-V16", "cn": "名", "pinyin": "míng", "en": "name", "pos": "noun"},
+        {"id": "SN-08-V17", "cn": "讲述", "pinyin": "jiǎngshù", "en": "to tell (a story)", "pos": "verb"},
+        {"id": "SN-08-V18", "cn": "爱情", "pinyin": "àiqíng", "en": "love, romance", "pos": "noun"},
+        {"id": "SN-08-V19", "cn": "故事", "pinyin": "gùshi", "en": "story", "pos": "noun"},
+        {"id": "SN-08-V20", "cn": "百", "pinyin": "bǎi", "en": "hundred", "pos": "number"},
+        {"id": "SN-08-V21", "cn": "千", "pinyin": "qiān", "en": "thousand", "pos": "number"},
+        {"id": "SN-08-V22", "cn": "万", "pinyin": "wàn", "en": "ten thousand", "pos": "number"},
+        {"id": "SN-08-V23", "cn": "块", "pinyin": "kuài", "en": "measure word for money (yuan)", "pos": "measure word"},
+        {"id": "SN-08-V24", "cn": "星期", "pinyin": "xīngqī", "en": "week", "pos": "noun"},
+    ],
+    "sentences": [
+        {"id": "SN-08-S01", "cn": "今天是七月三十日，是我的生日。", "pinyin": "Jīntiān shì qīyuè sānshí rì, shì wǒ de shēngrì.", "en": "Today is July 30th, and it's my birthday."},
+        {"id": "SN-08-S02", "cn": "过了今天，我就十三岁了。", "pinyin": "Guò le jīntiān, wǒ jiù shísān suì le.", "en": "After today, I'll be 13 years old."},
+        {"id": "SN-08-S03", "cn": "爸爸妈妈带我们去了茶楼吃早餐。", "pinyin": "Bàba māma dài wǒmen qù le chálóu chī zǎocān.", "en": "My parents took us to a teahouse for breakfast."},
+        {"id": "SN-08-S04", "cn": "我点了一些点心和一杯奶茶。", "pinyin": "Wǒ diǎn le yīxiē diǎnxin hé yī bēi nǎichá.", "en": "I ordered some dim sum and a glass of milk tea."},
+        {"id": "SN-08-S05", "cn": "吃完以后，我们去了电影院看电影。", "pinyin": "Chī wán yǐhòu, wǒmen qù le diànyǐngyuàn kàn diànyǐng.", "en": "After eating, we went to the cinema to watch a movie."},
+        {"id": "SN-08-S06", "cn": "这个故事讲述了一条蛇和一个男人的爱情故事。", "pinyin": "Zhège gùshi jiǎngshù le yī tiáo shé hé yī gè nánrén de àiqíng gùshi.", "en": "The story tells the tale of a snake and a man's love story."},
+        {"id": "SN-08-S07", "cn": "今天是星期一。", "pinyin": "Jīntiān shì xīngqī yī.", "en": "Today is Monday."},
+        {"id": "SN-08-S08", "cn": "这个东西多少钱？", "pinyin": "Zhège dōngxi duōshao qián?", "en": "How much does this cost?"},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 9: Swimming Lessons (Letter 9)
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-09"] = {
+    "lessonTitle": "Letter 9: Swimming Lessons",
+    "vocab": [
+        {"id": "SN-09-V01", "cn": "上个", "pinyin": "shàng gè", "en": "previous, last", "pos": "phrase"},
+        {"id": "SN-09-V02", "cn": "报名", "pinyin": "bàomíng", "en": "to sign up for", "pos": "verb"},
+        {"id": "SN-09-V03", "cn": "班", "pinyin": "bān", "en": "class", "pos": "noun"},
+        {"id": "SN-09-V04", "cn": "同学", "pinyin": "tóngxué", "en": "classmate", "pos": "noun"},
+        {"id": "SN-09-V05", "cn": "女生", "pinyin": "nǚshēng", "en": "girl (student)", "pos": "noun"},
+        {"id": "SN-09-V06", "cn": "其中", "pinyin": "qízhōng", "en": "among which/whom", "pos": "phrase"},
+        {"id": "SN-09-V07", "cn": "一样", "pinyin": "yīyàng", "en": "the same", "pos": "adjective"},
+        {"id": "SN-09-V08", "cn": "初学者", "pinyin": "chūxuézhě", "en": "beginner", "pos": "noun"},
+        {"id": "SN-09-V09", "cn": "开始", "pinyin": "kāishǐ", "en": "at first / to begin", "pos": "adverb/verb"},
+        {"id": "SN-09-V10", "cn": "紧张", "pinyin": "jǐnzhāng", "en": "nervous", "pos": "adjective"},
+        {"id": "SN-09-V11", "cn": "学", "pinyin": "xué", "en": "to learn", "pos": "verb"},
+        {"id": "SN-09-V12", "cn": "发现", "pinyin": "fāxiàn", "en": "to discover", "pos": "verb"},
+        {"id": "SN-09-V13", "cn": "其实", "pinyin": "qíshí", "en": "actually", "pos": "adverb"},
+        {"id": "SN-09-V14", "cn": "难", "pinyin": "nán", "en": "difficult", "pos": "adjective"},
+        {"id": "SN-09-V15", "cn": "以前", "pinyin": "yǐqián", "en": "in the past, before", "pos": "noun"},
+        {"id": "SN-09-V16", "cn": "特别", "pinyin": "tèbié", "en": "especially / special", "pos": "adverb"},
+        {"id": "SN-09-V17", "cn": "怕", "pinyin": "pà", "en": "to fear, to be afraid of", "pos": "verb"},
+        {"id": "SN-09-V18", "cn": "水", "pinyin": "shuǐ", "en": "water", "pos": "noun"},
+        {"id": "SN-09-V19", "cn": "已经", "pinyin": "yǐjīng", "en": "already", "pos": "adverb"},
+        {"id": "SN-09-V20", "cn": "鼓励", "pinyin": "gǔlì", "en": "to encourage", "pos": "verb"},
+        {"id": "SN-09-V21", "cn": "送", "pinyin": "sòng", "en": "to gift, to give", "pos": "verb"},
+        {"id": "SN-09-V22", "cn": "新", "pinyin": "xīn", "en": "new", "pos": "adjective"},
+        {"id": "SN-09-V23", "cn": "泳衣", "pinyin": "yǒngyī", "en": "bathing suit, swimsuit", "pos": "noun"},
+    ],
+    "sentences": [
+        {"id": "SN-09-S01", "cn": "我上个星期报名了一个游泳班。", "pinyin": "Wǒ shàng gè xīngqī bàomíng le yī gè yóuyǒng bān.", "en": "I signed up for a swimming class last week."},
+        {"id": "SN-09-S02", "cn": "班里有三个同学，都是女生。", "pinyin": "Bān lǐ yǒu sān gè tóngxué, dōu shì nǚshēng.", "en": "There are three other students in class, all girls."},
+        {"id": "SN-09-S03", "cn": "其中一个和我一样，是初学者。", "pinyin": "Qízhōng yī gè hé wǒ yīyàng, shì chūxuézhě.", "en": "One of them is also a beginner, like me."},
+        {"id": "SN-09-S04", "cn": "开始我很紧张。", "pinyin": "Kāishǐ wǒ hěn jǐnzhāng.", "en": "I was very nervous at first."},
+        {"id": "SN-09-S05", "cn": "学了以后，我发现游泳其实不难。", "pinyin": "Xué le yǐhòu, wǒ fāxiàn yóuyǒng qíshí bù nán.", "en": "After learning, I found that swimming isn't actually hard."},
+        {"id": "SN-09-S06", "cn": "我以前特别怕水。", "pinyin": "Wǒ yǐqián tèbié pà shuǐ.", "en": "I used to be particularly afraid of water."},
+        {"id": "SN-09-S07", "cn": "妈妈已经鼓励我了。", "pinyin": "Māma yǐjīng gǔlì wǒ le.", "en": "Mom has already encouraged me."},
+        {"id": "SN-09-S08", "cn": "她送了我一件新泳衣。", "pinyin": "Tā sòng le wǒ yī jiàn xīn yǒngyī.", "en": "She gave me a new swimsuit."},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# Chapter 10: Starting Junior High (Letter 10)
+# ═══════════════════════════════════════════════════════════════
+study_notes["SN-10"] = {
+    "lessonTitle": "Letter 10: Starting Junior High",
+    "vocab": [
+        {"id": "SN-10-V01", "cn": "初中生", "pinyin": "chūzhōngshēng", "en": "junior high student", "pos": "noun"},
+        {"id": "SN-10-V02", "cn": "说实话", "pinyin": "shuō shíhuà", "en": "to be honest, frankly", "pos": "phrase"},
+        {"id": "SN-10-V03", "cn": "有点", "pinyin": "yǒudiǎn", "en": "a little bit", "pos": "adverb"},
+        {"id": "SN-10-V04", "cn": "听说", "pinyin": "tīngshuō", "en": "to have heard that", "pos": "verb"},
+        {"id": "SN-10-V05", "cn": "东西", "pinyin": "dōngxi", "en": "stuff, things", "pos": "noun"},
+        {"id": "SN-10-V06", "cn": "小学", "pinyin": "xiǎoxué", "en": "primary school", "pos": "noun"},
+        {"id": "SN-10-V07", "cn": "不知道", "pinyin": "bù zhīdào", "en": "don't know", "pos": "phrase"},
+        {"id": "SN-10-V08", "cn": "同桌", "pinyin": "tóngzhuō", "en": "desk mate (person sitting next to you)", "pos": "noun"},
+        {"id": "SN-10-V09", "cn": "什么", "pinyin": "shénme", "en": "what", "pos": "question word"},
+        {"id": "SN-10-V10", "cn": "谁", "pinyin": "shéi", "en": "who", "pos": "question word"},
+        {"id": "SN-10-V11", "cn": "哪", "pinyin": "nǎ", "en": "which", "pos": "question word"},
+        {"id": "SN-10-V12", "cn": "怎么", "pinyin": "zěnme", "en": "how", "pos": "question word"},
+        {"id": "SN-10-V13", "cn": "为什么", "pinyin": "wèishénme", "en": "why", "pos": "question word"},
+        {"id": "SN-10-V14", "cn": "几", "pinyin": "jǐ", "en": "how many (small numbers)", "pos": "question word"},
+        {"id": "SN-10-V15", "cn": "多少", "pinyin": "duōshao", "en": "how many / how much", "pos": "question word"},
+    ],
+    "sentences": [
+        {"id": "SN-10-S01", "cn": "过了这个星期，我就是初中生了！", "pinyin": "Guò le zhège xīngqī, wǒ jiù shì chūzhōngshēng le!", "en": "After this week, I'll be a junior high student!"},
+        {"id": "SN-10-S02", "cn": "说实话，我有点紧张。", "pinyin": "Shuō shíhuà, wǒ yǒudiǎn jǐnzhāng.", "en": "To be honest, I'm a little nervous."},
+        {"id": "SN-10-S03", "cn": "我听说初中学的东西比小学难很多。", "pinyin": "Wǒ tīngshuō chūzhōng xué de dōngxi bǐ xiǎoxué nán hěn duō.", "en": "I've heard that junior high studies are much harder than primary school."},
+        {"id": "SN-10-S04", "cn": "不知道我的同桌会是谁。", "pinyin": "Bù zhīdào wǒ de tóngzhuō huì shì shéi.", "en": "I don't know who my desk mate will be."},
+        {"id": "SN-10-S05", "cn": "这是什么？", "pinyin": "Zhè shì shénme?", "en": "What is this?"},
+        {"id": "SN-10-S06", "cn": "谁是你的老师？", "pinyin": "Shéi shì nǐ de lǎoshī?", "en": "Who is your teacher?"},
+        {"id": "SN-10-S07", "cn": "你想买哪本书？", "pinyin": "Nǐ xiǎng mǎi nǎ běn shū?", "en": "Which book do you want to buy?"},
+        {"id": "SN-10-S08", "cn": "你怎么去学校？", "pinyin": "Nǐ zěnme qù xuéxiào?", "en": "How do you get to school?"},
+        {"id": "SN-10-S09", "cn": "你为什么不高兴？", "pinyin": "Nǐ wèishénme bù gāoxìng?", "en": "Why are you unhappy?"},
+    ],
+    "dialogue": []
+}
+
+# ═══════════════════════════════════════════════════════════════
+# 14-Day Challenge (Days 1-14, 10 phrases per day)
+# ═══════════════════════════════════════════════════════════════
+
+challenge_days = {
+    "SN-DC01": {
+        "lessonTitle": "14-Day Challenge: Day 1 - Basics",
+        "vocab": [
+            {"id": "SN-DC01-V01", "cn": "你好", "pinyin": "nǐ hǎo", "en": "hello", "pos": ""},
+            {"id": "SN-DC01-V02", "cn": "谢谢", "pinyin": "xièxie", "en": "thank you", "pos": ""},
+            {"id": "SN-DC01-V03", "cn": "是的", "pinyin": "shì de", "en": "yes", "pos": ""},
+            {"id": "SN-DC01-V04", "cn": "不", "pinyin": "bù", "en": "no", "pos": ""},
+            {"id": "SN-DC01-V05", "cn": "对不起", "pinyin": "duìbuqǐ", "en": "I'm sorry", "pos": ""},
+            {"id": "SN-DC01-V06", "cn": "它在这里", "pinyin": "tā zài zhèlǐ", "en": "it's here", "pos": ""},
+            {"id": "SN-DC01-V07", "cn": "它在哪里？", "pinyin": "tā zài nǎlǐ?", "en": "where is it?", "pos": ""},
+            {"id": "SN-DC01-V08", "cn": "你多大了？", "pinyin": "nǐ duō dà le?", "en": "how old are you?", "pos": ""},
+            {"id": "SN-DC01-V09", "cn": "我喜欢它", "pinyin": "wǒ xǐhuan tā", "en": "I like it", "pos": ""},
+            {"id": "SN-DC01-V10", "cn": "我不喜欢它", "pinyin": "wǒ bù xǐhuan tā", "en": "I don't like it", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC02": {
+        "lessonTitle": "14-Day Challenge: Day 2 - Greetings & Requests",
+        "vocab": [
+            {"id": "SN-DC02-V01", "cn": "你好吗？", "pinyin": "nǐ hǎo ma?", "en": "how are you?", "pos": ""},
+            {"id": "SN-DC02-V02", "cn": "我很好", "pinyin": "wǒ hěn hǎo", "en": "I'm doing well", "pos": ""},
+            {"id": "SN-DC02-V03", "cn": "不好意思", "pinyin": "bù hǎo yìsi", "en": "excuse me", "pos": ""},
+            {"id": "SN-DC02-V04", "cn": "再见", "pinyin": "zàijiàn", "en": "goodbye", "pos": ""},
+            {"id": "SN-DC02-V05", "cn": "你在做什么？", "pinyin": "nǐ zài zuò shénme?", "en": "what are you doing?", "pos": ""},
+            {"id": "SN-DC02-V06", "cn": "你想吃什么？", "pinyin": "nǐ xiǎng chī shénme?", "en": "what do you want to eat?", "pos": ""},
+            {"id": "SN-DC02-V07", "cn": "你去哪里？", "pinyin": "nǐ qù nǎlǐ?", "en": "where are you going?", "pos": ""},
+            {"id": "SN-DC02-V08", "cn": "请给我水", "pinyin": "qǐng gěi wǒ shuǐ", "en": "please give me water", "pos": ""},
+            {"id": "SN-DC02-V09", "cn": "我可以坐这里吗？", "pinyin": "wǒ kěyǐ zuò zhèlǐ ma?", "en": "may I sit here?", "pos": ""},
+            {"id": "SN-DC02-V10", "cn": "我们见面吧", "pinyin": "wǒmen jiànmiàn ba", "en": "let's meet up", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC03": {
+        "lessonTitle": "14-Day Challenge: Day 3 - Getting Around",
+        "vocab": [
+            {"id": "SN-DC03-V01", "cn": "你住在哪里？", "pinyin": "nǐ zhù zài nǎlǐ?", "en": "where do you live?", "pos": ""},
+            {"id": "SN-DC03-V02", "cn": "请帮帮我", "pinyin": "qǐng bāngbang wǒ", "en": "help me, please", "pos": ""},
+            {"id": "SN-DC03-V03", "cn": "我怎么去那里？", "pinyin": "wǒ zěnme qù nàlǐ?", "en": "how do I get there?", "pos": ""},
+            {"id": "SN-DC03-V04", "cn": "晚安", "pinyin": "wǎn'ān", "en": "good night", "pos": ""},
+            {"id": "SN-DC03-V05", "cn": "我不懂", "pinyin": "wǒ bù dǒng", "en": "I don't understand", "pos": ""},
+            {"id": "SN-DC03-V06", "cn": "你做什么工作？", "pinyin": "nǐ zuò shénme gōngzuò?", "en": "what do you do for work?", "pos": ""},
+            {"id": "SN-DC03-V07", "cn": "请慢慢说", "pinyin": "qǐng mànmàn shuō", "en": "please speak slowly", "pos": ""},
+            {"id": "SN-DC03-V08", "cn": "我来自中国", "pinyin": "wǒ láizì Zhōngguó", "en": "I'm from China", "pos": ""},
+            {"id": "SN-DC03-V09", "cn": "厕所在哪里？", "pinyin": "cèsuǒ zài nǎlǐ?", "en": "where is the bathroom?", "pos": ""},
+            {"id": "SN-DC03-V10", "cn": "多少钱？", "pinyin": "duōshao qián?", "en": "how much does it cost?", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC04": {
+        "lessonTitle": "14-Day Challenge: Day 4 - Food & Time",
+        "vocab": [
+            {"id": "SN-DC04-V01", "cn": "很好吃", "pinyin": "hěn hào chī", "en": "it's delicious", "pos": ""},
+            {"id": "SN-DC04-V02", "cn": "现在几点了？", "pinyin": "xiànzài jǐ diǎn le?", "en": "what time is it now?", "pos": ""},
+            {"id": "SN-DC04-V03", "cn": "今天天气怎么样？", "pinyin": "jīntiān tiānqì zěnmeyàng?", "en": "how's the weather today?", "pos": ""},
+            {"id": "SN-DC04-V04", "cn": "请给我这个", "pinyin": "qǐng gěi wǒ zhège", "en": "please give me this one", "pos": ""},
+            {"id": "SN-DC04-V05", "cn": "说话", "pinyin": "shuōhuà", "en": "to speak / talk", "pos": ""},
+            {"id": "SN-DC04-V06", "cn": "等一下", "pinyin": "děng yīxià", "en": "wait a moment", "pos": ""},
+            {"id": "SN-DC04-V07", "cn": "没关系", "pinyin": "méi guānxi", "en": "it's okay / no worries", "pos": ""},
+            {"id": "SN-DC04-V08", "cn": "我需要帮助", "pinyin": "wǒ xūyào bāngzhù", "en": "I need help", "pos": ""},
+            {"id": "SN-DC04-V09", "cn": "太贵了", "pinyin": "tài guì le", "en": "too expensive", "pos": ""},
+            {"id": "SN-DC04-V10", "cn": "我饿了", "pinyin": "wǒ è le", "en": "I'm hungry", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC05": {
+        "lessonTitle": "14-Day Challenge: Day 5 - Feelings & Directions",
+        "vocab": [
+            {"id": "SN-DC05-V01", "cn": "你需要什么？", "pinyin": "nǐ xūyào shénme?", "en": "what do you need?", "pos": ""},
+            {"id": "SN-DC05-V02", "cn": "我可以试一下吗？", "pinyin": "wǒ kěyǐ shì yīxià ma?", "en": "may I try?", "pos": ""},
+            {"id": "SN-DC05-V03", "cn": "我想你", "pinyin": "wǒ xiǎng nǐ", "en": "I miss you", "pos": ""},
+            {"id": "SN-DC05-V04", "cn": "回来吧", "pinyin": "huílái ba", "en": "come back!", "pos": ""},
+            {"id": "SN-DC05-V05", "cn": "太好了", "pinyin": "tài hǎo le", "en": "that's great!", "pos": ""},
+            {"id": "SN-DC05-V06", "cn": "左转", "pinyin": "zuǒ zhuǎn", "en": "turn left", "pos": ""},
+            {"id": "SN-DC05-V07", "cn": "右转", "pinyin": "yòu zhuǎn", "en": "turn right", "pos": ""},
+            {"id": "SN-DC05-V08", "cn": "一直走", "pinyin": "yīzhí zǒu", "en": "go straight", "pos": ""},
+            {"id": "SN-DC05-V09", "cn": "我迷路了", "pinyin": "wǒ mílù le", "en": "I'm lost", "pos": ""},
+            {"id": "SN-DC05-V10", "cn": "请再说一遍", "pinyin": "qǐng zài shuō yī biàn", "en": "please say that again", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC06": {
+        "lessonTitle": "14-Day Challenge: Day 6 - Drinks & Activities",
+        "vocab": [
+            {"id": "SN-DC06-V01", "cn": "你想喝什么？", "pinyin": "nǐ xiǎng hē shénme?", "en": "what would you like to drink?", "pos": ""},
+            {"id": "SN-DC06-V02", "cn": "我可以问你一件事吗？", "pinyin": "wǒ kěyǐ wèn nǐ yī jiàn shì ma?", "en": "may I ask you something?", "pos": ""},
+            {"id": "SN-DC06-V03", "cn": "你周末做了什么？", "pinyin": "nǐ zhōumò zuò le shénme?", "en": "what did you do this weekend?", "pos": ""},
+            {"id": "SN-DC06-V04", "cn": "我想学中文", "pinyin": "wǒ xiǎng xué Zhōngwén", "en": "I want to learn Chinese", "pos": ""},
+            {"id": "SN-DC06-V05", "cn": "你会说英文吗？", "pinyin": "nǐ huì shuō Yīngwén ma?", "en": "can you speak English?", "pos": ""},
+            {"id": "SN-DC06-V06", "cn": "我正在学习", "pinyin": "wǒ zhèngzài xuéxí", "en": "I'm studying right now", "pos": ""},
+            {"id": "SN-DC06-V07", "cn": "你是哪里人？", "pinyin": "nǐ shì nǎlǐ rén?", "en": "where are you from?", "pos": ""},
+            {"id": "SN-DC06-V08", "cn": "我很累", "pinyin": "wǒ hěn lèi", "en": "I'm tired", "pos": ""},
+            {"id": "SN-DC06-V09", "cn": "我们走吧", "pinyin": "wǒmen zǒu ba", "en": "let's go", "pos": ""},
+            {"id": "SN-DC06-V10", "cn": "你有空吗？", "pinyin": "nǐ yǒu kòng ma?", "en": "are you free?", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC07": {
+        "lessonTitle": "14-Day Challenge: Day 7 - Preferences",
+        "vocab": [
+            {"id": "SN-DC07-V01", "cn": "你喜欢什么音乐？", "pinyin": "nǐ xǐhuan shénme yīnyuè?", "en": "what kind of music do you like?", "pos": ""},
+            {"id": "SN-DC07-V02", "cn": "你最喜欢的颜色是什么？", "pinyin": "nǐ zuì xǐhuan de yánsè shì shénme?", "en": "what's your favourite colour?", "pos": ""},
+            {"id": "SN-DC07-V03", "cn": "我最喜欢春天", "pinyin": "wǒ zuì xǐhuan chūntiān", "en": "I like spring the most", "pos": ""},
+            {"id": "SN-DC07-V04", "cn": "你有兄弟姐妹吗？", "pinyin": "nǐ yǒu xiōngdì jiěmèi ma?", "en": "do you have siblings?", "pos": ""},
+            {"id": "SN-DC07-V05", "cn": "你喜欢做饭吗？", "pinyin": "nǐ xǐhuan zuòfàn ma?", "en": "do you like cooking?", "pos": ""},
+            {"id": "SN-DC07-V06", "cn": "我喜欢看电影", "pinyin": "wǒ xǐhuan kàn diànyǐng", "en": "I like watching movies", "pos": ""},
+            {"id": "SN-DC07-V07", "cn": "你的生日是什么时候？", "pinyin": "nǐ de shēngrì shì shénme shíhòu?", "en": "when is your birthday?", "pos": ""},
+            {"id": "SN-DC07-V08", "cn": "你喜欢什么运动？", "pinyin": "nǐ xǐhuan shénme yùndòng?", "en": "what sport do you like?", "pos": ""},
+            {"id": "SN-DC07-V09", "cn": "我不太喜欢", "pinyin": "wǒ bú tài xǐhuan", "en": "I don't really like it", "pos": ""},
+            {"id": "SN-DC07-V10", "cn": "我觉得很有意思", "pinyin": "wǒ juéde hěn yǒu yìsi", "en": "I think it's very interesting", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+}
+
+# Days 8-14
+challenge_days.update({
+    "SN-DC08": {
+        "lessonTitle": "14-Day Challenge: Day 8 - Shopping",
+        "vocab": [
+            {"id": "SN-DC08-V01", "cn": "这件衣服看起来不错", "pinyin": "zhè jiàn yīfu kàn qǐlái búcuò", "en": "this outfit looks nice", "pos": ""},
+            {"id": "SN-DC08-V02", "cn": "你有喜欢的颜色吗？", "pinyin": "nǐ yǒu xǐhuan de yánsè ma?", "en": "do you have a favourite colour?", "pos": ""},
+            {"id": "SN-DC08-V03", "cn": "我想去度假", "pinyin": "wǒ xiǎng qù dùjià", "en": "I want to go on holiday", "pos": ""},
+            {"id": "SN-DC08-V04", "cn": "有没有更大的？", "pinyin": "yǒu méiyǒu gèng dà de?", "en": "is there a bigger one?", "pos": ""},
+            {"id": "SN-DC08-V05", "cn": "可以便宜一点吗？", "pinyin": "kěyǐ piányi yīdiǎn ma?", "en": "can it be cheaper?", "pos": ""},
+            {"id": "SN-DC08-V06", "cn": "我想买这个", "pinyin": "wǒ xiǎng mǎi zhège", "en": "I want to buy this", "pos": ""},
+            {"id": "SN-DC08-V07", "cn": "可以刷卡吗？", "pinyin": "kěyǐ shuākǎ ma?", "en": "can I pay by card?", "pos": ""},
+            {"id": "SN-DC08-V08", "cn": "试衣间在哪里？", "pinyin": "shìyījiān zài nǎlǐ?", "en": "where is the fitting room?", "pos": ""},
+            {"id": "SN-DC08-V09", "cn": "这个太小了", "pinyin": "zhège tài xiǎo le", "en": "this one is too small", "pos": ""},
+            {"id": "SN-DC08-V10", "cn": "我只是看看", "pinyin": "wǒ zhǐshì kànkan", "en": "I'm just looking", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC09": {
+        "lessonTitle": "14-Day Challenge: Day 9 - Social",
+        "vocab": [
+            {"id": "SN-DC09-V01", "cn": "我要去见朋友", "pinyin": "wǒ yào qù jiàn péngyou", "en": "I'm going to meet a friend", "pos": ""},
+            {"id": "SN-DC09-V02", "cn": "不客气", "pinyin": "bú kèqi", "en": "you're welcome", "pos": ""},
+            {"id": "SN-DC09-V03", "cn": "我可以在哪里吃中餐？", "pinyin": "wǒ kěyǐ zài nǎlǐ chī zhōngcān?", "en": "where can I eat Chinese food?", "pos": ""},
+            {"id": "SN-DC09-V04", "cn": "这个怎么说？", "pinyin": "zhège zěnme shuō?", "en": "how do you say this?", "pos": ""},
+            {"id": "SN-DC09-V05", "cn": "我叫...", "pinyin": "wǒ jiào...", "en": "my name is...", "pos": ""},
+            {"id": "SN-DC09-V06", "cn": "很高兴认识你", "pinyin": "hěn gāoxìng rènshi nǐ", "en": "nice to meet you", "pos": ""},
+            {"id": "SN-DC09-V07", "cn": "你家在哪里？", "pinyin": "nǐ jiā zài nǎlǐ?", "en": "where is your home?", "pos": ""},
+            {"id": "SN-DC09-V08", "cn": "我们一起去吧", "pinyin": "wǒmen yìqǐ qù ba", "en": "let's go together", "pos": ""},
+            {"id": "SN-DC09-V09", "cn": "你结婚了吗？", "pinyin": "nǐ jiéhūn le ma?", "en": "are you married?", "pos": ""},
+            {"id": "SN-DC09-V10", "cn": "周末见", "pinyin": "zhōumò jiàn", "en": "see you at the weekend", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC10": {
+        "lessonTitle": "14-Day Challenge: Day 10 - Food & Drink",
+        "vocab": [
+            {"id": "SN-DC10-V01", "cn": "我不喜欢咖啡", "pinyin": "wǒ bù xǐhuan kāfēi", "en": "I don't like coffee", "pos": ""},
+            {"id": "SN-DC10-V02", "cn": "这个有其他颜色吗？", "pinyin": "zhège yǒu qítā yánsè ma?", "en": "does this come in other colours?", "pos": ""},
+            {"id": "SN-DC10-V03", "cn": "我可以付现金吗？", "pinyin": "wǒ kěyǐ fù xiànjīn ma?", "en": "can I pay in cash?", "pos": ""},
+            {"id": "SN-DC10-V04", "cn": "菜单", "pinyin": "càidān", "en": "menu", "pos": ""},
+            {"id": "SN-DC10-V05", "cn": "我要一杯茶", "pinyin": "wǒ yào yī bēi chá", "en": "I want a cup of tea", "pos": ""},
+            {"id": "SN-DC10-V06", "cn": "不要辣的", "pinyin": "bú yào là de", "en": "not spicy please", "pos": ""},
+            {"id": "SN-DC10-V07", "cn": "买单", "pinyin": "mǎidān", "en": "the bill please", "pos": ""},
+            {"id": "SN-DC10-V08", "cn": "你推荐什么？", "pinyin": "nǐ tuījiàn shénme?", "en": "what do you recommend?", "pos": ""},
+            {"id": "SN-DC10-V09", "cn": "我吃素", "pinyin": "wǒ chī sù", "en": "I'm vegetarian", "pos": ""},
+            {"id": "SN-DC10-V10", "cn": "再来一个", "pinyin": "zài lái yī gè", "en": "one more please", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC11": {
+        "lessonTitle": "14-Day Challenge: Day 11 - Polite Expressions",
+        "vocab": [
+            {"id": "SN-DC11-V01", "cn": "请慢用", "pinyin": "qǐng màn yòng", "en": "enjoy your meal", "pos": ""},
+            {"id": "SN-DC11-V02", "cn": "恭喜", "pinyin": "gōngxǐ", "en": "congratulations", "pos": ""},
+            {"id": "SN-DC11-V03", "cn": "下雨了", "pinyin": "xià yǔ le", "en": "it's raining", "pos": ""},
+            {"id": "SN-DC11-V04", "cn": "辛苦了", "pinyin": "xīnkǔ le", "en": "well done / great effort", "pos": ""},
+            {"id": "SN-DC11-V05", "cn": "对的", "pinyin": "duì de", "en": "that's right / correct", "pos": ""},
+            {"id": "SN-DC11-V06", "cn": "今天天气很好", "pinyin": "jīntiān tiānqì hěn hǎo", "en": "the weather is nice today", "pos": ""},
+            {"id": "SN-DC11-V07", "cn": "我觉得你说得对", "pinyin": "wǒ juéde nǐ shuō de duì", "en": "I think you're right", "pos": ""},
+            {"id": "SN-DC11-V08", "cn": "没问题", "pinyin": "méi wèntí", "en": "no problem", "pos": ""},
+            {"id": "SN-DC11-V09", "cn": "加油", "pinyin": "jiāyóu", "en": "keep it up! / you can do it!", "pos": ""},
+            {"id": "SN-DC11-V10", "cn": "小心", "pinyin": "xiǎoxīn", "en": "be careful", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC12": {
+        "lessonTitle": "14-Day Challenge: Day 12 - Travel",
+        "vocab": [
+            {"id": "SN-DC12-V01", "cn": "祝你今天愉快", "pinyin": "zhù nǐ jīntiān yúkuài", "en": "have a happy day", "pos": ""},
+            {"id": "SN-DC12-V02", "cn": "早上从这里怎么走？", "pinyin": "zǎoshang cóng zhèlǐ zěnme zǒu?", "en": "how do I get there from here in the morning?", "pos": ""},
+            {"id": "SN-DC12-V03", "cn": "你在这里住了多久？", "pinyin": "nǐ zài zhèlǐ zhù le duōjiǔ?", "en": "how long have you lived here?", "pos": ""},
+            {"id": "SN-DC12-V04", "cn": "飞机几点起飞？", "pinyin": "fēijī jǐ diǎn qǐfēi?", "en": "what time does the plane depart?", "pos": ""},
+            {"id": "SN-DC12-V05", "cn": "我需要一张票", "pinyin": "wǒ xūyào yī zhāng piào", "en": "I need a ticket", "pos": ""},
+            {"id": "SN-DC12-V06", "cn": "行李在哪里？", "pinyin": "xíngli zài nǎlǐ?", "en": "where is the luggage?", "pos": ""},
+            {"id": "SN-DC12-V07", "cn": "最近的地铁站在哪？", "pinyin": "zuìjìn de dìtiězhàn zài nǎ?", "en": "where is the nearest subway station?", "pos": ""},
+            {"id": "SN-DC12-V08", "cn": "我想订一个房间", "pinyin": "wǒ xiǎng dìng yī gè fángjiān", "en": "I want to book a room", "pos": ""},
+            {"id": "SN-DC12-V09", "cn": "请问这是什么地方？", "pinyin": "qǐngwèn zhè shì shénme dìfāng?", "en": "excuse me, what is this place?", "pos": ""},
+            {"id": "SN-DC12-V10", "cn": "到了", "pinyin": "dào le", "en": "we've arrived", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC13": {
+        "lessonTitle": "14-Day Challenge: Day 13 - Culture",
+        "vocab": [
+            {"id": "SN-DC13-V01", "cn": "这首歌是什么意思？", "pinyin": "zhè shǒu gē shì shénme yìsi?", "en": "what does this song mean?", "pos": ""},
+            {"id": "SN-DC13-V02", "cn": "这个东西在哪里买？", "pinyin": "zhège dōngxi zài nǎlǐ mǎi?", "en": "where can I buy this?", "pos": ""},
+            {"id": "SN-DC13-V03", "cn": "这道菜很辣", "pinyin": "zhè dào cài hěn là", "en": "this dish is spicy", "pos": ""},
+            {"id": "SN-DC13-V04", "cn": "你做得很好", "pinyin": "nǐ zuò de hěn hǎo", "en": "you did very well", "pos": ""},
+            {"id": "SN-DC13-V05", "cn": "我祝你好运", "pinyin": "wǒ zhù nǐ hǎo yùn", "en": "I wish you luck", "pos": ""},
+            {"id": "SN-DC13-V06", "cn": "这个字怎么写？", "pinyin": "zhège zì zěnme xiě?", "en": "how do you write this character?", "pos": ""},
+            {"id": "SN-DC13-V07", "cn": "你能教我吗？", "pinyin": "nǐ néng jiāo wǒ ma?", "en": "can you teach me?", "pos": ""},
+            {"id": "SN-DC13-V08", "cn": "中国文化很有意思", "pinyin": "Zhōngguó wénhuà hěn yǒu yìsi", "en": "Chinese culture is very interesting", "pos": ""},
+            {"id": "SN-DC13-V09", "cn": "你喜欢中国菜吗？", "pinyin": "nǐ xǐhuan Zhōngguó cài ma?", "en": "do you like Chinese food?", "pos": ""},
+            {"id": "SN-DC13-V10", "cn": "春节快乐", "pinyin": "Chūnjié kuàilè", "en": "Happy Chinese New Year", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+    "SN-DC14": {
+        "lessonTitle": "14-Day Challenge: Day 14 - Review",
+        "vocab": [
+            {"id": "SN-DC14-V01", "cn": "这个咸", "pinyin": "zhège xián", "en": "it's salty", "pos": ""},
+            {"id": "SN-DC14-V02", "cn": "这家餐厅的食物怎么样？", "pinyin": "zhè jiā cāntīng de shíwù zěnmeyàng?", "en": "how is the food at this restaurant?", "pos": ""},
+            {"id": "SN-DC14-V03", "cn": "这个甜", "pinyin": "zhège tián", "en": "it's sweet", "pos": ""},
+            {"id": "SN-DC14-V04", "cn": "你做什么工作？", "pinyin": "nǐ zuò shénme gōngzuò?", "en": "what do you do for work?", "pos": ""},
+            {"id": "SN-DC14-V05", "cn": "我在学校工作", "pinyin": "wǒ zài xuéxiào gōngzuò", "en": "I work at a school", "pos": ""},
+            {"id": "SN-DC14-V06", "cn": "你几岁了？", "pinyin": "nǐ jǐ suì le?", "en": "how old are you?", "pos": ""},
+            {"id": "SN-DC14-V07", "cn": "我二十五岁", "pinyin": "wǒ èrshíwǔ suì", "en": "I'm 25 years old", "pos": ""},
+            {"id": "SN-DC14-V08", "cn": "你学中文多久了？", "pinyin": "nǐ xué Zhōngwén duōjiǔ le?", "en": "how long have you been learning Chinese?", "pos": ""},
+            {"id": "SN-DC14-V09", "cn": "谢谢你的帮助", "pinyin": "xièxie nǐ de bāngzhù", "en": "thank you for your help", "pos": ""},
+            {"id": "SN-DC14-V10", "cn": "我会继续学习", "pinyin": "wǒ huì jìxù xuéxí", "en": "I will keep studying", "pos": ""},
+        ],
+        "sentences": [], "dialogue": []
+    },
+})
+
+# Merge challenge days into main dict
+study_notes.update(challenge_days)
+
+# Write output
+output_path = "src/data/study-notes-cards.json"
+with open(output_path, "w", encoding="utf-8") as f:
+    json.dump(study_notes, f, ensure_ascii=False, indent=2)
+
+print(f"Generated {output_path}")
+print(f"  Chapters: {sum(1 for k in study_notes if k.startswith('SN-') and not k.startswith('SN-DC'))}")
+print(f"  Challenge days: {sum(1 for k in study_notes if k.startswith('SN-DC'))}")
+total_vocab = sum(len(ch.get('vocab', [])) for ch in study_notes.values())
+total_sentences = sum(len(ch.get('sentences', [])) for ch in study_notes.values())
+print(f"  Total vocab cards: {total_vocab}")
+print(f"  Total sentence cards: {total_sentences}")
+print(f"  Total cards: {total_vocab + total_sentences}")

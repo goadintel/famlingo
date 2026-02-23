@@ -31,3 +31,7 @@ dist-ssr
 # Build artifacts
 build
 .cache
+
+# Learning resources (large binary files, uploaded to server separately)
+resources/
+*.pdf

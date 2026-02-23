@@ -209,6 +209,44 @@ Is this translation accurate? Return JSON:
     }
   }
 
+  // Update a card from edited English text
+  async function updateCardFromEnglish(englishText) {
+    loading.value = true
+    error.value = null
+
+    try {
+      const prompt = `Translate this English phrase to Chinese: "${englishText}"
+
+Return a JSON object with this exact structure:
+{
+  "cn": "Chinese translation (characters)",
+  "pinyin": "Pinyin with tone marks",
+  "en": "${englishText}",
+  "literalTranslation": "Literal word-by-word translation",
+  "context": {
+    "en": "When and how to use this phrase (English)",
+    "cn": "什么时候以及怎么用这个短语（中文）"
+  }
+}`
+
+      const result = await callDeepSeek(prompt, 0.3)
+
+      const jsonMatch = result.match(/\{[\s\S]*\}/)
+      if (!jsonMatch) {
+        throw new Error('Invalid response format from AI')
+      }
+
+      return JSON.parse(jsonMatch[0])
+
+    } catch (err) {
+      error.value = err.message
+      console.error('Card update error:', err)
+      throw err
+    } finally {
+      loading.value = false
+    }
+  }
+
   // Generate context for a phrase
   async function generateContext(phrase, language = 'both') {
     loading.value = true
@@ -257,6 +295,7 @@ Return JSON:
     getApiKey,
     saveApiKey,
     translatePhrase,
+    updateCardFromEnglish,
     scorePronunciation,
     validateTranslation,
     generateContext

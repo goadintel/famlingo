@@ -102,7 +102,8 @@ export const useFamilyStore = defineStore('family', {
           accuracy: 0,
           lastPractice: null
         },
-        progress: {} // { phraseId: { interval, easeFactor, dueDate, correctCount, incorrectCount } }
+        progress: {}, // { phraseId: { interval, easeFactor, dueDate, correctCount, incorrectCount } }
+        courseProgress: {} // { lessonId: { started, completed, completedAt, lastPosition, lastAccessed, pdfsViewed } }
       }
 
       this.family.users.push(newUser)
@@ -177,6 +178,39 @@ export const useFamilyStore = defineStore('family', {
       this.saveFamilyToStorage()
     },
 
+    // Update user's course progress (lesson completion, audio position, etc.)
+    updateCourseProgress(userId, lessonId, progressData) {
+      const user = this.family.users.find(u => u.id === userId)
+      if (!user) return
+
+      if (!user.courseProgress) user.courseProgress = {}
+
+      user.courseProgress[lessonId] = {
+        ...user.courseProgress[lessonId],
+        ...progressData,
+        lastAccessed: new Date().toISOString()
+      }
+
+      this.saveFamilyToStorage()
+    },
+
+    // Update card practice stats for a lesson
+    updateCardStats(userId, lessonId, stats) {
+      const user = this.family.users.find(u => u.id === userId)
+      if (!user) return
+
+      if (!user.courseProgress) user.courseProgress = {}
+      if (!user.courseProgress[lessonId]) user.courseProgress[lessonId] = {}
+
+      user.courseProgress[lessonId].cardStats = {
+        ...user.courseProgress[lessonId].cardStats,
+        ...stats,
+        lastPracticed: new Date().toISOString()
+      }
+
+      this.saveFamilyToStorage()
+    },
+
     // Delete user from family
     deleteUser(userId) {
       const index = this.family.users.findIndex(u => u.id === userId)
@@ -212,6 +246,11 @@ export const useFamilyStore = defineStore('family', {
             // Auto-set based on learningDirection
             user.targetLanguage = user.learningDirection === 'cn-to-en' ? 'zh-CN' : 'en-US'
             console.log(`🔄 Migrated user ${user.name.en}: targetLanguage = ${user.targetLanguage}`)
+          }
+          // Migration: Add courseProgress to existing users who don't have it
+          if (!user.courseProgress) {
+            user.courseProgress = {}
+            console.log(`🔄 Migrated user ${user.name.en}: added courseProgress`)
           }
         })
 

@@ -1,0 +1,453 @@
+{
+  "version": "1.0",
+  "categories": [
+    {
+      "id": "study-notes",
+      "name": {
+        "en": "Study Notes",
+        "cn": "学习笔记"
+      },
+      "icon": "📓",
+      "books": [
+        {
+          "id": "notes-mandarin-complete",
+          "title": {
+            "en": "Mandarin Study Notes + Extras",
+            "cn": "普通话学习笔记及附加内容"
+          },
+          "description": {
+            "en": "Comprehensive compiled study notes (large file: ~630MB)",
+            "cn": "综合编纂学习笔记（大文件：约630MB）"
+          },
+          "path": "library/study-notes/mandarin-study-notes.pdf",
+          "level": "all",
+          "sizeWarning": true
+        }
+      ]
+    },
+    {
+      "id": "reference",
+      "name": {
+        "en": "Reference & Dictionaries",
+        "cn": "参考与词典"
+      },
+      "icon": "📖",
+      "books": [
+        {
+          "id": "ref-measure-words",
+          "title": {
+            "en": "Chinese Measure Word Dictionary",
+            "cn": "中文量词词典"
+          },
+          "description": {
+            "en": "Chinese-English/English-Chinese guide to measure words",
+            "cn": "中英量词使用指南"
+          },
+          "path": "library/reference/chinese-measure-word-dictionary.pdf",
+          "level": "intermediate"
+        },
+        {
+          "id": "ref-characters-dict",
+          "title": {
+            "en": "Chinese Characters Dictionary",
+            "cn": "汉英字典"
+          },
+          "description": {
+            "en": "Dictionary with English annotations",
+            "cn": "带英文注释的字典"
+          },
+          "path": "library/reference/chinese-characters-dictionary.pdf",
+          "level": "all"
+        },
+        {
+          "id": "ref-periplus",
+          "title": {
+            "en": "Periplus Pocket Mandarin Dictionary",
+            "cn": "随身普通话词典"
+          },
+          "description": {
+            "en": "Chinese-English/English-Chinese, fully romanized",
+            "cn": "中英双向，带拼音"
+          },
+          "path": "library/reference/periplus-pocket-dictionary.pdf",
+          "level": "beginner"
+        }
+      ]
+    },
+    {
+      "id": "characters",
+      "name": {
+        "en": "Character Learning",
+        "cn": "汉字学习"
+      },
+      "icon": "🀄",
+      "books": [
+        {
+          "id": "char-250-essential",
+          "title": {
+            "en": "250 Essential Chinese Characters Vol. 1",
+            "cn": "250个基本汉字（第1卷）"
+          },
+          "description": {
+            "en": "Revised edition of essential character learning",
+            "cn": "基本汉字学习修订版"
+          },
+          "path": "library/characters/250-essential-characters-v1.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "char-2178",
+          "title": {
+            "en": "Learn & Remember 2,178 Characters",
+            "cn": "学记2178个汉字"
+          },
+          "description": {
+            "en": "Characters and their meanings",
+            "cn": "汉字及其含义"
+          },
+          "path": "library/characters/learn-remember-2178-characters.pdf",
+          "level": "intermediate"
+        },
+        {
+          "id": "char-hsk-a",
+          "title": {
+            "en": "Learning Chinese Characters - HSK Level A",
+            "cn": "学习汉字 - HSK A级"
+          },
+          "description": {
+            "en": "800 most basic characters for HSK preparation",
+            "cn": "HSK备考800个基本汉字"
+          },
+          "path": "library/characters/learning-characters-hsk-a.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "char-first-100",
+          "title": {
+            "en": "The First 100 Chinese Characters",
+            "cn": "第一批100个汉字"
+          },
+          "description": {
+            "en": "Quick and easy method for the most basic characters",
+            "cn": "最基本汉字的快速简单方法"
+          },
+          "path": "library/characters/first-100-characters.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "char-tuttle-800",
+          "title": {
+            "en": "Tuttle Learning Chinese Characters",
+            "cn": "Tuttle学汉字"
+          },
+          "description": {
+            "en": "Revolutionary way to learn 800 basic characters",
+            "cn": "学习800个基本汉字的新方法"
+          },
+          "path": "library/characters/tuttle-learning-characters.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "char-kids-flash",
+          "title": {
+            "en": "Tuttle Chinese for Kids Flash Cards",
+            "cn": "儿童汉字闪卡"
+          },
+          "description": {
+            "en": "64 flash cards with wall chart and learning guide",
+            "cn": "64张闪卡附挂图和学习指南"
+          },
+          "path": "library/characters/tuttle-kids-flash-cards.pdf",
+          "level": "beginner"
+        }
+      ]
+    },
+    {
+      "id": "grammar",
+      "name": {
+        "en": "Grammar & Workbooks",
+        "cn": "语法与练习册"
+      },
+      "icon": "📝",
+      "books": [
+        {
+          "id": "gram-reading-writing-text",
+          "title": {
+            "en": "Basic Mandarin - Reading & Writing Textbook",
+            "cn": "基础普通话 - 读写教材"
+          },
+          "description": {
+            "en": "Introduction to written Chinese for beginners",
+            "cn": "初学者书面中文入门"
+          },
+          "path": "library/grammar/basic-mandarin-reading-writing-textbook.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "gram-reading-writing-practice",
+          "title": {
+            "en": "Basic Mandarin - Reading & Writing Practice",
+            "cn": "基础普通话 - 读写练习"
+          },
+          "description": {
+            "en": "Workbook for beginning learners of written Chinese",
+            "cn": "书面中文初学者练习册"
+          },
+          "path": "library/grammar/basic-mandarin-reading-writing-practice.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "gram-spoken-practice",
+          "title": {
+            "en": "Basic Spoken Chinese Practice",
+            "cn": "基础口语练习"
+          },
+          "description": {
+            "en": "Introduction to speaking and listening for beginners",
+            "cn": "初学者口语和听力入门"
+          },
+          "path": "library/grammar/basic-spoken-chinese-practice.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "gram-intermediate-written",
+          "title": {
+            "en": "Intermediate Written Chinese Practice",
+            "cn": "中级书面中文练习"
+          },
+          "description": {
+            "en": "Read and write Mandarin Chinese as the Chinese do",
+            "cn": "像中国人一样读写普通话"
+          },
+          "path": "library/grammar/intermediate-written-chinese-practice.pdf",
+          "level": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "textbooks",
+      "name": {
+        "en": "Textbooks & Courses",
+        "cn": "教材与课程"
+      },
+      "icon": "🎓",
+      "books": [
+        {
+          "id": "text-teach-yourself",
+          "title": {
+            "en": "Teach Yourself Beginner's Mandarin",
+            "cn": "自学初级普通话"
+          },
+          "description": {
+            "en": "Complete self-study course for beginners",
+            "cn": "初学者完整自学课程"
+          },
+          "path": "library/textbooks/teach-yourself-beginners-mandarin.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "text-happy-chinese",
+          "title": {
+            "en": "Happy Chinese (Kuaile Hanyu) Vol. 1",
+            "cn": "快乐汉语（第1卷）"
+          },
+          "description": {
+            "en": "Student's book for structured Chinese learning",
+            "cn": "结构化汉语学习学生用书"
+          },
+          "path": "library/textbooks/happy-chinese-vol-1.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "text-i-love-learning",
+          "title": {
+            "en": "I Love Learning Chinese Vol. 1",
+            "cn": "我爱学中文（第1卷）"
+          },
+          "description": {
+            "en": "Specially designed for primary school students",
+            "cn": "专为小学生设计"
+          },
+          "path": "library/textbooks/i-love-learning-chinese-vol-1.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "text-for-dummies",
+          "title": {
+            "en": "Chinese for Dummies",
+            "cn": "中文入门"
+          },
+          "description": {
+            "en": "Accessible introduction to the Chinese language",
+            "cn": "轻松入门中文"
+          },
+          "path": "library/textbooks/chinese-for-dummies.pdf",
+          "level": "beginner"
+        }
+      ]
+    },
+    {
+      "id": "phrasebooks",
+      "name": {
+        "en": "Phrasebooks",
+        "cn": "短语手册"
+      },
+      "icon": "💬",
+      "books": [
+        {
+          "id": "phrase-instant",
+          "title": {
+            "en": "Instant Chinese Phrasebook",
+            "cn": "即时中文短语手册"
+          },
+          "description": {
+            "en": "Mandarin Chinese phrasebook and dictionary",
+            "cn": "普通话短语手册和词典"
+          },
+          "path": "library/phrasebooks/instant-chinese-phrasebook.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "phrase-1000-ideas",
+          "title": {
+            "en": "Instant Chinese - 1,000 Ideas",
+            "cn": "即时中文 - 1000个表达"
+          },
+          "description": {
+            "en": "Express 1,000+ ideas with 100 key words and phrases",
+            "cn": "用100个关键词表达1000多个意思"
+          },
+          "path": "library/phrasebooks/instant-chinese-1000-ideas.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "phrase-essential",
+          "title": {
+            "en": "Essential Chinese",
+            "cn": "必备中文"
+          },
+          "description": {
+            "en": "Speak Chinese with confidence",
+            "cn": "自信说中文"
+          },
+          "path": "library/phrasebooks/essential-chinese.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "phrase-survival",
+          "title": {
+            "en": "Survival Chinese",
+            "cn": "生存中文"
+          },
+          "description": {
+            "en": "Communicate without fuss or fear",
+            "cn": "轻松无压力地交流"
+          },
+          "path": "library/phrasebooks/survival-chinese.pdf",
+          "level": "beginner"
+        },
+        {
+          "id": "phrase-visual",
+          "title": {
+            "en": "Mandarin Visual Phrase Book",
+            "cn": "普通话视觉短语手册"
+          },
+          "description": {
+            "en": "Eyewitness Travel Guide visual phrasebook",
+            "cn": "旅行视觉短语手册"
+          },
+          "path": "library/phrasebooks/visual-phrase-book.pdf",
+          "level": "beginner"
+        }
+      ]
+    },
+    {
+      "id": "specialized",
+      "name": {
+        "en": "Vocabulary & Specialized",
+        "cn": "词汇与专项"
+      },
+      "icon": "🧠",
+      "books": [
+        {
+          "id": "spec-vocab-9000",
+          "title": {
+            "en": "Chinese Vocabulary - 9,000 Words",
+            "cn": "中文词汇 - 9000个词"
+          },
+          "description": {
+            "en": "Comprehensive vocabulary for English speakers",
+            "cn": "英语使用者综合词汇"
+          },
+          "path": "library/specialized/chinese-vocab-9000-words.pdf",
+          "level": "intermediate"
+        },
+        {
+          "id": "spec-student-approaches",
+          "title": {
+            "en": "Student Approaches to Chinese Vocabulary",
+            "cn": "学生学习中文词汇的方法"
+          },
+          "description": {
+            "en": "Research on effective vocabulary learning strategies",
+            "cn": "有效词汇学习策略研究"
+          },
+          "path": "library/specialized/student-approaches-vocab.pdf",
+          "level": "all"
+        },
+        {
+          "id": "spec-teaching-learning",
+          "title": {
+            "en": "Teaching Chinese as a Foreign Language",
+            "cn": "对外汉语教学"
+          },
+          "description": {
+            "en": "Pedagogical grammar for Chinese language teaching",
+            "cn": "汉语教学语法"
+          },
+          "path": "library/specialized/teaching-learning-chinese-foreign-language.pdf",
+          "level": "advanced"
+        },
+        {
+          "id": "spec-understanding",
+          "title": {
+            "en": "Understanding the Chinese Language",
+            "cn": "理解中文"
+          },
+          "description": {
+            "en": "Comprehensive linguistic introduction",
+            "cn": "综合语言学介绍"
+          },
+          "path": "library/specialized/understanding-chinese-language.pdf",
+          "level": "advanced"
+        },
+        {
+          "id": "spec-translation",
+          "title": {
+            "en": "Thinking Chinese Translation",
+            "cn": "中文翻译思维"
+          },
+          "description": {
+            "en": "Course in translation method: Chinese to English",
+            "cn": "中译英翻译方法课程"
+          },
+          "path": "library/specialized/thinking-chinese-translation.pdf",
+          "level": "advanced"
+        },
+        {
+          "id": "spec-read-chinese",
+          "title": {
+            "en": "Learn to Read Chinese Vol. 2",
+            "cn": "学习阅读中文（第2卷）"
+          },
+          "description": {
+            "en": "Introduction to Zhongyi literature and concepts",
+            "cn": "中医文献和概念入门"
+          },
+          "path": "library/specialized/learn-to-read-chinese-vol-2.pdf",
+          "level": "advanced"
+        }
+      ]
+    }
+  ]
+}

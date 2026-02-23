@@ -219,10 +219,12 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useFamilyStore } from '../stores/family'
+import { usePhrasesStore } from '../stores/phrases'
 import phrasesData from '../data/phrases.json'
 
 const router = useRouter()
 const familyStore = useFamilyStore()
+const phrasesStore = usePhrasesStore()
 
 // State
 const phrases = ref([])
@@ -261,8 +263,12 @@ let playbackTimeout = null
 let wakeLock = null
 let currentPlaybackId = 0 // Track which phrase playback is active
 
-// Load categories
-onMounted(() => {
+// Load categories (ensure custom phrases are available)
+onMounted(async () => {
+  const currentUser = familyStore.currentUser
+  if (currentUser && phrasesStore.customPhrases.length === 0) {
+    await phrasesStore.loadCustomPhrases(currentUser.id)
+  }
   loadCategories()
   loading.value = false
   setupMediaSession()
@@ -320,6 +326,7 @@ function updateMediaSessionMetadata() {
 }
 
 function loadCategories() {
+  // Built-in categories from phrases.json
   categories.value = phrasesData.categories.map(cat => ({
     id: cat.id,
     name: cat.name.en,
@@ -327,6 +334,17 @@ function loadCategories() {
     icon: cat.icon,
     phraseCount: cat.phrases.length
   }))
+
+  // Add custom phrases category if user has saved any
+  if (phrasesStore.customPhrases.length > 0) {
+    categories.value.unshift({
+      id: 'custom',
+      name: 'Common Phrases',
+      nameCn: '常用短语',
+      icon: '⭐',
+      phraseCount: phrasesStore.customPhrases.length
+    })
+  }
 }
 
 function selectCategory(categoryId) {
@@ -345,19 +363,33 @@ async function startSession() {
 function loadPhrases(category, isReshuffle = false) {
   let loadedPhrases = []
 
-  // Filter by category if specified
-  phrasesData.categories.forEach(cat => {
-    if (!category || cat.id === category) {
-      cat.phrases.forEach(phrase => {
-        loadedPhrases.push({
-          ...phrase,
-          categoryId: cat.id,
-          categoryName: cat.name.en,
-          categoryIcon: cat.icon
+  // Load built-in phrases filtered by category
+  if (category !== 'custom') {
+    phrasesData.categories.forEach(cat => {
+      if (!category || cat.id === category) {
+        cat.phrases.forEach(phrase => {
+          loadedPhrases.push({
+            ...phrase,
+            categoryId: cat.id,
+            categoryName: cat.name.en,
+            categoryIcon: cat.icon
+          })
         })
+      }
+    })
+  }
+
+  // Include custom phrases from store
+  if (!category || category === 'custom') {
+    phrasesStore.customPhrases.forEach(phrase => {
+      loadedPhrases.push({
+        ...phrase,
+        categoryId: 'custom',
+        categoryName: 'Common Phrases',
+        categoryIcon: '⭐'
       })
-    }
-  })
+    })
+  }
 
   // Store all available phrases
   if (!isReshuffle) {
