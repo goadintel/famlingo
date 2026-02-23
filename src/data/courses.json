@@ -4564,129 +4564,219 @@
       "icon": "📝",
       "lessons": [
         {
+          "id": "SN-VG01",
+          "title": "Pronunciation, Tones & Basic Greetings",
+          "order": 1
+        },
+        {
+          "id": "SN-VG02",
+          "title": "Numbers & Counting",
+          "order": 2
+        },
+        {
+          "id": "SN-VG03",
+          "title": "Basic Vocabulary & Polite Phrases",
+          "order": 3
+        },
+        {
+          "id": "SN-VG04",
+          "title": "Days of the Week & Time Words",
+          "order": 4
+        },
+        {
+          "id": "SN-VG05",
+          "title": "Months & Dates",
+          "order": 5
+        },
+        {
+          "id": "SN-VG06",
+          "title": "Home & Household",
+          "order": 6
+        },
+        {
+          "id": "SN-VG07",
+          "title": "School & Subjects",
+          "order": 7
+        },
+        {
+          "id": "SN-VG08",
+          "title": "Basic Grammar Patterns",
+          "order": 8
+        },
+        {
+          "id": "SN-VG09",
+          "title": "Food & Ordering",
+          "order": 9
+        },
+        {
+          "id": "SN-VG10",
+          "title": "Books & Reading",
+          "order": 10
+        },
+        {
+          "id": "SN-VG11",
+          "title": "Soccer Vocabulary",
+          "order": 11
+        },
+        {
+          "id": "SN-VG12",
+          "title": "Drinks & Ordering",
+          "order": 12
+        },
+        {
+          "id": "SN-VG13",
+          "title": "Vegetables",
+          "order": 13
+        },
+        {
+          "id": "SN-VG14",
+          "title": "Sports",
+          "order": 14
+        },
+        {
+          "id": "SN-VG15",
+          "title": "Weather",
+          "order": 15
+        },
+        {
+          "id": "SN-VG16",
+          "title": "Medicine & Health",
+          "order": 16
+        },
+        {
+          "id": "SN-VG17",
+          "title": "Pronouns",
+          "order": 17
+        },
+        {
+          "id": "SN-VG18",
+          "title": "Grammar: Word Order, Plurals & Classifiers",
+          "order": 18
+        },
+        {
           "id": "SN-00",
           "title": "Foundations: Strokes, Radicals & Rules",
-          "order": 1
+          "order": 19
         },
         {
           "id": "SN-01",
           "title": "Letter 1: Self-Introduction",
-          "order": 2
+          "order": 20
         },
         {
           "id": "SN-02",
           "title": "Letter 2: My Family & Hobbies",
-          "order": 3
+          "order": 21
         },
         {
           "id": "SN-03",
           "title": "Letter 3: The Library",
-          "order": 4
+          "order": 22
         },
         {
           "id": "SN-04",
           "title": "Letter 4: Finding a Kitten",
-          "order": 5
+          "order": 23
         },
         {
           "id": "SN-05",
           "title": "Letter 5: Adopting the Kitten",
-          "order": 6
+          "order": 24
         },
         {
           "id": "SN-06",
           "title": "Letter 6: Exams & Beach Trip",
-          "order": 7
+          "order": 25
         },
         {
           "id": "SN-07",
           "title": "Letter 7: At the Beach",
-          "order": 8
+          "order": 26
         },
         {
           "id": "SN-08",
           "title": "Letter 8: Birthday & Numbers",
-          "order": 9
+          "order": 27
         },
         {
           "id": "SN-09",
           "title": "Letter 9: Swimming Lessons",
-          "order": 10
+          "order": 28
         },
         {
           "id": "SN-10",
           "title": "Letter 10: Starting Junior High",
-          "order": 11
+          "order": 29
         },
         {
           "id": "SN-DC01",
           "title": "14-Day Challenge: Day 1 - Basics",
-          "order": 12
+          "order": 30
         },
         {
           "id": "SN-DC02",
           "title": "14-Day Challenge: Day 2 - Greetings",
-          "order": 13
+          "order": 31
         },
         {
           "id": "SN-DC03",
           "title": "14-Day Challenge: Day 3 - Getting Around",
-          "order": 14
+          "order": 32
         },
         {
           "id": "SN-DC04",
           "title": "14-Day Challenge: Day 4 - Food & Time",
-          "order": 15
+          "order": 33
         },
         {
           "id": "SN-DC05",
           "title": "14-Day Challenge: Day 5 - Feelings & Directions",
-          "order": 16
+          "order": 34
         },
         {
           "id": "SN-DC06",
           "title": "14-Day Challenge: Day 6 - Drinks & Activities",
-          "order": 17
+          "order": 35
         },
         {
           "id": "SN-DC07",
           "title": "14-Day Challenge: Day 7 - Preferences",
-          "order": 18
+          "order": 36
         },
         {
           "id": "SN-DC08",
           "title": "14-Day Challenge: Day 8 - Shopping",
-          "order": 19
+          "order": 37
         },
         {
           "id": "SN-DC09",
           "title": "14-Day Challenge: Day 9 - Social",
-          "order": 20
+          "order": 38
         },
         {
           "id": "SN-DC10",
           "title": "14-Day Challenge: Day 10 - Food & Drink",
-          "order": 21
+          "order": 39
         },
         {
           "id": "SN-DC11",
           "title": "14-Day Challenge: Day 11 - Polite Expressions",
-          "order": 22
+          "order": 40
         },
         {
           "id": "SN-DC12",
           "title": "14-Day Challenge: Day 12 - Travel",
-          "order": 23
+          "order": 41
         },
         {
           "id": "SN-DC13",
           "title": "14-Day Challenge: Day 13 - Culture",
-          "order": 24
+          "order": 42
         },
         {
           "id": "SN-DC14",
           "title": "14-Day Challenge: Day 14 - Review",
-          "order": 25
+          "order": 43
         }
       ]
     }

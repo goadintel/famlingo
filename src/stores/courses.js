@@ -4,13 +4,14 @@ import coursesData from '../data/courses.json'
 import libraryData from '../data/library.json'
 import courseCardsData from '../data/course-cards.json'
 import studyNotesCardsData from '../data/study-notes-cards.json'
+import vocabGroupsCardsData from '../data/vocab-groups-cards.json'
 
 export const useCoursesStore = defineStore('courses', {
   state: () => ({
     levels: coursesData.levels || [],
     vocab: coursesData.vocab || [],
     libraryCategories: libraryData.categories || [],
-    courseCards: { ...courseCardsData, ...studyNotesCardsData } || {}
+    courseCards: { ...courseCardsData, ...studyNotesCardsData, ...vocabGroupsCardsData } || {}
   }),
 
   getters: {
